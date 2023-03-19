@@ -14,10 +14,11 @@ extern "C" {
 #include "gb28181/device_client/deviceManager.h"
 #include "gb28181/request_manager/play_request.h"
 #include "gb28181/manscdp/request_sender.h"
+#include "utils/CommonTools.h"
 
 namespace GB28181 {
 
-int Registerhandler::HandleIncomingReq(const sip_event_sptr &e) {
+int Registerhandler::HandleIncomingReq(const SipEvent::ptr &e) {
     /* Todo:
          1 检查是否已经注册过，如果已经注册过，直接返回200 OK
          2 增加注销功能逻辑
@@ -85,17 +86,13 @@ int Registerhandler::HandleIncomingReq(const sip_event_sptr &e) {
             LOG(INFO) << "Camera registration succee,ip=" << clinet_host <<", port="<< clinet_port<<", device="<<clinet_deviceid;
             Device::ptr device =        std::make_shared<Device>(clinet_deviceid, clinet_host, clinet_port);
             device->setStatus(1);
+            device->setRegiestTime(Time2Str());
 
             g_deviceMgr::GetInstance()->addDevice(device);
             
-            // 注册成功后，向客户端发送catalog请求,将设备的通道和相关信息查询出来
+            // 向客户端发送catalog请求,将设备的通道和相关信息查询出来
             MsgSender::CatalogQuery(device);
-
-            // Todo
-            // 在认证成功后向代理客户端发送invite请求
-            // this->request_invite(client->getDevice(),client->getIp(),client->getPort());
-            // PlayRequest::SendInviteRequest(device,e->excontext);
-
+            
         } else {
             sendSimplyResp(username, e->excontext, e->exevent->tid, SIP_UNAUTHORIZED);
             LOG(INFO) << "Camera registration error, p=%s,port=%d,device=%s", contact->url->host, contact->url->port, username;

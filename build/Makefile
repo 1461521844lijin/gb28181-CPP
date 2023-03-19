@@ -290,6 +290,33 @@ src/gb28181/auth/md5/MD5.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/auth/md5/MD5.c.s
 .PHONY : src/gb28181/auth/md5/MD5.c.s
 
+src/gb28181/device_client/channel.o: src/gb28181/device_client/channel.cpp.o
+
+.PHONY : src/gb28181/device_client/channel.o
+
+# target to build an object file
+src/gb28181/device_client/channel.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/device_client/channel.cpp.o
+.PHONY : src/gb28181/device_client/channel.cpp.o
+
+src/gb28181/device_client/channel.i: src/gb28181/device_client/channel.cpp.i
+
+.PHONY : src/gb28181/device_client/channel.i
+
+# target to preprocess a source file
+src/gb28181/device_client/channel.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/device_client/channel.cpp.i
+.PHONY : src/gb28181/device_client/channel.cpp.i
+
+src/gb28181/device_client/channel.s: src/gb28181/device_client/channel.cpp.s
+
+.PHONY : src/gb28181/device_client/channel.s
+
+# target to generate assembly for a file
+src/gb28181/device_client/channel.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/device_client/channel.cpp.s
+.PHONY : src/gb28181/device_client/channel.cpp.s
+
 src/gb28181/device_client/device.o: src/gb28181/device_client/device.cpp.o
 
 .PHONY : src/gb28181/device_client/device.o
@@ -424,6 +451,60 @@ src/gb28181/event_handler/handler_manager.s: src/gb28181/event_handler/handler_m
 src/gb28181/event_handler/handler_manager.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/handler_manager.cpp.s
 .PHONY : src/gb28181/event_handler/handler_manager.cpp.s
+
+src/gb28181/event_handler/message/notify/keepalive_handler.o: src/gb28181/event_handler/message/notify/keepalive_handler.cpp.o
+
+.PHONY : src/gb28181/event_handler/message/notify/keepalive_handler.o
+
+# target to build an object file
+src/gb28181/event_handler/message/notify/keepalive_handler.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/notify/keepalive_handler.cpp.o
+.PHONY : src/gb28181/event_handler/message/notify/keepalive_handler.cpp.o
+
+src/gb28181/event_handler/message/notify/keepalive_handler.i: src/gb28181/event_handler/message/notify/keepalive_handler.cpp.i
+
+.PHONY : src/gb28181/event_handler/message/notify/keepalive_handler.i
+
+# target to preprocess a source file
+src/gb28181/event_handler/message/notify/keepalive_handler.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/notify/keepalive_handler.cpp.i
+.PHONY : src/gb28181/event_handler/message/notify/keepalive_handler.cpp.i
+
+src/gb28181/event_handler/message/notify/keepalive_handler.s: src/gb28181/event_handler/message/notify/keepalive_handler.cpp.s
+
+.PHONY : src/gb28181/event_handler/message/notify/keepalive_handler.s
+
+# target to generate assembly for a file
+src/gb28181/event_handler/message/notify/keepalive_handler.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/notify/keepalive_handler.cpp.s
+.PHONY : src/gb28181/event_handler/message/notify/keepalive_handler.cpp.s
+
+src/gb28181/event_handler/message/response/catalog_handler.o: src/gb28181/event_handler/message/response/catalog_handler.cpp.o
+
+.PHONY : src/gb28181/event_handler/message/response/catalog_handler.o
+
+# target to build an object file
+src/gb28181/event_handler/message/response/catalog_handler.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/response/catalog_handler.cpp.o
+.PHONY : src/gb28181/event_handler/message/response/catalog_handler.cpp.o
+
+src/gb28181/event_handler/message/response/catalog_handler.i: src/gb28181/event_handler/message/response/catalog_handler.cpp.i
+
+.PHONY : src/gb28181/event_handler/message/response/catalog_handler.i
+
+# target to preprocess a source file
+src/gb28181/event_handler/message/response/catalog_handler.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/response/catalog_handler.cpp.i
+.PHONY : src/gb28181/event_handler/message/response/catalog_handler.cpp.i
+
+src/gb28181/event_handler/message/response/catalog_handler.s: src/gb28181/event_handler/message/response/catalog_handler.cpp.s
+
+.PHONY : src/gb28181/event_handler/message/response/catalog_handler.s
+
+# target to generate assembly for a file
+src/gb28181/event_handler/message/response/catalog_handler.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/response/catalog_handler.cpp.s
+.PHONY : src/gb28181/event_handler/message/response/catalog_handler.cpp.s
 
 src/gb28181/event_handler/message_handler.o: src/gb28181/event_handler/message_handler.cpp.o
 
@@ -882,6 +963,9 @@ help:
 	@echo "... src/gb28181/auth/md5/MD5.o"
 	@echo "... src/gb28181/auth/md5/MD5.i"
 	@echo "... src/gb28181/auth/md5/MD5.s"
+	@echo "... src/gb28181/device_client/channel.o"
+	@echo "... src/gb28181/device_client/channel.i"
+	@echo "... src/gb28181/device_client/channel.s"
 	@echo "... src/gb28181/device_client/device.o"
 	@echo "... src/gb28181/device_client/device.i"
 	@echo "... src/gb28181/device_client/device.s"
@@ -897,6 +981,12 @@ help:
 	@echo "... src/gb28181/event_handler/handler_manager.o"
 	@echo "... src/gb28181/event_handler/handler_manager.i"
 	@echo "... src/gb28181/event_handler/handler_manager.s"
+	@echo "... src/gb28181/event_handler/message/notify/keepalive_handler.o"
+	@echo "... src/gb28181/event_handler/message/notify/keepalive_handler.i"
+	@echo "... src/gb28181/event_handler/message/notify/keepalive_handler.s"
+	@echo "... src/gb28181/event_handler/message/response/catalog_handler.o"
+	@echo "... src/gb28181/event_handler/message/response/catalog_handler.i"
+	@echo "... src/gb28181/event_handler/message/response/catalog_handler.s"
 	@echo "... src/gb28181/event_handler/message_handler.o"
 	@echo "... src/gb28181/event_handler/message_handler.i"
 	@echo "... src/gb28181/event_handler/message_handler.s"

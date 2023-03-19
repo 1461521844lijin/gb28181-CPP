@@ -13,6 +13,7 @@
 #include "gb28181/manscdp/xml_parser.h"
 #include "gb28181/manscdp/defs/defs.h"
 #include "utils/ptz/ptz_parser.h"
+#include "gb28181/event_handler/sip_event.h"
 
 
 namespace GB28181 {
@@ -24,7 +25,7 @@ public:
 
     ~MessageHandler() final = default;
 
-    int HandleIncomingReq(const sip_event_sptr& e);
+    int HandleIncomingReq(const SipEvent::ptr& e);
 
     typedef function<int(const sip_event_sptr&, tinyxml_doc_t&, manscdp_msgbody_header_t&)> msg_event_proc;
 

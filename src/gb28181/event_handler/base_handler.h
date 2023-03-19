@@ -9,7 +9,8 @@
 #pragma once
 
 #include <osipparser2/osip_message.h>
-
+#include "gb28181/event_handler/sip_event.h"
+#include "tinyxml2/tinyxml2.h"
 
 namespace GB28181 {
 
@@ -25,6 +26,8 @@ public:
     virtual ~BaseHandler() = default;
 
 protected:
+
+    virtual int handle(SipEvent::ptr, tinyxml2::XMLDocument& xml){};
 
     /**
      * @brief 发送简单的响应

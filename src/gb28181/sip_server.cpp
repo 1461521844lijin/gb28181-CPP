@@ -11,7 +11,7 @@
 #include "event_handler/handler_manager.h"
 #include <glog/logging.h>
 #include <netinet/in.h>
-
+#include "gb28181//event_handler/sip_event.h"
 namespace GB28181 {
 
 SipServer *SipServer::instance() {

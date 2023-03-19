@@ -41,7 +41,7 @@ public:
 private:
     int parse_cmdcategory(tinyxml_ele_t *ele, manscdp_cmd_category_e& category, string& name);
 
-    int par se_cmdtype(tinyxml_ele_t *ele, manscdp_msgbody_header_t &bh, string& textstr);
+    int parse_cmdtype(tinyxml_ele_t *ele, manscdp_msgbody_header_t &bh, string& textstr);
 
 //    int ParseEleStr(tinyxml_ele_t *ele, const char* name, string& textstr, bool brequired, bool bto_utf8= false);
 //
