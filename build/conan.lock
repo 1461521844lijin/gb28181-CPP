@@ -1,0 +1,98 @@
+{
+ "graph_lock": {
+  "nodes": {
+   "0": {
+    "options": "gflags:fPIC=True\ngflags:namespace=gflags\ngflags:nothreads=True\ngflags:shared=False\nglog:fPIC=True\nglog:shared=False\nglog:with_gflags=True\nglog:with_threads=True\nglog:with_unwind=True\nlibpq:disable_rpath=False\nlibpq:fPIC=True\nlibpq:shared=False\nlibpq:with_openssl=False\nlibunwind:coredump=True\nlibunwind:fPIC=True\nlibunwind:minidebuginfo=True\nlibunwind:ptrace=True\nlibunwind:setjmp=True\nlibunwind:shared=False\nlibunwind:zlibdebuginfo=True\noatpp:fPIC=True\noatpp:shared=False\noatpp-postgresql:fPIC=True\noatpp-postgresql:shared=False\noatpp-swagger:fPIC=True\noatpp-swagger:shared=False\nxz_utils:fPIC=True\nxz_utils:shared=False\nzlib:fPIC=True\nzlib:shared=False",
+    "requires": [
+     "1",
+     "6",
+     "7",
+     "8"
+    ],
+    "path": "../conanfile.txt",
+    "context": "host"
+   },
+   "1": {
+    "ref": "glog/0.6.0#cd13843f23fa8acb929e6eac693780ba",
+    "options": "fPIC=True\nshared=False\nwith_gflags=True\nwith_threads=True\nwith_unwind=True\ngflags:fPIC=True\ngflags:namespace=gflags\ngflags:nothreads=True\ngflags:shared=False\nlibunwind:coredump=True\nlibunwind:fPIC=True\nlibunwind:minidebuginfo=True\nlibunwind:ptrace=True\nlibunwind:setjmp=True\nlibunwind:shared=False\nlibunwind:zlibdebuginfo=True\nxz_utils:fPIC=True\nxz_utils:shared=False\nzlib:fPIC=True\nzlib:shared=False",
+    "package_id": "41daf7a791a5dd60128e41caf6439d87e867771a",
+    "prev": "6043d1ac12993aa02ef6175720bf1cd7",
+    "requires": [
+     "2",
+     "3"
+    ],
+    "context": "host"
+   },
+   "2": {
+    "ref": "gflags/2.2.2#48d1262ffac8d30c3224befb8275a533",
+    "options": "fPIC=True\nnamespace=gflags\nnothreads=True\nshared=False",
+    "package_id": "7dc25015787468f535fb4a4e937554e5185b7848",
+    "prev": "963781e6012e5d24cdb20c7790add44d",
+    "context": "host"
+   },
+   "3": {
+    "ref": "libunwind/1.6.2#0",
+    "options": "coredump=True\nfPIC=True\nminidebuginfo=True\nptrace=True\nsetjmp=True\nshared=False\nzlibdebuginfo=True\nxz_utils:fPIC=True\nxz_utils:shared=False\nzlib:fPIC=True\nzlib:shared=False",
+    "package_id": "fe8a6e628857abec9574898c3e8cfbe2ee6bd7dd",
+    "prev": "0",
+    "requires": [
+     "4",
+     "5"
+    ],
+    "context": "host"
+   },
+   "4": {
+    "ref": "xz_utils/5.2.5#ea2f3e1571def8a8605c4c603c8ac007",
+    "options": "fPIC=True\nshared=False",
+    "package_id": "1d877a3df840030e6a8abb74c5ffb9088d08b47a",
+    "prev": "d1670756d672676b620c27b4bde714fb",
+    "context": "host"
+   },
+   "5": {
+    "ref": "zlib/1.2.13#0",
+    "options": "fPIC=True\nshared=False",
+    "package_id": "1d877a3df840030e6a8abb74c5ffb9088d08b47a",
+    "prev": "0",
+    "context": "host"
+   },
+   "6": {
+    "ref": "oatpp/1.3.0#4e961cce3443b2d621e0359a793a7cfa",
+    "options": "fPIC=True\nshared=False",
+    "package_id": "a2582e1f57e524e15d7e84f4c862d0a472d3216f",
+    "prev": "5b98e9eb5daeb2a8dc6c08978502837a",
+    "context": "host"
+   },
+   "7": {
+    "ref": "oatpp-swagger/1.3.0#4ddf3521f1467b7c9b34d7627e807f9f",
+    "options": "fPIC=True\nshared=False\noatpp:fPIC=True\noatpp:shared=False",
+    "package_id": "588e9ffc6ea189032a12c5b70c253cd3a49f7daf",
+    "prev": "c1e155694468a5e0c74d909acb2ae441",
+    "requires": [
+     "6"
+    ],
+    "context": "host"
+   },
+   "8": {
+    "ref": "oatpp-postgresql/1.3.0#932af2989939196845b9c68398fce6bd",
+    "options": "fPIC=True\nshared=False\nlibpq:disable_rpath=False\nlibpq:fPIC=True\nlibpq:shared=False\nlibpq:with_openssl=False\noatpp:fPIC=True\noatpp:shared=False",
+    "package_id": "f0f89194917f5af786292314155360abd5ccc2b9",
+    "prev": "76dcabac7429d37cc77337aa1cc94b5e",
+    "requires": [
+     "6",
+     "9"
+    ],
+    "context": "host"
+   },
+   "9": {
+    "ref": "libpq/14.5#03e3462447e202b8b2c0efdc936d0ca8",
+    "options": "disable_rpath=False\nfPIC=True\nshared=False\nwith_openssl=False",
+    "package_id": "1d877a3df840030e6a8abb74c5ffb9088d08b47a",
+    "prev": "5e33a84796ed031432e20b27d01df9c9",
+    "context": "host"
+   }
+  },
+  "revisions_enabled": true
+ },
+ "version": "0.4",
+ "profile_host": "[settings]\narch=x86_64\narch_build=x86_64\nbuild_type=Release\ncompiler=gcc\ncompiler.libcxx=libstdc++\ncompiler.version=8\nos=Linux\nos_build=Linux\n[options]\n[build_requires]\n[env]\n"
+}

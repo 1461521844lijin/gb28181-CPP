@@ -1,0 +1,888 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "bin/gb28181_cpp"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_executable",
+			"link_directories",
+			"conan_global_flags",
+			"conan_basic_setup",
+			"target_link_libraries",
+			"add_compile_options",
+			"add_definitions",
+			"include_directories"
+		],
+		"files" : 
+		[
+			"CMakeLists.txt",
+			"build/conanbuildinfo.cmake"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 53,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 26,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 28,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 1116,
+				"parent" : 3
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 1619,
+				"parent" : 4
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 64,
+				"parent" : 0
+			},
+			{
+				"command" : 5,
+				"file" : 1,
+				"line" : 1630,
+				"parent" : 4
+			},
+			{
+				"command" : 6,
+				"file" : 0,
+				"line" : 47,
+				"parent" : 0
+			},
+			{
+				"command" : 7,
+				"file" : 0,
+				"line" : 6,
+				"parent" : 0
+			},
+			{
+				"command" : 7,
+				"file" : 0,
+				"line" : 7,
+				"parent" : 0
+			},
+			{
+				"command" : 7,
+				"file" : 0,
+				"line" : 23,
+				"parent" : 0
+			},
+			{
+				"command" : 7,
+				"file" : 1,
+				"line" : 1612,
+				"parent" : 4
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-ffunction-sections -fdata-sections -Wall -std=c++11 -DPOSIX -DDEBUG_ -w   -g "
+				},
+				{
+					"backtrace" : 7,
+					"fragment" : "-DLZMA_API_STATIC"
+				},
+				{
+					"backtrace" : 7,
+					"fragment" : "-DGFLAGS_DLL_DECLARE_FLAG="
+				},
+				{
+					"backtrace" : 7,
+					"fragment" : "-DGFLAGS_DLL_DEFINE_FLAG="
+				},
+				{
+					"fragment" : "-std=gnu++17"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 8,
+					"define" : "DEV_CONFIG_PATH=\"/dataset/lijin/my_project/gb28181-CPP/config/dev_config.json\""
+				},
+				{
+					"backtrace" : 6,
+					"define" : "HAVE_MMSG_HDR"
+				},
+				{
+					"backtrace" : 6,
+					"define" : "HAVE_RECVMMSG_API"
+				},
+				{
+					"backtrace" : 6,
+					"define" : "HAVE_SENDMMSG_API"
+				},
+				{
+					"backtrace" : 8,
+					"define" : "OATPP_SWAGGER_RES_PATH=\"/dataset/lijin/my_project/gb28181-CPP/include/oatpp-1.3.0/bin/oatpp-swagger/res\""
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 9,
+					"path" : "/dataset/lijin/my_project/gb28181-CPP/include"
+				},
+				{
+					"backtrace" : 10,
+					"path" : "/dataset/lijin/my_project/gb28181-CPP/src"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "/dataset/lijin/my_project/gb28181-CPP/3rdpart/ZLToolKit/src"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "/home/lijin/.conan/data/glog/0.6.0/_/_/package/41daf7a791a5dd60128e41caf6439d87e867771a/include"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "/home/lijin/.conan/data/oatpp-swagger/1.3.0/_/_/package/588e9ffc6ea189032a12c5b70c253cd3a49f7daf/include/oatpp-1.3.0/oatpp-swagger"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "/home/lijin/.conan/data/oatpp-postgresql/1.3.0/_/_/package/f0f89194917f5af786292314155360abd5ccc2b9/include/oatpp-1.3.0/oatpp-postgresql"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "/home/lijin/.conan/data/gflags/2.2.2/_/_/package/7dc25015787468f535fb4a4e937554e5185b7848/include"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "/home/lijin/.conan/data/libunwind/1.6.2/_/_/package/fe8a6e628857abec9574898c3e8cfbe2ee6bd7dd/include"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "/home/lijin/.conan/data/oatpp/1.3.0/_/_/package/a2582e1f57e524e15d7e84f4c862d0a472d3216f/include/oatpp-1.3.0/oatpp"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "/home/lijin/.conan/data/libpq/14.5/_/_/package/1d877a3df840030e6a8abb74c5ffb9088d08b47a/include"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "/home/lijin/.conan/data/xz_utils/5.2.5/_/_/package/1d877a3df840030e6a8abb74c5ffb9088d08b47a/include"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "/home/lijin/.conan/data/zlib/1.2.13/_/_/package/1d877a3df840030e6a8abb74c5ffb9088d08b47a/include"
+				}
+			],
+			"language" : "CXX",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16,
+				17,
+				18,
+				19,
+				20,
+				21,
+				22,
+				23,
+				24,
+				25
+			]
+		},
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-g "
+				},
+				{
+					"backtrace" : 7,
+					"fragment" : "-DLZMA_API_STATIC"
+				},
+				{
+					"backtrace" : 7,
+					"fragment" : "-DGFLAGS_DLL_DECLARE_FLAG="
+				},
+				{
+					"backtrace" : 7,
+					"fragment" : "-DGFLAGS_DLL_DEFINE_FLAG="
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 8,
+					"define" : "DEV_CONFIG_PATH=\"/dataset/lijin/my_project/gb28181-CPP/config/dev_config.json\""
+				},
+				{
+					"backtrace" : 6,
+					"define" : "HAVE_MMSG_HDR"
+				},
+				{
+					"backtrace" : 6,
+					"define" : "HAVE_RECVMMSG_API"
+				},
+				{
+					"backtrace" : 6,
+					"define" : "HAVE_SENDMMSG_API"
+				},
+				{
+					"backtrace" : 8,
+					"define" : "OATPP_SWAGGER_RES_PATH=\"/dataset/lijin/my_project/gb28181-CPP/include/oatpp-1.3.0/bin/oatpp-swagger/res\""
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 9,
+					"path" : "/dataset/lijin/my_project/gb28181-CPP/include"
+				},
+				{
+					"backtrace" : 10,
+					"path" : "/dataset/lijin/my_project/gb28181-CPP/src"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "/dataset/lijin/my_project/gb28181-CPP/3rdpart/ZLToolKit/src"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "/home/lijin/.conan/data/glog/0.6.0/_/_/package/41daf7a791a5dd60128e41caf6439d87e867771a/include"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "/home/lijin/.conan/data/oatpp-swagger/1.3.0/_/_/package/588e9ffc6ea189032a12c5b70c253cd3a49f7daf/include/oatpp-1.3.0/oatpp-swagger"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "/home/lijin/.conan/data/oatpp-postgresql/1.3.0/_/_/package/f0f89194917f5af786292314155360abd5ccc2b9/include/oatpp-1.3.0/oatpp-postgresql"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "/home/lijin/.conan/data/gflags/2.2.2/_/_/package/7dc25015787468f535fb4a4e937554e5185b7848/include"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "/home/lijin/.conan/data/libunwind/1.6.2/_/_/package/fe8a6e628857abec9574898c3e8cfbe2ee6bd7dd/include"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "/home/lijin/.conan/data/oatpp/1.3.0/_/_/package/a2582e1f57e524e15d7e84f4c862d0a472d3216f/include/oatpp-1.3.0/oatpp"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "/home/lijin/.conan/data/libpq/14.5/_/_/package/1d877a3df840030e6a8abb74c5ffb9088d08b47a/include"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "/home/lijin/.conan/data/xz_utils/5.2.5/_/_/package/1d877a3df840030e6a8abb74c5ffb9088d08b47a/include"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "/home/lijin/.conan/data/zlib/1.2.13/_/_/package/1d877a3df840030e6a8abb74c5ffb9088d08b47a/include"
+				}
+			],
+			"language" : "C",
+			"sourceIndexes" : 
+			[
+				2,
+				3
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 6,
+			"id" : "zltoolkit::@cde62e56a1a2cf962647"
+		}
+	],
+	"id" : "gb28181_cpp::@6890427a1f51a3e7e1df",
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "-ffunction-sections -fdata-sections -Wall -std=c++11 -DPOSIX -DDEBUG_ -w   -g",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "-L/dataset/lijin/my_project/gb28181-CPP/lib/m64x86",
+				"role" : "libraryPath"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "-L/home/lijin/.conan/data/glog/0.6.0/_/_/package/41daf7a791a5dd60128e41caf6439d87e867771a/lib",
+				"role" : "libraryPath"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "-L/home/lijin/.conan/data/oatpp-swagger/1.3.0/_/_/package/588e9ffc6ea189032a12c5b70c253cd3a49f7daf/lib/oatpp-1.3.0",
+				"role" : "libraryPath"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "-L/home/lijin/.conan/data/oatpp-postgresql/1.3.0/_/_/package/f0f89194917f5af786292314155360abd5ccc2b9/lib/oatpp-1.3.0",
+				"role" : "libraryPath"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "-L/home/lijin/.conan/data/gflags/2.2.2/_/_/package/7dc25015787468f535fb4a4e937554e5185b7848/lib",
+				"role" : "libraryPath"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "-L/home/lijin/.conan/data/libunwind/1.6.2/_/_/package/fe8a6e628857abec9574898c3e8cfbe2ee6bd7dd/lib",
+				"role" : "libraryPath"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "-L/home/lijin/.conan/data/oatpp/1.3.0/_/_/package/a2582e1f57e524e15d7e84f4c862d0a472d3216f/lib/oatpp-1.3.0",
+				"role" : "libraryPath"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "-L/home/lijin/.conan/data/libpq/14.5/_/_/package/1d877a3df840030e6a8abb74c5ffb9088d08b47a/lib",
+				"role" : "libraryPath"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "-L/home/lijin/.conan/data/xz_utils/5.2.5/_/_/package/1d877a3df840030e6a8abb74c5ffb9088d08b47a/lib",
+				"role" : "libraryPath"
+			},
+			{
+				"backtrace" : 5,
+				"fragment" : "-L/home/lijin/.conan/data/zlib/1.2.13/_/_/package/1d877a3df840030e6a8abb74c5ffb9088d08b47a/lib",
+				"role" : "libraryPath"
+			},
+			{
+				"fragment" : "-Wl,-rpath,/dataset/lijin/my_project/gb28181-CPP/lib/m64x86:/home/lijin/.conan/data/glog/0.6.0/_/_/package/41daf7a791a5dd60128e41caf6439d87e867771a/lib:/home/lijin/.conan/data/oatpp-swagger/1.3.0/_/_/package/588e9ffc6ea189032a12c5b70c253cd3a49f7daf/lib/oatpp-1.3.0:/home/lijin/.conan/data/oatpp-postgresql/1.3.0/_/_/package/f0f89194917f5af786292314155360abd5ccc2b9/lib/oatpp-1.3.0:/home/lijin/.conan/data/gflags/2.2.2/_/_/package/7dc25015787468f535fb4a4e937554e5185b7848/lib:/home/lijin/.conan/data/libunwind/1.6.2/_/_/package/fe8a6e628857abec9574898c3e8cfbe2ee6bd7dd/lib:/home/lijin/.conan/data/oatpp/1.3.0/_/_/package/a2582e1f57e524e15d7e84f4c862d0a472d3216f/lib/oatpp-1.3.0:/home/lijin/.conan/data/libpq/14.5/_/_/package/1d877a3df840030e6a8abb74c5ffb9088d08b47a/lib:/home/lijin/.conan/data/xz_utils/5.2.5/_/_/package/1d877a3df840030e6a8abb74c5ffb9088d08b47a/lib:/home/lijin/.conan/data/zlib/1.2.13/_/_/package/1d877a3df840030e6a8abb74c5ffb9088d08b47a/lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-lpthread",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-leXosip2",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-losip2",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-losipparser2",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-lssl",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-lcrypto",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-lresolv",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-lyaml",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "3rdpart/libzltoolkit.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-lglog",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-loatpp-swagger",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-loatpp-postgresql",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-lgflags_nothreads",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-lunwind-ptrace",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-lunwind-setjmp",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-lunwind-coredump",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-lunwind-generic",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-lunwind",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-loatpp-test",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-loatpp",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-lpq",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-lpgcommon",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-lpgcommon_shlib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-lpgport",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-lpgport_shlib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-llzma",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-lz",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-lm",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-lpthread",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-leXosip2",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-losip2",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-losipparser2",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-lssl",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-lcrypto",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-lresolv",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-lyaml",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-lglog",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-loatpp-swagger",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-loatpp-postgresql",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-lgflags_nothreads",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-lunwind-ptrace",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-lunwind-setjmp",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-lunwind-coredump",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-lunwind-generic",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-lunwind",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-loatpp-test",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-loatpp",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-lpq",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-lpgcommon",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-lpgcommon_shlib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-lpgport",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-lpgport_shlib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-llzma",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-lz",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-lm",
+				"role" : "libraries"
+			}
+		],
+		"language" : "CXX"
+	},
+	"name" : "gb28181_cpp",
+	"nameOnDisk" : "gb28181_cpp",
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16,
+				17,
+				18,
+				19,
+				20,
+				21,
+				22,
+				23,
+				24,
+				25
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/App.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/ErrorHandler.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "src/gb28181/auth/md5/HTTPDigest.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "src/gb28181/auth/md5/MD5.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/gb28181/device_client/device.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/gb28181/device_client/deviceManager.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/gb28181/event_handler/base_handler.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/gb28181/event_handler/call_handler.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/gb28181/event_handler/handler_manager.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/gb28181/event_handler/message_handler.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/gb28181/event_handler/register_handler.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/gb28181/event_handler/sdp/sdp.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/gb28181/manscdp/request_sender.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/gb28181/manscdp/xml_assembly.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/gb28181/manscdp/xml_parser.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/gb28181/request_manager/base_request.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/gb28181/request_manager/message_request.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/gb28181/request_manager/play_request.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/gb28181/request_manager/request_manager.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/gb28181/sip_server.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/application/service/DeviceOperator.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/utils/System.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/utils/common.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/utils/config_manager.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/utils/ptz/ptz_parser.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/utils/tinyxml2.cpp",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "EXECUTABLE"
+}

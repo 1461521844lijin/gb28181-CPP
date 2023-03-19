@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/dataset/lijin/my_project/gb28181-CPP/3rdpart/ZLToolKit/src/win32/getopt.c
+config.h
+/dataset/lijin/my_project/gb28181-CPP/3rdpart/ZLToolKit/src/win32/config.h
+stdio.h
+-
+tailor.h
+/dataset/lijin/my_project/gb28181-CPP/3rdpart/ZLToolKit/src/win32/tailor.h
+stdlib.h
+-
+getopt.h
+/dataset/lijin/my_project/gb28181-CPP/3rdpart/ZLToolKit/src/win32/getopt.h
+string.h
+-
+
+/dataset/lijin/my_project/gb28181-CPP/3rdpart/ZLToolKit/src/win32/getopt.h
+
+/dataset/lijin/my_project/gb28181-CPP/3rdpart/ZLToolKit/src/win32/tailor.h
+io.h
+-
+io.h
+-
+dos.h
+-
+io.h
+-
+malloc.h
+-
+alloc.h
+-
+malloc.h
+-
+file.h
+-
+unixio.h
+-
+fcntl.h
+-
+
