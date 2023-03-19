@@ -84,7 +84,6 @@ CMakeFiles/gb28181_cpp.dir/src/App.cpp.o
  ../src/application/dto/configs/SipConfigDto.hpp
  ../src/application/dto/configs/WebConfigDto.hpp
  ../src/application/service/DeviceOperator.hpp
- ../src/gb28181/defs.h
  ../src/gb28181/event_handler/sip_event.h
  ../src/gb28181/manscdp/defs/common_defs.h
  ../src/gb28181/manscdp/defs/control_defs.h
@@ -94,6 +93,7 @@ CMakeFiles/gb28181_cpp.dir/src/App.cpp.o
  ../src/gb28181/manscdp/defs/types.h
  ../src/gb28181/manscdp/xml_parser.h
  ../src/utils/Singleton.h
+ ../src/utils/ptz/defs.h
  ../src/utils/ptz/ptz_parser.h
  ../src/utils/safe_queue.h
  /dataset/lijin/my_project/gb28181-CPP/src/App.cpp
@@ -103,7 +103,6 @@ CMakeFiles/gb28181_cpp.dir/src/App.cpp.o
  /dataset/lijin/my_project/gb28181-CPP/src/application/oatppComponents/DatabaseComponent.hpp
  /dataset/lijin/my_project/gb28181-CPP/src/application/oatppComponents/ServiceComponent.hpp
  /dataset/lijin/my_project/gb28181-CPP/src/application/oatppComponents/SwaggerComponent.hpp
- /dataset/lijin/my_project/gb28181-CPP/src/gb28181/defs.h
  /dataset/lijin/my_project/gb28181-CPP/src/gb28181/event_handler/base_handler.h
  /dataset/lijin/my_project/gb28181-CPP/src/gb28181/event_handler/call_handler.h
  /dataset/lijin/my_project/gb28181-CPP/src/gb28181/event_handler/handler_manager.h
@@ -446,7 +445,6 @@ CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/call_handler.cpp.o
  ../include/osipparser2/osip_uri.h
  ../include/osipparser2/sdp_message.h
  ../include/tinyxml2/tinyxml2.h
- ../src/gb28181/defs.h
  ../src/gb28181/event_handler/sip_event.h
  /dataset/lijin/my_project/gb28181-CPP/src/gb28181/event_handler/base_handler.h
  /dataset/lijin/my_project/gb28181-CPP/src/gb28181/event_handler/call_handler.cpp
@@ -506,7 +504,6 @@ CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/handler_manager.cpp.o
  ../include/osipparser2/osip_uri.h
  ../include/osipparser2/sdp_message.h
  ../include/tinyxml2/tinyxml2.h
- ../src/gb28181/defs.h
  ../src/gb28181/device_client/channel.h
  ../src/gb28181/device_client/device.h
  ../src/gb28181/device_client/deviceManager.h
@@ -697,10 +694,11 @@ CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message_handler.cpp.o
  ../include/osipparser2/osip_uri.h
  ../include/osipparser2/sdp_message.h
  ../include/tinyxml2/tinyxml2.h
- ../src/gb28181/defs.h
  ../src/gb28181/device_client/channel.h
  ../src/gb28181/device_client/device.h
  ../src/gb28181/device_client/deviceManager.h
+ ../src/gb28181/event_handler/base_handler.h
+ ../src/gb28181/event_handler/message/notify/keepalive_handler.h
  ../src/gb28181/event_handler/sip_event.h
  ../src/gb28181/manscdp/defs/common_defs.h
  ../src/gb28181/manscdp/defs/control_defs.h
@@ -804,7 +802,6 @@ CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/register_handler.cpp.o
  ../include/yaml-cpp/yaml.h
  ../src/application/dto/configs/SipConfigDto.hpp
  ../src/gb28181/auth/md5/HTTPDigest.h
- ../src/gb28181/defs.h
  ../src/gb28181/device_client/channel.h
  ../src/gb28181/device_client/device.h
  ../src/gb28181/device_client/deviceManager.h
@@ -937,7 +934,6 @@ CMakeFiles/gb28181_cpp.dir/src/gb28181/manscdp/request_sender.cpp.o
  ../include/yaml-cpp/traits.h
  ../include/yaml-cpp/yaml.h
  ../src/application/dto/configs/SipConfigDto.hpp
- ../src/gb28181/defs.h
  ../src/gb28181/device_client/channel.h
  ../src/gb28181/device_client/device.h
  ../src/gb28181/event_handler/base_handler.h
@@ -1092,7 +1088,6 @@ CMakeFiles/gb28181_cpp.dir/src/gb28181/request_manager/play_request.cpp.o
  ../include/tinyxml2/tinyxml2.h
  ../src/application/dto/configs/MediaConfigDto.hpp
  ../src/application/dto/configs/SipConfigDto.hpp
- ../src/gb28181/defs.h
  ../src/gb28181/device_client/channel.h
  ../src/gb28181/device_client/device.h
  ../src/gb28181/event_handler/base_handler.h
@@ -1111,6 +1106,7 @@ CMakeFiles/gb28181_cpp.dir/src/gb28181/request_manager/play_request.cpp.o
  ../src/gb28181/manscdp/xml_parser.h
  ../src/gb28181/sip_server.h
  ../src/utils/Singleton.h
+ ../src/utils/ptz/defs.h
  ../src/utils/ptz/ptz_parser.h
  ../src/utils/safe_queue.h
  /dataset/lijin/my_project/gb28181-CPP/src/gb28181/request_manager/play_request.cpp
@@ -1215,7 +1211,6 @@ CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o
  ../include/osipparser2/osip_uri.h
  ../include/osipparser2/sdp_message.h
  ../include/tinyxml2/tinyxml2.h
- ../src/gb28181/defs.h
  ../src/gb28181/event_handler/sip_event.h
  ../src/gb28181/manscdp/defs/common_defs.h
  ../src/gb28181/manscdp/defs/control_defs.h
@@ -1225,9 +1220,9 @@ CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o
  ../src/gb28181/manscdp/defs/types.h
  ../src/gb28181/manscdp/xml_parser.h
  ../src/utils/Singleton.h
+ ../src/utils/ptz/defs.h
  ../src/utils/ptz/ptz_parser.h
  ../src/utils/safe_queue.h
- /dataset/lijin/my_project/gb28181-CPP/src/gb28181/defs.h
  /dataset/lijin/my_project/gb28181-CPP/src/gb28181/event_handler/base_handler.h
  /dataset/lijin/my_project/gb28181-CPP/src/gb28181/event_handler/call_handler.h
  /dataset/lijin/my_project/gb28181-CPP/src/gb28181/event_handler/handler_manager.h

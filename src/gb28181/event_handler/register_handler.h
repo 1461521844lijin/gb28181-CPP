@@ -1,6 +1,5 @@
 #pragma once
 
-#include "gb28181/defs.h"
 #include "base_handler.h"
 
 
@@ -15,12 +14,12 @@ public:
 
 
     //接受注册事件信息
-    int HandleIncomingReq(const sip_event_sptr& e);
+    int HandleIncomingReq(const SipEvent::ptr& e);
 
 
     /// @brief 发送未授权信息
     /// @param 
-    void response_register_401unauthorized(const sip_event_sptr& e);
+    void response_register_401unauthorized(const SipEvent::ptr& e);
     
 };
 

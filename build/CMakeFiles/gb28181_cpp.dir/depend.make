@@ -83,7 +83,6 @@ CMakeFiles/gb28181_cpp.dir/src/App.cpp.o: ../src/application/dto/configs/MediaCo
 CMakeFiles/gb28181_cpp.dir/src/App.cpp.o: ../src/application/dto/configs/SipConfigDto.hpp
 CMakeFiles/gb28181_cpp.dir/src/App.cpp.o: ../src/application/dto/configs/WebConfigDto.hpp
 CMakeFiles/gb28181_cpp.dir/src/App.cpp.o: ../src/application/service/DeviceOperator.hpp
-CMakeFiles/gb28181_cpp.dir/src/App.cpp.o: ../src/gb28181/defs.h
 CMakeFiles/gb28181_cpp.dir/src/App.cpp.o: ../src/gb28181/event_handler/sip_event.h
 CMakeFiles/gb28181_cpp.dir/src/App.cpp.o: ../src/gb28181/manscdp/defs/common_defs.h
 CMakeFiles/gb28181_cpp.dir/src/App.cpp.o: ../src/gb28181/manscdp/defs/control_defs.h
@@ -93,6 +92,7 @@ CMakeFiles/gb28181_cpp.dir/src/App.cpp.o: ../src/gb28181/manscdp/defs/query_defs
 CMakeFiles/gb28181_cpp.dir/src/App.cpp.o: ../src/gb28181/manscdp/defs/types.h
 CMakeFiles/gb28181_cpp.dir/src/App.cpp.o: ../src/gb28181/manscdp/xml_parser.h
 CMakeFiles/gb28181_cpp.dir/src/App.cpp.o: ../src/utils/Singleton.h
+CMakeFiles/gb28181_cpp.dir/src/App.cpp.o: ../src/utils/ptz/defs.h
 CMakeFiles/gb28181_cpp.dir/src/App.cpp.o: ../src/utils/ptz/ptz_parser.h
 CMakeFiles/gb28181_cpp.dir/src/App.cpp.o: ../src/utils/safe_queue.h
 CMakeFiles/gb28181_cpp.dir/src/App.cpp.o: ../src/App.cpp
@@ -102,7 +102,6 @@ CMakeFiles/gb28181_cpp.dir/src/App.cpp.o: ../src/application/oatppComponents/Con
 CMakeFiles/gb28181_cpp.dir/src/App.cpp.o: ../src/application/oatppComponents/DatabaseComponent.hpp
 CMakeFiles/gb28181_cpp.dir/src/App.cpp.o: ../src/application/oatppComponents/ServiceComponent.hpp
 CMakeFiles/gb28181_cpp.dir/src/App.cpp.o: ../src/application/oatppComponents/SwaggerComponent.hpp
-CMakeFiles/gb28181_cpp.dir/src/App.cpp.o: ../src/gb28181/defs.h
 CMakeFiles/gb28181_cpp.dir/src/App.cpp.o: ../src/gb28181/event_handler/base_handler.h
 CMakeFiles/gb28181_cpp.dir/src/App.cpp.o: ../src/gb28181/event_handler/call_handler.h
 CMakeFiles/gb28181_cpp.dir/src/App.cpp.o: ../src/gb28181/event_handler/handler_manager.h
@@ -445,7 +444,6 @@ CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/call_handler.cpp.o: ../incl
 CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/call_handler.cpp.o: ../include/osipparser2/osip_uri.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/call_handler.cpp.o: ../include/osipparser2/sdp_message.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/call_handler.cpp.o: ../include/tinyxml2/tinyxml2.h
-CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/call_handler.cpp.o: ../src/gb28181/defs.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/call_handler.cpp.o: ../src/gb28181/event_handler/sip_event.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/call_handler.cpp.o: ../src/gb28181/event_handler/base_handler.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/call_handler.cpp.o: ../src/gb28181/event_handler/call_handler.cpp
@@ -505,7 +503,6 @@ CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/handler_manager.cpp.o: ../i
 CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/handler_manager.cpp.o: ../include/osipparser2/osip_uri.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/handler_manager.cpp.o: ../include/osipparser2/sdp_message.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/handler_manager.cpp.o: ../include/tinyxml2/tinyxml2.h
-CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/handler_manager.cpp.o: ../src/gb28181/defs.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/handler_manager.cpp.o: ../src/gb28181/device_client/channel.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/handler_manager.cpp.o: ../src/gb28181/device_client/device.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/handler_manager.cpp.o: ../src/gb28181/device_client/deviceManager.h
@@ -696,10 +693,11 @@ CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message_handler.cpp.o: ../i
 CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message_handler.cpp.o: ../include/osipparser2/osip_uri.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message_handler.cpp.o: ../include/osipparser2/sdp_message.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message_handler.cpp.o: ../include/tinyxml2/tinyxml2.h
-CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message_handler.cpp.o: ../src/gb28181/defs.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message_handler.cpp.o: ../src/gb28181/device_client/channel.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message_handler.cpp.o: ../src/gb28181/device_client/device.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message_handler.cpp.o: ../src/gb28181/device_client/deviceManager.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message_handler.cpp.o: ../src/gb28181/event_handler/base_handler.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message_handler.cpp.o: ../src/gb28181/event_handler/message/notify/keepalive_handler.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message_handler.cpp.o: ../src/gb28181/event_handler/sip_event.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message_handler.cpp.o: ../src/gb28181/manscdp/defs/common_defs.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message_handler.cpp.o: ../src/gb28181/manscdp/defs/control_defs.h
@@ -803,7 +801,6 @@ CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/register_handler.cpp.o: ../
 CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/register_handler.cpp.o: ../include/yaml-cpp/yaml.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/register_handler.cpp.o: ../src/application/dto/configs/SipConfigDto.hpp
 CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/register_handler.cpp.o: ../src/gb28181/auth/md5/HTTPDigest.h
-CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/register_handler.cpp.o: ../src/gb28181/defs.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/register_handler.cpp.o: ../src/gb28181/device_client/channel.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/register_handler.cpp.o: ../src/gb28181/device_client/device.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/register_handler.cpp.o: ../src/gb28181/device_client/deviceManager.h
@@ -936,7 +933,6 @@ CMakeFiles/gb28181_cpp.dir/src/gb28181/manscdp/request_sender.cpp.o: ../include/
 CMakeFiles/gb28181_cpp.dir/src/gb28181/manscdp/request_sender.cpp.o: ../include/yaml-cpp/traits.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/manscdp/request_sender.cpp.o: ../include/yaml-cpp/yaml.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/manscdp/request_sender.cpp.o: ../src/application/dto/configs/SipConfigDto.hpp
-CMakeFiles/gb28181_cpp.dir/src/gb28181/manscdp/request_sender.cpp.o: ../src/gb28181/defs.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/manscdp/request_sender.cpp.o: ../src/gb28181/device_client/channel.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/manscdp/request_sender.cpp.o: ../src/gb28181/device_client/device.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/manscdp/request_sender.cpp.o: ../src/gb28181/event_handler/base_handler.h
@@ -1091,7 +1087,6 @@ CMakeFiles/gb28181_cpp.dir/src/gb28181/request_manager/play_request.cpp.o: ../in
 CMakeFiles/gb28181_cpp.dir/src/gb28181/request_manager/play_request.cpp.o: ../include/tinyxml2/tinyxml2.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/request_manager/play_request.cpp.o: ../src/application/dto/configs/MediaConfigDto.hpp
 CMakeFiles/gb28181_cpp.dir/src/gb28181/request_manager/play_request.cpp.o: ../src/application/dto/configs/SipConfigDto.hpp
-CMakeFiles/gb28181_cpp.dir/src/gb28181/request_manager/play_request.cpp.o: ../src/gb28181/defs.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/request_manager/play_request.cpp.o: ../src/gb28181/device_client/channel.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/request_manager/play_request.cpp.o: ../src/gb28181/device_client/device.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/request_manager/play_request.cpp.o: ../src/gb28181/event_handler/base_handler.h
@@ -1110,6 +1105,7 @@ CMakeFiles/gb28181_cpp.dir/src/gb28181/request_manager/play_request.cpp.o: ../sr
 CMakeFiles/gb28181_cpp.dir/src/gb28181/request_manager/play_request.cpp.o: ../src/gb28181/manscdp/xml_parser.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/request_manager/play_request.cpp.o: ../src/gb28181/sip_server.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/request_manager/play_request.cpp.o: ../src/utils/Singleton.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/request_manager/play_request.cpp.o: ../src/utils/ptz/defs.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/request_manager/play_request.cpp.o: ../src/utils/ptz/ptz_parser.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/request_manager/play_request.cpp.o: ../src/utils/safe_queue.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/request_manager/play_request.cpp.o: ../src/gb28181/request_manager/play_request.cpp
@@ -1214,7 +1210,6 @@ CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o: ../include/osipparser2/
 CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o: ../include/osipparser2/osip_uri.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o: ../include/osipparser2/sdp_message.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o: ../include/tinyxml2/tinyxml2.h
-CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o: ../src/gb28181/defs.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o: ../src/gb28181/event_handler/sip_event.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o: ../src/gb28181/manscdp/defs/common_defs.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o: ../src/gb28181/manscdp/defs/control_defs.h
@@ -1224,9 +1219,9 @@ CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o: ../src/gb28181/manscdp/
 CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o: ../src/gb28181/manscdp/defs/types.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o: ../src/gb28181/manscdp/xml_parser.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o: ../src/utils/Singleton.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o: ../src/utils/ptz/defs.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o: ../src/utils/ptz/ptz_parser.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o: ../src/utils/safe_queue.h
-CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o: ../src/gb28181/defs.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o: ../src/gb28181/event_handler/base_handler.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o: ../src/gb28181/event_handler/call_handler.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o: ../src/gb28181/event_handler/handler_manager.h

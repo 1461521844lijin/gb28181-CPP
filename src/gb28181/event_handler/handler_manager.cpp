@@ -9,7 +9,7 @@
 
 #include "handler_manager.h"
 #include "glog/logging.h"
-#include "gb28181/defs.h"
+
 #include "gb28181/device_client/deviceManager.h"
 
 
@@ -92,14 +92,14 @@ EventHandlerManager::EventNameProcPair EventHandlerManager::GetEventProc(eXosip_
 }
 
 /* REGISTER related events */
-int EventHandlerManager::on_exosip_registration_success(const sip_event_sptr &event)
+int EventHandlerManager::on_exosip_registration_success(const SipEvent::ptr &event)
 {
     // //TODO ???????1?7
     // GB28181SvrManager::instance()->OnRegisterSuccess(event->exevent->rid);
     return 0;
 }
 
-int EventHandlerManager::on_exosip_registration_failure(const sip_event_sptr &event)
+int EventHandlerManager::on_exosip_registration_failure(const SipEvent::ptr &event)
 {
     ///TODO REGISTER send twice, this is question!
     LOG(WARNING) << "register id: " << event->exevent->rid << " need authentication!";
@@ -110,26 +110,26 @@ int EventHandlerManager::on_exosip_registration_failure(const sip_event_sptr &ev
 }
 
 /* INVITE related events within calls */
-int EventHandlerManager::on_exosip_call_invite(const sip_event_sptr &event)
+int EventHandlerManager::on_exosip_call_invite(const SipEvent::ptr &event)
 {
 //    m_CallHandler->HandleInviteRequest(event);
     return 0;
 }
 
-int EventHandlerManager::on_exosip_call_reinvite(const sip_event_sptr &event)
+int EventHandlerManager::on_exosip_call_reinvite(const SipEvent::ptr &event)
 {
     return 0;
 }
 
 
-int EventHandlerManager::on_exosip_call_noanswer(const sip_event_sptr &event)
+int EventHandlerManager::on_exosip_call_noanswer(const SipEvent::ptr &event)
 {
 //    m_CallHandler->HandleResponseFailure(event);
 
     return 0;
 }
 
-int EventHandlerManager::on_exosip_call_proceeding(const sip_event_sptr &event)
+int EventHandlerManager::on_exosip_call_proceeding(const SipEvent::ptr &event)
 {
 //    m_CallHandler->HandleResponseProcessing(event);
 //    m_CallHandler->HandleResponseSuccess(event);
@@ -137,14 +137,14 @@ int EventHandlerManager::on_exosip_call_proceeding(const sip_event_sptr &event)
 }
 
 
-int EventHandlerManager::on_exosip_call_ringing(const sip_event_sptr &event)
+int EventHandlerManager::on_exosip_call_ringing(const SipEvent::ptr &event)
 {
 //    m_CallHandler->HandleResponseProcessing(event);
 
     return 0;
 }
 
-int EventHandlerManager::on_exosip_call_answered(const sip_event_sptr &event)
+int EventHandlerManager::on_exosip_call_answered(const SipEvent::ptr &event)
 {
 //    m_CallHandler->HandleResponseSuccess(event);
     std::string deviceid = event->exevent->request->to->url->username;
@@ -171,41 +171,41 @@ int EventHandlerManager::on_exosip_call_answered(const sip_event_sptr &event)
     return 0;
 }
 
-int EventHandlerManager::on_exosip_call_redirected(const sip_event_sptr &event)
+int EventHandlerManager::on_exosip_call_redirected(const SipEvent::ptr &event)
 {
 //    m_CallHandler->HandleResponseFailure(event);
 
     return 0;
 }
 
-int EventHandlerManager::on_exosip_call_requestfailure(const sip_event_sptr &event)
+int EventHandlerManager::on_exosip_call_requestfailure(const SipEvent::ptr &event)
 {
 //    m_CallHandler->HandleResponseFailure(event);
 
     return 0;
 }
 
-int EventHandlerManager::on_exosip_call_serverfailure(const sip_event_sptr &event)
+int EventHandlerManager::on_exosip_call_serverfailure(const SipEvent::ptr &event)
 {
 //    m_CallHandler->HandleResponseFailure(event);
 
     return 0;
 }
 
-int EventHandlerManager::on_exosip_call_globalfailure(const sip_event_sptr &event)
+int EventHandlerManager::on_exosip_call_globalfailure(const SipEvent::ptr &event)
 {
 //    m_CallHandler->HandleResponseFailure(event);
 
     return 0;
 }
 
-int EventHandlerManager::on_exosip_call_ack(const sip_event_sptr &event)
+int EventHandlerManager::on_exosip_call_ack(const SipEvent::ptr &event)
 {
     return 0;
 }
 
 
-int EventHandlerManager::on_exosip_call_cancelled(const sip_event_sptr &event)
+int EventHandlerManager::on_exosip_call_cancelled(const SipEvent::ptr &event)
 {
 //    m_CallHandler->HandleClose(event);
 
@@ -213,7 +213,7 @@ int EventHandlerManager::on_exosip_call_cancelled(const sip_event_sptr &event)
 }
 
 /* request related events within calls (except INVITE) */
-int EventHandlerManager::on_exosip_call_message_new(const sip_event_sptr &event)
+int EventHandlerManager::on_exosip_call_message_new(const SipEvent::ptr &event)
 {
     eXosip_event_t *exosip_event = event->exevent;
 
@@ -224,40 +224,40 @@ int EventHandlerManager::on_exosip_call_message_new(const sip_event_sptr &event)
     return 0;
 }
 
-int EventHandlerManager::on_exosip_call_message_proceeding(const sip_event_sptr &event)
+int EventHandlerManager::on_exosip_call_message_proceeding(const SipEvent::ptr &event)
 {
     return 0;
 }
 
-int EventHandlerManager::on_exosip_call_message_answered(const sip_event_sptr &event)
+int EventHandlerManager::on_exosip_call_message_answered(const SipEvent::ptr &event)
 {
 //    m_CallHandler->HandleInfoResponseSuccess(event);
 
     return 0;
 }
 
-int EventHandlerManager::on_exosip_call_message_redirected(const sip_event_sptr &event)
+int EventHandlerManager::on_exosip_call_message_redirected(const SipEvent::ptr &event)
 {
 //    m_CallHandler->HandleInfoResponseFailure(event);
 
     return 0;
 }
 
-int EventHandlerManager::on_exosip_call_message_requestfailure(const sip_event_sptr &event)
+int EventHandlerManager::on_exosip_call_message_requestfailure(const SipEvent::ptr &event)
 {
 //    m_CallHandler->HandleInfoResponseFailure(event);
 
     return 0;
 }
 
-int EventHandlerManager::on_exosip_call_message_serverfailure(const sip_event_sptr &event)
+int EventHandlerManager::on_exosip_call_message_serverfailure(const SipEvent::ptr &event)
 {
 //    m_CallHandler->HandleInfoResponseFailure(event);
 
     return 0;
 }
 
-int EventHandlerManager::on_exosip_call_message_globalfailure(const sip_event_sptr &event)
+int EventHandlerManager::on_exosip_call_message_globalfailure(const SipEvent::ptr &event)
 {
 //    m_CallHandler->HandleInfoResponseFailure(event);
 
@@ -265,7 +265,7 @@ int EventHandlerManager::on_exosip_call_message_globalfailure(const sip_event_sp
 }
 
 
-int EventHandlerManager::on_exosip_call_closed(const sip_event_sptr &event)
+int EventHandlerManager::on_exosip_call_closed(const SipEvent::ptr &event)
 {
 //    m_CallHandler->HandleClose(event);
 
@@ -274,7 +274,7 @@ int EventHandlerManager::on_exosip_call_closed(const sip_event_sptr &event)
 
 
 /* for both UAS & UAC events */
-int EventHandlerManager::on_exosip_call_released(const sip_event_sptr &event)
+int EventHandlerManager::on_exosip_call_released(const SipEvent::ptr &event)
 {
 //    m_CallHandler->HandleClose(event);
 
@@ -283,7 +283,7 @@ int EventHandlerManager::on_exosip_call_released(const sip_event_sptr &event)
 
 
 /* events received for request outside calls */
-int EventHandlerManager::on_exosip_message_new(const sip_event_sptr &event)
+int EventHandlerManager::on_exosip_message_new(const SipEvent::ptr &event)
 {
     eXosip_event_t *exosip_event = event->exevent;
 
@@ -303,40 +303,40 @@ int EventHandlerManager::on_exosip_message_new(const sip_event_sptr &event)
     return 0;
 }
 
-int EventHandlerManager::on_exosip_message_proceeding(const sip_event_sptr &event)
+int EventHandlerManager::on_exosip_message_proceeding(const SipEvent::ptr &event)
 {
     return 0;
 }
 
-int EventHandlerManager::on_exosip_message_answered(const sip_event_sptr &event)
+int EventHandlerManager::on_exosip_message_answered(const SipEvent::ptr &event)
 {
     m_msghandler.HandleResponseSuccess(event);
 
     return 0;
 }
 
-int EventHandlerManager::on_exosip_message_redirected(const sip_event_sptr &event)
+int EventHandlerManager::on_exosip_message_redirected(const SipEvent::ptr &event)
 {
 //    m_msghandler->HandleResponseFailure(event);
 
     return 0;
 }
 
-int EventHandlerManager::on_exosip_message_requestfailure(const sip_event_sptr &event)
+int EventHandlerManager::on_exosip_message_requestfailure(const SipEvent::ptr &event)
 {
 //    m_msghandler->HandleResponseFailure(event);
 
     return 0;
 }
 
-int EventHandlerManager::on_exosip_message_serverfailure(const sip_event_sptr &event)
+int EventHandlerManager::on_exosip_message_serverfailure(const SipEvent::ptr &event)
 {
 //    m_msghandler->HandleResponseFailure(event);
 
     return 0;
 }
 
-int EventHandlerManager::on_exosip_message_globalfailure(const sip_event_sptr &event)
+int EventHandlerManager::on_exosip_message_globalfailure(const SipEvent::ptr &event)
 {
 //    m_msghandler->HandleResponseFailure(event);
 
@@ -344,85 +344,85 @@ int EventHandlerManager::on_exosip_message_globalfailure(const sip_event_sptr &e
 }
 
 /* Presence and Instant Messaging */
-int EventHandlerManager::on_exosip_subscription_noanswer(const sip_event_sptr &event)
+int EventHandlerManager::on_exosip_subscription_noanswer(const SipEvent::ptr &event)
 {
     return 0;
 }
 
-int EventHandlerManager::on_exosip_subscription_proceeding(const sip_event_sptr &event)
+int EventHandlerManager::on_exosip_subscription_proceeding(const SipEvent::ptr &event)
 {
     return 0;
 }
 
-int EventHandlerManager::on_exosip_subscription_answered(const sip_event_sptr &event)
+int EventHandlerManager::on_exosip_subscription_answered(const SipEvent::ptr &event)
 {
 //    m_pSubscribeHandler->HandleResponseSuccess(event);
     return 0;
 }
 
-int EventHandlerManager::on_exosip_subscription_redirected(const sip_event_sptr &event)
+int EventHandlerManager::on_exosip_subscription_redirected(const SipEvent::ptr &event)
 {
     return 0;
 }
 
-int EventHandlerManager::on_exosip_subscription_requestfailure(const sip_event_sptr &event)
+int EventHandlerManager::on_exosip_subscription_requestfailure(const SipEvent::ptr &event)
 {
     return 0;
 }
 
-int EventHandlerManager::on_exosip_subscription_serverfailure(const sip_event_sptr &event)
+int EventHandlerManager::on_exosip_subscription_serverfailure(const SipEvent::ptr &event)
 {
     return 0;
 }
 
-int EventHandlerManager::on_exosip_subscription_globalfailure(const sip_event_sptr &event)
+int EventHandlerManager::on_exosip_subscription_globalfailure(const SipEvent::ptr &event)
 {
     return 0;
 }
 
-int EventHandlerManager::on_exosip_subscription_notify(const sip_event_sptr &event)
+int EventHandlerManager::on_exosip_subscription_notify(const SipEvent::ptr &event)
 {
     m_msghandler.HandleIncomingReq(event);
     return 0;
 }
 
-int EventHandlerManager::on_exosip_in_subscription_new(const sip_event_sptr &event)
+int EventHandlerManager::on_exosip_in_subscription_new(const SipEvent::ptr &event)
 {
     return 0;
 }
 
 
-int EventHandlerManager::on_exosip_notification_noanswer(const sip_event_sptr &event)
+int EventHandlerManager::on_exosip_notification_noanswer(const SipEvent::ptr &event)
 {
     return 0;
 }
 
-int EventHandlerManager::on_exosip_notification_proceeding(const sip_event_sptr &event)
+int EventHandlerManager::on_exosip_notification_proceeding(const SipEvent::ptr &event)
 {
     return 0;
 }
 
-int EventHandlerManager::on_exosip_notification_answered(const sip_event_sptr &event)
+int EventHandlerManager::on_exosip_notification_answered(const SipEvent::ptr &event)
 {
     return 0;
 }
 
-int EventHandlerManager::on_exosip_notification_redirected(const sip_event_sptr &event)
+int EventHandlerManager::on_exosip_notification_redirected(const SipEvent::ptr &event)
 {
     return 0;
 }
 
-int EventHandlerManager::on_exosip_notification_requestfailure(const sip_event_sptr &event)
+int EventHandlerManager::on_exosip_notification_requestfailure(const SipEvent::ptr &event)
 {
     return 0;
 }
 
-int EventHandlerManager::on_exosip_notification_serverfailure(const sip_event_sptr &event)
+int EventHandlerManager::on_exosip_notification_serverfailure(const SipEvent::ptr &event)
 {
     return 0;
 }
 
-int EventHandlerManager::on_exosip_notification_globalfailure(const sip_event_sptr &event)
+int EventHandlerManager::on_exosip_notification_globalfailure(const SipEvent::ptr &event)
 {
     return 0;
 }

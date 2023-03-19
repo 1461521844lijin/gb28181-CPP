@@ -6,7 +6,6 @@
 **	Modify		: 2020/2/28		zhangqiang		Create the file
 **	********************************************************************************
 */
-#include "gb28181/defs.h"
 #include "call_handler.h"
 #include "./sdp/sdp.h"
 #include "glog/logging.h"
@@ -14,7 +13,7 @@
 namespace GB28181 {
 
 
-int CallHandler::HandleIncomingCall(const sip_event_sptr &e)
+int CallHandler::HandleIncomingCall(const SipEvent::ptr &e)
 {
     osip_body_t* body;
     osip_message_get_body(e->exevent->request, 0, &body);
@@ -51,23 +50,23 @@ int CallHandler::HandleIncomingCall(const sip_event_sptr &e)
     return 0;
 }
 
-int CallHandler::on_call_play_req(const sip_event_sptr &e, const sdp_description_t &req_sdp)
+int CallHandler::on_call_play_req(const SipEvent::ptr &e, const sdp_description_t &req_sdp)
 {
     // int r = GB28181SvrManager::instance()->HandleMediaRequest(<#initializer#>, <#initializer#>);
     return 0;
 }
 
-int CallHandler::on_call_playback_req(const sip_event_sptr &e, const sdp_description_t &req_sdp)
+int CallHandler::on_call_playback_req(const SipEvent::ptr &e, const sdp_description_t &req_sdp)
 {
     return 0;
 }
 
-int CallHandler::on_call_download_req(const sip_event_sptr &e, const sdp_description_t &req_sdp)
+int CallHandler::on_call_download_req(const SipEvent::ptr &e, const sdp_description_t &req_sdp)
 {
     return 0;
 }
 
-int CallHandler::on_call_talk_req(const sip_event_sptr &e, const sdp_description_t &req_sdp)
+int CallHandler::on_call_talk_req(const SipEvent::ptr &e, const sdp_description_t &req_sdp)
 {
     return 0;
 }

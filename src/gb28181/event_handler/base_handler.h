@@ -22,12 +22,16 @@ namespace GB28181 {
 class BaseHandler
 {
 public:
+    typedef std::shared_ptr<BaseHandler> ptr;
     BaseHandler() = default;
     virtual ~BaseHandler() = default;
 
-protected:
 
     virtual int handle(SipEvent::ptr, tinyxml2::XMLDocument& xml){};
+
+
+protected:
+
 
     /**
      * @brief 发送简单的响应

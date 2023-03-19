@@ -8,7 +8,6 @@
 */
 #pragma once
 
-#include "defs.h"
 #include "eXosip2/eXosip.h"
 #include "event_handler/handler_manager.h"
 #include "utils/safe_queue.h"
@@ -59,25 +58,22 @@ public:
     // 事件接收
     void DoReceiveEvents();
 
+private:
+    // 根据事件类型，获取事件处理器，封装成SipEvent::ptr
+    SipEvent::ptr new_event(eXosip_t *exosip_context, eXosip_event_t *exosip_event);
 
 private:
-    // 根据事件类型，获取事件处理器，封装成sip_event_sptr
-    sip_event_sptr new_event(eXosip_t *exosip_context, eXosip_event_t *exosip_event);
+    bool m_isrun = false;
 
-private:
-    bool                    m_isrun = false;
-
-    uint16_t                         m_sipPort;      // sip port
-    uint64_t                         m_eventId;      // 事件id 自增
-    std::string                      m_sipId;        // sip id
-    std::string                      m_sipHost;      // sip host
-    eXosip_t                        *m_excontext;    // exosip上下文
-    EventHandlerManager             m_eventHandle;  // 事件处理器
-    std::thread                      recvTask;       // 接收事件线程
-
+    uint16_t            m_sipPort;      // sip port
+    uint64_t            m_eventId;      // 事件id 自增
+    std::string         m_sipId;        // sip id
+    std::string         m_sipHost;      // sip host
+    eXosip_t           *m_excontext;    // exosip上下文
+    EventHandlerManager m_eventHandle;  // 事件处理器
+    std::thread         recvTask;       // 接收事件线程
 };
 
 typedef Tools::Singleton<SipServer> g_SipServer;
-
-
+ 
 }  // namespace GB28181

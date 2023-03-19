@@ -14,6 +14,8 @@
 #include "gb28181/device_client/deviceManager.h"
 #include "utils/CommonTools.h"
 
+#include "gb28181/event_handler/message/notify/keepalive_handler.h"
+
 namespace GB28181 {
 
 #define MSGPROC_TEMPLATE(F) (bind(&MessageHandler::F, this, placeholders::_1, placeholders::_2, placeholders::_3))
@@ -44,9 +46,13 @@ MessageHandler::MessageHandler()
     m_queryproc.insert(make_pair(MANSCDP_QUERY_CMD_MOBILE_POSITION, MSGPROC_TEMPLATE(on_query_mobile_position)));
 
     m_notifyproc.insert(make_pair(MANSCDP_NOTIFY_CMD_KEEPALIVE, MSGPROC_TEMPLATE(on_notify_keepalive)));
+    m_notifyhandler.insert(make_pair(MANSCDP_NOTIFY_CMD_KEEPALIVE, new KeepaliveHandler));
+
+
+    // m_responseproc.insert(make_pair(MANSCDP_RESOPNSE_CMD_DEVICE_CATALOG, MSGPROC_TEMPLATE(on_response_catalog)));
 }
 
-int MessageHandler::HandleIncomingReq(const sip_event_sptr &e)
+int MessageHandler::HandleIncomingReq(const SipEvent::ptr &e)
 {
 
     const char* username = e->exevent->request->from->url->username;
@@ -90,7 +96,7 @@ int MessageHandler::HandleIncomingReq(const sip_event_sptr &e)
             r = handle_incoming_req_notify(e, doc, bodyheader);
             break;
         case MANSCDP_CMD_CATEGORY_RESPONSE:
-
+            r = handle_incoming_req_response(e, doc, bodyheader);
             break;
         default:
             break;
@@ -98,7 +104,7 @@ int MessageHandler::HandleIncomingReq(const sip_event_sptr &e)
     return 0;
 }
 
-int MessageHandler::HandleResponseSuccess(const sip_event_sptr &e)
+int MessageHandler::HandleResponseSuccess(const SipEvent::ptr &e)
 {
     int statcode = getStatcodeFromResp(e->exevent->response);
     string reqid = getMsgIdFromReq(e->exevent->request);
@@ -107,13 +113,13 @@ int MessageHandler::HandleResponseSuccess(const sip_event_sptr &e)
     return 0;
 }
 
-int MessageHandler::HandleResponseFailure(const sip_event_sptr &e)
+int MessageHandler::HandleResponseFailure(const SipEvent::ptr &e)
 {
     HandleResponseSuccess(e);
     return 0;
 }
 
-int MessageHandler::handle_incoming_req_control(const sip_event_sptr &e, tinyxml_doc_t &doc,
+int MessageHandler::handle_incoming_req_control(const SipEvent::ptr &e, tinyxml_doc_t &doc,
                                                  manscdp_msgbody_header_t &bh)
 {
     if (bh.cmd_type == MANSCDP_CONTROL_CMD_DEVICE_CONTROL) {
@@ -129,7 +135,7 @@ int MessageHandler::handle_incoming_req_control(const sip_event_sptr &e, tinyxml
     return 0;
 }
 
-int MessageHandler::handle_incoming_req_query(const sip_event_sptr &e, tinyxml_doc_t &doc,
+int MessageHandler::handle_incoming_req_query(const SipEvent::ptr &e, tinyxml_doc_t &doc,
                                                manscdp_msgbody_header_t &bh)
 {
     auto proc = m_queryproc.find(bh.cmd_type);
@@ -142,9 +148,17 @@ int MessageHandler::handle_incoming_req_query(const sip_event_sptr &e, tinyxml_d
     return 0;
 }
 
-int MessageHandler::handle_incoming_req_notify(const sip_event_sptr &e, tinyxml_doc_t &doc,
+int MessageHandler::handle_incoming_req_notify(const SipEvent::ptr &e, tinyxml_doc_t &doc,
                                                 manscdp_msgbody_header_t &bh)
 {
+    auto handler = m_notifyhandler.find(bh.cmd_type);
+    if (handler != m_notifyhandler.end()) {
+        handler->second->handle(e, doc);
+        return 0;
+    }
+    
+    
+    
     auto proc = m_notifyproc.find(bh.cmd_type);
     if (proc == m_notifyproc.end()) {
         LOG(WARNING) << "Not found proc, cmd_type: " << bh.cmd_type;
@@ -155,14 +169,21 @@ int MessageHandler::handle_incoming_req_notify(const sip_event_sptr &e, tinyxml_
     return 0;
 }
 
-int MessageHandler::handle_incoming_req_response(const sip_event_sptr &e, tinyxml_doc_t &doc,
+int MessageHandler::handle_incoming_req_response(const SipEvent::ptr &e, tinyxml_doc_t &doc,
                                                   manscdp_msgbody_header_t &bh)
 {
+    auto proc = m_responseproc.find(bh.cmd_type);
+    if (proc == m_responseproc.end()) {
+        LOG(WARNING) << "Not found proc, cmd_type: " << bh.cmd_type;
+        sendSimplyResp(e->name, e->excontext, e->exevent->tid, SIP_BAD_REQUEST);
+        return -1;
+    }
+    m_responseproc[bh.cmd_type](e, doc, bh);
     return 0;
 }
 
 ///< DeviceControl REQUEST; Control action
-int MessageHandler::on_devctrl_ptzcmd(const sip_event_sptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
+int MessageHandler::on_devctrl_ptzcmd(const SipEvent::ptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
 {
     // const char* username = e->exevent->request->from->url->username;
     // control_cmd_t ctrlcmd;
@@ -186,13 +207,13 @@ int MessageHandler::on_devctrl_ptzcmd(const sip_event_sptr &e, tinyxml_doc_t &do
     return 0;
 }
 
-int MessageHandler::on_devctrl_teleboot(const sip_event_sptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
+int MessageHandler::on_devctrl_teleboot(const SipEvent::ptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
 {
     devctrl_subcmd(e, bh.devid, TeleBoot, SWITCH_ON);
     return 0;
 }
 
-int MessageHandler::on_devctrl_recordcmd(const sip_event_sptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
+int MessageHandler::on_devctrl_recordcmd(const SipEvent::ptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
 {
     string value;
     m_xmlparser.ParseEleStr(doc.RootElement(), "RecordCmd", value, true);
@@ -206,7 +227,7 @@ int MessageHandler::on_devctrl_recordcmd(const sip_event_sptr &e, tinyxml_doc_t 
     return 0;
 }
 
-int MessageHandler::on_devctrl_guardcmd(const sip_event_sptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
+int MessageHandler::on_devctrl_guardcmd(const SipEvent::ptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
 {
     string value;
     m_xmlparser.ParseEleStr(doc.RootElement(), "GuardCmd", value, true);
@@ -220,52 +241,52 @@ int MessageHandler::on_devctrl_guardcmd(const sip_event_sptr &e, tinyxml_doc_t &
     return 0;
 }
 
-int MessageHandler::on_devctrl_alarmcmd(const sip_event_sptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
+int MessageHandler::on_devctrl_alarmcmd(const SipEvent::ptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
 {
     devctrl_subcmd(e, bh.devid, AlarmCmd, SWITCH_ON);
     return 0;
 }
 
-int MessageHandler::on_devctrl_iframecmd(const sip_event_sptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
+int MessageHandler::on_devctrl_iframecmd(const SipEvent::ptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
 {
     devctrl_subcmd(e, bh.devid, IFrameCmd, SWITCH_ON);
     return 0;
 }
 
-int MessageHandler::on_devctrl_dragzoomin(const sip_event_sptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
+int MessageHandler::on_devctrl_dragzoomin(const SipEvent::ptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
 {
     return 0;
 }
 
-int MessageHandler::on_devctrl_dragzoomout(const sip_event_sptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
+int MessageHandler::on_devctrl_dragzoomout(const SipEvent::ptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
 {
     return 0;
 }
 
-int MessageHandler::on_devctrl_homeposition(const sip_event_sptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
+int MessageHandler::on_devctrl_homeposition(const SipEvent::ptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
 {
     return 0;
 }
 
 ///< DeviceConfig QUERST; Control action
-int MessageHandler::on_devcfg_basicparam(const sip_event_sptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
+int MessageHandler::on_devcfg_basicparam(const SipEvent::ptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
 {
     return 0;
 }
 
 int
-MessageHandler::on_devcfg_svacencodeconfig(const sip_event_sptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
+MessageHandler::on_devcfg_svacencodeconfig(const SipEvent::ptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
 {
     return 0;
 }
 
 int
-MessageHandler::on_devcfg_svacdeconfigconfig(const sip_event_sptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
+MessageHandler::on_devcfg_svacdeconfigconfig(const SipEvent::ptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
 {
     return 0;
 }
 
-int MessageHandler::devctrl_subcmd(const sip_event_sptr &e, string &devid, manscdp_devicecontrol_subcmd_e subcmd,
+int MessageHandler::devctrl_subcmd(const SipEvent::ptr &e, string &devid, manscdp_devicecontrol_subcmd_e subcmd,
                                     manscdp_switch_status_e onoff)
 {
     ///< TODO follow-up work�� carry response;
@@ -281,7 +302,7 @@ int MessageHandler::devctrl_subcmd(const sip_event_sptr &e, string &devid, mansc
 }
 
 ///< Query action
-int MessageHandler::on_query_device_status(const sip_event_sptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
+int MessageHandler::on_query_device_status(const SipEvent::ptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
 {
     manscdp_device_status_dialog_t dialog;
     m_xmlparser.ParseEleStr(doc.RootElement(), "SN", dialog.request.sn, true);
@@ -291,7 +312,7 @@ int MessageHandler::on_query_device_status(const sip_event_sptr &e, tinyxml_doc_
     return 0;
 }
 
-int MessageHandler::on_query_catalog(const sip_event_sptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
+int MessageHandler::on_query_catalog(const SipEvent::ptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
 {
     char *s;
     size_t len;
@@ -301,37 +322,37 @@ int MessageHandler::on_query_catalog(const sip_event_sptr &e, tinyxml_doc_t &doc
     return 0;
 }
 
-int MessageHandler::on_query_device_info(const sip_event_sptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
+int MessageHandler::on_query_device_info(const SipEvent::ptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
 {
     return 0;
 }
 
-int MessageHandler::on_query_record_info(const sip_event_sptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
+int MessageHandler::on_query_record_info(const SipEvent::ptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
 {
     return 0;
 }
 
-int MessageHandler::on_query_alarm(const sip_event_sptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
+int MessageHandler::on_query_alarm(const SipEvent::ptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
 {
     return 0;
 }
 
-int MessageHandler::on_query_config_download(const sip_event_sptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
+int MessageHandler::on_query_config_download(const SipEvent::ptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
 {
     return 0;
 }
 
-int MessageHandler::on_query_preset_query(const sip_event_sptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
+int MessageHandler::on_query_preset_query(const SipEvent::ptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
 {
     return 0;
 }
 
-int MessageHandler::on_query_mobile_position(const sip_event_sptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
+int MessageHandler::on_query_mobile_position(const SipEvent::ptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
 {
     return 0;
 }
 
-int MessageHandler::on_notify_keepalive(const sip_event_sptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
+int MessageHandler::on_notify_keepalive(const SipEvent::ptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
 {
     std::string deviceid = e->exevent->request->from->url->username;
     sendSimplyResp(e->exevent->request->from->url->username, e->excontext, e->exevent->tid, SIP_OK);

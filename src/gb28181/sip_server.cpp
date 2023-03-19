@@ -83,7 +83,7 @@ void SipServer::DoReceiveEvents() {
             continue;
         }
 
-        sip_event_sptr sip_event = new_event(m_excontext, exosip_event);
+        SipEvent::ptr sip_event = new_event(m_excontext, exosip_event);
         if (nullptr == sip_event)
             continue;
 
@@ -95,7 +95,7 @@ void SipServer::DoReceiveEvents() {
     }
 }
 
-sip_event_sptr SipServer::new_event(eXosip_t *exosip_context, eXosip_event_t *exosip_event) {
+SipEvent::ptr SipServer::new_event(eXosip_t *exosip_context, eXosip_event_t *exosip_event) {
     if (exosip_event == nullptr)
         return nullptr;
 
@@ -103,7 +103,7 @@ sip_event_sptr SipServer::new_event(eXosip_t *exosip_context, eXosip_event_t *ex
         exosip_event->type > EXOSIP_NOTIFICATION_GLOBALFAILURE)
         return nullptr;
 
-    sip_event_sptr event(new sip_event_t);  // = std::make_shared(SipEvent)();
+    SipEvent::ptr event = std::make_shared<SipEvent>();
     EventHandlerManager::EventNameProcPair pair = m_eventHandle.GetEventProc(exosip_event->type);
     if (pair.name == nullptr)
         return nullptr;

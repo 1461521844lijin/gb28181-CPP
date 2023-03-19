@@ -111,7 +111,7 @@ int Registerhandler::HandleIncomingReq(const SipEvent::ptr &e) {
     }
 }
 
-void Registerhandler::response_register_401unauthorized(const sip_event_sptr &e) {
+void Registerhandler::response_register_401unauthorized(const SipEvent::ptr &e) {
     char                    *dest   = nullptr;
     osip_message_t          *reg    = nullptr;
     osip_www_authenticate_t *header = nullptr;
