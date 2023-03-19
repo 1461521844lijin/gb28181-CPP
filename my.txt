@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="GB2312" standalone="yes" ?>
+<Response>
+    <CmdType>Catalog</CmdType>
+    <SN>1</SN>
+    <DeviceID>51000000001320000001</DeviceID>
+    <SumNum>1</SumNum>
+    <DeviceList Num="1">
+        <Item>
+            <DeviceID>23000000001310000002</DeviceID>
+            <Name>���ز���</Name>
+            <Manufacturer>Dahua</Manufacturer>
+            <Model>IPC-HFW2433M-LED-V2</Model>
+            <Owner>0</Owner>
+            <CivilCode>510000</CivilCode>
+            <Address>axy</Address>
+            <Parental>0</Parental>
+            <ParentID>51000000001320000001</ParentID>
+            <RegisterWay>1</RegisterWay>
+            <Secrecy>0</Secrecy>
+            <StreamNum>2</StreamNum>
+            <IPAddress>192.168.163.170</IPAddress>
+            <Status>ON</Status>
+            <Info>
+                <PTZType>3</PTZType>
+                <DownloadSpeed>1/2/4/8</DownloadSpeed>
+            </Info>
+        </Item>
+    </DeviceList>
+</Response>

@@ -293,6 +293,11 @@ int MessageHandler::on_query_device_status(const sip_event_sptr &e, tinyxml_doc_
 
 int MessageHandler::on_query_catalog(const sip_event_sptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
 {
+    char *s;
+    size_t len;
+    osip_message_to_str(e->exevent->response, &s, &len);
+    LOG(INFO)<< "\nprint response start\ntype="<<e->exevent->type<<"\n"<<s<<"\nprint response end\n";
+
     return 0;
 }
 

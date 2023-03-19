@@ -13,6 +13,10 @@
 #include "request_sender.h"
 #include "eXosip2/eXosip.h"
 #include "glog/logging.h"
+#include "gb28181/sip_server.h"
+
+#include "oatpp/core/macro/component.hpp"
+#include "application/dto/configs/SipConfigDto.hpp"
 using  namespace std;
 
 
@@ -95,6 +99,50 @@ int MsgSender::Keepalive(remote_sip_t &remote, local_sip_t &local, bool bwait, B
     }
     return 0;
 }
+
+
+int MsgSender::CatalogQuery(Device::ptr device){
+
+
+    auto excontext = g_SipServer::GetInstance()->GetExosipContext();
+    OATPP_COMPONENT(oatpp::Object<SipConfigDto>, sipConfig);
+
+    osip_message_t * msg = nullptr;
+    std::string from =
+        "sip:" + sipConfig->sipId + "@" + sipConfig->sipHost + ":" + std::to_string(sipConfig->sipPort);
+    std::string to =
+        "sip:" + device->getDeviceId() + "@" + device->getIp() + ":" + device->getPort();
+
+
+    std::stringstream manscdp;
+    manscdp << "<?xml version=\"1.0\"?>\r\n"
+            << "<Query>\r\n"
+            << "<CmdType>Catalog</CmdType>\r\n"
+            << "<SN>" << 1 << "</SN>\r\n"
+            << "<DeviceID>" << device->getDeviceId() << "</DeviceID>\r\n"
+            << "</Query>\r\n";
+
+    exosip_guard_t guard(excontext);
+    int r = eXosip_message_build_request(excontext, &msg, "MESSAGE", to.c_str(), from.c_str(), nullptr);
+    if (r != OSIP_SUCCESS) {
+        LOG(ERROR) << "Build message request failed, sipto: " << to << ", ret: " << r;
+        return -1;
+    }
+
+    osip_message_set_body(msg, manscdp.str().c_str(), manscdp.str().length());
+    osip_message_set_content_type(msg, "Application/MANSCDP+xml");
+    int rid = eXosip_message_send_request(excontext, msg);
+    if (rid < 1) {
+        LOG(ERROR) << "send message failed, ret: " << rid;
+        return -1;
+    }
+
+
+    return 0;
+
+
+}
+
 
 string MsgSender::generate_sn()
 {

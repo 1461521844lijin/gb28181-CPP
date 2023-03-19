@@ -6,19 +6,3 @@
 
 #IncludeRegexTransform: 
 
-/dataset/lijin/my_project/gb28181-CPP/src/gb28181/auth/md5/HTTPDigest.c
-MD5.h
-/dataset/lijin/my_project/gb28181-CPP/src/gb28181/auth/md5/MD5.h
-string.h
--
-HTTPDigest.h
-/dataset/lijin/my_project/gb28181-CPP/src/gb28181/auth/md5/HTTPDigest.h
-
-/dataset/lijin/my_project/gb28181-CPP/src/gb28181/auth/md5/HTTPDigest.h
-
-/dataset/lijin/my_project/gb28181-CPP/src/gb28181/auth/md5/MD5.c
-MD5.h
-/dataset/lijin/my_project/gb28181-CPP/src/gb28181/auth/md5/MD5.h
-
-/dataset/lijin/my_project/gb28181-CPP/src/gb28181/auth/md5/MD5.h
-

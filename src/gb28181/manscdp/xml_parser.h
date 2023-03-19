@@ -22,6 +22,14 @@ public:
     XmlParser() = default;
     ~XmlParser() = default;
 
+    /**
+     * @brief 解析xml文件
+     * 
+     * @param p_data    xml文件数据
+     * @param p_size    xml文件大小
+     * @param doc       xml文档对象
+     * @return int 
+     */
     int Load(const char* p_data, int p_size, tinyxml_doc_t &doc);
 
     int ParseXmlHeader(tinyxml_doc_t& doc, manscdp_msgbody_header_t& bodyheader);
@@ -33,7 +41,7 @@ public:
 private:
     int parse_cmdcategory(tinyxml_ele_t *ele, manscdp_cmd_category_e& category, string& name);
 
-    int parse_cmdtype(tinyxml_ele_t *ele, manscdp_msgbody_header_t &bh, string& textstr);
+    int par se_cmdtype(tinyxml_ele_t *ele, manscdp_msgbody_header_t &bh, string& textstr);
 
 //    int ParseEleStr(tinyxml_ele_t *ele, const char* name, string& textstr, bool brequired, bool bto_utf8= false);
 //

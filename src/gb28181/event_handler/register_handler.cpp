@@ -13,6 +13,7 @@ extern "C" {
 #include "gb28181/device_client/device.h"
 #include "gb28181/device_client/deviceManager.h"
 #include "gb28181/request_manager/play_request.h"
+#include "gb28181/manscdp/request_sender.h"
 
 namespace GB28181 {
 
@@ -86,10 +87,9 @@ int Registerhandler::HandleIncomingReq(const sip_event_sptr &e) {
             device->setStatus(1);
 
             g_deviceMgr::GetInstance()->addDevice(device);
-            // Sip_Client::ptr client = Sip_Client::create(clinet_host, clinet_port,
-            // clinet_deviceid);
-
-            // Sip_Client_Mgr::GetInstance()->add_sip_client(clinet_deviceid, client);
+            
+            // 注册成功后，向客户端发送catalog请求,将设备的通道和相关信息查询出来
+            MsgSender::CatalogQuery(device);
 
             // Todo
             // 在认证成功后向代理客户端发送invite请求

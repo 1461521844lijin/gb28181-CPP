@@ -54,6 +54,13 @@ enum manscdp_cmdtype_e
     MANSCDP_NOTIFY_CMD_BROADCASE,           ///<语音广播通知
     MANSCDP_NOTIFY_CMD_MOBILE_POSITION,     ///<移动设备位置通知
 
+    //< Response
+    MANSCDP_RESOPNSE_CMD_DEVICE_CONTROL,    ///<设备控制响应
+    MANSCDP_RESOPNSE_CMD_DEVICE_CONFIG,     ///<设备配置响应
+    MANSCDP_RESOPNSE_CMD_DEVICE_STATUS,     ///<设备状态查询响应
+    MANSCDP_RESOPNSE_CMD_DEVICE_CATALOG,    ///<设备目录查询响应
+
+
     MANSCDP_CMD_TYPE_MAX,
     MANSCDP_CMD_TYPE_UNKNOWN = MANSCDP_CMD_TYPE_MAX
 };
