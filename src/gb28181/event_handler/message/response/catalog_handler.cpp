@@ -112,6 +112,8 @@ int CatalogHandler::handle(SipEvent::ptr event, tinyxml2::XMLDocument& xml)
         channel->setPtztype(pTZType);
         channel->setDownSpeed(downloadSpeed);
 
+        LOG(INFO) << channel->toString();
+
         auto device = g_deviceMgr::GetInstance()->getDevice(deviceID);
         if(!device->insertSubChannel(parentID, channelID, channel)){
             LOG(ERROR) << "CatalogHandler::handle insertSubChannel failed "

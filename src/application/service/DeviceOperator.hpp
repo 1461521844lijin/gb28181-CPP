@@ -8,6 +8,8 @@ namespace Web
     
     oatpp::Object<StatusDto> do_taks(const oatpp::Object<PlayDto>& playItem);
 
+    oatpp::Object<StatusDto> ptz_ctl(const oatpp::Object<PtzDto>& playItem);
+
 
 
 

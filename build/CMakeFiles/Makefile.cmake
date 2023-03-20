@@ -58,6 +58,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
+  "CMakeFiles/ptzcmd.dir/DependInfo.cmake"
   "CMakeFiles/gb28181_cpp.dir/DependInfo.cmake"
   "3rdpart/CMakeFiles/zltoolkit.dir/DependInfo.cmake"
   )

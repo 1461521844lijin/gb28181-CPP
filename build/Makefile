@@ -130,6 +130,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named ptzcmd
+
+# Build rule for target.
+ptzcmd: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ptzcmd
+.PHONY : ptzcmd
+
+# fast build rule for target.
+ptzcmd/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ptzcmd.dir/build.make CMakeFiles/ptzcmd.dir/build
+.PHONY : ptzcmd/fast
+
+#=============================================================================
 # Target rules for targets named gb28181_cpp
 
 # Build rule for target.
@@ -668,6 +681,60 @@ src/gb28181/manscdp/xml_parser.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/manscdp/xml_parser.cpp.s
 .PHONY : src/gb28181/manscdp/xml_parser.cpp.s
 
+src/gb28181/ptz/ptz_cmd.o: src/gb28181/ptz/ptz_cmd.cpp.o
+
+.PHONY : src/gb28181/ptz/ptz_cmd.o
+
+# target to build an object file
+src/gb28181/ptz/ptz_cmd.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/ptz/ptz_cmd.cpp.o
+.PHONY : src/gb28181/ptz/ptz_cmd.cpp.o
+
+src/gb28181/ptz/ptz_cmd.i: src/gb28181/ptz/ptz_cmd.cpp.i
+
+.PHONY : src/gb28181/ptz/ptz_cmd.i
+
+# target to preprocess a source file
+src/gb28181/ptz/ptz_cmd.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/ptz/ptz_cmd.cpp.i
+.PHONY : src/gb28181/ptz/ptz_cmd.cpp.i
+
+src/gb28181/ptz/ptz_cmd.s: src/gb28181/ptz/ptz_cmd.cpp.s
+
+.PHONY : src/gb28181/ptz/ptz_cmd.s
+
+# target to generate assembly for a file
+src/gb28181/ptz/ptz_cmd.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/ptz/ptz_cmd.cpp.s
+.PHONY : src/gb28181/ptz/ptz_cmd.cpp.s
+
+src/gb28181/ptz/ptz_parser.o: src/gb28181/ptz/ptz_parser.cpp.o
+
+.PHONY : src/gb28181/ptz/ptz_parser.o
+
+# target to build an object file
+src/gb28181/ptz/ptz_parser.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/ptz/ptz_parser.cpp.o
+.PHONY : src/gb28181/ptz/ptz_parser.cpp.o
+
+src/gb28181/ptz/ptz_parser.i: src/gb28181/ptz/ptz_parser.cpp.i
+
+.PHONY : src/gb28181/ptz/ptz_parser.i
+
+# target to preprocess a source file
+src/gb28181/ptz/ptz_parser.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/ptz/ptz_parser.cpp.i
+.PHONY : src/gb28181/ptz/ptz_parser.cpp.i
+
+src/gb28181/ptz/ptz_parser.s: src/gb28181/ptz/ptz_parser.cpp.s
+
+.PHONY : src/gb28181/ptz/ptz_parser.s
+
+# target to generate assembly for a file
+src/gb28181/ptz/ptz_parser.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/ptz/ptz_parser.cpp.s
+.PHONY : src/gb28181/ptz/ptz_parser.cpp.s
+
 src/gb28181/request_manager/base_request.o: src/gb28181/request_manager/base_request.cpp.o
 
 .PHONY : src/gb28181/request_manager/base_request.o
@@ -748,6 +815,33 @@ src/gb28181/request_manager/play_request.s: src/gb28181/request_manager/play_req
 src/gb28181/request_manager/play_request.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/request_manager/play_request.cpp.s
 .PHONY : src/gb28181/request_manager/play_request.cpp.s
+
+src/gb28181/request_manager/ptz_request.o: src/gb28181/request_manager/ptz_request.cpp.o
+
+.PHONY : src/gb28181/request_manager/ptz_request.o
+
+# target to build an object file
+src/gb28181/request_manager/ptz_request.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/request_manager/ptz_request.cpp.o
+.PHONY : src/gb28181/request_manager/ptz_request.cpp.o
+
+src/gb28181/request_manager/ptz_request.i: src/gb28181/request_manager/ptz_request.cpp.i
+
+.PHONY : src/gb28181/request_manager/ptz_request.i
+
+# target to preprocess a source file
+src/gb28181/request_manager/ptz_request.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/request_manager/ptz_request.cpp.i
+.PHONY : src/gb28181/request_manager/ptz_request.cpp.i
+
+src/gb28181/request_manager/ptz_request.s: src/gb28181/request_manager/ptz_request.cpp.s
+
+.PHONY : src/gb28181/request_manager/ptz_request.s
+
+# target to generate assembly for a file
+src/gb28181/request_manager/ptz_request.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/request_manager/ptz_request.cpp.s
+.PHONY : src/gb28181/request_manager/ptz_request.cpp.s
 
 src/gb28181/request_manager/request_manager.o: src/gb28181/request_manager/request_manager.cpp.o
 
@@ -884,33 +978,6 @@ src/utils/config_manager.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/utils/config_manager.cpp.s
 .PHONY : src/utils/config_manager.cpp.s
 
-src/utils/ptz/ptz_parser.o: src/utils/ptz/ptz_parser.cpp.o
-
-.PHONY : src/utils/ptz/ptz_parser.o
-
-# target to build an object file
-src/utils/ptz/ptz_parser.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/utils/ptz/ptz_parser.cpp.o
-.PHONY : src/utils/ptz/ptz_parser.cpp.o
-
-src/utils/ptz/ptz_parser.i: src/utils/ptz/ptz_parser.cpp.i
-
-.PHONY : src/utils/ptz/ptz_parser.i
-
-# target to preprocess a source file
-src/utils/ptz/ptz_parser.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/utils/ptz/ptz_parser.cpp.i
-.PHONY : src/utils/ptz/ptz_parser.cpp.i
-
-src/utils/ptz/ptz_parser.s: src/utils/ptz/ptz_parser.cpp.s
-
-.PHONY : src/utils/ptz/ptz_parser.s
-
-# target to generate assembly for a file
-src/utils/ptz/ptz_parser.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/utils/ptz/ptz_parser.cpp.s
-.PHONY : src/utils/ptz/ptz_parser.cpp.s
-
 src/utils/tinyxml2.o: src/utils/tinyxml2.cpp.o
 
 .PHONY : src/utils/tinyxml2.o
@@ -938,6 +1005,33 @@ src/utils/tinyxml2.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/utils/tinyxml2.cpp.s
 .PHONY : src/utils/tinyxml2.cpp.s
 
+test/ptz_test.o: test/ptz_test.cpp.o
+
+.PHONY : test/ptz_test.o
+
+# target to build an object file
+test/ptz_test.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ptzcmd.dir/build.make CMakeFiles/ptzcmd.dir/test/ptz_test.cpp.o
+.PHONY : test/ptz_test.cpp.o
+
+test/ptz_test.i: test/ptz_test.cpp.i
+
+.PHONY : test/ptz_test.i
+
+# target to preprocess a source file
+test/ptz_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ptzcmd.dir/build.make CMakeFiles/ptzcmd.dir/test/ptz_test.cpp.i
+.PHONY : test/ptz_test.cpp.i
+
+test/ptz_test.s: test/ptz_test.cpp.s
+
+.PHONY : test/ptz_test.s
+
+# target to generate assembly for a file
+test/ptz_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ptzcmd.dir/build.make CMakeFiles/ptzcmd.dir/test/ptz_test.cpp.s
+.PHONY : test/ptz_test.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -947,6 +1041,7 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... gb28181_cpp"
+	@echo "... ptzcmd"
 	@echo "... zltoolkit"
 	@echo "... src/App.o"
 	@echo "... src/App.i"
@@ -1005,6 +1100,12 @@ help:
 	@echo "... src/gb28181/manscdp/xml_parser.o"
 	@echo "... src/gb28181/manscdp/xml_parser.i"
 	@echo "... src/gb28181/manscdp/xml_parser.s"
+	@echo "... src/gb28181/ptz/ptz_cmd.o"
+	@echo "... src/gb28181/ptz/ptz_cmd.i"
+	@echo "... src/gb28181/ptz/ptz_cmd.s"
+	@echo "... src/gb28181/ptz/ptz_parser.o"
+	@echo "... src/gb28181/ptz/ptz_parser.i"
+	@echo "... src/gb28181/ptz/ptz_parser.s"
 	@echo "... src/gb28181/request_manager/base_request.o"
 	@echo "... src/gb28181/request_manager/base_request.i"
 	@echo "... src/gb28181/request_manager/base_request.s"
@@ -1014,6 +1115,9 @@ help:
 	@echo "... src/gb28181/request_manager/play_request.o"
 	@echo "... src/gb28181/request_manager/play_request.i"
 	@echo "... src/gb28181/request_manager/play_request.s"
+	@echo "... src/gb28181/request_manager/ptz_request.o"
+	@echo "... src/gb28181/request_manager/ptz_request.i"
+	@echo "... src/gb28181/request_manager/ptz_request.s"
 	@echo "... src/gb28181/request_manager/request_manager.o"
 	@echo "... src/gb28181/request_manager/request_manager.i"
 	@echo "... src/gb28181/request_manager/request_manager.s"
@@ -1029,12 +1133,12 @@ help:
 	@echo "... src/utils/config_manager.o"
 	@echo "... src/utils/config_manager.i"
 	@echo "... src/utils/config_manager.s"
-	@echo "... src/utils/ptz/ptz_parser.o"
-	@echo "... src/utils/ptz/ptz_parser.i"
-	@echo "... src/utils/ptz/ptz_parser.s"
 	@echo "... src/utils/tinyxml2.o"
 	@echo "... src/utils/tinyxml2.i"
 	@echo "... src/utils/tinyxml2.s"
+	@echo "... test/ptz_test.o"
+	@echo "... test/ptz_test.i"
+	@echo "... test/ptz_test.s"
 .PHONY : help
 
 

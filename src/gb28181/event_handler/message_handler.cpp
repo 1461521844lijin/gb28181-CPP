@@ -16,40 +16,20 @@
 
 #include "gb28181/event_handler/message/notify/keepalive_handler.h"
 
+#include "gb28181/event_handler/message/response/catalog_handler.h"
+
 namespace GB28181 {
 
 #define MSGPROC_TEMPLATE(F) (bind(&MessageHandler::F, this, placeholders::_1, placeholders::_2, placeholders::_3))
 
 MessageHandler::MessageHandler()
 {
-    m_devctlproc.insert(make_pair(PTZCmd, MSGPROC_TEMPLATE(on_devctrl_ptzcmd)));
-    m_devctlproc.insert(make_pair(TeleBoot, MSGPROC_TEMPLATE(on_devctrl_teleboot)));
-    m_devctlproc.insert(make_pair(RecordCmd, MSGPROC_TEMPLATE(on_devctrl_recordcmd)));
-    m_devctlproc.insert(make_pair(GuardCmd, MSGPROC_TEMPLATE(on_devctrl_guardcmd)));
-    m_devctlproc.insert(make_pair(AlarmCmd, MSGPROC_TEMPLATE(on_devctrl_alarmcmd)));
-    m_devctlproc.insert(make_pair(IFrameCmd, MSGPROC_TEMPLATE(on_devctrl_iframecmd)));
-    m_devctlproc.insert(make_pair(DragZoomIn, MSGPROC_TEMPLATE(on_devctrl_dragzoomin)));
-    m_devctlproc.insert(make_pair(DragZoomOut, MSGPROC_TEMPLATE(on_devctrl_dragzoomout)));
-    m_devctlproc.insert(make_pair(HomePosition, MSGPROC_TEMPLATE(on_devctrl_homeposition)));
-
-    m_devcfgproc.insert(make_pair(BasicParam, MSGPROC_TEMPLATE(on_devcfg_basicparam)));
-    m_devcfgproc.insert(make_pair(SVACEncodeConfig, MSGPROC_TEMPLATE(on_devcfg_svacencodeconfig)));
-    m_devcfgproc.insert(make_pair(SVACDecodeConfig, MSGPROC_TEMPLATE(on_devcfg_svacdeconfigconfig)));
-
-    m_queryproc.insert(make_pair(MANSCDP_QUERY_CMD_ALARM, MSGPROC_TEMPLATE(on_query_alarm)));
-    m_queryproc.insert(make_pair(MANSCDP_QUERY_CMD_CATALOG, MSGPROC_TEMPLATE(on_query_catalog)));
-    m_queryproc.insert(make_pair(MANSCDP_QUERY_CMD_DEVICE_INFO, MSGPROC_TEMPLATE(on_query_device_info)));
-    m_queryproc.insert(make_pair(MANSCDP_QUERY_CMD_RECORD_INFO, MSGPROC_TEMPLATE(on_query_record_info)));
-    m_queryproc.insert(make_pair(MANSCDP_QUERY_CMD_DEVICE_STATUS, MSGPROC_TEMPLATE(on_query_device_status)));
-    m_queryproc.insert(make_pair(MANSCDP_QUERY_CMD_CONFIG_DOWNLOAD, MSGPROC_TEMPLATE(on_query_config_download)));
-    m_queryproc.insert(make_pair(MANSCDP_QUERY_CMD_PRESET_QUERY, MSGPROC_TEMPLATE(on_query_preset_query)));
-    m_queryproc.insert(make_pair(MANSCDP_QUERY_CMD_MOBILE_POSITION, MSGPROC_TEMPLATE(on_query_mobile_position)));
-
-    m_notifyproc.insert(make_pair(MANSCDP_NOTIFY_CMD_KEEPALIVE, MSGPROC_TEMPLATE(on_notify_keepalive)));
+    
     m_notifyhandler.insert(make_pair(MANSCDP_NOTIFY_CMD_KEEPALIVE, new KeepaliveHandler));
 
 
-    // m_responseproc.insert(make_pair(MANSCDP_RESOPNSE_CMD_DEVICE_CATALOG, MSGPROC_TEMPLATE(on_response_catalog)));
+    m_responsehandler.insert(make_pair(MANSCDP_QUERY_CMD_CATALOG, new CatalogHandler));
+
 }
 
 int MessageHandler::HandleIncomingReq(const SipEvent::ptr &e)
@@ -122,29 +102,29 @@ int MessageHandler::HandleResponseFailure(const SipEvent::ptr &e)
 int MessageHandler::handle_incoming_req_control(const SipEvent::ptr &e, tinyxml_doc_t &doc,
                                                  manscdp_msgbody_header_t &bh)
 {
-    if (bh.cmd_type == MANSCDP_CONTROL_CMD_DEVICE_CONTROL) {
-        for (auto cmd : bh.devctl_subcmd) {
-            m_devctlproc[cmd](e, doc, bh);
-        }
-    }
-    else if (bh.cmd_type == MANSCDP_CONTROL_CMD_DEVICE_CONFIG) {
-        for (auto cmd : bh.devcfg_subcmd) {
-            m_devcfgproc[cmd](e, doc, bh);
-        }
-    }
+    // if (bh.cmd_type == MANSCDP_CONTROL_CMD_DEVICE_CONTROL) {
+    //     for (auto cmd : bh.devctl_subcmd) {
+    //         m_devctlproc[cmd](e, doc, bh);
+    //     }
+    // }
+    // else if (bh.cmd_type == MANSCDP_CONTROL_CMD_DEVICE_CONFIG) {
+    //     for (auto cmd : bh.devcfg_subcmd) {
+    //         m_devcfgproc[cmd](e, doc, bh);
+    //     }
+    // }
     return 0;
 }
 
 int MessageHandler::handle_incoming_req_query(const SipEvent::ptr &e, tinyxml_doc_t &doc,
                                                manscdp_msgbody_header_t &bh)
 {
-    auto proc = m_queryproc.find(bh.cmd_type);
-    if (proc == m_queryproc.end()) {
-        LOG(WARNING) << "Not found proc, cmd_type: " << bh.cmd_type;
-        sendSimplyResp(e->name, e->excontext, e->exevent->tid, SIP_BAD_REQUEST);
-        return -1;
-    }
-    m_queryproc[bh.cmd_type](e, doc, bh);
+    // auto proc = m_queryproc.find(bh.cmd_type);
+    // if (proc == m_queryproc.end()) {
+    //     LOG(WARNING) << "Not found proc, cmd_type: " << bh.cmd_type;
+    //     sendSimplyResp(e->name, e->excontext, e->exevent->tid, SIP_BAD_REQUEST);
+    //     return -1;
+    // }
+    // m_queryproc[bh.cmd_type](e, doc, bh);
     return 0;
 }
 
@@ -152,215 +132,33 @@ int MessageHandler::handle_incoming_req_notify(const SipEvent::ptr &e, tinyxml_d
                                                 manscdp_msgbody_header_t &bh)
 {
     auto handler = m_notifyhandler.find(bh.cmd_type);
-    if (handler != m_notifyhandler.end()) {
-        handler->second->handle(e, doc);
-        return 0;
-    }
-    
-    
-    
-    auto proc = m_notifyproc.find(bh.cmd_type);
-    if (proc == m_notifyproc.end()) {
+    if (handler == m_notifyhandler.end()) {
         LOG(WARNING) << "Not found proc, cmd_type: " << bh.cmd_type;
         sendSimplyResp(e->name, e->excontext, e->exevent->tid, SIP_BAD_REQUEST);
         return -1;
     }
-    m_notifyproc[bh.cmd_type](e, doc, bh);
+    
+    handler->second->handle(e, doc);
+    return 0;
+    
+    
+
     return 0;
 }
 
 int MessageHandler::handle_incoming_req_response(const SipEvent::ptr &e, tinyxml_doc_t &doc,
                                                   manscdp_msgbody_header_t &bh)
 {
-    auto proc = m_responseproc.find(bh.cmd_type);
-    if (proc == m_responseproc.end()) {
+    auto handler = m_responsehandler.find(bh.cmd_type);
+    if (handler == m_responsehandler.end()) {
         LOG(WARNING) << "Not found proc, cmd_type: " << bh.cmd_type;
         sendSimplyResp(e->name, e->excontext, e->exevent->tid, SIP_BAD_REQUEST);
         return -1;
     }
-    m_responseproc[bh.cmd_type](e, doc, bh);
+    handler->second->handle(e, doc);
     return 0;
 }
 
-///< DeviceControl REQUEST; Control action
-int MessageHandler::on_devctrl_ptzcmd(const SipEvent::ptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
-{
-    // const char* username = e->exevent->request->from->url->username;
-    // control_cmd_t ctrlcmd;
-    // memset(&ctrlcmd, 0x0, sizeof(ctrlcmd));
-
-    // string cmdstr;
-    // int r = m_xmlparser.ParseEleStr(doc.RootElement(), "PTZCmd", cmdstr, true);
-    // if (r != 0) {
-    //     LOG(WARNING) << "ParseEleStr PTZCMD failed, ret: " << r;
-    //     sendSimplyResp(username, e->excontext, e->exevent->tid, SIP_BAD_REQUEST);
-    //     return -1;
-    // }
-
-    // int statcode = SIP_OK;
-    // m_ptzparser.ParseControlCmd(ctrlcmd, cmdstr);
-    // r = GB28181SvrManager::instance()->HandlePTZControl(ctrlcmd, bh.devid);
-    // if (r !=0) {
-    //     statcode = SIP_BAD_REQUEST;
-    // }
-    // sendSimplyResp(username, e->excontext, e->exevent->tid, statcode);
-    return 0;
-}
-
-int MessageHandler::on_devctrl_teleboot(const SipEvent::ptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
-{
-    devctrl_subcmd(e, bh.devid, TeleBoot, SWITCH_ON);
-    return 0;
-}
-
-int MessageHandler::on_devctrl_recordcmd(const SipEvent::ptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
-{
-    string value;
-    m_xmlparser.ParseEleStr(doc.RootElement(), "RecordCmd", value, true);
-
-    manscdp_switch_status_e onoff;
-    if (value == "Record")
-        onoff = SWITCH_ON;
-    else                        ///< StopRecord
-        onoff = SWITCH_OFF;
-    devctrl_subcmd(e, bh.devid, RecordCmd, onoff);
-    return 0;
-}
-
-int MessageHandler::on_devctrl_guardcmd(const SipEvent::ptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
-{
-    string value;
-    m_xmlparser.ParseEleStr(doc.RootElement(), "GuardCmd", value, true);
-
-    manscdp_switch_status_e  onoff;
-    if (value == "SetGuard")
-        onoff = SWITCH_ON;
-    else                        ///< ResetGuard
-        onoff = SWITCH_OFF;
-    devctrl_subcmd(e, bh.devid, GuardCmd, onoff);
-    return 0;
-}
-
-int MessageHandler::on_devctrl_alarmcmd(const SipEvent::ptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
-{
-    devctrl_subcmd(e, bh.devid, AlarmCmd, SWITCH_ON);
-    return 0;
-}
-
-int MessageHandler::on_devctrl_iframecmd(const SipEvent::ptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
-{
-    devctrl_subcmd(e, bh.devid, IFrameCmd, SWITCH_ON);
-    return 0;
-}
-
-int MessageHandler::on_devctrl_dragzoomin(const SipEvent::ptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
-{
-    return 0;
-}
-
-int MessageHandler::on_devctrl_dragzoomout(const SipEvent::ptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
-{
-    return 0;
-}
-
-int MessageHandler::on_devctrl_homeposition(const SipEvent::ptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
-{
-    return 0;
-}
-
-///< DeviceConfig QUERST; Control action
-int MessageHandler::on_devcfg_basicparam(const SipEvent::ptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
-{
-    return 0;
-}
-
-int
-MessageHandler::on_devcfg_svacencodeconfig(const SipEvent::ptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
-{
-    return 0;
-}
-
-int
-MessageHandler::on_devcfg_svacdeconfigconfig(const SipEvent::ptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
-{
-    return 0;
-}
-
-int MessageHandler::devctrl_subcmd(const SipEvent::ptr &e, string &devid, manscdp_devicecontrol_subcmd_e subcmd,
-                                    manscdp_switch_status_e onoff)
-{
-    ///< TODO follow-up work�� carry response;
-    // const char* username = e->exevent->request->from->url->username;
-
-    // int statcode = OSIP_SUCCESS;
-    // int r = GB28181SvrManager::instance()->HandleDeviceControl(subcmd, devid, SWITCH_ON);
-    // if (r != 0) {
-    //     statcode = SIP_BAD_REQUEST;
-    // }
-    // sendSimplyResp(username, e->excontext, e->exevent->tid, statcode);
-    return 0;
-}
-
-///< Query action
-int MessageHandler::on_query_device_status(const SipEvent::ptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
-{
-    manscdp_device_status_dialog_t dialog;
-    m_xmlparser.ParseEleStr(doc.RootElement(), "SN", dialog.request.sn, true);
-    m_xmlparser.ParseEleStr(doc.RootElement(), "DeviceID", dialog.request.devid, true);
-
-
-    return 0;
-}
-
-int MessageHandler::on_query_catalog(const SipEvent::ptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
-{
-    char *s;
-    size_t len;
-    osip_message_to_str(e->exevent->response, &s, &len);
-    LOG(INFO)<< "\nprint response start\ntype="<<e->exevent->type<<"\n"<<s<<"\nprint response end\n";
-
-    return 0;
-}
-
-int MessageHandler::on_query_device_info(const SipEvent::ptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
-{
-    return 0;
-}
-
-int MessageHandler::on_query_record_info(const SipEvent::ptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
-{
-    return 0;
-}
-
-int MessageHandler::on_query_alarm(const SipEvent::ptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
-{
-    return 0;
-}
-
-int MessageHandler::on_query_config_download(const SipEvent::ptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
-{
-    return 0;
-}
-
-int MessageHandler::on_query_preset_query(const SipEvent::ptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
-{
-    return 0;
-}
-
-int MessageHandler::on_query_mobile_position(const SipEvent::ptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
-{
-    return 0;
-}
-
-int MessageHandler::on_notify_keepalive(const SipEvent::ptr &e, tinyxml_doc_t &doc, manscdp_msgbody_header_t &bh)
-{
-    std::string deviceid = e->exevent->request->from->url->username;
-    sendSimplyResp(e->exevent->request->from->url->username, e->excontext, e->exevent->tid, SIP_OK);
-    LOG(INFO) << "keeplive   " << e->exevent->request->from->url->username;
-    g_deviceMgr::GetInstance()->updateDeviceStatus(deviceid, 1);
-    g_deviceMgr::GetInstance()->updateDeviceLastTime(deviceid, Time2Str());
-    return 0;
-}
 
 
 }

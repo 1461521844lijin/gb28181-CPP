@@ -92,9 +92,9 @@ CMakeFiles/gb28181_cpp.dir/src/App.cpp.o
  ../src/gb28181/manscdp/defs/query_defs.h
  ../src/gb28181/manscdp/defs/types.h
  ../src/gb28181/manscdp/xml_parser.h
+ ../src/gb28181/ptz/defs.h
+ ../src/gb28181/ptz/ptz_parser.h
  ../src/utils/Singleton.h
- ../src/utils/ptz/defs.h
- ../src/utils/ptz/ptz_parser.h
  ../src/utils/safe_queue.h
  /dataset/lijin/my_project/gb28181-CPP/src/App.cpp
  /dataset/lijin/my_project/gb28181-CPP/src/application/controller/DeviceController.hpp
@@ -300,6 +300,7 @@ CMakeFiles/gb28181_cpp.dir/src/application/service/DeviceOperator.cpp.o
  ../src/gb28181/device_client/device.h
  ../src/gb28181/device_client/deviceManager.h
  ../src/gb28181/request_manager/play_request.h
+ ../src/gb28181/request_manager/ptz_request.h
  ../src/utils/Singleton.h
  /dataset/lijin/my_project/gb28181-CPP/src/application/service/DeviceOperator.cpp
  /dataset/lijin/my_project/gb28181-CPP/src/application/service/DeviceOperator.hpp
@@ -515,9 +516,9 @@ CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/handler_manager.cpp.o
  ../src/gb28181/manscdp/defs/query_defs.h
  ../src/gb28181/manscdp/defs/types.h
  ../src/gb28181/manscdp/xml_parser.h
+ ../src/gb28181/ptz/defs.h
+ ../src/gb28181/ptz/ptz_parser.h
  ../src/utils/Singleton.h
- ../src/utils/ptz/defs.h
- ../src/utils/ptz/ptz_parser.h
  /dataset/lijin/my_project/gb28181-CPP/src/gb28181/event_handler/base_handler.h
  /dataset/lijin/my_project/gb28181-CPP/src/gb28181/event_handler/call_handler.h
  /dataset/lijin/my_project/gb28181-CPP/src/gb28181/event_handler/handler_manager.cpp
@@ -534,6 +535,13 @@ CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/notify/keepalive_ha
  ../include/eXosip2/eX_setup.h
  ../include/eXosip2/eX_subscribe.h
  ../include/eXosip2/eXosip.h
+ ../include/gflags/gflags.h
+ ../include/gflags/gflags_declare.h
+ ../include/glog/export.h
+ ../include/glog/log_severity.h
+ ../include/glog/logging.h
+ ../include/glog/platform.h
+ ../include/glog/vlog_is_on.h
  ../include/osipparser2/headers/osip_accept.h
  ../include/osipparser2/headers/osip_accept_encoding.h
  ../include/osipparser2/headers/osip_accept_language.h
@@ -699,6 +707,7 @@ CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message_handler.cpp.o
  ../src/gb28181/device_client/deviceManager.h
  ../src/gb28181/event_handler/base_handler.h
  ../src/gb28181/event_handler/message/notify/keepalive_handler.h
+ ../src/gb28181/event_handler/message/response/catalog_handler.h
  ../src/gb28181/event_handler/sip_event.h
  ../src/gb28181/manscdp/defs/common_defs.h
  ../src/gb28181/manscdp/defs/control_defs.h
@@ -707,13 +716,13 @@ CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message_handler.cpp.o
  ../src/gb28181/manscdp/defs/query_defs.h
  ../src/gb28181/manscdp/defs/types.h
  ../src/gb28181/manscdp/xml_parser.h
+ ../src/gb28181/ptz/ptz_parser.h
  ../src/gb28181/request_manager/base_request.h
  ../src/gb28181/request_manager/defs.h
  ../src/gb28181/request_manager/message_request.h
  ../src/gb28181/request_manager/request_manager.h
  ../src/utils/CommonTools.h
  ../src/utils/Singleton.h
- ../src/utils/ptz/ptz_parser.h
  /dataset/lijin/my_project/gb28181-CPP/src/gb28181/event_handler/base_handler.h
  /dataset/lijin/my_project/gb28181-CPP/src/gb28181/event_handler/message_handler.cpp
  /dataset/lijin/my_project/gb28181-CPP/src/gb28181/event_handler/message_handler.h
@@ -950,6 +959,7 @@ CMakeFiles/gb28181_cpp.dir/src/gb28181/manscdp/request_sender.cpp.o
  ../src/gb28181/manscdp/defs/query_defs.h
  ../src/gb28181/manscdp/defs/types.h
  ../src/gb28181/manscdp/xml_parser.h
+ ../src/gb28181/ptz/ptz_parser.h
  ../src/gb28181/request_manager/base_request.h
  ../src/gb28181/request_manager/defs.h
  ../src/gb28181/request_manager/message_request.h
@@ -957,7 +967,6 @@ CMakeFiles/gb28181_cpp.dir/src/gb28181/manscdp/request_sender.cpp.o
  ../src/gb28181/sip_server.h
  ../src/utils/Singleton.h
  ../src/utils/config_manager.h
- ../src/utils/ptz/ptz_parser.h
  ../src/utils/safe_queue.h
  /dataset/lijin/my_project/gb28181-CPP/src/gb28181/manscdp/request_sender.cpp
  /dataset/lijin/my_project/gb28181-CPP/src/gb28181/manscdp/request_sender.h
@@ -1017,6 +1026,13 @@ CMakeFiles/gb28181_cpp.dir/src/gb28181/manscdp/xml_parser.cpp.o
  /dataset/lijin/my_project/gb28181-CPP/src/gb28181/manscdp/defs/types.h
  /dataset/lijin/my_project/gb28181-CPP/src/gb28181/manscdp/xml_parser.cpp
  /dataset/lijin/my_project/gb28181-CPP/src/gb28181/manscdp/xml_parser.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/ptz/ptz_cmd.cpp.o
+ /dataset/lijin/my_project/gb28181-CPP/src/gb28181/ptz/ptz_cmd.cpp
+ /dataset/lijin/my_project/gb28181-CPP/src/gb28181/ptz/ptz_cmd.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/ptz/ptz_parser.cpp.o
+ /dataset/lijin/my_project/gb28181-CPP/src/gb28181/ptz/defs.h
+ /dataset/lijin/my_project/gb28181-CPP/src/gb28181/ptz/ptz_parser.cpp
+ /dataset/lijin/my_project/gb28181-CPP/src/gb28181/ptz/ptz_parser.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/request_manager/base_request.cpp.o
  /dataset/lijin/my_project/gb28181-CPP/src/gb28181/request_manager/base_request.cpp
  /dataset/lijin/my_project/gb28181-CPP/src/gb28181/request_manager/base_request.h
@@ -1104,13 +1120,112 @@ CMakeFiles/gb28181_cpp.dir/src/gb28181/request_manager/play_request.cpp.o
  ../src/gb28181/manscdp/defs/query_defs.h
  ../src/gb28181/manscdp/defs/types.h
  ../src/gb28181/manscdp/xml_parser.h
+ ../src/gb28181/ptz/defs.h
+ ../src/gb28181/ptz/ptz_parser.h
  ../src/gb28181/sip_server.h
  ../src/utils/Singleton.h
- ../src/utils/ptz/defs.h
- ../src/utils/ptz/ptz_parser.h
  ../src/utils/safe_queue.h
  /dataset/lijin/my_project/gb28181-CPP/src/gb28181/request_manager/play_request.cpp
  /dataset/lijin/my_project/gb28181-CPP/src/gb28181/request_manager/play_request.h
+ /home/lijin/.conan/data/oatpp/1.3.0/_/_/package/a2582e1f57e524e15d7e84f4c862d0a472d3216f/include/oatpp-1.3.0/oatpp/oatpp/core/Types.hpp
+ /home/lijin/.conan/data/oatpp/1.3.0/_/_/package/a2582e1f57e524e15d7e84f4c862d0a472d3216f/include/oatpp-1.3.0/oatpp/oatpp/core/base/Config.hpp
+ /home/lijin/.conan/data/oatpp/1.3.0/_/_/package/a2582e1f57e524e15d7e84f4c862d0a472d3216f/include/oatpp-1.3.0/oatpp/oatpp/core/base/Countable.hpp
+ /home/lijin/.conan/data/oatpp/1.3.0/_/_/package/a2582e1f57e524e15d7e84f4c862d0a472d3216f/include/oatpp-1.3.0/oatpp/oatpp/core/base/Environment.hpp
+ /home/lijin/.conan/data/oatpp/1.3.0/_/_/package/a2582e1f57e524e15d7e84f4c862d0a472d3216f/include/oatpp-1.3.0/oatpp/oatpp/core/data/mapping/type/Any.hpp
+ /home/lijin/.conan/data/oatpp/1.3.0/_/_/package/a2582e1f57e524e15d7e84f4c862d0a472d3216f/include/oatpp-1.3.0/oatpp/oatpp/core/data/mapping/type/Collection.hpp
+ /home/lijin/.conan/data/oatpp/1.3.0/_/_/package/a2582e1f57e524e15d7e84f4c862d0a472d3216f/include/oatpp-1.3.0/oatpp/oatpp/core/data/mapping/type/Enum.hpp
+ /home/lijin/.conan/data/oatpp/1.3.0/_/_/package/a2582e1f57e524e15d7e84f4c862d0a472d3216f/include/oatpp-1.3.0/oatpp/oatpp/core/data/mapping/type/List.hpp
+ /home/lijin/.conan/data/oatpp/1.3.0/_/_/package/a2582e1f57e524e15d7e84f4c862d0a472d3216f/include/oatpp-1.3.0/oatpp/oatpp/core/data/mapping/type/Map.hpp
+ /home/lijin/.conan/data/oatpp/1.3.0/_/_/package/a2582e1f57e524e15d7e84f4c862d0a472d3216f/include/oatpp-1.3.0/oatpp/oatpp/core/data/mapping/type/Object.hpp
+ /home/lijin/.conan/data/oatpp/1.3.0/_/_/package/a2582e1f57e524e15d7e84f4c862d0a472d3216f/include/oatpp-1.3.0/oatpp/oatpp/core/data/mapping/type/PairList.hpp
+ /home/lijin/.conan/data/oatpp/1.3.0/_/_/package/a2582e1f57e524e15d7e84f4c862d0a472d3216f/include/oatpp-1.3.0/oatpp/oatpp/core/data/mapping/type/Primitive.hpp
+ /home/lijin/.conan/data/oatpp/1.3.0/_/_/package/a2582e1f57e524e15d7e84f4c862d0a472d3216f/include/oatpp-1.3.0/oatpp/oatpp/core/data/mapping/type/Type.hpp
+ /home/lijin/.conan/data/oatpp/1.3.0/_/_/package/a2582e1f57e524e15d7e84f4c862d0a472d3216f/include/oatpp-1.3.0/oatpp/oatpp/core/data/mapping/type/UnorderedMap.hpp
+ /home/lijin/.conan/data/oatpp/1.3.0/_/_/package/a2582e1f57e524e15d7e84f4c862d0a472d3216f/include/oatpp-1.3.0/oatpp/oatpp/core/data/mapping/type/UnorderedSet.hpp
+ /home/lijin/.conan/data/oatpp/1.3.0/_/_/package/a2582e1f57e524e15d7e84f4c862d0a472d3216f/include/oatpp-1.3.0/oatpp/oatpp/core/data/mapping/type/Vector.hpp
+ /home/lijin/.conan/data/oatpp/1.3.0/_/_/package/a2582e1f57e524e15d7e84f4c862d0a472d3216f/include/oatpp-1.3.0/oatpp/oatpp/core/data/share/MemoryLabel.hpp
+ /home/lijin/.conan/data/oatpp/1.3.0/_/_/package/a2582e1f57e524e15d7e84f4c862d0a472d3216f/include/oatpp-1.3.0/oatpp/oatpp/core/macro/basic.hpp
+ /home/lijin/.conan/data/oatpp/1.3.0/_/_/package/a2582e1f57e524e15d7e84f4c862d0a472d3216f/include/oatpp-1.3.0/oatpp/oatpp/core/macro/codegen.hpp
+ /home/lijin/.conan/data/oatpp/1.3.0/_/_/package/a2582e1f57e524e15d7e84f4c862d0a472d3216f/include/oatpp-1.3.0/oatpp/oatpp/core/macro/component.hpp
+ /home/lijin/.conan/data/oatpp/1.3.0/_/_/package/a2582e1f57e524e15d7e84f4c862d0a472d3216f/include/oatpp-1.3.0/oatpp/oatpp/core/utils/String.hpp
+CMakeFiles/gb28181_cpp.dir/src/gb28181/request_manager/ptz_request.cpp.o
+ ../include/eXosip2/eX_call.h
+ ../include/eXosip2/eX_message.h
+ ../include/eXosip2/eX_options.h
+ ../include/eXosip2/eX_publish.h
+ ../include/eXosip2/eX_register.h
+ ../include/eXosip2/eX_setup.h
+ ../include/eXosip2/eX_subscribe.h
+ ../include/eXosip2/eXosip.h
+ ../include/gflags/gflags.h
+ ../include/gflags/gflags_declare.h
+ ../include/glog/export.h
+ ../include/glog/log_severity.h
+ ../include/glog/logging.h
+ ../include/glog/platform.h
+ ../include/glog/vlog_is_on.h
+ ../include/osipparser2/headers/osip_accept.h
+ ../include/osipparser2/headers/osip_accept_encoding.h
+ ../include/osipparser2/headers/osip_accept_language.h
+ ../include/osipparser2/headers/osip_alert_info.h
+ ../include/osipparser2/headers/osip_allow.h
+ ../include/osipparser2/headers/osip_authentication_info.h
+ ../include/osipparser2/headers/osip_authorization.h
+ ../include/osipparser2/headers/osip_call_id.h
+ ../include/osipparser2/headers/osip_call_info.h
+ ../include/osipparser2/headers/osip_contact.h
+ ../include/osipparser2/headers/osip_content_disposition.h
+ ../include/osipparser2/headers/osip_content_encoding.h
+ ../include/osipparser2/headers/osip_content_length.h
+ ../include/osipparser2/headers/osip_content_type.h
+ ../include/osipparser2/headers/osip_cseq.h
+ ../include/osipparser2/headers/osip_error_info.h
+ ../include/osipparser2/headers/osip_from.h
+ ../include/osipparser2/headers/osip_header.h
+ ../include/osipparser2/headers/osip_mime_version.h
+ ../include/osipparser2/headers/osip_proxy_authenticate.h
+ ../include/osipparser2/headers/osip_proxy_authentication_info.h
+ ../include/osipparser2/headers/osip_proxy_authorization.h
+ ../include/osipparser2/headers/osip_record_route.h
+ ../include/osipparser2/headers/osip_route.h
+ ../include/osipparser2/headers/osip_to.h
+ ../include/osipparser2/headers/osip_via.h
+ ../include/osipparser2/headers/osip_www_authenticate.h
+ ../include/osipparser2/osip_body.h
+ ../include/osipparser2/osip_const.h
+ ../include/osipparser2/osip_headers.h
+ ../include/osipparser2/osip_list.h
+ ../include/osipparser2/osip_message.h
+ ../include/osipparser2/osip_parser.h
+ ../include/osipparser2/osip_port.h
+ ../include/osipparser2/osip_uri.h
+ ../include/osipparser2/sdp_message.h
+ ../include/tinyxml2/tinyxml2.h
+ ../src/application/dto/configs/SipConfigDto.hpp
+ ../src/gb28181/device_client/channel.h
+ ../src/gb28181/device_client/device.h
+ ../src/gb28181/event_handler/base_handler.h
+ ../src/gb28181/event_handler/call_handler.h
+ ../src/gb28181/event_handler/handler_manager.h
+ ../src/gb28181/event_handler/message_handler.h
+ ../src/gb28181/event_handler/register_handler.h
+ ../src/gb28181/event_handler/sdp/call_defs.h
+ ../src/gb28181/event_handler/sip_event.h
+ ../src/gb28181/manscdp/defs/common_defs.h
+ ../src/gb28181/manscdp/defs/control_defs.h
+ ../src/gb28181/manscdp/defs/defs.h
+ ../src/gb28181/manscdp/defs/notify_defs.h
+ ../src/gb28181/manscdp/defs/query_defs.h
+ ../src/gb28181/manscdp/defs/types.h
+ ../src/gb28181/manscdp/xml_parser.h
+ ../src/gb28181/ptz/defs.h
+ ../src/gb28181/ptz/ptz_cmd.h
+ ../src/gb28181/ptz/ptz_parser.h
+ ../src/gb28181/sip_server.h
+ ../src/utils/Singleton.h
+ ../src/utils/safe_queue.h
+ /dataset/lijin/my_project/gb28181-CPP/src/gb28181/request_manager/ptz_request.cpp
+ /dataset/lijin/my_project/gb28181-CPP/src/gb28181/request_manager/ptz_request.h
  /home/lijin/.conan/data/oatpp/1.3.0/_/_/package/a2582e1f57e524e15d7e84f4c862d0a472d3216f/include/oatpp-1.3.0/oatpp/oatpp/core/Types.hpp
  /home/lijin/.conan/data/oatpp/1.3.0/_/_/package/a2582e1f57e524e15d7e84f4c862d0a472d3216f/include/oatpp-1.3.0/oatpp/oatpp/core/base/Config.hpp
  /home/lijin/.conan/data/oatpp/1.3.0/_/_/package/a2582e1f57e524e15d7e84f4c862d0a472d3216f/include/oatpp-1.3.0/oatpp/oatpp/core/base/Countable.hpp
@@ -1219,9 +1334,9 @@ CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o
  ../src/gb28181/manscdp/defs/query_defs.h
  ../src/gb28181/manscdp/defs/types.h
  ../src/gb28181/manscdp/xml_parser.h
+ ../src/gb28181/ptz/defs.h
+ ../src/gb28181/ptz/ptz_parser.h
  ../src/utils/Singleton.h
- ../src/utils/ptz/defs.h
- ../src/utils/ptz/ptz_parser.h
  ../src/utils/safe_queue.h
  /dataset/lijin/my_project/gb28181-CPP/src/gb28181/event_handler/base_handler.h
  /dataset/lijin/my_project/gb28181-CPP/src/gb28181/event_handler/call_handler.h
@@ -1277,10 +1392,6 @@ CMakeFiles/gb28181_cpp.dir/src/utils/config_manager.cpp.o
  ../include/yaml-cpp/yaml.h
  /dataset/lijin/my_project/gb28181-CPP/src/utils/config_manager.cpp
  /dataset/lijin/my_project/gb28181-CPP/src/utils/config_manager.h
-CMakeFiles/gb28181_cpp.dir/src/utils/ptz/ptz_parser.cpp.o
- /dataset/lijin/my_project/gb28181-CPP/src/utils/ptz/defs.h
- /dataset/lijin/my_project/gb28181-CPP/src/utils/ptz/ptz_parser.cpp
- /dataset/lijin/my_project/gb28181-CPP/src/utils/ptz/ptz_parser.h
 CMakeFiles/gb28181_cpp.dir/src/utils/tinyxml2.cpp.o
  ../include/tinyxml2/tinyxml2.h
  /dataset/lijin/my_project/gb28181-CPP/src/utils/tinyxml2.cpp

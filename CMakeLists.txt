@@ -67,3 +67,9 @@ target_link_libraries(gb28181_cpp
         ssl crypto resolv yaml  
         zltoolkit
         ${CONAN_LIBS})
+
+
+add_executable(
+        ptzcmd
+        test/ptz_test.cpp
+)

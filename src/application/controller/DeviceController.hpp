@@ -24,7 +24,7 @@ public:
     }
 
     ENDPOINT_INFO(deviceOP) {
-        info->summary = "国标设备相关操作";
+        info->summary = "国标设备点播相关操作";
         info->addTag("Device");
         info->addConsumes<Object<PlayDto>>("application/json");
         info->addResponse<Object<StatusDto>>(Status::CODE_400, "application/json");
@@ -33,4 +33,18 @@ public:
     
         return createDtoResponse(Status::CODE_200,  Web::do_taks(playDto));
     }
+
+    ENDPOINT_INFO(devicePTZ) {
+        info->summary = "国标设备ptz控制相关操作";
+        info->addTag("Device");
+        info->addConsumes<Object<PtzDto>>("application/json");
+        info->addResponse<Object<StatusDto>>(Status::CODE_400, "application/json");
+    }
+    ENDPOINT("POST", "/api/device/ptz", devicePTZ, BODY_DTO(Object<PtzDto>, ptzDto)) {
+    
+        return createDtoResponse(Status::CODE_200,  Web::ptz_ctl(ptzDto));
+    }
+
+
+
 };

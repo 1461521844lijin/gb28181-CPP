@@ -72,6 +72,7 @@ CMAKE_BINARY_DIR = /dataset/lijin/my_project/gb28181-CPP/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
+all: CMakeFiles/ptzcmd.dir/all
 all: CMakeFiles/gb28181_cpp.dir/all
 all: 3rdpart/all
 
@@ -83,6 +84,7 @@ preinstall: 3rdpart/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
+clean: CMakeFiles/ptzcmd.dir/clean
 clean: CMakeFiles/gb28181_cpp.dir/clean
 clean: 3rdpart/clean
 
@@ -107,18 +109,45 @@ clean: 3rdpart/clean
 .PHONY : 3rdpart/clean
 
 #=============================================================================
+# Target rules for target CMakeFiles/ptzcmd.dir
+
+# All Build rule for target.
+CMakeFiles/ptzcmd.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ptzcmd.dir/build.make CMakeFiles/ptzcmd.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ptzcmd.dir/build.make CMakeFiles/ptzcmd.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles --progress-num=33,34 "Built target ptzcmd"
+.PHONY : CMakeFiles/ptzcmd.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/ptzcmd.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/ptzcmd.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles 0
+.PHONY : CMakeFiles/ptzcmd.dir/rule
+
+# Convenience name for target.
+ptzcmd: CMakeFiles/ptzcmd.dir/rule
+
+.PHONY : ptzcmd
+
+# clean rule for target.
+CMakeFiles/ptzcmd.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ptzcmd.dir/build.make CMakeFiles/ptzcmd.dir/clean
+.PHONY : CMakeFiles/ptzcmd.dir/clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/gb28181_cpp.dir
 
 # All Build rule for target.
 CMakeFiles/gb28181_cpp.dir/all: 3rdpart/CMakeFiles/zltoolkit.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30 "Built target gb28181_cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32 "Built target gb28181_cpp"
 .PHONY : CMakeFiles/gb28181_cpp.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/gb28181_cpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles 63
+	$(CMAKE_COMMAND) -E cmake_progress_start /dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles 65
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/gb28181_cpp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles 0
 .PHONY : CMakeFiles/gb28181_cpp.dir/rule
@@ -140,7 +169,7 @@ CMakeFiles/gb28181_cpp.dir/clean:
 3rdpart/CMakeFiles/zltoolkit.dir/all:
 	$(MAKE) $(MAKESILENT) -f 3rdpart/CMakeFiles/zltoolkit.dir/build.make 3rdpart/CMakeFiles/zltoolkit.dir/depend
 	$(MAKE) $(MAKESILENT) -f 3rdpart/CMakeFiles/zltoolkit.dir/build.make 3rdpart/CMakeFiles/zltoolkit.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles --progress-num=31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63 "Built target zltoolkit"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles --progress-num=35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67 "Built target zltoolkit"
 .PHONY : 3rdpart/CMakeFiles/zltoolkit.dir/all
 
 # Build rule for subdir invocation for target.

@@ -52,15 +52,17 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/dataset/lijin/my_project/gb28181-CPP/src/gb28181/manscdp/request_sender.cpp" "/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles/gb28181_cpp.dir/src/gb28181/manscdp/request_sender.cpp.o"
   "/dataset/lijin/my_project/gb28181-CPP/src/gb28181/manscdp/xml_assembly.cpp" "/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles/gb28181_cpp.dir/src/gb28181/manscdp/xml_assembly.cpp.o"
   "/dataset/lijin/my_project/gb28181-CPP/src/gb28181/manscdp/xml_parser.cpp" "/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles/gb28181_cpp.dir/src/gb28181/manscdp/xml_parser.cpp.o"
+  "/dataset/lijin/my_project/gb28181-CPP/src/gb28181/ptz/ptz_cmd.cpp" "/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles/gb28181_cpp.dir/src/gb28181/ptz/ptz_cmd.cpp.o"
+  "/dataset/lijin/my_project/gb28181-CPP/src/gb28181/ptz/ptz_parser.cpp" "/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles/gb28181_cpp.dir/src/gb28181/ptz/ptz_parser.cpp.o"
   "/dataset/lijin/my_project/gb28181-CPP/src/gb28181/request_manager/base_request.cpp" "/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles/gb28181_cpp.dir/src/gb28181/request_manager/base_request.cpp.o"
   "/dataset/lijin/my_project/gb28181-CPP/src/gb28181/request_manager/message_request.cpp" "/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles/gb28181_cpp.dir/src/gb28181/request_manager/message_request.cpp.o"
   "/dataset/lijin/my_project/gb28181-CPP/src/gb28181/request_manager/play_request.cpp" "/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles/gb28181_cpp.dir/src/gb28181/request_manager/play_request.cpp.o"
+  "/dataset/lijin/my_project/gb28181-CPP/src/gb28181/request_manager/ptz_request.cpp" "/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles/gb28181_cpp.dir/src/gb28181/request_manager/ptz_request.cpp.o"
   "/dataset/lijin/my_project/gb28181-CPP/src/gb28181/request_manager/request_manager.cpp" "/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles/gb28181_cpp.dir/src/gb28181/request_manager/request_manager.cpp.o"
   "/dataset/lijin/my_project/gb28181-CPP/src/gb28181/sip_server.cpp" "/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o"
   "/dataset/lijin/my_project/gb28181-CPP/src/utils/System.cpp" "/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles/gb28181_cpp.dir/src/utils/System.cpp.o"
   "/dataset/lijin/my_project/gb28181-CPP/src/utils/common.cpp" "/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles/gb28181_cpp.dir/src/utils/common.cpp.o"
   "/dataset/lijin/my_project/gb28181-CPP/src/utils/config_manager.cpp" "/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles/gb28181_cpp.dir/src/utils/config_manager.cpp.o"
-  "/dataset/lijin/my_project/gb28181-CPP/src/utils/ptz/ptz_parser.cpp" "/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles/gb28181_cpp.dir/src/utils/ptz/ptz_parser.cpp.o"
   "/dataset/lijin/my_project/gb28181-CPP/src/utils/tinyxml2.cpp" "/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles/gb28181_cpp.dir/src/utils/tinyxml2.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
