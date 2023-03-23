@@ -12,8 +12,9 @@ extern "C" {
 
 #include "gb28181/device_client/device.h"
 #include "gb28181/device_client/deviceManager.h"
-#include "gb28181/request_manager/play_request.h"
-#include "gb28181/manscdp/request_sender.h"
+#include "gb28181/request/play_request.h"
+
+
 #include "utils/CommonTools.h"
 
 namespace GB28181 {
@@ -79,7 +80,7 @@ int Registerhandler::HandleIncomingReq(const SipEvent::ptr &e) {
 
         if (!memcmp(calc_response, Response, HASHHEXLEN)) {
             sendSimplyResp(username, e->excontext, e->exevent->tid, SIP_OK);
-            LOG(INFO) << "Camera registration succee,ip=" << contact->url->host <<", port="<< contact->url->port<<", device="<<username;
+            // LOG(INFO) << "Camera registration succee,ip=" << contact->url->host <<", port="<< contact->url->port<<", device="<<username;
             std::string clinet_host     = strdup(contact->url->host);
             std::string clinet_port     = strdup(contact->url->port);
             std::string clinet_deviceid = username;
@@ -91,7 +92,7 @@ int Registerhandler::HandleIncomingReq(const SipEvent::ptr &e) {
             g_deviceMgr::GetInstance()->addDevice(device);
             
             // 向客户端发送catalog请求,将设备的通道和相关信息查询出来
-            MsgSender::CatalogQuery(device);
+            // MsgSender::CatalogQuery(device);
             
         } else {
             sendSimplyResp(username, e->excontext, e->exevent->tid, SIP_UNAUTHORIZED);

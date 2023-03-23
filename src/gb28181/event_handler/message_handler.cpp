@@ -6,7 +6,7 @@
 **	Modify		: 2020/2/28		zhangqiang		Create the file
 **	********************************************************************************
 */
-#include <gb28181/request_manager/request_manager.h>
+#include <gb28181/request/requested_pool.h>
 #include "message_handler.h"
 #include "osipparser2/osip_const.h"
 #include "glog/logging.h"
@@ -86,10 +86,22 @@ int MessageHandler::HandleIncomingReq(const SipEvent::ptr &e)
 
 int MessageHandler::HandleResponseSuccess(const SipEvent::ptr &e)
 {
+    osip_body_t* body = nullptr;
+    osip_message_get_body(e->exevent->request, 0, &body);
+    if (body == nullptr) {
+        sendSimplyResp("recive answered", e->excontext, e->exevent->tid, SIP_BAD_REQUEST);
+        return -1;
+    }
+    int r;
+
+    LOG(INFO) << "incoming request body: " << body->body;
+
+
+
     int statcode = getStatcodeFromResp(e->exevent->response);
     string reqid = getMsgIdFromReq(e->exevent->request);
 
-    RequestManager::instance()->HandleMsgResponse(reqid, statcode);
+    RequestedPool::instance()->HandleMsgResponse(reqid, statcode);
     return 0;
 }
 

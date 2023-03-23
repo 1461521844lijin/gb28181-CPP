@@ -1,8 +1,8 @@
 #include "DeviceOperator.hpp"
 
 #include "gb28181/device_client/deviceManager.h"
-#include "gb28181/request_manager/play_request.h"
-#include "gb28181/request_manager/ptz_request.h"
+#include "gb28181/request/play_request.h"
+#include "gb28181/request/ptz_request.h"
 namespace Web {
 
 oatpp::Object<StatusDto> do_taks(const oatpp::Object<PlayDto> &playItem) {

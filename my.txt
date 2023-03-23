@@ -27,3 +27,31 @@
         </Item>
     </DeviceList>
 </Response>
+
+
+<?xml version="1.0" encoding="GB2312"?>
+<Response>
+<CmdType>Catalog</CmdType>
+<SN>1</SN>
+<DeviceID>44020000001320000011</DeviceID>
+<SumNum>1</SumNum>
+<DeviceList Num="1">
+    <Item>
+        <DeviceID>34020000001320000001</DeviceID>
+        <Name>IPdome</Name>
+        <Manufacturer>Hikvision</Manufacturer>
+        <Model>IP Camera</Model>
+        <Owner>Owner</Owner>
+        <CivilCode>3402000000</CivilCode>
+        <Address>Address</Address>
+        <Parental>0</Parental>
+        <ParentID>34020000002000000001</ParentID>
+        <SafetyWay>0</SafetyWay>
+        <RegisterWay>1</RegisterWay>
+        <Secrecy>0</Secrecy>
+        <Status>ON</Status>
+        <Longitude>0.000</Longitude>
+        <Latitude>0.000</Latitude>
+    </Item>
+</DeviceList>
+</Response>
