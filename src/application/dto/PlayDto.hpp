@@ -21,11 +21,13 @@ class PtzDto: public PlayDto {
     //  * @param inOut        
     //  * @param moveSpeed     
     //  * @param zoomSpeed
-    DTO_FIELD(Int32, leftRight);
-    DTO_FIELD(Int32, upDown);
-    DTO_FIELD(Int32, inOut);
-    DTO_FIELD(Int32, moveSpeed);
-    DTO_FIELD(Int32, zoomSpeed);
+    DTO_FIELD(Int32, leftRight) = 0;
+
+    DTO_FIELD(Int32, upDown) = 0;
+    DTO_FIELD(Int32, inOut) = 0;
+    DTO_FIELD(Int32, moveSpeed) = 0;
+    DTO_FIELD(Int32, zoomSpeed) = 0;
+    DTO_FIELD(String, channelId) = "";
 };
 
 #include OATPP_CODEGEN_END(DTO)

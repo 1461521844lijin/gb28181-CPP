@@ -26,10 +26,10 @@ namespace GB28181 {
 class RequestedPool
 {
 public:
-    RequestedPool() = default;
-    ~RequestedPool() = default;
+    // RequestedPool() = default;
+    // ~RequestedPool() = default;
 
-    static RequestedPool * instance();
+    // static RequestedPool * instance();
 
     int Init();
 
@@ -65,7 +65,11 @@ public:
     int HandleMsgResponse(string& reqid, int status_code);
 
 private:
-    int check_requet_timeout();
+
+    /**
+     * @brief 启动一个定时器，处理超时请求，默认超时时间6秒
+     */
+    int check_requet_timeout(double timeout = 6.0);
 
 
     /// @brief 请求相应处理函数
@@ -80,6 +84,8 @@ private:
     std::map<string, BaseRequest::ptr> m_requestmap; // 请求map <id,req>
     std::mutex m_mutex;
 };
+
+typedef Tools::Singleton<RequestedPool> g_RequestedPool;
 
 
 }

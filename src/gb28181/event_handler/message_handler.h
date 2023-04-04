@@ -15,6 +15,8 @@
 #include "gb28181/ptz/ptz_parser.h"
 #include "gb28181/event_handler/sip_event.h"
 
+#include <map>
+
 
 namespace GB28181 {
 
@@ -51,15 +53,13 @@ private:
 private:
     XmlParser                                          m_xmlparser;
     PtzParser                                          m_ptzparser;
-    ///< control type
-    map<manscdp_devicecontrol_subcmd_e, msg_event_proc> m_devctlproc;
-    map<manscdp_deviceconfig_subcmd_e, msg_event_proc>  m_devcfgproc;
 
-    map<manscdp_devicecontrol_subcmd_e, BaseHandler::ptr> m_ctlhandler;  ///< control type
 
-    map<manscdp_cmdtype_e, BaseHandler::ptr>            m_queryhandler;  ///< query type
-    map<manscdp_cmdtype_e, BaseHandler::ptr>            m_notifyhandler;  ///< notify type
-    map<manscdp_cmdtype_e, BaseHandler::ptr>            m_responsehandler;  ///< response type
+    std::map<manscdp_devicecontrol_subcmd_e, BaseHandler::ptr> m_ctlhandler;  ///< control type
+
+    std::map<manscdp_cmdtype_e, BaseHandler::ptr>            m_queryhandler;  ///< query type
+    std::map<manscdp_cmdtype_e, BaseHandler::ptr>            m_notifyhandler;  ///< notify type
+    std::map<manscdp_cmdtype_e, BaseHandler::ptr>            m_responsehandler;  ///< response type
 };
 
 }

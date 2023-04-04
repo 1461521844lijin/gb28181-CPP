@@ -411,33 +411,6 @@ src/gb28181/event_handler/base_handler.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/base_handler.cpp.s
 .PHONY : src/gb28181/event_handler/base_handler.cpp.s
 
-src/gb28181/event_handler/call_handler.o: src/gb28181/event_handler/call_handler.cpp.o
-
-.PHONY : src/gb28181/event_handler/call_handler.o
-
-# target to build an object file
-src/gb28181/event_handler/call_handler.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/call_handler.cpp.o
-.PHONY : src/gb28181/event_handler/call_handler.cpp.o
-
-src/gb28181/event_handler/call_handler.i: src/gb28181/event_handler/call_handler.cpp.i
-
-.PHONY : src/gb28181/event_handler/call_handler.i
-
-# target to preprocess a source file
-src/gb28181/event_handler/call_handler.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/call_handler.cpp.i
-.PHONY : src/gb28181/event_handler/call_handler.cpp.i
-
-src/gb28181/event_handler/call_handler.s: src/gb28181/event_handler/call_handler.cpp.s
-
-.PHONY : src/gb28181/event_handler/call_handler.s
-
-# target to generate assembly for a file
-src/gb28181/event_handler/call_handler.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/call_handler.cpp.s
-.PHONY : src/gb28181/event_handler/call_handler.cpp.s
-
 src/gb28181/event_handler/handler_manager.o: src/gb28181/event_handler/handler_manager.cpp.o
 
 .PHONY : src/gb28181/event_handler/handler_manager.o
@@ -762,6 +735,33 @@ src/gb28181/request/message/catalog_request.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/catalog_request.cpp.s
 .PHONY : src/gb28181/request/message/catalog_request.cpp.s
 
+src/gb28181/request/message/ptzcontrol_request.o: src/gb28181/request/message/ptzcontrol_request.cpp.o
+
+.PHONY : src/gb28181/request/message/ptzcontrol_request.o
+
+# target to build an object file
+src/gb28181/request/message/ptzcontrol_request.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/ptzcontrol_request.cpp.o
+.PHONY : src/gb28181/request/message/ptzcontrol_request.cpp.o
+
+src/gb28181/request/message/ptzcontrol_request.i: src/gb28181/request/message/ptzcontrol_request.cpp.i
+
+.PHONY : src/gb28181/request/message/ptzcontrol_request.i
+
+# target to preprocess a source file
+src/gb28181/request/message/ptzcontrol_request.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/ptzcontrol_request.cpp.i
+.PHONY : src/gb28181/request/message/ptzcontrol_request.cpp.i
+
+src/gb28181/request/message/ptzcontrol_request.s: src/gb28181/request/message/ptzcontrol_request.cpp.s
+
+.PHONY : src/gb28181/request/message/ptzcontrol_request.s
+
+# target to generate assembly for a file
+src/gb28181/request/message/ptzcontrol_request.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/ptzcontrol_request.cpp.s
+.PHONY : src/gb28181/request/message/ptzcontrol_request.cpp.s
+
 src/gb28181/request/play_request.o: src/gb28181/request/play_request.cpp.o
 
 .PHONY : src/gb28181/request/play_request.o
@@ -788,60 +788,6 @@ src/gb28181/request/play_request.s: src/gb28181/request/play_request.cpp.s
 src/gb28181/request/play_request.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/request/play_request.cpp.s
 .PHONY : src/gb28181/request/play_request.cpp.s
-
-src/gb28181/request/ptz_request.o: src/gb28181/request/ptz_request.cpp.o
-
-.PHONY : src/gb28181/request/ptz_request.o
-
-# target to build an object file
-src/gb28181/request/ptz_request.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/request/ptz_request.cpp.o
-.PHONY : src/gb28181/request/ptz_request.cpp.o
-
-src/gb28181/request/ptz_request.i: src/gb28181/request/ptz_request.cpp.i
-
-.PHONY : src/gb28181/request/ptz_request.i
-
-# target to preprocess a source file
-src/gb28181/request/ptz_request.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/request/ptz_request.cpp.i
-.PHONY : src/gb28181/request/ptz_request.cpp.i
-
-src/gb28181/request/ptz_request.s: src/gb28181/request/ptz_request.cpp.s
-
-.PHONY : src/gb28181/request/ptz_request.s
-
-# target to generate assembly for a file
-src/gb28181/request/ptz_request.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/request/ptz_request.cpp.s
-.PHONY : src/gb28181/request/ptz_request.cpp.s
-
-src/gb28181/request/request_sender.o: src/gb28181/request/request_sender.cpp.o
-
-.PHONY : src/gb28181/request/request_sender.o
-
-# target to build an object file
-src/gb28181/request/request_sender.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/request/request_sender.cpp.o
-.PHONY : src/gb28181/request/request_sender.cpp.o
-
-src/gb28181/request/request_sender.i: src/gb28181/request/request_sender.cpp.i
-
-.PHONY : src/gb28181/request/request_sender.i
-
-# target to preprocess a source file
-src/gb28181/request/request_sender.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/request/request_sender.cpp.i
-.PHONY : src/gb28181/request/request_sender.cpp.i
-
-src/gb28181/request/request_sender.s: src/gb28181/request/request_sender.cpp.s
-
-.PHONY : src/gb28181/request/request_sender.s
-
-# target to generate assembly for a file
-src/gb28181/request/request_sender.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/request/request_sender.cpp.s
-.PHONY : src/gb28181/request/request_sender.cpp.s
 
 src/gb28181/request/requested_pool.o: src/gb28181/request/requested_pool.cpp.o
 
@@ -1043,9 +989,6 @@ help:
 	@echo "... src/gb28181/event_handler/base_handler.o"
 	@echo "... src/gb28181/event_handler/base_handler.i"
 	@echo "... src/gb28181/event_handler/base_handler.s"
-	@echo "... src/gb28181/event_handler/call_handler.o"
-	@echo "... src/gb28181/event_handler/call_handler.i"
-	@echo "... src/gb28181/event_handler/call_handler.s"
 	@echo "... src/gb28181/event_handler/handler_manager.o"
 	@echo "... src/gb28181/event_handler/handler_manager.i"
 	@echo "... src/gb28181/event_handler/handler_manager.s"
@@ -1082,15 +1025,12 @@ help:
 	@echo "... src/gb28181/request/message/catalog_request.o"
 	@echo "... src/gb28181/request/message/catalog_request.i"
 	@echo "... src/gb28181/request/message/catalog_request.s"
+	@echo "... src/gb28181/request/message/ptzcontrol_request.o"
+	@echo "... src/gb28181/request/message/ptzcontrol_request.i"
+	@echo "... src/gb28181/request/message/ptzcontrol_request.s"
 	@echo "... src/gb28181/request/play_request.o"
 	@echo "... src/gb28181/request/play_request.i"
 	@echo "... src/gb28181/request/play_request.s"
-	@echo "... src/gb28181/request/ptz_request.o"
-	@echo "... src/gb28181/request/ptz_request.i"
-	@echo "... src/gb28181/request/ptz_request.s"
-	@echo "... src/gb28181/request/request_sender.o"
-	@echo "... src/gb28181/request/request_sender.i"
-	@echo "... src/gb28181/request/request_sender.s"
 	@echo "... src/gb28181/request/requested_pool.o"
 	@echo "... src/gb28181/request/requested_pool.i"
 	@echo "... src/gb28181/request/requested_pool.s"

@@ -2,7 +2,7 @@
 
 #include "gb28181/device_client/deviceManager.h"
 #include "gb28181/request/play_request.h"
-#include "gb28181/request/ptz_request.h"
+#include "gb28181/request/message/ptzcontrol_request.h"
 namespace Web {
 
 oatpp::Object<StatusDto> do_taks(const oatpp::Object<PlayDto> &playItem) {
@@ -52,9 +52,11 @@ oatpp::Object<StatusDto> do_taks(const oatpp::Object<PlayDto> &playItem) {
     int move = playItem->moveSpeed;
     int zoom = playItem->zoomSpeed;
 
+    std::string channelId = playItem->channelId;
 
 
-    GB28181::PtzRequest::SendPtzRequest(device,leftright,updown,inOut,move,zoom);
+    GB28181::PtzControlRequest::ptr req = std::make_shared<GB28181::PtzControlRequest>(device, channelId, leftright, updown, inOut, move, zoom);
+    req->send_message(true);
 
     status->errorCode = 200;
     status->errorMsg  = "ok";

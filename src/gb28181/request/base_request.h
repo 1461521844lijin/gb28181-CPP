@@ -14,18 +14,21 @@
 #include <condition_variable>
 #include <map>
 #include <memory>
+#include <sstream>
 
 namespace GB28181 {
 using namespace std;
 
-class BaseRequest : public std::enable_shared_from_this<BaseRequest> {
+class BaseRequest  {
 public:
     typedef std::shared_ptr<BaseRequest> ptr;
     explicit BaseRequest(REQ_MESSAGE_TYPE reqtype);
     virtual ~BaseRequest();
 
     /// @brief 请求响应接口 虚函数被子类重写
-    virtual int HandleResponse(int statcode) = 0;
+    virtual int HandleResponse(int statcode){
+        return 0;
+    };
 
     // 设置是否等待
     void SetWait(bool bwait);
@@ -50,7 +53,7 @@ protected:
     /// @brief 请求完成 会唤醒等待的请求
     int onRequestFinished();
 
-private:
+public:
     /// @brief 请求完成
     void finished();
 
@@ -66,16 +69,17 @@ private:
     condition_variable m_cond;
 };
 
-class MessageRequest : public BaseRequest {
+class MessageRequest : public BaseRequest,  public std::enable_shared_from_this<BaseRequest> {
 public:
     typedef std::shared_ptr<MessageRequest> ptr;
-    MessageRequest(Device::ptr device, const string &reqsn, REQ_MESSAGE_TYPE reqtype)
-        : BaseRequest(reqtype), m_device(device), m_reqsn(reqsn) {}
+    MessageRequest(Device::ptr device, REQ_MESSAGE_TYPE reqtype)
+        : BaseRequest(reqtype), m_device(device) {}
     virtual ~MessageRequest() {}
 
 public:
     // 发送请求
-    virtual int send_message();
+    // 是否需要等待回调  true会将请求结束后加入请求池，等收到回复后调用回调函数
+    virtual int send_message(bool needcb = true);
 
     /// @brief 获取请求序列号
     const string &GetReqSn() {
@@ -87,10 +91,14 @@ protected:
     const char *get_reqid_from_request(osip_message_t *msg);
 
     // 构建消息体
-    virtual const std::string &make_manscdp_body() = 0;
+    virtual const std::string make_manscdp_body() = 0;
 
     Device::ptr get_device() {
         return m_device;
+    }
+
+    void set_reqsn(const std::string &reqsn) {
+        m_reqsn = reqsn;
     }
 
     std::string &get_reqsn() {

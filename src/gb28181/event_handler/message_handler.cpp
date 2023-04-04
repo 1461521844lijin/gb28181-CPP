@@ -86,22 +86,23 @@ int MessageHandler::HandleIncomingReq(const SipEvent::ptr &e)
 
 int MessageHandler::HandleResponseSuccess(const SipEvent::ptr &e)
 {
-    osip_body_t* body = nullptr;
-    osip_message_get_body(e->exevent->request, 0, &body);
-    if (body == nullptr) {
-        sendSimplyResp("recive answered", e->excontext, e->exevent->tid, SIP_BAD_REQUEST);
-        return -1;
-    }
-    int r;
+    // osip_body_t* body = nullptr;
+    // osip_message_get_body(e->exevent->response, 0, &body);
+    // if (body == nullptr) {
+    //     sendSimplyResp("recive answered", e->excontext, e->exevent->tid, SIP_BAD_REQUEST);
+    //     return -1;
+    // }
+    // int r;
 
-    LOG(INFO) << "incoming request body: " << body->body;
+    // LOG(INFO) << "incoming response body: " << body->body;
 
 
 
     int statcode = getStatcodeFromResp(e->exevent->response);
     string reqid = getMsgIdFromReq(e->exevent->request);
+    LOG(INFO) << "response reqid = " << reqid;
 
-    RequestedPool::instance()->HandleMsgResponse(reqid, statcode);
+    g_RequestedPool::GetInstance()->HandleMsgResponse(reqid, statcode);
     return 0;
 }
 

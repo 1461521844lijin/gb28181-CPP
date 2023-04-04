@@ -117,4 +117,16 @@ SipEvent::ptr SipServer::new_event(eXosip_t *exosip_context, eXosip_event_t *exo
     return event;
 }
 
+
+string SipServer::generate_sn()
+{
+    stringstream sn;
+    sn << m_sn.fetch_add(1);
+    return sn.str();
+}
+
+
+
+
+
 }  // namespace GB28181

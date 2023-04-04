@@ -1,10 +1,8 @@
 #include "catalog_request.h"
 
-#include <sstream>
-
 namespace GB28181 {
 
-const std::string &CatalogRequest::make_manscdp_body() {
+const std::string CatalogRequest::make_manscdp_body() {
     std::stringstream manscdp;
     manscdp << "<?xml version=\"1.0\"?>\r\n"
             << "<Query>\r\n"

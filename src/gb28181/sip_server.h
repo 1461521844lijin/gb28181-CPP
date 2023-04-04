@@ -15,6 +15,7 @@
 #include <mutex>
 #include <string>
 #include <thread>
+#include <atomic>
 
 #include "utils/Singleton.h"
 
@@ -49,6 +50,8 @@ public:
 
     int Quit();
 
+    string generate_sn();
+
     // 获取exoosip上下文
     eXosip_t *GetExosipContext() {
         return m_excontext;
@@ -72,6 +75,8 @@ private:
     eXosip_t           *m_excontext;    // exosip上下文
     EventHandlerManager m_eventHandle;  // 事件处理器
     std::thread         recvTask;       // 接收事件线程
+
+    atomic<uint64_t > m_sn = 0;
 };
 
 typedef Tools::Singleton<SipServer> g_SipServer;

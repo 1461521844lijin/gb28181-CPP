@@ -12,6 +12,7 @@
 #include "oatpp/core/macro/component.hpp"
 #include "application/dto/configs/SipConfigDto.hpp"
 #include "gb28181/request/requested_pool.h"
+#include "glog/logging.h"
 
 namespace GB28181 {
 
@@ -89,10 +90,12 @@ time_t BaseRequest::GetReqtime()
 }
 
 
-int MessageRequest::send_message(){
+int MessageRequest::send_message(bool needcb){
 
 
-    auto excontext = g_SipServer::GetInstance()->GetExosipContext();    
+    auto excontext = g_SipServer::GetInstance()->GetExosipContext();
+    auto reqsn = g_SipServer::GetInstance()->generate_sn();
+    set_reqsn(reqsn);   
     OATPP_COMPONENT(oatpp::Object<SipConfigDto>, sipConfig);
    
     osip_message_t * msg = nullptr;
@@ -103,7 +106,6 @@ int MessageRequest::send_message(){
 
 
     exosip_guard guard(excontext);
-
     int r = eXosip_message_build_request(excontext, &msg, "MESSAGE", to.c_str(), from.c_str(), nullptr);
     if (r != OSIP_SUCCESS) {
         LOG(ERROR) << "Build message request failed, sipto: " << to << ", ret: " << r;
@@ -118,10 +120,16 @@ int MessageRequest::send_message(){
         return -1;
     }
 
+    LOG(INFO)<<" send budy" <<body;
+
     // 请求发送成功后，将请求id保存在请求池，等待回复和回调处理
-    string reqid = get_reqid_from_request(msg);
-    if (reqid.length() >0) {
-        RequestedPool::instance()->AddRequest(reqid, shared_from_this());
+    if (needcb) {
+         string reqid = get_reqid_from_request(msg);
+        if (reqid.length() >0) {
+            BaseRequest::ptr req = shared_from_this();
+            g_RequestedPool::GetInstance()->AddRequest(reqid, req);
+            // RequestedPool::instance()->AddRequest(reqid, shared_from_this());
+        }
     }
     return 0;
 }
