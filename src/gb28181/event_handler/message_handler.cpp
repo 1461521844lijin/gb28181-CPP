@@ -17,6 +17,7 @@
 #include "gb28181/event_handler/message/notify/keepalive_handler.h"
 
 #include "gb28181/event_handler/message/response/catalog_handler.h"
+#include "gb28181/event_handler/message/response/preset_handler.h"
 
 namespace GB28181 {
 
@@ -29,6 +30,7 @@ MessageHandler::MessageHandler()
 
 
     m_responsehandler.insert(make_pair(MANSCDP_QUERY_CMD_CATALOG, new CatalogHandler));
+    m_responsehandler.insert(make_pair(MANSCDP_QUERY_CMD_PRESET_QUERY, new PresetQuireHandler));
 
 }
 

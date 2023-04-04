@@ -71,52 +71,66 @@ int CatalogHandler::handle(SipEvent::ptr event, tinyxml2::XMLDocument &xml) {
     }
     tinyxml2::XMLElement *item = deviceList->FirstChildElement("Item");
     try {
-        /* 
-
+         
         while (item != nullptr) {
-            std::string channelID    = item->FirstChildElement("DeviceID")->GetText();
-            std::string name         = item->FirstChildElement("Name")->GetText();
-            std::string manufacturer = item->FirstChildElement("Manufacturer")->GetText();
-            std::string model        = item->FirstChildElement("Model")->GetText();
-            std::string owner        = item->FirstChildElement("Owner")->GetText();
-            std::string civilCode    = item->FirstChildElement("CivilCode")->GetText();
-            std::string address      = item->FirstChildElement("Address")->GetText();
-            std::string parental     = item->FirstChildElement("Parental")->GetText();
-            std::string parentID     = item->FirstChildElement("ParentID")->GetText();
-            std::string registerWay  = item->FirstChildElement("RegisterWay")->GetText();
-            std::string secrecy      = item->FirstChildElement("Secrecy")->GetText();
-            std::string streamNum    = item->FirstChildElement("StreamNum")->GetText();
-            std::string iPAddress    = item->FirstChildElement("IPAddress")->GetText();
-            std::string status       = item->FirstChildElement("Status")->GetText();
-
-            auto        info          = item->FirstChildElement("Info");
-            std::string pTZType       = info->FirstChildElement("PTZType")->GetText();
-            std::string downloadSpeed = info->FirstChildElement("DownloadSpeed")->GetText();
-
-            // channel->setChannelId(item->FirstChildElement("DeviceID")->GetText());
-            channel->setChannelId(channelID);
-            channel->setName(name);
-            channel->setManufacturer(manufacturer);
-            channel->setModel(model);
-            channel->setOwner(owner);
-            channel->setCivilCode(civilCode);
-            channel->setAddress(address);
-            channel->setParental(parental);
-            channel->setParentId(parentID);
-            channel->setRegisterWay(registerWay);
-            channel->setSecrety(secrecy);
-            channel->setStreamNum(streamNum);
-            channel->setIpAddress(iPAddress);
-            channel->setStatus(status);
-            channel->setPtztype(pTZType);
-            channel->setDownSpeed(downloadSpeed);
+            if(item->FirstChildElement("DeviceID") != nullptr){
+                channel->setChannelId(item->FirstChildElement("DeviceID")->GetText());
+            }
+            if(item->FirstChildElement("Name") != nullptr){
+                channel->setName(item->FirstChildElement("Name")->GetText());
+            }
+            if(item->FirstChildElement("Manufacturer") != nullptr){
+                channel->setManufacturer(item->FirstChildElement("Manufacturer")->GetText());
+            }
+            if(item->FirstChildElement("Model") != nullptr){
+                channel->setModel(item->FirstChildElement("Model")->GetText());
+            }
+            if(item->FirstChildElement("Owner") != nullptr){
+                channel->setOwner(item->FirstChildElement("Owner")->GetText());
+            }
+            if(item->FirstChildElement("CivilCode") != nullptr){
+                channel->setCivilCode(item->FirstChildElement("CivilCode")->GetText());
+            }
+            if(item->FirstChildElement("Address") != nullptr){
+                channel->setAddress(item->FirstChildElement("Address")->GetText());
+            }
+            if(item->FirstChildElement("Parental") != nullptr){
+                channel->setParental(item->FirstChildElement("Parental")->GetText());
+            }
+            if(item->FirstChildElement("ParentID") != nullptr){
+                channel->setParentId(item->FirstChildElement("ParentID")->GetText());
+            }
+            if(item->FirstChildElement("RegisterWay") != nullptr){
+                channel->setRegisterWay(item->FirstChildElement("RegisterWay")->GetText());
+            }
+            if(item->FirstChildElement("Secrecy") != nullptr){
+                channel->setSecrety(item->FirstChildElement("Secrecy")->GetText());
+            }
+            if(item->FirstChildElement("StreamNum") != nullptr){
+                channel->setStreamNum(item->FirstChildElement("StreamNum")->GetText());
+            }
+            if(item->FirstChildElement("IPAddress") != nullptr){
+                channel->setIpAddress(item->FirstChildElement("IPAddress")->GetText());
+            }
+            if(item->FirstChildElement("Status") != nullptr){
+                channel->setStatus(item->FirstChildElement("Status")->GetText());
+            }
+            if(item->FirstChildElement("Info") != nullptr){
+                tinyxml2::XMLElement *info = item->FirstChildElement("Info");
+                if(info->FirstChildElement("PTZType") != nullptr){
+                    channel->setPtztype(info->FirstChildElement("PTZType")->GetText());
+                }
+                if(info->FirstChildElement("DownloadSpeed") != nullptr){
+                    channel->setDownSpeed(info->FirstChildElement("DownloadSpeed")->GetText());
+                }
+            }
 
             LOG(INFO) << channel->toString();
 
             auto device = g_deviceMgr::GetInstance()->getDevice(deviceID);
-            if (!device->insertSubChannel(parentID, channelID, channel)) {
+            if (!device->insertSubChannel(channel->getParentId(), channel->getChannelId(), channel)) {
                 LOG(ERROR) << "CatalogHandler::handle insertSubChannel failed "
-                           << "channelId:" << channelID << " parentID:" << parentID
+                           << "channelId:" << channel->getChannelId() << " parentID:" << channel->getParentId()
                            << " deviceID:" << deviceID;
             };
 
@@ -124,7 +138,7 @@ int CatalogHandler::handle(SipEvent::ptr event, tinyxml2::XMLDocument &xml) {
         }
 
 
-        */
+        
     } catch (const std::exception &e) { LOG(ERROR) << e.what() << '\n'; }
 
     return sendSimplyResp(deviceID.c_str(), event->excontext, event->exevent->tid, SIP_OK);

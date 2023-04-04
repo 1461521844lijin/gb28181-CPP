@@ -22,6 +22,17 @@ public:
      */
     static std::string cmdString(int leftRight, int upDown, int inOut, int moveSpeed, int zoomSpeed);
 
+    /**
+     * @brief 云台指令码计算
+     * 
+     * @param fourthByte 第四个字节
+     * @param fifthByte  第五个字节
+     * @param sixthByte  第六个字节 
+     * @param seventhByte  第七个字节
+     * @return std::string 
+     */
+    static std::string cmdCode(int fourthByte, int fifthByte, int sixthByte, int seventhByte);
+
 
 
 private:

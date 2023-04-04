@@ -19,6 +19,8 @@ enum REQ_MESSAGE_TYPE
     KEEPALIVE,              // 保活心跳
     QUIRY_CATALOG,          // 查询目录
     DEVICE_CONTROL_PTZ,     // 设备控制-云台
+    DEVICE_QUIER_PRESET,    // 设备查询-预置位
+    DEVICE_CONTROL_PRESET,  // 设备控制-预置位
 
     REQ_TYPE_MAX
 };

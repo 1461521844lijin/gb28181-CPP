@@ -8,7 +8,7 @@ void DeviceManager::addDevice(Device::ptr device) {
     m_device_map[device->getDeviceId()] = device;
 }
 
-Device::ptr DeviceManager::getDevice(std::string& deviceId) {
+Device::ptr DeviceManager::getDevice(const std::string& deviceId) {
     std::lock_guard<std::mutex> lock(m_mutex);
     auto it = m_device_map.find(deviceId);
     if (it != m_device_map.end()) {

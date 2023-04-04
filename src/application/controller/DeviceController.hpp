@@ -40,9 +40,31 @@ public:
         info->addConsumes<Object<PtzDto>>("application/json");
         info->addResponse<Object<StatusDto>>(Status::CODE_400, "application/json");
     }
-    ENDPOINT("POST", "/api/device/ptz", devicePTZ, BODY_DTO(Object<PtzDto>, ptzDto)) {
+    ENDPOINT("POST", "/api/ptz_ctl", devicePTZ, BODY_DTO(Object<PtzDto>, ptzDto)) {
     
         return createDtoResponse(Status::CODE_200,  Web::ptz_ctl(ptzDto));
+    }
+
+    ENDPOINT_INFO(device_preset_quire) {
+        info->summary = "国标设备预置位查询";
+        info->addTag("Device");
+        info->addConsumes<Object<PlayDto>>("application/json");
+        info->addResponse<Object<StatusDto>>(Status::CODE_400, "application/json");
+    }
+    ENDPOINT("POST", "/api/device/preset_quire", device_preset_quire, BODY_DTO(Object<PlayDto>, playDto)) {
+    
+        return createDtoResponse(Status::CODE_200,  Web::preset_quire(playDto));
+    }
+
+    ENDPOINT_INFO(device_preset_control) {
+    info->summary = "国标设备预置位控制";
+    info->addTag("Device");
+    info->addConsumes<Object<PlayDto>>("application/json");
+    info->addResponse<Object<StatusDto>>(Status::CODE_400, "application/json");
+    }
+    ENDPOINT("POST", "/api/device/preset_control", device_preset_control, BODY_DTO(Object<PlayDto>, playDto)) {
+    
+        return createDtoResponse(Status::CODE_200,  Web::preset_control(playDto));
     }
 
 

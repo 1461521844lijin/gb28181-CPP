@@ -249,6 +249,33 @@ src/application/service/DeviceOperator.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/application/service/DeviceOperator.cpp.s
 .PHONY : src/application/service/DeviceOperator.cpp.s
 
+src/application/service/PTZOperator.o: src/application/service/PTZOperator.cpp.o
+
+.PHONY : src/application/service/PTZOperator.o
+
+# target to build an object file
+src/application/service/PTZOperator.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/application/service/PTZOperator.cpp.o
+.PHONY : src/application/service/PTZOperator.cpp.o
+
+src/application/service/PTZOperator.i: src/application/service/PTZOperator.cpp.i
+
+.PHONY : src/application/service/PTZOperator.i
+
+# target to preprocess a source file
+src/application/service/PTZOperator.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/application/service/PTZOperator.cpp.i
+.PHONY : src/application/service/PTZOperator.cpp.i
+
+src/application/service/PTZOperator.s: src/application/service/PTZOperator.cpp.s
+
+.PHONY : src/application/service/PTZOperator.s
+
+# target to generate assembly for a file
+src/application/service/PTZOperator.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/application/service/PTZOperator.cpp.s
+.PHONY : src/application/service/PTZOperator.cpp.s
+
 src/gb28181/auth/md5/HTTPDigest.o: src/gb28181/auth/md5/HTTPDigest.c.o
 
 .PHONY : src/gb28181/auth/md5/HTTPDigest.o
@@ -491,6 +518,33 @@ src/gb28181/event_handler/message/response/catalog_handler.s: src/gb28181/event_
 src/gb28181/event_handler/message/response/catalog_handler.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/response/catalog_handler.cpp.s
 .PHONY : src/gb28181/event_handler/message/response/catalog_handler.cpp.s
+
+src/gb28181/event_handler/message/response/preset_handler.o: src/gb28181/event_handler/message/response/preset_handler.cpp.o
+
+.PHONY : src/gb28181/event_handler/message/response/preset_handler.o
+
+# target to build an object file
+src/gb28181/event_handler/message/response/preset_handler.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/response/preset_handler.cpp.o
+.PHONY : src/gb28181/event_handler/message/response/preset_handler.cpp.o
+
+src/gb28181/event_handler/message/response/preset_handler.i: src/gb28181/event_handler/message/response/preset_handler.cpp.i
+
+.PHONY : src/gb28181/event_handler/message/response/preset_handler.i
+
+# target to preprocess a source file
+src/gb28181/event_handler/message/response/preset_handler.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/response/preset_handler.cpp.i
+.PHONY : src/gb28181/event_handler/message/response/preset_handler.cpp.i
+
+src/gb28181/event_handler/message/response/preset_handler.s: src/gb28181/event_handler/message/response/preset_handler.cpp.s
+
+.PHONY : src/gb28181/event_handler/message/response/preset_handler.s
+
+# target to generate assembly for a file
+src/gb28181/event_handler/message/response/preset_handler.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/response/preset_handler.cpp.s
+.PHONY : src/gb28181/event_handler/message/response/preset_handler.cpp.s
 
 src/gb28181/event_handler/message_handler.o: src/gb28181/event_handler/message_handler.cpp.o
 
@@ -735,6 +789,60 @@ src/gb28181/request/message/catalog_request.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/catalog_request.cpp.s
 .PHONY : src/gb28181/request/message/catalog_request.cpp.s
 
+src/gb28181/request/message/preset_ctl_request.o: src/gb28181/request/message/preset_ctl_request.cpp.o
+
+.PHONY : src/gb28181/request/message/preset_ctl_request.o
+
+# target to build an object file
+src/gb28181/request/message/preset_ctl_request.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/preset_ctl_request.cpp.o
+.PHONY : src/gb28181/request/message/preset_ctl_request.cpp.o
+
+src/gb28181/request/message/preset_ctl_request.i: src/gb28181/request/message/preset_ctl_request.cpp.i
+
+.PHONY : src/gb28181/request/message/preset_ctl_request.i
+
+# target to preprocess a source file
+src/gb28181/request/message/preset_ctl_request.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/preset_ctl_request.cpp.i
+.PHONY : src/gb28181/request/message/preset_ctl_request.cpp.i
+
+src/gb28181/request/message/preset_ctl_request.s: src/gb28181/request/message/preset_ctl_request.cpp.s
+
+.PHONY : src/gb28181/request/message/preset_ctl_request.s
+
+# target to generate assembly for a file
+src/gb28181/request/message/preset_ctl_request.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/preset_ctl_request.cpp.s
+.PHONY : src/gb28181/request/message/preset_ctl_request.cpp.s
+
+src/gb28181/request/message/preset_request.o: src/gb28181/request/message/preset_request.cpp.o
+
+.PHONY : src/gb28181/request/message/preset_request.o
+
+# target to build an object file
+src/gb28181/request/message/preset_request.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/preset_request.cpp.o
+.PHONY : src/gb28181/request/message/preset_request.cpp.o
+
+src/gb28181/request/message/preset_request.i: src/gb28181/request/message/preset_request.cpp.i
+
+.PHONY : src/gb28181/request/message/preset_request.i
+
+# target to preprocess a source file
+src/gb28181/request/message/preset_request.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/preset_request.cpp.i
+.PHONY : src/gb28181/request/message/preset_request.cpp.i
+
+src/gb28181/request/message/preset_request.s: src/gb28181/request/message/preset_request.cpp.s
+
+.PHONY : src/gb28181/request/message/preset_request.s
+
+# target to generate assembly for a file
+src/gb28181/request/message/preset_request.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/preset_request.cpp.s
+.PHONY : src/gb28181/request/message/preset_request.cpp.s
+
 src/gb28181/request/message/ptzcontrol_request.o: src/gb28181/request/message/ptzcontrol_request.cpp.o
 
 .PHONY : src/gb28181/request/message/ptzcontrol_request.o
@@ -971,6 +1079,9 @@ help:
 	@echo "... src/application/service/DeviceOperator.o"
 	@echo "... src/application/service/DeviceOperator.i"
 	@echo "... src/application/service/DeviceOperator.s"
+	@echo "... src/application/service/PTZOperator.o"
+	@echo "... src/application/service/PTZOperator.i"
+	@echo "... src/application/service/PTZOperator.s"
 	@echo "... src/gb28181/auth/md5/HTTPDigest.o"
 	@echo "... src/gb28181/auth/md5/HTTPDigest.i"
 	@echo "... src/gb28181/auth/md5/HTTPDigest.s"
@@ -998,6 +1109,9 @@ help:
 	@echo "... src/gb28181/event_handler/message/response/catalog_handler.o"
 	@echo "... src/gb28181/event_handler/message/response/catalog_handler.i"
 	@echo "... src/gb28181/event_handler/message/response/catalog_handler.s"
+	@echo "... src/gb28181/event_handler/message/response/preset_handler.o"
+	@echo "... src/gb28181/event_handler/message/response/preset_handler.i"
+	@echo "... src/gb28181/event_handler/message/response/preset_handler.s"
 	@echo "... src/gb28181/event_handler/message_handler.o"
 	@echo "... src/gb28181/event_handler/message_handler.i"
 	@echo "... src/gb28181/event_handler/message_handler.s"
@@ -1025,6 +1139,12 @@ help:
 	@echo "... src/gb28181/request/message/catalog_request.o"
 	@echo "... src/gb28181/request/message/catalog_request.i"
 	@echo "... src/gb28181/request/message/catalog_request.s"
+	@echo "... src/gb28181/request/message/preset_ctl_request.o"
+	@echo "... src/gb28181/request/message/preset_ctl_request.i"
+	@echo "... src/gb28181/request/message/preset_ctl_request.s"
+	@echo "... src/gb28181/request/message/preset_request.o"
+	@echo "... src/gb28181/request/message/preset_request.i"
+	@echo "... src/gb28181/request/message/preset_request.s"
 	@echo "... src/gb28181/request/message/ptzcontrol_request.o"
 	@echo "... src/gb28181/request/message/ptzcontrol_request.i"
 	@echo "... src/gb28181/request/message/ptzcontrol_request.s"

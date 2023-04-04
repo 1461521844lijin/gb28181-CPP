@@ -9,7 +9,7 @@ class PtzControlRequest : public MessageRequest {
 public:
     typedef std::shared_ptr<PtzControlRequest> ptr;
     PtzControlRequest(Device::ptr        device,
-                      std::string        &channelId,
+                      const std::string  &channelId,
                       int                leftRight,
                       int                upDown,
                       int                inOut,
@@ -36,7 +36,7 @@ public:
 
         // 收到相机回复后，立即停止云台转动
         LOG(INFO) << "PtzControlRequest HandleResponse statuscode = "<<statcode;
-        send_message(false);
+        // send_message(false);
         return 0;
     }
 

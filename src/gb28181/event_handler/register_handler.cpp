@@ -13,7 +13,7 @@ extern "C" {
 #include "gb28181/device_client/device.h"
 #include "gb28181/device_client/deviceManager.h"
 #include "gb28181/request/play_request.h"
-
+#include "gb28181/request/message/catalog_request.h"
 
 #include "utils/CommonTools.h"
 
@@ -92,7 +92,9 @@ int Registerhandler::HandleIncomingReq(const SipEvent::ptr &e) {
             g_deviceMgr::GetInstance()->addDevice(device);
             
             // 向客户端发送catalog请求,将设备的通道和相关信息查询出来
-            // MsgSender::CatalogQuery(device);
+            std::shared_ptr<CatalogRequest> catalogRequest = std::make_shared<CatalogRequest>(device);
+            catalogRequest->send_message();
+
             
         } else {
             sendSimplyResp(username, e->excontext, e->exevent->tid, SIP_UNAUTHORIZED);

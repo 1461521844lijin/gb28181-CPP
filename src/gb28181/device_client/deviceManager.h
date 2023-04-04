@@ -25,7 +25,7 @@ public:
     ~DeviceManager() = default;
 
     void        addDevice(Device::ptr device);
-    Device::ptr getDevice(std::string &deviceId);
+    Device::ptr getDevice(const std::string &deviceId);
     void        removeDevice(std::string &deviceId);
 
     // 获取设备列表

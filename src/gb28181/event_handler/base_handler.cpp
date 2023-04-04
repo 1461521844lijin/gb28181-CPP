@@ -22,7 +22,7 @@ int BaseHandler::sendSimplyResp(const char *uname, struct eXosip_t *excontext, i
     int r = eXosip_message_send_answer(excontext, tid, status, nullptr);
     eXosip_unlock(excontext);
 
-    LOG(INFO) << "sendSimplyResq: " << status << " to uname:" << uname << ", ret: "<<r;
+    // LOG(INFO) << "sendSimplyResq: " << status << " to uname:" << uname << ", ret: "<<r;
 
     return r;
 }

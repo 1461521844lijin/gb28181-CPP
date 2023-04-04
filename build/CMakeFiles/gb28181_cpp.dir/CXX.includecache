@@ -376,12 +376,6 @@ mpatrol.h
 osipparser2/osip_list.h
 -
 
-../src/application/dto/PlayDto.hpp
-oatpp/core/Types.hpp
-../src/application/dto/oatpp/core/Types.hpp
-oatpp/core/macro/codegen.hpp
-../src/application/dto/oatpp/core/macro/codegen.hpp
-
 ../src/application/dto/StatusDto.hpp
 oatpp/core/macro/codegen.hpp
 ../src/application/dto/oatpp/core/macro/codegen.hpp
@@ -424,10 +418,6 @@ device.h
 utils/Singleton.h
 ../src/gb28181/device_client/utils/Singleton.h
 
-../src/gb28181/ptz/ptz_cmd.h
-memory
--
-
 ../src/gb28181/request/base_request.h
 defs.h
 ../src/gb28181/request/defs.h
@@ -446,49 +436,39 @@ sstream
 
 ../src/gb28181/request/defs.h
 
+../src/gb28181/request/message/preset_ctl_request.h
+gb28181/request/base_request.h
+../src/gb28181/request/message/gb28181/request/base_request.h
+
+../src/gb28181/request/message/preset_request.h
+gb28181/request/base_request.h
+../src/gb28181/request/message/gb28181/request/base_request.h
+
 ../src/gb28181/request/message/ptzcontrol_request.h
 gb28181/request/base_request.h
 ../src/gb28181/request/message/gb28181/request/base_request.h
 glog/logging.h
 ../src/gb28181/request/message/glog/logging.h
 
-../src/gb28181/request/play_request.h
-gb28181/device_client/device.h
-../src/gb28181/request/gb28181/device_client/device.h
-eXosip2/eXosip.h
-../src/gb28181/request/eXosip2/eXosip.h
-
 ../src/utils/Singleton.h
 memory
 -
 
-/dataset/lijin/my_project/gb28181-CPP/src/application/service/DeviceOperator.cpp
-DeviceOperator.hpp
-/dataset/lijin/my_project/gb28181-CPP/src/application/service/DeviceOperator.hpp
+/dataset/lijin/my_project/gb28181-CPP/src/application/service/PTZOperator.cpp
+PTZOperator.hpp
+/dataset/lijin/my_project/gb28181-CPP/src/application/service/PTZOperator.hpp
 gb28181/device_client/deviceManager.h
 /dataset/lijin/my_project/gb28181-CPP/src/application/service/gb28181/device_client/deviceManager.h
-gb28181/request/play_request.h
-/dataset/lijin/my_project/gb28181-CPP/src/application/service/gb28181/request/play_request.h
 gb28181/request/message/ptzcontrol_request.h
 /dataset/lijin/my_project/gb28181-CPP/src/application/service/gb28181/request/message/ptzcontrol_request.h
+gb28181/request/message/preset_request.h
+/dataset/lijin/my_project/gb28181-CPP/src/application/service/gb28181/request/message/preset_request.h
+gb28181/request/message/preset_ctl_request.h
+/dataset/lijin/my_project/gb28181-CPP/src/application/service/gb28181/request/message/preset_ctl_request.h
 
-/dataset/lijin/my_project/gb28181-CPP/src/application/service/DeviceOperator.hpp
+/dataset/lijin/my_project/gb28181-CPP/src/application/service/PTZOperator.hpp
 application/dto/StatusDto.hpp
 /dataset/lijin/my_project/gb28181-CPP/src/application/service/application/dto/StatusDto.hpp
-application/dto/PlayDto.hpp
-/dataset/lijin/my_project/gb28181-CPP/src/application/service/application/dto/PlayDto.hpp
-
-/dataset/lijin/my_project/gb28181-CPP/src/gb28181/request/message/ptzcontrol_request.cpp
-ptzcontrol_request.h
-/dataset/lijin/my_project/gb28181-CPP/src/gb28181/request/message/ptzcontrol_request.h
-gb28181/ptz/ptz_cmd.h
--
-
-/dataset/lijin/my_project/gb28181-CPP/src/gb28181/request/message/ptzcontrol_request.h
-gb28181/request/base_request.h
-/dataset/lijin/my_project/gb28181-CPP/src/gb28181/request/message/gb28181/request/base_request.h
-glog/logging.h
-/dataset/lijin/my_project/gb28181-CPP/src/gb28181/request/message/glog/logging.h
 
 /home/lijin/.conan/data/oatpp/1.3.0/_/_/package/a2582e1f57e524e15d7e84f4c862d0a472d3216f/include/oatpp-1.3.0/oatpp/oatpp/core/Types.hpp
 oatpp/core/data/mapping/type/Object.hpp
