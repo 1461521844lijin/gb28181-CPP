@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/gb28181_cpp.dir/src/ErrorHandler.cpp.o"
   "CMakeFiles/gb28181_cpp.dir/src/application/service/DeviceOperator.cpp.o"
   "CMakeFiles/gb28181_cpp.dir/src/application/service/PTZOperator.cpp.o"
+  "CMakeFiles/gb28181_cpp.dir/src/application/service/PlayOperator.cpp.o"
   "CMakeFiles/gb28181_cpp.dir/src/gb28181/auth/md5/HTTPDigest.c.o"
   "CMakeFiles/gb28181_cpp.dir/src/gb28181/auth/md5/MD5.c.o"
   "CMakeFiles/gb28181_cpp.dir/src/gb28181/device_client/channel.cpp.o"
@@ -31,6 +32,9 @@ file(REMOVE_RECURSE
   "CMakeFiles/gb28181_cpp.dir/src/utils/System.cpp.o"
   "CMakeFiles/gb28181_cpp.dir/src/utils/common.cpp.o"
   "CMakeFiles/gb28181_cpp.dir/src/utils/tinyxml2.cpp.o"
+  "CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/loadblance.cpp.o"
+  "CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/zlm_manager.cpp.o"
+  "CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/zlm_server.cpp.o"
   "bin/gb28181_cpp"
   "bin/gb28181_cpp.pdb"
 )

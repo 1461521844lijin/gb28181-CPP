@@ -15,7 +15,7 @@
 #include "utils/Singleton.h"
 #include <map>
 #include <mutex>
-
+#include "Poller/Timer.h"
 using namespace std;
 
 namespace GB28181 {
@@ -83,6 +83,7 @@ private:
 
     std::map<string, BaseRequest::ptr> m_requestmap; // 请求map <id,req>
     std::mutex m_mutex;
+    toolkit::Timer::Ptr check_requet_timeout_timer;
 };
 
 typedef Tools::Singleton<RequestedPool> g_RequestedPool;

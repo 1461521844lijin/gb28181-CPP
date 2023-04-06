@@ -20,11 +20,8 @@ namespace GB28181 {
 // }
 
 int RequestedPool::Init() {
-    // TODO 需要有定时任务去轮询请求是否超时
-
-    // task = std::thread(&RequestedPool::check_requet_timeout, this);
-    // Infra::ThreadTask task = bind(&RequestedPool::check_requet_timeout, this);
-    // Infra::CThreadPool::instance()->run(task);
+    
+    check_requet_timeout();
     return 0;
 }
 
@@ -71,28 +68,29 @@ int RequestedPool::HandleMsgResponse(string &reqid, int status_code) {
 
 //
 int RequestedPool::check_requet_timeout(double timeout) {
-    toolkit::Timer check_requet_timeout_timer(
+    check_requet_timeout_timer.reset(new toolkit::Timer(
         timeout,
         [this]() {
-            LOG(INFO) << "请求超时检查";
+            LOG(INFO) << "定期请求超时检查和清理";
             time_t            now = time(nullptr);
             lock_guard<mutex> guard(m_mutex);
             for (auto itr = m_requestmap.begin(); itr != m_requestmap.end();) {
                 //  异步 超时处理
                 if (now - itr->second->GetReqtime() > 6) {
-                    toolkit::EventPollerPool::Instance().getExecutor()->async([itr]() {
-                        itr->second->HandleResponse(-1);
-                        LOG(INFO) << "check_request_timeout_type: " << itr->second->GetReqType()
+                    itr->second->HandleResponse(-1);
+                    LOG(INFO) << "check_request_timeout_type: " << itr->second->GetReqType()
                                   << " " << itr->first;
-                    });
+                    itr->second->finished();
                     itr = m_requestmap.erase(itr);
+                    
                 } else {
                     ++itr;
                 }
             }
             return true;
         },
-        nullptr);
+        nullptr)
+    );
     return 0;
 }
 
@@ -107,14 +105,16 @@ int RequestedPool::handle_response(string &reqid, int status_code) {
             return -1;
         }
         req = itr->second;
-        m_requestmap.erase(itr);
+        // m_requestmap.erase(itr);
     }
 
-    // 异步执行回调  回调中需要唤醒阻塞请求;
-    toolkit::EventPollerPool::Instance().getExecutor()->async([req, status_code]() {
-        req->HandleResponse(status_code);
-        req->finished();
-    });
+    // 异步执行请求错误的回调  回调中需要唤醒阻塞请求;
+    if(status_code != 200){
+        toolkit::EventPollerPool::Instance().getExecutor()->async([req, status_code]() {
+            req->HandleResponse(status_code);
+            req->finished();
+        });
+    }
 
     return 0;
 }

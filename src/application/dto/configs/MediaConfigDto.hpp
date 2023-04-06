@@ -16,6 +16,7 @@ class MediaConfigDto : public oatpp::DTO{
     DTO_FIELD(Int32, zlmPort);
     DTO_FIELD(String, zlmSecret);
     DTO_FIELD(Int32, zlmRtpPort);
+    DTO_FIELD(String, zlmServerID);
 };
 
 #include OATPP_CODEGEN_END(DTO)

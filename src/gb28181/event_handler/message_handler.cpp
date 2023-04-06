@@ -63,8 +63,8 @@ int MessageHandler::HandleIncomingReq(const SipEvent::ptr &e)
         return r;
     }
 
-    LOG(INFO) << "Revice message, category: " << bodyheader.cmd_category <<", cmd_type: "
-            << bodyheader.cmd_type << " from "<<username << ", host: "<< host;
+    // LOG(INFO) << "Revice message, category: " << bodyheader.cmd_category <<", cmd_type: "
+    //         << bodyheader.cmd_type << " from "<<username << ", host: "<< host;
 
     switch (bodyheader.cmd_category)
     {

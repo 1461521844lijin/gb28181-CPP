@@ -419,6 +419,8 @@ CMakeFiles/gb28181_cpp.dir/src/application/service/PTZOperator.cpp.o: /home/liji
 CMakeFiles/gb28181_cpp.dir/src/application/service/PTZOperator.cpp.o: /home/lijin/.conan/data/oatpp/1.3.0/_/_/package/a2582e1f57e524e15d7e84f4c862d0a472d3216f/include/oatpp-1.3.0/oatpp/oatpp/core/macro/codegen.hpp
 CMakeFiles/gb28181_cpp.dir/src/application/service/PTZOperator.cpp.o: /home/lijin/.conan/data/oatpp/1.3.0/_/_/package/a2582e1f57e524e15d7e84f4c862d0a472d3216f/include/oatpp-1.3.0/oatpp/oatpp/core/utils/String.hpp
 
+CMakeFiles/gb28181_cpp.dir/src/application/service/PlayOperator.cpp.o: ../src/application/service/PlayOperator.cpp
+
 CMakeFiles/gb28181_cpp.dir/src/gb28181/device_client/channel.cpp.o: ../src/gb28181/device_client/channel.cpp
 CMakeFiles/gb28181_cpp.dir/src/gb28181/device_client/channel.cpp.o: ../src/gb28181/device_client/channel.h
 
@@ -683,6 +685,20 @@ CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/response/catalog_ha
 CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/response/catalog_handler.cpp.o: ../src/gb28181/event_handler/message/response/catalog_handler.cpp
 CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/response/catalog_handler.cpp.o: ../src/gb28181/event_handler/message/response/catalog_handler.h
 
+CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/response/preset_handler.cpp.o: ../3rdpart/ZLToolKit/src/Network/Buffer.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/response/preset_handler.cpp.o: ../3rdpart/ZLToolKit/src/Poller/EventPoller.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/response/preset_handler.cpp.o: ../3rdpart/ZLToolKit/src/Poller/PipeWrap.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/response/preset_handler.cpp.o: ../3rdpart/ZLToolKit/src/Poller/Timer.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/response/preset_handler.cpp.o: ../3rdpart/ZLToolKit/src/Thread/TaskExecutor.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/response/preset_handler.cpp.o: ../3rdpart/ZLToolKit/src/Thread/TaskQueue.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/response/preset_handler.cpp.o: ../3rdpart/ZLToolKit/src/Thread/ThreadPool.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/response/preset_handler.cpp.o: ../3rdpart/ZLToolKit/src/Thread/semaphore.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/response/preset_handler.cpp.o: ../3rdpart/ZLToolKit/src/Thread/threadgroup.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/response/preset_handler.cpp.o: ../3rdpart/ZLToolKit/src/Util/List.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/response/preset_handler.cpp.o: ../3rdpart/ZLToolKit/src/Util/ResourcePool.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/response/preset_handler.cpp.o: ../3rdpart/ZLToolKit/src/Util/function_traits.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/response/preset_handler.cpp.o: ../3rdpart/ZLToolKit/src/Util/logger.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/response/preset_handler.cpp.o: ../3rdpart/ZLToolKit/src/Util/util.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/response/preset_handler.cpp.o: ../include/eXosip2/eX_call.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/response/preset_handler.cpp.o: ../include/eXosip2/eX_message.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/response/preset_handler.cpp.o: ../include/eXosip2/eX_options.h
@@ -735,12 +751,33 @@ CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/response/preset_han
 CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/response/preset_handler.cpp.o: ../include/osipparser2/osip_uri.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/response/preset_handler.cpp.o: ../include/osipparser2/sdp_message.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/response/preset_handler.cpp.o: ../include/tinyxml2/tinyxml2.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/response/preset_handler.cpp.o: ../src/gb28181/device_client/channel.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/response/preset_handler.cpp.o: ../src/gb28181/device_client/device.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/response/preset_handler.cpp.o: ../src/gb28181/event_handler/base_handler.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/response/preset_handler.cpp.o: ../src/gb28181/event_handler/sip_event.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/response/preset_handler.cpp.o: ../src/gb28181/request/base_request.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/response/preset_handler.cpp.o: ../src/gb28181/request/defs.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/response/preset_handler.cpp.o: ../src/gb28181/request/message/preset_request.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/response/preset_handler.cpp.o: ../src/gb28181/request/requested_pool.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/response/preset_handler.cpp.o: ../src/utils/Singleton.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/response/preset_handler.cpp.o: ../src/utils/common.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/response/preset_handler.cpp.o: ../src/gb28181/event_handler/message/response/preset_handler.cpp
 CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/response/preset_handler.cpp.o: ../src/gb28181/event_handler/message/response/preset_handler.h
 
+CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message_handler.cpp.o: ../3rdpart/ZLToolKit/src/Network/Buffer.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message_handler.cpp.o: ../3rdpart/ZLToolKit/src/Poller/EventPoller.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message_handler.cpp.o: ../3rdpart/ZLToolKit/src/Poller/PipeWrap.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message_handler.cpp.o: ../3rdpart/ZLToolKit/src/Poller/Timer.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message_handler.cpp.o: ../3rdpart/ZLToolKit/src/Thread/TaskExecutor.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message_handler.cpp.o: ../3rdpart/ZLToolKit/src/Thread/TaskQueue.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message_handler.cpp.o: ../3rdpart/ZLToolKit/src/Thread/ThreadPool.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message_handler.cpp.o: ../3rdpart/ZLToolKit/src/Thread/semaphore.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message_handler.cpp.o: ../3rdpart/ZLToolKit/src/Thread/threadgroup.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message_handler.cpp.o: ../3rdpart/ZLToolKit/src/Util/List.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message_handler.cpp.o: ../3rdpart/ZLToolKit/src/Util/ResourcePool.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message_handler.cpp.o: ../3rdpart/ZLToolKit/src/Util/function_traits.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message_handler.cpp.o: ../3rdpart/ZLToolKit/src/Util/logger.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message_handler.cpp.o: ../3rdpart/ZLToolKit/src/Util/util.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message_handler.cpp.o: ../include/eXosip2/eX_call.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message_handler.cpp.o: ../include/eXosip2/eX_message.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message_handler.cpp.o: ../include/eXosip2/eX_options.h
@@ -962,6 +999,20 @@ CMakeFiles/gb28181_cpp.dir/src/gb28181/ptz/ptz_parser.cpp.o: ../src/gb28181/ptz/
 CMakeFiles/gb28181_cpp.dir/src/gb28181/ptz/ptz_parser.cpp.o: ../src/gb28181/ptz/ptz_parser.cpp
 CMakeFiles/gb28181_cpp.dir/src/gb28181/ptz/ptz_parser.cpp.o: ../src/gb28181/ptz/ptz_parser.h
 
+CMakeFiles/gb28181_cpp.dir/src/gb28181/request/base_request.cpp.o: ../3rdpart/ZLToolKit/src/Network/Buffer.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/request/base_request.cpp.o: ../3rdpart/ZLToolKit/src/Poller/EventPoller.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/request/base_request.cpp.o: ../3rdpart/ZLToolKit/src/Poller/PipeWrap.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/request/base_request.cpp.o: ../3rdpart/ZLToolKit/src/Poller/Timer.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/request/base_request.cpp.o: ../3rdpart/ZLToolKit/src/Thread/TaskExecutor.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/request/base_request.cpp.o: ../3rdpart/ZLToolKit/src/Thread/TaskQueue.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/request/base_request.cpp.o: ../3rdpart/ZLToolKit/src/Thread/ThreadPool.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/request/base_request.cpp.o: ../3rdpart/ZLToolKit/src/Thread/semaphore.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/request/base_request.cpp.o: ../3rdpart/ZLToolKit/src/Thread/threadgroup.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/request/base_request.cpp.o: ../3rdpart/ZLToolKit/src/Util/List.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/request/base_request.cpp.o: ../3rdpart/ZLToolKit/src/Util/ResourcePool.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/request/base_request.cpp.o: ../3rdpart/ZLToolKit/src/Util/function_traits.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/request/base_request.cpp.o: ../3rdpart/ZLToolKit/src/Util/logger.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/request/base_request.cpp.o: ../3rdpart/ZLToolKit/src/Util/util.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/request/base_request.cpp.o: ../include/eXosip2/eX_call.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/request/base_request.cpp.o: ../include/eXosip2/eX_message.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/request/base_request.cpp.o: ../include/eXosip2/eX_options.h
@@ -1445,6 +1496,7 @@ CMakeFiles/gb28181_cpp.dir/src/gb28181/request/requested_pool.cpp.o: ../src/gb28
 CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o: ../3rdpart/ZLToolKit/src/Network/Buffer.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o: ../3rdpart/ZLToolKit/src/Poller/EventPoller.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o: ../3rdpart/ZLToolKit/src/Poller/PipeWrap.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o: ../3rdpart/ZLToolKit/src/Poller/Timer.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o: ../3rdpart/ZLToolKit/src/Thread/TaskExecutor.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o: ../3rdpart/ZLToolKit/src/Thread/TaskQueue.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o: ../3rdpart/ZLToolKit/src/Thread/ThreadPool.h
@@ -1507,6 +1559,8 @@ CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o: ../include/osipparser2/
 CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o: ../include/osipparser2/osip_uri.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o: ../include/osipparser2/sdp_message.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o: ../include/tinyxml2/tinyxml2.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o: ../src/gb28181/device_client/channel.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o: ../src/gb28181/device_client/device.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o: ../src/gb28181/event_handler/sip_event.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o: ../src/gb28181/manscdp/defs/common_defs.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o: ../src/gb28181/manscdp/defs/control_defs.h
@@ -1515,8 +1569,10 @@ CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o: ../src/gb28181/manscdp/
 CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o: ../src/gb28181/manscdp/defs/query_defs.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o: ../src/gb28181/manscdp/defs/types.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o: ../src/gb28181/manscdp/xml_parser.h
-CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o: ../src/gb28181/ptz/defs.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o: ../src/gb28181/ptz/ptz_parser.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o: ../src/gb28181/request/base_request.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o: ../src/gb28181/request/defs.h
+CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o: ../src/gb28181/request/requested_pool.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o: ../src/utils/Singleton.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o: ../src/utils/safe_queue.h
 CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o: ../src/gb28181/event_handler/base_handler.h
@@ -1541,4 +1597,27 @@ CMakeFiles/gb28181_cpp.dir/src/utils/common.cpp.o: ../src/utils/common.h
 
 CMakeFiles/gb28181_cpp.dir/src/utils/tinyxml2.cpp.o: ../include/tinyxml2/tinyxml2.h
 CMakeFiles/gb28181_cpp.dir/src/utils/tinyxml2.cpp.o: ../src/utils/tinyxml2.cpp
+
+CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/loadblance.cpp.o: ../src/zlmedia/zlmedia_server/loadblance.cpp
+
+CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/zlm_manager.cpp.o: ../3rdpart/ZLToolKit/src/Network/Buffer.h
+CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/zlm_manager.cpp.o: ../3rdpart/ZLToolKit/src/Poller/EventPoller.h
+CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/zlm_manager.cpp.o: ../3rdpart/ZLToolKit/src/Poller/PipeWrap.h
+CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/zlm_manager.cpp.o: ../3rdpart/ZLToolKit/src/Poller/Timer.h
+CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/zlm_manager.cpp.o: ../3rdpart/ZLToolKit/src/Thread/TaskExecutor.h
+CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/zlm_manager.cpp.o: ../3rdpart/ZLToolKit/src/Thread/TaskQueue.h
+CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/zlm_manager.cpp.o: ../3rdpart/ZLToolKit/src/Thread/ThreadPool.h
+CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/zlm_manager.cpp.o: ../3rdpart/ZLToolKit/src/Thread/semaphore.h
+CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/zlm_manager.cpp.o: ../3rdpart/ZLToolKit/src/Thread/threadgroup.h
+CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/zlm_manager.cpp.o: ../3rdpart/ZLToolKit/src/Util/List.h
+CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/zlm_manager.cpp.o: ../3rdpart/ZLToolKit/src/Util/ResourcePool.h
+CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/zlm_manager.cpp.o: ../3rdpart/ZLToolKit/src/Util/function_traits.h
+CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/zlm_manager.cpp.o: ../3rdpart/ZLToolKit/src/Util/logger.h
+CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/zlm_manager.cpp.o: ../3rdpart/ZLToolKit/src/Util/util.h
+CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/zlm_manager.cpp.o: ../src/zlmedia/zlmedia_server/zlm_manager.cpp
+CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/zlm_manager.cpp.o: ../src/zlmedia/zlmedia_server/zlm_manager.hpp
+CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/zlm_manager.cpp.o: ../src/zlmedia/zlmedia_server/zlm_server.hpp
+
+CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/zlm_server.cpp.o: ../src/zlmedia/zlmedia_server/zlm_server.cpp
+CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/zlm_server.cpp.o: ../src/zlmedia/zlmedia_server/zlm_server.hpp
 

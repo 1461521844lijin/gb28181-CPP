@@ -25,6 +25,7 @@
         "zlmAddr": "192.168.161.150",
         "zlmPort": 80,
         "zlmSecret": "035c73f7-bb6b-4889-a715-d9eb2d1925cc",
-        "zlmRtpPort": 10000
+        "zlmRtpPort": 10000,
+        "zlmServerID":"192.168.161.150"
     }   
 }

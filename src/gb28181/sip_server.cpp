@@ -11,7 +11,9 @@
 #include "event_handler/handler_manager.h"
 #include <glog/logging.h>
 #include <netinet/in.h>
-#include "gb28181//event_handler/sip_event.h"
+#include "gb28181/event_handler/sip_event.h"
+#include "gb28181/request/requested_pool.h"
+#include "zlmedia/zlmedia_server/zlm_manager.hpp"
 namespace GB28181 {
 
 SipServer *SipServer::instance() {
@@ -61,6 +63,10 @@ int SipServer::Start(const std::string &user_agent) {
 
     // 启动事件接受线程
     recvTask = std::thread(&SipServer::DoReceiveEvents, this);
+    // 启动请求超时检查计时器
+    g_RequestedPool::GetInstance()->Init();
+    // 启动流媒体服务器负载检查和心跳检测计时器
+    ZLM::g_ZlmMgr::GetInstance()->init();
 
     return 0;
 }

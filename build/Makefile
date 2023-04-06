@@ -276,6 +276,33 @@ src/application/service/PTZOperator.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/application/service/PTZOperator.cpp.s
 .PHONY : src/application/service/PTZOperator.cpp.s
 
+src/application/service/PlayOperator.o: src/application/service/PlayOperator.cpp.o
+
+.PHONY : src/application/service/PlayOperator.o
+
+# target to build an object file
+src/application/service/PlayOperator.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/application/service/PlayOperator.cpp.o
+.PHONY : src/application/service/PlayOperator.cpp.o
+
+src/application/service/PlayOperator.i: src/application/service/PlayOperator.cpp.i
+
+.PHONY : src/application/service/PlayOperator.i
+
+# target to preprocess a source file
+src/application/service/PlayOperator.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/application/service/PlayOperator.cpp.i
+.PHONY : src/application/service/PlayOperator.cpp.i
+
+src/application/service/PlayOperator.s: src/application/service/PlayOperator.cpp.s
+
+.PHONY : src/application/service/PlayOperator.s
+
+# target to generate assembly for a file
+src/application/service/PlayOperator.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/application/service/PlayOperator.cpp.s
+.PHONY : src/application/service/PlayOperator.cpp.s
+
 src/gb28181/auth/md5/HTTPDigest.o: src/gb28181/auth/md5/HTTPDigest.c.o
 
 .PHONY : src/gb28181/auth/md5/HTTPDigest.o
@@ -1032,6 +1059,87 @@ src/utils/tinyxml2.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/utils/tinyxml2.cpp.s
 .PHONY : src/utils/tinyxml2.cpp.s
 
+src/zlmedia/zlmedia_server/loadblance.o: src/zlmedia/zlmedia_server/loadblance.cpp.o
+
+.PHONY : src/zlmedia/zlmedia_server/loadblance.o
+
+# target to build an object file
+src/zlmedia/zlmedia_server/loadblance.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/loadblance.cpp.o
+.PHONY : src/zlmedia/zlmedia_server/loadblance.cpp.o
+
+src/zlmedia/zlmedia_server/loadblance.i: src/zlmedia/zlmedia_server/loadblance.cpp.i
+
+.PHONY : src/zlmedia/zlmedia_server/loadblance.i
+
+# target to preprocess a source file
+src/zlmedia/zlmedia_server/loadblance.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/loadblance.cpp.i
+.PHONY : src/zlmedia/zlmedia_server/loadblance.cpp.i
+
+src/zlmedia/zlmedia_server/loadblance.s: src/zlmedia/zlmedia_server/loadblance.cpp.s
+
+.PHONY : src/zlmedia/zlmedia_server/loadblance.s
+
+# target to generate assembly for a file
+src/zlmedia/zlmedia_server/loadblance.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/loadblance.cpp.s
+.PHONY : src/zlmedia/zlmedia_server/loadblance.cpp.s
+
+src/zlmedia/zlmedia_server/zlm_manager.o: src/zlmedia/zlmedia_server/zlm_manager.cpp.o
+
+.PHONY : src/zlmedia/zlmedia_server/zlm_manager.o
+
+# target to build an object file
+src/zlmedia/zlmedia_server/zlm_manager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/zlm_manager.cpp.o
+.PHONY : src/zlmedia/zlmedia_server/zlm_manager.cpp.o
+
+src/zlmedia/zlmedia_server/zlm_manager.i: src/zlmedia/zlmedia_server/zlm_manager.cpp.i
+
+.PHONY : src/zlmedia/zlmedia_server/zlm_manager.i
+
+# target to preprocess a source file
+src/zlmedia/zlmedia_server/zlm_manager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/zlm_manager.cpp.i
+.PHONY : src/zlmedia/zlmedia_server/zlm_manager.cpp.i
+
+src/zlmedia/zlmedia_server/zlm_manager.s: src/zlmedia/zlmedia_server/zlm_manager.cpp.s
+
+.PHONY : src/zlmedia/zlmedia_server/zlm_manager.s
+
+# target to generate assembly for a file
+src/zlmedia/zlmedia_server/zlm_manager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/zlm_manager.cpp.s
+.PHONY : src/zlmedia/zlmedia_server/zlm_manager.cpp.s
+
+src/zlmedia/zlmedia_server/zlm_server.o: src/zlmedia/zlmedia_server/zlm_server.cpp.o
+
+.PHONY : src/zlmedia/zlmedia_server/zlm_server.o
+
+# target to build an object file
+src/zlmedia/zlmedia_server/zlm_server.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/zlm_server.cpp.o
+.PHONY : src/zlmedia/zlmedia_server/zlm_server.cpp.o
+
+src/zlmedia/zlmedia_server/zlm_server.i: src/zlmedia/zlmedia_server/zlm_server.cpp.i
+
+.PHONY : src/zlmedia/zlmedia_server/zlm_server.i
+
+# target to preprocess a source file
+src/zlmedia/zlmedia_server/zlm_server.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/zlm_server.cpp.i
+.PHONY : src/zlmedia/zlmedia_server/zlm_server.cpp.i
+
+src/zlmedia/zlmedia_server/zlm_server.s: src/zlmedia/zlmedia_server/zlm_server.cpp.s
+
+.PHONY : src/zlmedia/zlmedia_server/zlm_server.s
+
+# target to generate assembly for a file
+src/zlmedia/zlmedia_server/zlm_server.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/zlm_server.cpp.s
+.PHONY : src/zlmedia/zlmedia_server/zlm_server.cpp.s
+
 test/ptz_test.o: test/ptz_test.cpp.o
 
 .PHONY : test/ptz_test.o
@@ -1082,6 +1190,9 @@ help:
 	@echo "... src/application/service/PTZOperator.o"
 	@echo "... src/application/service/PTZOperator.i"
 	@echo "... src/application/service/PTZOperator.s"
+	@echo "... src/application/service/PlayOperator.o"
+	@echo "... src/application/service/PlayOperator.i"
+	@echo "... src/application/service/PlayOperator.s"
 	@echo "... src/gb28181/auth/md5/HTTPDigest.o"
 	@echo "... src/gb28181/auth/md5/HTTPDigest.i"
 	@echo "... src/gb28181/auth/md5/HTTPDigest.s"
@@ -1166,6 +1277,15 @@ help:
 	@echo "... src/utils/tinyxml2.o"
 	@echo "... src/utils/tinyxml2.i"
 	@echo "... src/utils/tinyxml2.s"
+	@echo "... src/zlmedia/zlmedia_server/loadblance.o"
+	@echo "... src/zlmedia/zlmedia_server/loadblance.i"
+	@echo "... src/zlmedia/zlmedia_server/loadblance.s"
+	@echo "... src/zlmedia/zlmedia_server/zlm_manager.o"
+	@echo "... src/zlmedia/zlmedia_server/zlm_manager.i"
+	@echo "... src/zlmedia/zlmedia_server/zlm_manager.s"
+	@echo "... src/zlmedia/zlmedia_server/zlm_server.o"
+	@echo "... src/zlmedia/zlmedia_server/zlm_server.i"
+	@echo "... src/zlmedia/zlmedia_server/zlm_server.s"
 	@echo "... test/ptz_test.o"
 	@echo "... test/ptz_test.i"
 	@echo "... test/ptz_test.s"

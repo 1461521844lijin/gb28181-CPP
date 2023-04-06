@@ -324,7 +324,7 @@ int EventHandlerManager::on_exosip_message_redirected(const SipEvent::ptr &event
 
 int EventHandlerManager::on_exosip_message_requestfailure(const SipEvent::ptr &event)
 {
-//    m_msghandler->HandleResponseFailure(event);
+   m_msghandler.HandleResponseFailure(event);
 
     return 0;
 }

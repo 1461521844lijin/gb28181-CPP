@@ -31,7 +31,7 @@ public:
     };
 
     // 设置是否等待
-    void SetWait(bool bwait);
+    void SetWait(bool bwait = true);
 
     /// 等待请求完成 如果设置了bwait为true则会阻塞等待请求完成，否则直接返回
     void WaitResult();
@@ -49,12 +49,11 @@ public:
     /// @brief 获取请求时间
     time_t GetReqtime();
 
-protected:
-    /// @brief 请求完成 会唤醒等待的请求
+    /// @brief 标志请求完成 会唤醒等待的请求
     int onRequestFinished();
 
 public:
-    /// @brief 请求完成
+    /// @brief 唤醒等待的请求
     void finished();
 
 protected:
