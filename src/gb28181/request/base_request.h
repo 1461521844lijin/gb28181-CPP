@@ -19,14 +19,27 @@
 namespace GB28181 {
 using namespace std;
 
-class BaseRequest  {
+
+struct exosip_guard {
+    explicit exosip_guard(eXosip_t* e) {
+        m_excontext = e;
+        eXosip_lock(m_excontext);
+    }
+    ~exosip_guard() {
+        eXosip_unlock(m_excontext);
+    }
+    eXosip_t* m_excontext;
+};
+
+
+class BaseRequest {
 public:
     typedef std::shared_ptr<BaseRequest> ptr;
     explicit BaseRequest(REQ_MESSAGE_TYPE reqtype);
     virtual ~BaseRequest();
 
     /// @brief 请求响应接口 虚函数被子类重写
-    virtual int HandleResponse(int statcode){
+    virtual int HandleResponse(int statcode) {
         return 0;
     };
 
@@ -56,6 +69,9 @@ public:
     /// @brief 唤醒等待的请求
     void finished();
 
+    // 获取请求ID
+    const char *get_reqid_from_request(osip_message_t *msg);
+
 protected:
     string m_reqid;  ///< 请求ID
 
@@ -68,7 +84,7 @@ private:
     condition_variable m_cond;
 };
 
-class MessageRequest : public BaseRequest,  public std::enable_shared_from_this<BaseRequest> {
+class MessageRequest : public BaseRequest, public std::enable_shared_from_this<BaseRequest> {
 public:
     typedef std::shared_ptr<MessageRequest> ptr;
     MessageRequest(Device::ptr device, REQ_MESSAGE_TYPE reqtype)
@@ -86,9 +102,6 @@ public:
     }
 
 protected:
-    // 获取请求ID
-    const char *get_reqid_from_request(osip_message_t *msg);
-
     // 构建消息体
     virtual const std::string make_manscdp_body() = 0;
 
@@ -108,5 +121,7 @@ private:
     string      m_reqsn;   // 请求序列号
     Device::ptr m_device;  // 请求发往的设备
 };
+
+
 
 }  // namespace GB28181

@@ -159,6 +159,16 @@ int EventHandlerManager::on_exosip_call_answered(const SipEvent::ptr &event)
     device->setCallId(callid);
     device->setDialogId(dialog);
 
+    string reqid;
+    osip_generic_param_t* tag = nullptr;
+    osip_to_get_tag(event->exevent->request->from, &tag);
+    if (nullptr == tag || nullptr == tag->gvalue) {
+        reqid = "";
+    }
+    reqid = (const char*)tag->gvalue;
+
+    LOG(INFO) << "call response reqid = " << reqid;
+
     osip_message_t* msg = nullptr;
     int ret = eXosip_call_build_ack(event->excontext, event->exevent->did, &msg);
     if (!ret && msg) {

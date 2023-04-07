@@ -55,12 +55,13 @@ public:
     bool DelRequest(REQ_MESSAGE_TYPE reqtype, string& reqid);
 
     /**
-     * @brief 根据请求SN（序列号）获取请求对象  这个方法性能比较差，需要优化
+     * @brief 根据请求SN（序列号）和类型，获取请求对象  这个方法性能比较差，需要优化
      * 
      * @param reqsn 请求SN
-     * @param msgreq 返回请求对象
+     * @param reqtype 请求类型
+     * @return req 返回请求对象
      */
-    MessageRequest::ptr GetMsgRequestBySn(const string& reqsn);
+    MessageRequest::ptr GetMsgRequestBySn(const string& reqsn, REQ_MESSAGE_TYPE reqtype);
 
     int HandleMsgResponse(string& reqid, int status_code);
 

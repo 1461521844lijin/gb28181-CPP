@@ -8,7 +8,7 @@
 #include "application/dto/StatusDto.hpp"
 #include "application/dto/PlayDto.hpp"
 
-#include "application/service/PTZOperator.hpp"
+#include "application/service/PlayOperator.hpp"
 
 #include OATPP_CODEGEN_BEGIN(ApiController)
 
@@ -31,12 +31,25 @@ public:
         "/api/play/start/{deviceId}/{channelId}", 
         play_start, 
         PATH(String, deviceId), 
-        PATH(String, channelId), 
+        PATH(String, channelId) 
     ) {
-        return createDtoResponse(Status::CODE_200,  Web::do_taks(playDto));
+        return createDtoResponse(Status::CODE_200, OP::play_start(deviceId, channelId));
+    }
+
+    ENDPOINT_INFO(play_stop) {
+        info->summary = "国标设备停止点播";
+        info->addTag("Play");
+        info->addResponse<Object<StatusDto>>(Status::CODE_400, "application/json");
+    }
+    ENDPOINT("GET", 
+        "/api/play/stop/{deviceId}/{channelId}", 
+        play_stop, 
+        PATH(String, deviceId), 
+        PATH(String, channelId) 
+    ) {
+        return createDtoResponse(Status::CODE_200, OP::play_stop(deviceId, channelId));
     }
 };
     
 
 
-}

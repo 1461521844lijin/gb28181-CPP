@@ -37,7 +37,6 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
 set(CMAKE_DEPENDS_CHECK_CXX
   "/dataset/lijin/my_project/gb28181-CPP/src/App.cpp" "/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles/gb28181_cpp.dir/src/App.cpp.o"
   "/dataset/lijin/my_project/gb28181-CPP/src/ErrorHandler.cpp" "/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles/gb28181_cpp.dir/src/ErrorHandler.cpp.o"
-  "/dataset/lijin/my_project/gb28181-CPP/src/application/service/DeviceOperator.cpp" "/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles/gb28181_cpp.dir/src/application/service/DeviceOperator.cpp.o"
   "/dataset/lijin/my_project/gb28181-CPP/src/application/service/PTZOperator.cpp" "/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles/gb28181_cpp.dir/src/application/service/PTZOperator.cpp.o"
   "/dataset/lijin/my_project/gb28181-CPP/src/application/service/PlayOperator.cpp" "/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles/gb28181_cpp.dir/src/application/service/PlayOperator.cpp.o"
   "/dataset/lijin/my_project/gb28181-CPP/src/gb28181/device_client/channel.cpp" "/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles/gb28181_cpp.dir/src/gb28181/device_client/channel.cpp.o"
@@ -56,6 +55,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/dataset/lijin/my_project/gb28181-CPP/src/gb28181/ptz/ptz_cmd.cpp" "/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles/gb28181_cpp.dir/src/gb28181/ptz/ptz_cmd.cpp.o"
   "/dataset/lijin/my_project/gb28181-CPP/src/gb28181/ptz/ptz_parser.cpp" "/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles/gb28181_cpp.dir/src/gb28181/ptz/ptz_parser.cpp.o"
   "/dataset/lijin/my_project/gb28181-CPP/src/gb28181/request/base_request.cpp" "/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles/gb28181_cpp.dir/src/gb28181/request/base_request.cpp.o"
+  "/dataset/lijin/my_project/gb28181-CPP/src/gb28181/request/call/invite_request.cpp" "/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles/gb28181_cpp.dir/src/gb28181/request/call/invite_request.cpp.o"
   "/dataset/lijin/my_project/gb28181-CPP/src/gb28181/request/message/catalog_request.cpp" "/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/catalog_request.cpp.o"
   "/dataset/lijin/my_project/gb28181-CPP/src/gb28181/request/message/preset_ctl_request.cpp" "/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/preset_ctl_request.cpp.o"
   "/dataset/lijin/my_project/gb28181-CPP/src/gb28181/request/message/preset_request.cpp" "/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/preset_request.cpp.o"
@@ -66,7 +66,6 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/dataset/lijin/my_project/gb28181-CPP/src/utils/System.cpp" "/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles/gb28181_cpp.dir/src/utils/System.cpp.o"
   "/dataset/lijin/my_project/gb28181-CPP/src/utils/common.cpp" "/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles/gb28181_cpp.dir/src/utils/common.cpp.o"
   "/dataset/lijin/my_project/gb28181-CPP/src/utils/tinyxml2.cpp" "/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles/gb28181_cpp.dir/src/utils/tinyxml2.cpp.o"
-  "/dataset/lijin/my_project/gb28181-CPP/src/zlmedia/zlmedia_server/loadblance.cpp" "/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/loadblance.cpp.o"
   "/dataset/lijin/my_project/gb28181-CPP/src/zlmedia/zlmedia_server/zlm_manager.cpp" "/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/zlm_manager.cpp.o"
   "/dataset/lijin/my_project/gb28181-CPP/src/zlmedia/zlmedia_server/zlm_server.cpp" "/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/zlm_server.cpp.o"
   )

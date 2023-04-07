@@ -18,16 +18,7 @@ namespace GB28181 {
 
 
 
-struct exosip_guard {
-    explicit exosip_guard(eXosip_t* e) {
-        m_excontext = e;
-        eXosip_lock(m_excontext);
-    }
-    ~exosip_guard() {
-        eXosip_unlock(m_excontext);
-    }
-    eXosip_t* m_excontext;
-};
+
 
 BaseRequest::BaseRequest(REQ_MESSAGE_TYPE reqtype)
     : m_bfinished(false), m_bwait(false), m_reqtime(time(nullptr)), m_reqtype(reqtype)
@@ -89,11 +80,27 @@ time_t BaseRequest::GetReqtime()
     return m_reqtime;
 }
 
+const char *BaseRequest::get_reqid_from_request(osip_message_t *msg)
+{
+    osip_generic_param_t* tag = nullptr;
+    osip_to_get_tag(msg->from, &tag);
+    if (nullptr == tag || nullptr == tag->gvalue) {
+        return nullptr;
+    }
+    return (const char*) tag->gvalue;
+}
+
+
+
 
 int MessageRequest::send_message(bool needcb){
 
 
     auto excontext = g_SipServer::GetInstance()->GetExosipContext();
+    if(nullptr == excontext){
+        LOG(ERROR) << "excontext is null";
+        return -1;
+    }
     auto reqsn = g_SipServer::GetInstance()->generate_sn();
     set_reqsn(reqsn);   
     OATPP_COMPONENT(oatpp::Object<SipConfigDto>, sipConfig);
@@ -128,21 +135,14 @@ int MessageRequest::send_message(bool needcb){
         if (reqid.length() >0) {
             BaseRequest::ptr req = shared_from_this();
             g_RequestedPool::GetInstance()->AddRequest(reqid, req);
-            // RequestedPool::instance()->AddRequest(reqid, shared_from_this());
         }
     }
     return 0;
 }
 
-const char *MessageRequest::get_reqid_from_request(osip_message_t *msg)
-{
-    osip_generic_param_t* tag = nullptr;
-    osip_to_get_tag(msg->from, &tag);
-    if (nullptr == tag || nullptr == tag->gvalue) {
-        return nullptr;
-    }
-    return (const char*) tag->gvalue;
-}
+
+
+
 
 
 

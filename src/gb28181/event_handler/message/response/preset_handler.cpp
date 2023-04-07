@@ -38,7 +38,7 @@ int PresetQuireHandler::handle(SipEvent::ptr event, tinyxml2::XMLDocument& xml){
     std::string device_id = root->FirstChildElement("DeviceID")->GetText();
     std::string sn = root->FirstChildElement("SN")->GetText();
     
-    auto req = g_RequestedPool::GetInstance()->GetMsgRequestBySn(sn);
+    auto req = g_RequestedPool::GetInstance()->GetMsgRequestBySn(sn, REQ_MESSAGE_TYPE::DEVICE_QUIER_PRESET);
     if(req == nullptr){
         LOG(ERROR) << "PresetQuireHandler::handle can not find request by sn:" << sn;
         return sendSimplyResp(device_id.c_str(), event->excontext, event->exevent->tid, SIP_INTERNAL_SERVER_ERROR);

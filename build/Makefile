@@ -222,33 +222,6 @@ src/ErrorHandler.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/ErrorHandler.cpp.s
 .PHONY : src/ErrorHandler.cpp.s
 
-src/application/service/DeviceOperator.o: src/application/service/DeviceOperator.cpp.o
-
-.PHONY : src/application/service/DeviceOperator.o
-
-# target to build an object file
-src/application/service/DeviceOperator.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/application/service/DeviceOperator.cpp.o
-.PHONY : src/application/service/DeviceOperator.cpp.o
-
-src/application/service/DeviceOperator.i: src/application/service/DeviceOperator.cpp.i
-
-.PHONY : src/application/service/DeviceOperator.i
-
-# target to preprocess a source file
-src/application/service/DeviceOperator.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/application/service/DeviceOperator.cpp.i
-.PHONY : src/application/service/DeviceOperator.cpp.i
-
-src/application/service/DeviceOperator.s: src/application/service/DeviceOperator.cpp.s
-
-.PHONY : src/application/service/DeviceOperator.s
-
-# target to generate assembly for a file
-src/application/service/DeviceOperator.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/application/service/DeviceOperator.cpp.s
-.PHONY : src/application/service/DeviceOperator.cpp.s
-
 src/application/service/PTZOperator.o: src/application/service/PTZOperator.cpp.o
 
 .PHONY : src/application/service/PTZOperator.o
@@ -789,6 +762,33 @@ src/gb28181/request/base_request.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/request/base_request.cpp.s
 .PHONY : src/gb28181/request/base_request.cpp.s
 
+src/gb28181/request/call/invite_request.o: src/gb28181/request/call/invite_request.cpp.o
+
+.PHONY : src/gb28181/request/call/invite_request.o
+
+# target to build an object file
+src/gb28181/request/call/invite_request.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/request/call/invite_request.cpp.o
+.PHONY : src/gb28181/request/call/invite_request.cpp.o
+
+src/gb28181/request/call/invite_request.i: src/gb28181/request/call/invite_request.cpp.i
+
+.PHONY : src/gb28181/request/call/invite_request.i
+
+# target to preprocess a source file
+src/gb28181/request/call/invite_request.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/request/call/invite_request.cpp.i
+.PHONY : src/gb28181/request/call/invite_request.cpp.i
+
+src/gb28181/request/call/invite_request.s: src/gb28181/request/call/invite_request.cpp.s
+
+.PHONY : src/gb28181/request/call/invite_request.s
+
+# target to generate assembly for a file
+src/gb28181/request/call/invite_request.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/request/call/invite_request.cpp.s
+.PHONY : src/gb28181/request/call/invite_request.cpp.s
+
 src/gb28181/request/message/catalog_request.o: src/gb28181/request/message/catalog_request.cpp.o
 
 .PHONY : src/gb28181/request/message/catalog_request.o
@@ -1059,33 +1059,6 @@ src/utils/tinyxml2.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/utils/tinyxml2.cpp.s
 .PHONY : src/utils/tinyxml2.cpp.s
 
-src/zlmedia/zlmedia_server/loadblance.o: src/zlmedia/zlmedia_server/loadblance.cpp.o
-
-.PHONY : src/zlmedia/zlmedia_server/loadblance.o
-
-# target to build an object file
-src/zlmedia/zlmedia_server/loadblance.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/loadblance.cpp.o
-.PHONY : src/zlmedia/zlmedia_server/loadblance.cpp.o
-
-src/zlmedia/zlmedia_server/loadblance.i: src/zlmedia/zlmedia_server/loadblance.cpp.i
-
-.PHONY : src/zlmedia/zlmedia_server/loadblance.i
-
-# target to preprocess a source file
-src/zlmedia/zlmedia_server/loadblance.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/loadblance.cpp.i
-.PHONY : src/zlmedia/zlmedia_server/loadblance.cpp.i
-
-src/zlmedia/zlmedia_server/loadblance.s: src/zlmedia/zlmedia_server/loadblance.cpp.s
-
-.PHONY : src/zlmedia/zlmedia_server/loadblance.s
-
-# target to generate assembly for a file
-src/zlmedia/zlmedia_server/loadblance.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/loadblance.cpp.s
-.PHONY : src/zlmedia/zlmedia_server/loadblance.cpp.s
-
 src/zlmedia/zlmedia_server/zlm_manager.o: src/zlmedia/zlmedia_server/zlm_manager.cpp.o
 
 .PHONY : src/zlmedia/zlmedia_server/zlm_manager.o
@@ -1184,9 +1157,6 @@ help:
 	@echo "... src/ErrorHandler.o"
 	@echo "... src/ErrorHandler.i"
 	@echo "... src/ErrorHandler.s"
-	@echo "... src/application/service/DeviceOperator.o"
-	@echo "... src/application/service/DeviceOperator.i"
-	@echo "... src/application/service/DeviceOperator.s"
 	@echo "... src/application/service/PTZOperator.o"
 	@echo "... src/application/service/PTZOperator.i"
 	@echo "... src/application/service/PTZOperator.s"
@@ -1247,6 +1217,9 @@ help:
 	@echo "... src/gb28181/request/base_request.o"
 	@echo "... src/gb28181/request/base_request.i"
 	@echo "... src/gb28181/request/base_request.s"
+	@echo "... src/gb28181/request/call/invite_request.o"
+	@echo "... src/gb28181/request/call/invite_request.i"
+	@echo "... src/gb28181/request/call/invite_request.s"
 	@echo "... src/gb28181/request/message/catalog_request.o"
 	@echo "... src/gb28181/request/message/catalog_request.i"
 	@echo "... src/gb28181/request/message/catalog_request.s"
@@ -1277,9 +1250,6 @@ help:
 	@echo "... src/utils/tinyxml2.o"
 	@echo "... src/utils/tinyxml2.i"
 	@echo "... src/utils/tinyxml2.s"
-	@echo "... src/zlmedia/zlmedia_server/loadblance.o"
-	@echo "... src/zlmedia/zlmedia_server/loadblance.i"
-	@echo "... src/zlmedia/zlmedia_server/loadblance.s"
 	@echo "... src/zlmedia/zlmedia_server/zlm_manager.o"
 	@echo "... src/zlmedia/zlmedia_server/zlm_manager.i"
 	@echo "... src/zlmedia/zlmedia_server/zlm_manager.s"

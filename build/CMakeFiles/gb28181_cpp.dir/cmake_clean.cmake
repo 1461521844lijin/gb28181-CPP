@@ -1,7 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/gb28181_cpp.dir/src/App.cpp.o"
   "CMakeFiles/gb28181_cpp.dir/src/ErrorHandler.cpp.o"
-  "CMakeFiles/gb28181_cpp.dir/src/application/service/DeviceOperator.cpp.o"
   "CMakeFiles/gb28181_cpp.dir/src/application/service/PTZOperator.cpp.o"
   "CMakeFiles/gb28181_cpp.dir/src/application/service/PlayOperator.cpp.o"
   "CMakeFiles/gb28181_cpp.dir/src/gb28181/auth/md5/HTTPDigest.c.o"
@@ -22,6 +21,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/gb28181_cpp.dir/src/gb28181/ptz/ptz_cmd.cpp.o"
   "CMakeFiles/gb28181_cpp.dir/src/gb28181/ptz/ptz_parser.cpp.o"
   "CMakeFiles/gb28181_cpp.dir/src/gb28181/request/base_request.cpp.o"
+  "CMakeFiles/gb28181_cpp.dir/src/gb28181/request/call/invite_request.cpp.o"
   "CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/catalog_request.cpp.o"
   "CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/preset_ctl_request.cpp.o"
   "CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/preset_request.cpp.o"
@@ -32,7 +32,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/gb28181_cpp.dir/src/utils/System.cpp.o"
   "CMakeFiles/gb28181_cpp.dir/src/utils/common.cpp.o"
   "CMakeFiles/gb28181_cpp.dir/src/utils/tinyxml2.cpp.o"
-  "CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/loadblance.cpp.o"
   "CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/zlm_manager.cpp.o"
   "CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/zlm_server.cpp.o"
   "bin/gb28181_cpp"

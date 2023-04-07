@@ -18,8 +18,8 @@
 #include "application/oatppComponents/SwaggerComponent.hpp"
 #include "oatpp/core/base/CommandLineArguments.hpp"
 
-#include "application/controller/DeviceController.hpp"
 #include "application/controller/PtzController.hpp"
+#include "application/controller/PlayController.hpp"
     
 #include "Poller/EventPoller.h"
 
@@ -46,10 +46,10 @@ void run_oatpp() {
 
 
     // 将接口添加到路由器和swagger中
-    router->addController(DeviceController::createShared());
-    docEndpoints.append(router->addController(DeviceController::createShared())->getEndpoints());
     router->addController(PTZController::createShared());
     docEndpoints.append(router->addController(PTZController::createShared())->getEndpoints());
+    router->addController(PlayController::createShared());
+    docEndpoints.append(router->addController(PlayController::createShared())->getEndpoints());
     // router->addController(RegisterController::createShared());
     // docEndpoints.append(router->addController(RegisterController::createShared())->getEndpoints());
 

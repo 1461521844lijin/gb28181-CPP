@@ -51,9 +51,12 @@ bool RequestedPool::DelRequest(REQ_MESSAGE_TYPE reqtype, string &reqid) {
     return false;
 }
 
-MessageRequest::ptr RequestedPool::GetMsgRequestBySn(const string &reqsn) {
+MessageRequest::ptr RequestedPool::GetMsgRequestBySn(const string &reqsn, REQ_MESSAGE_TYPE reqtype) {
     lock_guard<mutex> guard(m_mutex);
     for (auto &req : m_requestmap) {
+        if(req.second->GetReqType() != reqtype) {
+            continue;
+        }
         MessageRequest::ptr msgreq = dynamic_pointer_cast<MessageRequest>(req.second);
         if (msgreq->GetReqSn() == reqsn) {
             return msgreq;
@@ -71,7 +74,7 @@ int RequestedPool::check_requet_timeout(double timeout) {
     check_requet_timeout_timer.reset(new toolkit::Timer(
         timeout,
         [this]() {
-            LOG(INFO) << "定期请求超时检查和清理";
+            // LOG(INFO) << "定期请求超时检查和清理";
             time_t            now = time(nullptr);
             lock_guard<mutex> guard(m_mutex);
             for (auto itr = m_requestmap.begin(); itr != m_requestmap.end();) {

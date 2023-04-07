@@ -336,9 +336,22 @@ CMakeFiles/gb28181_cpp.dir/src/gb28181/request/base_request.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gb28181_cpp.dir/src/gb28181/request/base_request.cpp.s"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /dataset/lijin/my_project/gb28181-CPP/src/gb28181/request/base_request.cpp -o CMakeFiles/gb28181_cpp.dir/src/gb28181/request/base_request.cpp.s
 
+CMakeFiles/gb28181_cpp.dir/src/gb28181/request/call/invite_request.cpp.o: CMakeFiles/gb28181_cpp.dir/flags.make
+CMakeFiles/gb28181_cpp.dir/src/gb28181/request/call/invite_request.cpp.o: ../src/gb28181/request/call/invite_request.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/gb28181_cpp.dir/src/gb28181/request/call/invite_request.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gb28181_cpp.dir/src/gb28181/request/call/invite_request.cpp.o -c /dataset/lijin/my_project/gb28181-CPP/src/gb28181/request/call/invite_request.cpp
+
+CMakeFiles/gb28181_cpp.dir/src/gb28181/request/call/invite_request.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gb28181_cpp.dir/src/gb28181/request/call/invite_request.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /dataset/lijin/my_project/gb28181-CPP/src/gb28181/request/call/invite_request.cpp > CMakeFiles/gb28181_cpp.dir/src/gb28181/request/call/invite_request.cpp.i
+
+CMakeFiles/gb28181_cpp.dir/src/gb28181/request/call/invite_request.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gb28181_cpp.dir/src/gb28181/request/call/invite_request.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /dataset/lijin/my_project/gb28181-CPP/src/gb28181/request/call/invite_request.cpp -o CMakeFiles/gb28181_cpp.dir/src/gb28181/request/call/invite_request.cpp.s
+
 CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/catalog_request.cpp.o: CMakeFiles/gb28181_cpp.dir/flags.make
 CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/catalog_request.cpp.o: ../src/gb28181/request/message/catalog_request.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/catalog_request.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/catalog_request.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/catalog_request.cpp.o -c /dataset/lijin/my_project/gb28181-CPP/src/gb28181/request/message/catalog_request.cpp
 
 CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/catalog_request.cpp.i: cmake_force
@@ -351,7 +364,7 @@ CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/catalog_request.cpp.s: cm
 
 CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/preset_ctl_request.cpp.o: CMakeFiles/gb28181_cpp.dir/flags.make
 CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/preset_ctl_request.cpp.o: ../src/gb28181/request/message/preset_ctl_request.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/preset_ctl_request.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/preset_ctl_request.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/preset_ctl_request.cpp.o -c /dataset/lijin/my_project/gb28181-CPP/src/gb28181/request/message/preset_ctl_request.cpp
 
 CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/preset_ctl_request.cpp.i: cmake_force
@@ -364,7 +377,7 @@ CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/preset_ctl_request.cpp.s:
 
 CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/preset_request.cpp.o: CMakeFiles/gb28181_cpp.dir/flags.make
 CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/preset_request.cpp.o: ../src/gb28181/request/message/preset_request.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/preset_request.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/preset_request.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/preset_request.cpp.o -c /dataset/lijin/my_project/gb28181-CPP/src/gb28181/request/message/preset_request.cpp
 
 CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/preset_request.cpp.i: cmake_force
@@ -377,7 +390,7 @@ CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/preset_request.cpp.s: cma
 
 CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/ptzcontrol_request.cpp.o: CMakeFiles/gb28181_cpp.dir/flags.make
 CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/ptzcontrol_request.cpp.o: ../src/gb28181/request/message/ptzcontrol_request.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/ptzcontrol_request.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/ptzcontrol_request.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/ptzcontrol_request.cpp.o -c /dataset/lijin/my_project/gb28181-CPP/src/gb28181/request/message/ptzcontrol_request.cpp
 
 CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/ptzcontrol_request.cpp.i: cmake_force
@@ -390,7 +403,7 @@ CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/ptzcontrol_request.cpp.s:
 
 CMakeFiles/gb28181_cpp.dir/src/gb28181/request/play_request.cpp.o: CMakeFiles/gb28181_cpp.dir/flags.make
 CMakeFiles/gb28181_cpp.dir/src/gb28181/request/play_request.cpp.o: ../src/gb28181/request/play_request.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/gb28181_cpp.dir/src/gb28181/request/play_request.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/gb28181_cpp.dir/src/gb28181/request/play_request.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gb28181_cpp.dir/src/gb28181/request/play_request.cpp.o -c /dataset/lijin/my_project/gb28181-CPP/src/gb28181/request/play_request.cpp
 
 CMakeFiles/gb28181_cpp.dir/src/gb28181/request/play_request.cpp.i: cmake_force
@@ -403,7 +416,7 @@ CMakeFiles/gb28181_cpp.dir/src/gb28181/request/play_request.cpp.s: cmake_force
 
 CMakeFiles/gb28181_cpp.dir/src/gb28181/request/requested_pool.cpp.o: CMakeFiles/gb28181_cpp.dir/flags.make
 CMakeFiles/gb28181_cpp.dir/src/gb28181/request/requested_pool.cpp.o: ../src/gb28181/request/requested_pool.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/gb28181_cpp.dir/src/gb28181/request/requested_pool.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/gb28181_cpp.dir/src/gb28181/request/requested_pool.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gb28181_cpp.dir/src/gb28181/request/requested_pool.cpp.o -c /dataset/lijin/my_project/gb28181-CPP/src/gb28181/request/requested_pool.cpp
 
 CMakeFiles/gb28181_cpp.dir/src/gb28181/request/requested_pool.cpp.i: cmake_force
@@ -416,7 +429,7 @@ CMakeFiles/gb28181_cpp.dir/src/gb28181/request/requested_pool.cpp.s: cmake_force
 
 CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o: CMakeFiles/gb28181_cpp.dir/flags.make
 CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o: ../src/gb28181/sip_server.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o -c /dataset/lijin/my_project/gb28181-CPP/src/gb28181/sip_server.cpp
 
 CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.i: cmake_force
@@ -426,19 +439,6 @@ CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.i: cmake_force
 CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.s"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /dataset/lijin/my_project/gb28181-CPP/src/gb28181/sip_server.cpp -o CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.s
-
-CMakeFiles/gb28181_cpp.dir/src/application/service/DeviceOperator.cpp.o: CMakeFiles/gb28181_cpp.dir/flags.make
-CMakeFiles/gb28181_cpp.dir/src/application/service/DeviceOperator.cpp.o: ../src/application/service/DeviceOperator.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/gb28181_cpp.dir/src/application/service/DeviceOperator.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gb28181_cpp.dir/src/application/service/DeviceOperator.cpp.o -c /dataset/lijin/my_project/gb28181-CPP/src/application/service/DeviceOperator.cpp
-
-CMakeFiles/gb28181_cpp.dir/src/application/service/DeviceOperator.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gb28181_cpp.dir/src/application/service/DeviceOperator.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /dataset/lijin/my_project/gb28181-CPP/src/application/service/DeviceOperator.cpp > CMakeFiles/gb28181_cpp.dir/src/application/service/DeviceOperator.cpp.i
-
-CMakeFiles/gb28181_cpp.dir/src/application/service/DeviceOperator.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gb28181_cpp.dir/src/application/service/DeviceOperator.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /dataset/lijin/my_project/gb28181-CPP/src/application/service/DeviceOperator.cpp -o CMakeFiles/gb28181_cpp.dir/src/application/service/DeviceOperator.cpp.s
 
 CMakeFiles/gb28181_cpp.dir/src/application/service/PTZOperator.cpp.o: CMakeFiles/gb28181_cpp.dir/flags.make
 CMakeFiles/gb28181_cpp.dir/src/application/service/PTZOperator.cpp.o: ../src/application/service/PTZOperator.cpp
@@ -505,22 +505,9 @@ CMakeFiles/gb28181_cpp.dir/src/utils/tinyxml2.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gb28181_cpp.dir/src/utils/tinyxml2.cpp.s"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /dataset/lijin/my_project/gb28181-CPP/src/utils/tinyxml2.cpp -o CMakeFiles/gb28181_cpp.dir/src/utils/tinyxml2.cpp.s
 
-CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/loadblance.cpp.o: CMakeFiles/gb28181_cpp.dir/flags.make
-CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/loadblance.cpp.o: ../src/zlmedia/zlmedia_server/loadblance.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/loadblance.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/loadblance.cpp.o -c /dataset/lijin/my_project/gb28181-CPP/src/zlmedia/zlmedia_server/loadblance.cpp
-
-CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/loadblance.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/loadblance.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /dataset/lijin/my_project/gb28181-CPP/src/zlmedia/zlmedia_server/loadblance.cpp > CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/loadblance.cpp.i
-
-CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/loadblance.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/loadblance.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /dataset/lijin/my_project/gb28181-CPP/src/zlmedia/zlmedia_server/loadblance.cpp -o CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/loadblance.cpp.s
-
 CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/zlm_manager.cpp.o: CMakeFiles/gb28181_cpp.dir/flags.make
 CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/zlm_manager.cpp.o: ../src/zlmedia/zlmedia_server/zlm_manager.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building CXX object CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/zlm_manager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/zlm_manager.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/zlm_manager.cpp.o -c /dataset/lijin/my_project/gb28181-CPP/src/zlmedia/zlmedia_server/zlm_manager.cpp
 
 CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/zlm_manager.cpp.i: cmake_force
@@ -533,7 +520,7 @@ CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/zlm_manager.cpp.s: cmake_f
 
 CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/zlm_server.cpp.o: CMakeFiles/gb28181_cpp.dir/flags.make
 CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/zlm_server.cpp.o: ../src/zlmedia/zlmedia_server/zlm_server.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building CXX object CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/zlm_server.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building CXX object CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/zlm_server.cpp.o"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/zlm_server.cpp.o -c /dataset/lijin/my_project/gb28181-CPP/src/zlmedia/zlmedia_server/zlm_server.cpp
 
 CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/zlm_server.cpp.i: cmake_force
@@ -566,6 +553,7 @@ gb28181_cpp_OBJECTS = \
 "CMakeFiles/gb28181_cpp.dir/src/gb28181/ptz/ptz_cmd.cpp.o" \
 "CMakeFiles/gb28181_cpp.dir/src/gb28181/ptz/ptz_parser.cpp.o" \
 "CMakeFiles/gb28181_cpp.dir/src/gb28181/request/base_request.cpp.o" \
+"CMakeFiles/gb28181_cpp.dir/src/gb28181/request/call/invite_request.cpp.o" \
 "CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/catalog_request.cpp.o" \
 "CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/preset_ctl_request.cpp.o" \
 "CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/preset_request.cpp.o" \
@@ -573,13 +561,11 @@ gb28181_cpp_OBJECTS = \
 "CMakeFiles/gb28181_cpp.dir/src/gb28181/request/play_request.cpp.o" \
 "CMakeFiles/gb28181_cpp.dir/src/gb28181/request/requested_pool.cpp.o" \
 "CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o" \
-"CMakeFiles/gb28181_cpp.dir/src/application/service/DeviceOperator.cpp.o" \
 "CMakeFiles/gb28181_cpp.dir/src/application/service/PTZOperator.cpp.o" \
 "CMakeFiles/gb28181_cpp.dir/src/application/service/PlayOperator.cpp.o" \
 "CMakeFiles/gb28181_cpp.dir/src/utils/System.cpp.o" \
 "CMakeFiles/gb28181_cpp.dir/src/utils/common.cpp.o" \
 "CMakeFiles/gb28181_cpp.dir/src/utils/tinyxml2.cpp.o" \
-"CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/loadblance.cpp.o" \
 "CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/zlm_manager.cpp.o" \
 "CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/zlm_server.cpp.o"
 
@@ -606,6 +592,7 @@ bin/gb28181_cpp: CMakeFiles/gb28181_cpp.dir/src/gb28181/manscdp/xml_parser.cpp.o
 bin/gb28181_cpp: CMakeFiles/gb28181_cpp.dir/src/gb28181/ptz/ptz_cmd.cpp.o
 bin/gb28181_cpp: CMakeFiles/gb28181_cpp.dir/src/gb28181/ptz/ptz_parser.cpp.o
 bin/gb28181_cpp: CMakeFiles/gb28181_cpp.dir/src/gb28181/request/base_request.cpp.o
+bin/gb28181_cpp: CMakeFiles/gb28181_cpp.dir/src/gb28181/request/call/invite_request.cpp.o
 bin/gb28181_cpp: CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/catalog_request.cpp.o
 bin/gb28181_cpp: CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/preset_ctl_request.cpp.o
 bin/gb28181_cpp: CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/preset_request.cpp.o
@@ -613,19 +600,17 @@ bin/gb28181_cpp: CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/ptzcontr
 bin/gb28181_cpp: CMakeFiles/gb28181_cpp.dir/src/gb28181/request/play_request.cpp.o
 bin/gb28181_cpp: CMakeFiles/gb28181_cpp.dir/src/gb28181/request/requested_pool.cpp.o
 bin/gb28181_cpp: CMakeFiles/gb28181_cpp.dir/src/gb28181/sip_server.cpp.o
-bin/gb28181_cpp: CMakeFiles/gb28181_cpp.dir/src/application/service/DeviceOperator.cpp.o
 bin/gb28181_cpp: CMakeFiles/gb28181_cpp.dir/src/application/service/PTZOperator.cpp.o
 bin/gb28181_cpp: CMakeFiles/gb28181_cpp.dir/src/application/service/PlayOperator.cpp.o
 bin/gb28181_cpp: CMakeFiles/gb28181_cpp.dir/src/utils/System.cpp.o
 bin/gb28181_cpp: CMakeFiles/gb28181_cpp.dir/src/utils/common.cpp.o
 bin/gb28181_cpp: CMakeFiles/gb28181_cpp.dir/src/utils/tinyxml2.cpp.o
-bin/gb28181_cpp: CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/loadblance.cpp.o
 bin/gb28181_cpp: CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/zlm_manager.cpp.o
 bin/gb28181_cpp: CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/zlm_server.cpp.o
 bin/gb28181_cpp: CMakeFiles/gb28181_cpp.dir/build.make
 bin/gb28181_cpp: 3rdpart/libzltoolkit.a
 bin/gb28181_cpp: CMakeFiles/gb28181_cpp.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Linking CXX executable bin/gb28181_cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/dataset/lijin/my_project/gb28181-CPP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Linking CXX executable bin/gb28181_cpp"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/gb28181_cpp.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
