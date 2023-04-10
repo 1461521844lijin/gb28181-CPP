@@ -93,7 +93,7 @@ void SipServer::DoReceiveEvents() {
         if (nullptr == sip_event)
             continue;
 
-        LOG(INFO) << "收到event: " << sip_event->name << ", id=" << sip_event->id;
+        LOG(INFO) << "收到event: " << sip_event->name;
         toolkit::EventPollerPool::Instance().getExecutor()->async([sip_event]() {
             sip_event->proc(sip_event);
             eXosip_event_free(sip_event->exevent);

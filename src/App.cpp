@@ -20,6 +20,9 @@
 
 #include "application/controller/PtzController.hpp"
 #include "application/controller/PlayController.hpp"
+
+#include "zlmedia/web_hook/web_hook_controller.hpp"
+
     
 #include "Poller/EventPoller.h"
 
@@ -50,8 +53,8 @@ void run_oatpp() {
     docEndpoints.append(router->addController(PTZController::createShared())->getEndpoints());
     router->addController(PlayController::createShared());
     docEndpoints.append(router->addController(PlayController::createShared())->getEndpoints());
-    // router->addController(RegisterController::createShared());
-    // docEndpoints.append(router->addController(RegisterController::createShared())->getEndpoints());
+    router->addController(ZLM::ZlmWebHookController::createShared());
+    docEndpoints.append(router->addController(ZLM::ZlmWebHookController::createShared())->getEndpoints());
 
     router->addController(oatpp::swagger::Controller::createShared(docEndpoints));
     /* Get connection handler component */

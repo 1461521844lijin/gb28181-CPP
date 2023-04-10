@@ -5,6 +5,8 @@
 #include "gb28181/sip_server.h"
 #include "glog/logging.h"
 #include "oatpp/core/macro/component.hpp"
+
+#include "gb28181/device/call_session.h"
 namespace GB28181 {
 
 int InviteRequest::send_call(bool needcb) {
@@ -24,10 +26,8 @@ int InviteRequest::send_call(bool needcb) {
 
     exosip_guard guard(excontext);
 
-    int ret = eXosip_call_build_initial_invite(excontext, 
-                                                &msg, 
-                                                to.c_str(), from.c_str(),
-                                                nullptr, nullptr);
+    int ret = eXosip_call_build_initial_invite(excontext, &msg, to.c_str(), from.c_str(), nullptr,
+                                               nullptr);
     if (ret) {
         LOG(ERROR) << "eXosip_call_build_initial_invite error:" << from << " " << to
                    << "  ret:" << ret;
@@ -61,17 +61,27 @@ int InviteRequest::send_call(bool needcb) {
 }
 
 const std::string InviteRequest::make_sdp_body() {
+    std::string streamid = m_device->getDeviceId() + "_" + m_channel_id;
+    auto        ssrc     = m_zlm_server->openRTPServer(streamid);
+    if (!ssrc) {
+        LOG(ERROR) << "openRTPServer error";
+        throw std::runtime_error("openRTPServer error");
+    }
+
+    CallSession::ptr session = std::make_shared<CallSession>(m_zlm_server->getZlmServerId(), ssrc);
+    GB28181::g_CallSessionMgr::GetInstance()->addCallSession(m_device->getDeviceId(), session);
+
     OATPP_COMPONENT(oatpp::Object<SipConfigDto>, sipConfig);
-    OATPP_COMPONENT(oatpp::Object<MediaConfigDto>, mediaConfig);
+    // OATPP_COMPONENT(oatpp::Object<MediaConfigDto>, mediaConfig);
 
     std::stringstream sdp;
     sdp << "v=0\r\n";
     sdp << "o=" << sipConfig->sipId->c_str() << " 0 0 IN IP4 " << sipConfig->sipHost->c_str()
         << "\r\n";
     sdp << "s=Play\r\n";
-    sdp << "c=IN IP4 " << mediaConfig->zlmAddr->c_str() << "\r\n";
+    sdp << "c=IN IP4 " << m_zlm_server->getZlmAddr() << "\r\n";
     sdp << "t=0 0\r\n";
-    sdp << "m=video " << m_rtp_port << " TCP/RTP/AVP 96 98 97\r\n";
+    sdp << "m=video " << ssrc->getPort() << " TCP/RTP/AVP 96 98 97\r\n";
     sdp << "a=recvonly\r\n";
     sdp << "a=rtpmap:96 PS/90000\r\n";
     sdp << "a=rtpmap:98 H264/90000\r\n";

@@ -10,7 +10,7 @@
 #include "handler_manager.h"
 #include "glog/logging.h"
 
-#include "gb28181/device_client/deviceManager.h"
+#include "gb28181/device/deviceManager.h"
 
 
 namespace GB28181 {
@@ -131,8 +131,8 @@ int EventHandlerManager::on_exosip_call_noanswer(const SipEvent::ptr &event)
 
 int EventHandlerManager::on_exosip_call_proceeding(const SipEvent::ptr &event)
 {
-//    m_CallHandler->HandleResponseProcessing(event);
-//    m_CallHandler->HandleResponseSuccess(event);
+
+    m_callhandler.on_proceeding(event);
     return 0;
 }
 
@@ -146,38 +146,8 @@ int EventHandlerManager::on_exosip_call_ringing(const SipEvent::ptr &event)
 
 int EventHandlerManager::on_exosip_call_answered(const SipEvent::ptr &event)
 {
-//    m_CallHandler->HandleResponseSuccess(event);
-    std::string deviceid = event->exevent->request->to->url->username;
-    int callid = event->exevent->cid;
-    int dialog = event->exevent->did;
-
-    auto device = g_deviceMgr::GetInstance()->getDevice(deviceid);
-    if (!device) {
-        LOG(INFO) << "deviceid=" << deviceid << " not exist";
-        return -1;
-    }
-    device->setCallId(callid);
-    device->setDialogId(dialog);
-
-    string reqid;
-    osip_generic_param_t* tag = nullptr;
-    osip_to_get_tag(event->exevent->request->from, &tag);
-    if (nullptr == tag || nullptr == tag->gvalue) {
-        reqid = "";
-    }
-    reqid = (const char*)tag->gvalue;
-
-    LOG(INFO) << "call response reqid = " << reqid;
-
-    osip_message_t* msg = nullptr;
-    int ret = eXosip_call_build_ack(event->excontext, event->exevent->did, &msg);
-    if (!ret && msg) {
-        eXosip_call_send_ack(event->excontext, event->exevent->did, msg);
-    } else {
-        LOG(INFO) <<"eXosip_call_send_ack error="<< ret;
-    }
-
-
+    m_callhandler.handleResponseSuccess(event);
+    
     return 0;
 }
 
@@ -225,6 +195,20 @@ int EventHandlerManager::on_exosip_call_cancelled(const SipEvent::ptr &event)
 /* request related events within calls (except INVITE) */
 int EventHandlerManager::on_exosip_call_message_new(const SipEvent::ptr &event)
 {
+
+    // 打印message
+    string reqid;
+    osip_generic_param_t* tag = nullptr;
+    osip_to_get_tag(event->exevent->request->from, &tag);
+    if (nullptr == tag || nullptr == tag->gvalue) {
+        reqid = "";
+    }
+    reqid = (const char*)tag->gvalue;
+
+    LOG(INFO) << "on_exosip_call_message_new response reqid = " << reqid;
+
+
+
     eXosip_event_t *exosip_event = event->exevent;
 
     if (!strncmp(exosip_event->request->sip_method, "MESSAGE", strlen("MESSAGE")))
@@ -275,19 +259,27 @@ int EventHandlerManager::on_exosip_call_message_globalfailure(const SipEvent::pt
 }
 
 
+// 收到下级或者上级的bye消息
 int EventHandlerManager::on_exosip_call_closed(const SipEvent::ptr &event)
 {
-//    m_CallHandler->HandleClose(event);
+    m_callhandler.handleClose(event);
+    string reqid;
+    osip_generic_param_t* tag = nullptr;
+    osip_to_get_tag(event->exevent->request->from, &tag);
+    if (nullptr == tag || nullptr == tag->gvalue) {
+        reqid = "";
+    }
+    reqid = (const char*)tag->gvalue;
+
+    LOG(INFO) << "on_exosip_call_closed response reqid = " << reqid;
 
     return 0;
 }
 
-
-/* for both UAS & UAC events */
+/* for both UAS & UAC events  会话释放 */ 
 int EventHandlerManager::on_exosip_call_released(const SipEvent::ptr &event)
 {
-//    m_CallHandler->HandleClose(event);
-
+    m_callhandler.handleClose(event);
     return 0;
 }
 
@@ -304,7 +296,7 @@ int EventHandlerManager::on_exosip_message_new(const SipEvent::ptr &event)
         m_msghandler.HandleIncomingReq(event);
     }
     else if(MSG_IS_BYE(exosip_event->request)){
-
+        LOG(WARNING) << " UNKNOW METHON   MSG_IS_BYE";
     }else{
         LOG(WARNING) << " UNKNOW METHON";
     }

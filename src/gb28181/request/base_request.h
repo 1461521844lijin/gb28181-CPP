@@ -10,7 +10,7 @@
 
 #include "defs.h"
 #include "eXosip2/eXosip.h"
-#include "gb28181/device_client/device.h"
+#include "gb28181/device/device.h"
 #include <condition_variable>
 #include <map>
 #include <memory>

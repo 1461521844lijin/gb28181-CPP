@@ -1,7 +1,9 @@
 #include "PlayOperator.hpp"
-#include "gb28181/device_client/deviceManager.h"
+#include "gb28181/device/deviceManager.h"
 #include "gb28181/request/call/invite_request.h"
 
+#include "zlmedia/zlmedia_server/zlm_manager.hpp"
+#include "gb28181/device/call_session.h"
 #include "gb28181/sip_server.h"
 namespace OP {
 
@@ -11,11 +13,26 @@ oatpp::Object<StatusDto> play_start(const std::string &deviceId, const std::stri
     auto status = StatusDto::createShared();
     if (!device) {
         status->errorCode = 400;
-        status->errorMsg  = "device not exist";
+        status->errorMsg  = "该设备信息不存在";
         return status;
     }
 
-    GB28181::InviteRequest::ptr req = std::make_shared<GB28181::InviteRequest>(device, channelId);
+    auto call_session = GB28181::g_CallSessionMgr::GetInstance()->getCallSession(deviceId);
+    if(call_session && call_session->isConnected()){
+        status->errorCode = 200;
+        status->errorMsg  = "该设备已经被点播，请勿重复点播";
+        return status;
+    }
+
+
+    auto zlm_server = ZLM::g_ZlmMgr::GetInstance()->getBestZlmServer();
+    if(!zlm_server){
+        status->errorCode = 400;
+        status->errorMsg  = "当前没有可用的zlm服务器";
+        return status;
+    }
+
+    GB28181::InviteRequest::ptr req = std::make_shared<GB28181::InviteRequest>(device, channelId, zlm_server);
     req->send_call();
 
     status->errorCode = 200;
@@ -42,7 +59,13 @@ oatpp::Object<StatusDto> play_stop(const std::string &deviceId, const std::strin
     }
 
     // 发送BYE请求
-    eXosip_call_terminate(exconetxt, device->getCallId(), device->getDialogId());
+    auto call_session = GB28181::g_CallSessionMgr::GetInstance()->getCallSession(deviceId);
+    if(!call_session || !call_session->isConnected()){
+        status->errorCode = 200;
+        status->errorMsg  = "改设备没有被点播，无需停止";
+        return status;
+    }
+    eXosip_call_terminate(exconetxt, call_session->getCallId(), call_session->getDialogId());
 
 
     status->errorCode = 200;

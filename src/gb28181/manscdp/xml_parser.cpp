@@ -54,10 +54,10 @@ int XmlParser::ParseXmlHeader(tinyxml_doc_t &doc, manscdp_msgbody_header_t &body
     if (r != 0)
         return r;
 
-    LOG(INFO) << "[XmlParser] ParseXmlHeader, category: " << category_name
-              << ", cmdtype: " << cmdtype_name
-              << ", devid: "<< bodyheader.devid
-              << ", sn: " << bodyheader.sn;
+    // LOG(INFO) << "[XmlParser] ParseXmlHeader, category: " << category_name
+    //           << ", cmdtype: " << cmdtype_name
+    //           << ", devid: "<< bodyheader.devid
+    //           << ", sn: " << bodyheader.sn;
     return 0;
 }
 

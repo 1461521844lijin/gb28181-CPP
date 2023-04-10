@@ -11,7 +11,7 @@
 #include "osipparser2/osip_const.h"
 #include "glog/logging.h"
 
-#include "gb28181/device_client/deviceManager.h"
+#include "gb28181/device/deviceManager.h"
 #include "utils/CommonTools.h"
 
 #include "gb28181/event_handler/message/notify/keepalive_handler.h"
@@ -48,7 +48,7 @@ int MessageHandler::HandleIncomingReq(const SipEvent::ptr &e)
     }
     int r;
 
-    LOG(INFO) << "incoming request body: " << body->body;
+    // LOG(INFO) << "incoming request body: " << body->body;
 
     tinyxml_doc_t doc;
     r = m_xmlparser.Load(body->body, body->length, doc);

@@ -29,16 +29,20 @@ public:
 
     void removeZlmServer(const std::string &zlm_server_id);
 
+    void updateZlmServerLoad(const std::string &zlm_server_id, int load);
+
+    void updateZlmServerHeartbeat(const std::string &zlm_server_id);
+
     // 获取负载最小的流媒体服务器
     ZlmServer::ptr getBestZlmServer();
 
 
 private:
     // 更新流媒体服务器负载
-    void updateZlmServerLoad();
+    void checkZlmServerLoad();
 
     // 更新流媒体服务器心跳
-    void updateZlmServerHeartbeat();
+    void checkZlmServerHeartbeat();
 };
 
 typedef Tools::Singleton<ZlmManager> g_ZlmMgr;

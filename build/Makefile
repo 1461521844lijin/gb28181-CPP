@@ -330,86 +330,113 @@ src/gb28181/auth/md5/MD5.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/auth/md5/MD5.c.s
 .PHONY : src/gb28181/auth/md5/MD5.c.s
 
-src/gb28181/device_client/channel.o: src/gb28181/device_client/channel.cpp.o
+src/gb28181/device/call_session.o: src/gb28181/device/call_session.cpp.o
 
-.PHONY : src/gb28181/device_client/channel.o
-
-# target to build an object file
-src/gb28181/device_client/channel.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/device_client/channel.cpp.o
-.PHONY : src/gb28181/device_client/channel.cpp.o
-
-src/gb28181/device_client/channel.i: src/gb28181/device_client/channel.cpp.i
-
-.PHONY : src/gb28181/device_client/channel.i
-
-# target to preprocess a source file
-src/gb28181/device_client/channel.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/device_client/channel.cpp.i
-.PHONY : src/gb28181/device_client/channel.cpp.i
-
-src/gb28181/device_client/channel.s: src/gb28181/device_client/channel.cpp.s
-
-.PHONY : src/gb28181/device_client/channel.s
-
-# target to generate assembly for a file
-src/gb28181/device_client/channel.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/device_client/channel.cpp.s
-.PHONY : src/gb28181/device_client/channel.cpp.s
-
-src/gb28181/device_client/device.o: src/gb28181/device_client/device.cpp.o
-
-.PHONY : src/gb28181/device_client/device.o
+.PHONY : src/gb28181/device/call_session.o
 
 # target to build an object file
-src/gb28181/device_client/device.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/device_client/device.cpp.o
-.PHONY : src/gb28181/device_client/device.cpp.o
+src/gb28181/device/call_session.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/device/call_session.cpp.o
+.PHONY : src/gb28181/device/call_session.cpp.o
 
-src/gb28181/device_client/device.i: src/gb28181/device_client/device.cpp.i
+src/gb28181/device/call_session.i: src/gb28181/device/call_session.cpp.i
 
-.PHONY : src/gb28181/device_client/device.i
+.PHONY : src/gb28181/device/call_session.i
 
 # target to preprocess a source file
-src/gb28181/device_client/device.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/device_client/device.cpp.i
-.PHONY : src/gb28181/device_client/device.cpp.i
+src/gb28181/device/call_session.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/device/call_session.cpp.i
+.PHONY : src/gb28181/device/call_session.cpp.i
 
-src/gb28181/device_client/device.s: src/gb28181/device_client/device.cpp.s
+src/gb28181/device/call_session.s: src/gb28181/device/call_session.cpp.s
 
-.PHONY : src/gb28181/device_client/device.s
+.PHONY : src/gb28181/device/call_session.s
 
 # target to generate assembly for a file
-src/gb28181/device_client/device.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/device_client/device.cpp.s
-.PHONY : src/gb28181/device_client/device.cpp.s
+src/gb28181/device/call_session.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/device/call_session.cpp.s
+.PHONY : src/gb28181/device/call_session.cpp.s
 
-src/gb28181/device_client/deviceManager.o: src/gb28181/device_client/deviceManager.cpp.o
+src/gb28181/device/channel.o: src/gb28181/device/channel.cpp.o
 
-.PHONY : src/gb28181/device_client/deviceManager.o
+.PHONY : src/gb28181/device/channel.o
 
 # target to build an object file
-src/gb28181/device_client/deviceManager.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/device_client/deviceManager.cpp.o
-.PHONY : src/gb28181/device_client/deviceManager.cpp.o
+src/gb28181/device/channel.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/device/channel.cpp.o
+.PHONY : src/gb28181/device/channel.cpp.o
 
-src/gb28181/device_client/deviceManager.i: src/gb28181/device_client/deviceManager.cpp.i
+src/gb28181/device/channel.i: src/gb28181/device/channel.cpp.i
 
-.PHONY : src/gb28181/device_client/deviceManager.i
+.PHONY : src/gb28181/device/channel.i
 
 # target to preprocess a source file
-src/gb28181/device_client/deviceManager.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/device_client/deviceManager.cpp.i
-.PHONY : src/gb28181/device_client/deviceManager.cpp.i
+src/gb28181/device/channel.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/device/channel.cpp.i
+.PHONY : src/gb28181/device/channel.cpp.i
 
-src/gb28181/device_client/deviceManager.s: src/gb28181/device_client/deviceManager.cpp.s
+src/gb28181/device/channel.s: src/gb28181/device/channel.cpp.s
 
-.PHONY : src/gb28181/device_client/deviceManager.s
+.PHONY : src/gb28181/device/channel.s
 
 # target to generate assembly for a file
-src/gb28181/device_client/deviceManager.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/device_client/deviceManager.cpp.s
-.PHONY : src/gb28181/device_client/deviceManager.cpp.s
+src/gb28181/device/channel.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/device/channel.cpp.s
+.PHONY : src/gb28181/device/channel.cpp.s
+
+src/gb28181/device/device.o: src/gb28181/device/device.cpp.o
+
+.PHONY : src/gb28181/device/device.o
+
+# target to build an object file
+src/gb28181/device/device.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/device/device.cpp.o
+.PHONY : src/gb28181/device/device.cpp.o
+
+src/gb28181/device/device.i: src/gb28181/device/device.cpp.i
+
+.PHONY : src/gb28181/device/device.i
+
+# target to preprocess a source file
+src/gb28181/device/device.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/device/device.cpp.i
+.PHONY : src/gb28181/device/device.cpp.i
+
+src/gb28181/device/device.s: src/gb28181/device/device.cpp.s
+
+.PHONY : src/gb28181/device/device.s
+
+# target to generate assembly for a file
+src/gb28181/device/device.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/device/device.cpp.s
+.PHONY : src/gb28181/device/device.cpp.s
+
+src/gb28181/device/deviceManager.o: src/gb28181/device/deviceManager.cpp.o
+
+.PHONY : src/gb28181/device/deviceManager.o
+
+# target to build an object file
+src/gb28181/device/deviceManager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/device/deviceManager.cpp.o
+.PHONY : src/gb28181/device/deviceManager.cpp.o
+
+src/gb28181/device/deviceManager.i: src/gb28181/device/deviceManager.cpp.i
+
+.PHONY : src/gb28181/device/deviceManager.i
+
+# target to preprocess a source file
+src/gb28181/device/deviceManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/device/deviceManager.cpp.i
+.PHONY : src/gb28181/device/deviceManager.cpp.i
+
+src/gb28181/device/deviceManager.s: src/gb28181/device/deviceManager.cpp.s
+
+.PHONY : src/gb28181/device/deviceManager.s
+
+# target to generate assembly for a file
+src/gb28181/device/deviceManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/device/deviceManager.cpp.s
+.PHONY : src/gb28181/device/deviceManager.cpp.s
 
 src/gb28181/event_handler/base_handler.o: src/gb28181/event_handler/base_handler.cpp.o
 
@@ -437,6 +464,33 @@ src/gb28181/event_handler/base_handler.s: src/gb28181/event_handler/base_handler
 src/gb28181/event_handler/base_handler.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/base_handler.cpp.s
 .PHONY : src/gb28181/event_handler/base_handler.cpp.s
+
+src/gb28181/event_handler/call_handler.o: src/gb28181/event_handler/call_handler.cpp.o
+
+.PHONY : src/gb28181/event_handler/call_handler.o
+
+# target to build an object file
+src/gb28181/event_handler/call_handler.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/call_handler.cpp.o
+.PHONY : src/gb28181/event_handler/call_handler.cpp.o
+
+src/gb28181/event_handler/call_handler.i: src/gb28181/event_handler/call_handler.cpp.i
+
+.PHONY : src/gb28181/event_handler/call_handler.i
+
+# target to preprocess a source file
+src/gb28181/event_handler/call_handler.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/call_handler.cpp.i
+.PHONY : src/gb28181/event_handler/call_handler.cpp.i
+
+src/gb28181/event_handler/call_handler.s: src/gb28181/event_handler/call_handler.cpp.s
+
+.PHONY : src/gb28181/event_handler/call_handler.s
+
+# target to generate assembly for a file
+src/gb28181/event_handler/call_handler.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/call_handler.cpp.s
+.PHONY : src/gb28181/event_handler/call_handler.cpp.s
 
 src/gb28181/event_handler/handler_manager.o: src/gb28181/event_handler/handler_manager.cpp.o
 
@@ -897,33 +951,6 @@ src/gb28181/request/message/ptzcontrol_request.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/ptzcontrol_request.cpp.s
 .PHONY : src/gb28181/request/message/ptzcontrol_request.cpp.s
 
-src/gb28181/request/play_request.o: src/gb28181/request/play_request.cpp.o
-
-.PHONY : src/gb28181/request/play_request.o
-
-# target to build an object file
-src/gb28181/request/play_request.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/request/play_request.cpp.o
-.PHONY : src/gb28181/request/play_request.cpp.o
-
-src/gb28181/request/play_request.i: src/gb28181/request/play_request.cpp.i
-
-.PHONY : src/gb28181/request/play_request.i
-
-# target to preprocess a source file
-src/gb28181/request/play_request.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/request/play_request.cpp.i
-.PHONY : src/gb28181/request/play_request.cpp.i
-
-src/gb28181/request/play_request.s: src/gb28181/request/play_request.cpp.s
-
-.PHONY : src/gb28181/request/play_request.s
-
-# target to generate assembly for a file
-src/gb28181/request/play_request.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/request/play_request.cpp.s
-.PHONY : src/gb28181/request/play_request.cpp.s
-
 src/gb28181/request/requested_pool.o: src/gb28181/request/requested_pool.cpp.o
 
 .PHONY : src/gb28181/request/requested_pool.o
@@ -1059,6 +1086,60 @@ src/utils/tinyxml2.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/utils/tinyxml2.cpp.s
 .PHONY : src/utils/tinyxml2.cpp.s
 
+src/zlmedia/web_hook/web_hook_operator.o: src/zlmedia/web_hook/web_hook_operator.cpp.o
+
+.PHONY : src/zlmedia/web_hook/web_hook_operator.o
+
+# target to build an object file
+src/zlmedia/web_hook/web_hook_operator.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/zlmedia/web_hook/web_hook_operator.cpp.o
+.PHONY : src/zlmedia/web_hook/web_hook_operator.cpp.o
+
+src/zlmedia/web_hook/web_hook_operator.i: src/zlmedia/web_hook/web_hook_operator.cpp.i
+
+.PHONY : src/zlmedia/web_hook/web_hook_operator.i
+
+# target to preprocess a source file
+src/zlmedia/web_hook/web_hook_operator.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/zlmedia/web_hook/web_hook_operator.cpp.i
+.PHONY : src/zlmedia/web_hook/web_hook_operator.cpp.i
+
+src/zlmedia/web_hook/web_hook_operator.s: src/zlmedia/web_hook/web_hook_operator.cpp.s
+
+.PHONY : src/zlmedia/web_hook/web_hook_operator.s
+
+# target to generate assembly for a file
+src/zlmedia/web_hook/web_hook_operator.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/zlmedia/web_hook/web_hook_operator.cpp.s
+.PHONY : src/zlmedia/web_hook/web_hook_operator.cpp.s
+
+src/zlmedia/zlmedia_server/ssrc_config.o: src/zlmedia/zlmedia_server/ssrc_config.cpp.o
+
+.PHONY : src/zlmedia/zlmedia_server/ssrc_config.o
+
+# target to build an object file
+src/zlmedia/zlmedia_server/ssrc_config.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/ssrc_config.cpp.o
+.PHONY : src/zlmedia/zlmedia_server/ssrc_config.cpp.o
+
+src/zlmedia/zlmedia_server/ssrc_config.i: src/zlmedia/zlmedia_server/ssrc_config.cpp.i
+
+.PHONY : src/zlmedia/zlmedia_server/ssrc_config.i
+
+# target to preprocess a source file
+src/zlmedia/zlmedia_server/ssrc_config.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/ssrc_config.cpp.i
+.PHONY : src/zlmedia/zlmedia_server/ssrc_config.cpp.i
+
+src/zlmedia/zlmedia_server/ssrc_config.s: src/zlmedia/zlmedia_server/ssrc_config.cpp.s
+
+.PHONY : src/zlmedia/zlmedia_server/ssrc_config.s
+
+# target to generate assembly for a file
+src/zlmedia/zlmedia_server/ssrc_config.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/zlmedia/zlmedia_server/ssrc_config.cpp.s
+.PHONY : src/zlmedia/zlmedia_server/ssrc_config.cpp.s
+
 src/zlmedia/zlmedia_server/zlm_manager.o: src/zlmedia/zlmedia_server/zlm_manager.cpp.o
 
 .PHONY : src/zlmedia/zlmedia_server/zlm_manager.o
@@ -1169,18 +1250,24 @@ help:
 	@echo "... src/gb28181/auth/md5/MD5.o"
 	@echo "... src/gb28181/auth/md5/MD5.i"
 	@echo "... src/gb28181/auth/md5/MD5.s"
-	@echo "... src/gb28181/device_client/channel.o"
-	@echo "... src/gb28181/device_client/channel.i"
-	@echo "... src/gb28181/device_client/channel.s"
-	@echo "... src/gb28181/device_client/device.o"
-	@echo "... src/gb28181/device_client/device.i"
-	@echo "... src/gb28181/device_client/device.s"
-	@echo "... src/gb28181/device_client/deviceManager.o"
-	@echo "... src/gb28181/device_client/deviceManager.i"
-	@echo "... src/gb28181/device_client/deviceManager.s"
+	@echo "... src/gb28181/device/call_session.o"
+	@echo "... src/gb28181/device/call_session.i"
+	@echo "... src/gb28181/device/call_session.s"
+	@echo "... src/gb28181/device/channel.o"
+	@echo "... src/gb28181/device/channel.i"
+	@echo "... src/gb28181/device/channel.s"
+	@echo "... src/gb28181/device/device.o"
+	@echo "... src/gb28181/device/device.i"
+	@echo "... src/gb28181/device/device.s"
+	@echo "... src/gb28181/device/deviceManager.o"
+	@echo "... src/gb28181/device/deviceManager.i"
+	@echo "... src/gb28181/device/deviceManager.s"
 	@echo "... src/gb28181/event_handler/base_handler.o"
 	@echo "... src/gb28181/event_handler/base_handler.i"
 	@echo "... src/gb28181/event_handler/base_handler.s"
+	@echo "... src/gb28181/event_handler/call_handler.o"
+	@echo "... src/gb28181/event_handler/call_handler.i"
+	@echo "... src/gb28181/event_handler/call_handler.s"
 	@echo "... src/gb28181/event_handler/handler_manager.o"
 	@echo "... src/gb28181/event_handler/handler_manager.i"
 	@echo "... src/gb28181/event_handler/handler_manager.s"
@@ -1232,9 +1319,6 @@ help:
 	@echo "... src/gb28181/request/message/ptzcontrol_request.o"
 	@echo "... src/gb28181/request/message/ptzcontrol_request.i"
 	@echo "... src/gb28181/request/message/ptzcontrol_request.s"
-	@echo "... src/gb28181/request/play_request.o"
-	@echo "... src/gb28181/request/play_request.i"
-	@echo "... src/gb28181/request/play_request.s"
 	@echo "... src/gb28181/request/requested_pool.o"
 	@echo "... src/gb28181/request/requested_pool.i"
 	@echo "... src/gb28181/request/requested_pool.s"
@@ -1250,6 +1334,12 @@ help:
 	@echo "... src/utils/tinyxml2.o"
 	@echo "... src/utils/tinyxml2.i"
 	@echo "... src/utils/tinyxml2.s"
+	@echo "... src/zlmedia/web_hook/web_hook_operator.o"
+	@echo "... src/zlmedia/web_hook/web_hook_operator.i"
+	@echo "... src/zlmedia/web_hook/web_hook_operator.s"
+	@echo "... src/zlmedia/zlmedia_server/ssrc_config.o"
+	@echo "... src/zlmedia/zlmedia_server/ssrc_config.i"
+	@echo "... src/zlmedia/zlmedia_server/ssrc_config.s"
 	@echo "... src/zlmedia/zlmedia_server/zlm_manager.o"
 	@echo "... src/zlmedia/zlmedia_server/zlm_manager.i"
 	@echo "... src/zlmedia/zlmedia_server/zlm_manager.s"

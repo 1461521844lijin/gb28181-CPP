@@ -12,9 +12,11 @@
 
 #include "message_handler.h"
 #include "register_handler.h"
+#include "call_handler.h"
 #include <eXosip2/eXosip.h>
 #include <map>
 #include "gb28181/event_handler/sip_event.h"
+
 
 namespace GB28181 {
 
@@ -110,6 +112,7 @@ private:
     std::map<uint32_t, EventNameProcPair> m_eventProcMap;
     MessageHandler                        m_msghandler;
     Registerhandler                       m_registerhandler;
+    CallHandler                           m_callhandler;
 };
 
 }  // namespace GB28181

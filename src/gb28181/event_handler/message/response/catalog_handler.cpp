@@ -1,6 +1,6 @@
 #include "catalog_handler.h"
-#include "gb28181/device_client/channel.h"
-#include "gb28181/device_client/deviceManager.h"
+#include "gb28181/device/channel.h"
+#include "gb28181/device/deviceManager.h"
 #include "glog/logging.h"
 
 namespace GB28181 {
@@ -125,20 +125,22 @@ int CatalogHandler::handle(SipEvent::ptr event, tinyxml2::XMLDocument &xml) {
                 }
             }
 
-            LOG(INFO) << channel->toString();
+            
 
             auto device = g_deviceMgr::GetInstance()->getDevice(deviceID);
-            if (!device->insertSubChannel(channel->getParentId(), channel->getChannelId(), channel)) {
+            if (!device->insertSubChannel(deviceID, channel->getChannelId(), channel)) {
                 LOG(ERROR) << "CatalogHandler::handle insertSubChannel failed "
                            << "channelId:" << channel->getChannelId() << " parentID:" << channel->getParentId()
                            << " deviceID:" << deviceID;
+            }else{
+                LOG(INFO) << "CatalogHandler::handle insertSubChannel success "
+                           << "channelId:" << channel->getChannelId() << " parentID:" << channel->getParentId()
+                           << " deviceID:" << deviceID;
+
             };
 
             item = item->NextSiblingElement("Item");
         }
-
-
-        
     } catch (const std::exception &e) { LOG(ERROR) << e.what() << '\n'; }
 
     return sendSimplyResp(deviceID.c_str(), event->excontext, event->exevent->tid, SIP_OK);

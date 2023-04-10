@@ -1,6 +1,6 @@
 #include "PTZOperator.hpp"
 
-#include "gb28181/device_client/deviceManager.h"
+#include "gb28181/device/deviceManager.h"
 #include "gb28181/request/message/ptzcontrol_request.h"
 #include "gb28181/request/message/preset_request.h"
 #include "gb28181/request/message/preset_ctl_request.h"

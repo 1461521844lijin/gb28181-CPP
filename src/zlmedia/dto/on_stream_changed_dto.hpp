@@ -10,7 +10,7 @@ namespace DTO::ZLM
 
 class OriginSockDTO : public oatpp::DTO
 {
-    DTO_INIT(origin_sock_dto, DTO)
+    DTO_INIT(OriginSockDTO, DTO)
 
     DTO_FIELD_INFO(identifier){
         info->description = "identifier";
@@ -39,7 +39,7 @@ class OriginSockDTO : public oatpp::DTO
 };
 
 class Track :public oatpp::DTO{
-    DTO_INIT(on_stream_changed_dto, DTO)
+    DTO_INIT(Track, DTO)
 
     DTO_FIELD_INFO(channels){
         info->description = "音频通道数";
@@ -79,7 +79,7 @@ class Track :public oatpp::DTO{
     DTO_FIELD_INFO(fps){
         info->description = "视频fps";
     }
-    DTO_FIELD(Int32, fps);
+    DTO_FIELD(Float32, fps);
 
     DTO_FIELD_INFO(height){
         info->description = "视频高";
@@ -91,16 +91,17 @@ class Track :public oatpp::DTO{
     }
     DTO_FIELD(Int32, width);
 
-    DTO_FIELD_INFO(ready){
-        info->description = "轨道是否准备就绪";
-    }
-    DTO_FIELD(Boolean, ready);
 
-}
+    DTO_FIELD(Float32, loss);
+    DTO_FIELD(Int32, frames);
+    DTO_FIELD(Int32, key_frames);
+
+
+};
 
 class OnStreamChangedDTO : public oatpp::DTO
 {
-    DTO_INIT(on_stream_changed_dto, DTO)
+    DTO_INIT(OnStreamChangedDTO, DTO)
 
     DTO_FIELD_INFO(regist){
         info->description = "注册还是注销标识";
@@ -127,6 +128,16 @@ class OnStreamChangedDTO : public oatpp::DTO
     }
     DTO_FIELD(Int32, createStamp);
 
+    DTO_FIELD_INFO(isRecordingHLS){
+        info->description = "是否正在录制hls";
+    }
+    DTO_FIELD(Boolean, isRecordingHLS);
+
+    DTO_FIELD_INFO(isRecordingMP4){
+        info->description = "是否正在录制mp4";
+    }
+    DTO_FIELD(Boolean, isRecordingMP4);
+
     DTO_FIELD_INFO(mediaServerId){
         info->description = "服务器id";
     }
@@ -135,7 +146,7 @@ class OnStreamChangedDTO : public oatpp::DTO
     DTO_FIELD_INFO(originSock){
         info->description = "原始socket信息";
     }
-    DTO_FIELD(OriginSockDTO, originSock);
+    DTO_FIELD(oatpp::Object<OriginSockDTO>, originSock);
 
     DTO_FIELD_INFO(originType){
         info->description = "产生源类型，包括 unknown = 0,rtmp_push=1,rtsp_push=2,rtp_push=3,pull=4,ffmpeg_pull=5,mp4_vod=6,device_chn=7,rtc_push=8";
@@ -176,7 +187,7 @@ class OnStreamChangedDTO : public oatpp::DTO
     DTO_FIELD_INFO(tracks){
         info->description = "轨道信息";
     }
-    DTO_FIELD(Vector<Track>, tracks);
+    DTO_FIELD(Vector<oatpp::Object<Track>>, tracks);
 
     DTO_FIELD_INFO(vhost){
         info->description = "流虚拟主机";

@@ -1,5 +1,5 @@
 #include "keepalive_handler.h"
-#include "gb28181/device_client/deviceManager.h"
+#include "gb28181/device/deviceManager.h"
 #include "utils/CommonTools.h"
 #include "glog/logging.h"
 namespace GB28181

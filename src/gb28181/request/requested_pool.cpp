@@ -81,8 +81,8 @@ int RequestedPool::check_requet_timeout(double timeout) {
                 //  异步 超时处理
                 if (now - itr->second->GetReqtime() > 6) {
                     itr->second->HandleResponse(-1);
-                    LOG(INFO) << "check_request_timeout_type: " << itr->second->GetReqType()
-                                  << " " << itr->first;
+                    // LOG(INFO) << "check_request_timeout_type: " << itr->second->GetReqType()
+                    //               << " " << itr->first;
                     itr->second->finished();
                     itr = m_requestmap.erase(itr);
                     

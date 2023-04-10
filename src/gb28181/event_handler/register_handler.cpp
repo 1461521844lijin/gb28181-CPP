@@ -10,9 +10,8 @@ extern "C" {
 #include "application/dto/configs/SipConfigDto.hpp"
 #include "oatpp/core/macro/component.hpp"
 
-#include "gb28181/device_client/device.h"
-#include "gb28181/device_client/deviceManager.h"
-#include "gb28181/request/play_request.h"
+#include "gb28181/device/device.h"
+#include "gb28181/device/deviceManager.h"
 #include "gb28181/request/message/catalog_request.h"
 
 #include "utils/CommonTools.h"
