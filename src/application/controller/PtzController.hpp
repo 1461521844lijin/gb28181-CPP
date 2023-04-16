@@ -1,3 +1,4 @@
+#pragma once
 #include "oatpp/core/macro/codegen.hpp"
 #include "oatpp/core/macro/component.hpp"
 #include "oatpp/parser/json/mapping/ObjectMapper.hpp"
@@ -6,7 +7,7 @@
 
 
 #include "application/dto/StatusDto.hpp"
-#include "application/dto/PlayDto.hpp"
+#include "application/dto/media_server/PlayDto.hpp"
 
 #include "application/service/PTZOperator.hpp"
 

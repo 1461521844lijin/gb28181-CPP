@@ -16,7 +16,7 @@
 #include "application/dto/configs/DBConfigDto.hpp"
 #include "application/dto/configs/MediaConfigDto.hpp"
 
-#include "glog/logging.h"
+#include "Util/logger.h"
 
 
 class ConfigComponent {
@@ -35,25 +35,25 @@ public:
             configPath = DEV_CONFIG_PATH;  // CMAKE 中读取 CONFIG_PATH
         }
 
-        LOG(INFO) << "Server" << "配置文件路径："<< configPath;
+        InfoL << "Server" << "配置文件路径："<< configPath;
 
         oatpp::String configText = oatpp::String::loadFromFile(configPath);
         if (configText != nullptr) {
             auto objectMapper = oatpp::parser::json::mapping::ObjectMapper::createShared();
             auto profile      = objectMapper->readFromString<oatpp::Object<ConfigDto>>(configText);
-            LOG(INFO)<<"Server"<<"成功载入："<< configPath;
+            InfoL<<"Server"<<"成功载入："<< configPath;
 
             return profile;
         }
 
-        LOG(INFO)<< "Server"<< "无法加载配置文件：请使用--profile指定文件路径    "  << configPath;
+        InfoL<< "Server"<< "无法加载配置文件：请使用--profile指定文件路径    "  << configPath;
         throw std::runtime_error("[AppComponent]: Can't load configuration file");
     }());
     // 注册网页配置组件
     OATPP_CREATE_COMPONENT(oatpp::Object<WebConfigDto>, webConfig)
     ([this] {
         OATPP_COMPONENT(oatpp::Object<ConfigDto>, profile);  // 获取配置组件
-        LOG(INFO) << "Web"<< "网页配置组件加载成功" ;
+        InfoL << "Web"<< "网页配置组件加载成功" ;
         return profile->web;
     }());
 
@@ -61,7 +61,7 @@ public:
     OATPP_CREATE_COMPONENT(oatpp::Object<DBConfigDto>, dbConfig)
     ([this] {
         OATPP_COMPONENT(oatpp::Object<ConfigDto>, profile);  // 获取配置组件
-        LOG(INFO) << "DB"<< "数据库配置加载成功";
+        InfoL << "DB"<< "数据库配置加载成功";
         return profile->database;
     }());
 
@@ -69,14 +69,14 @@ public:
     OATPP_CREATE_COMPONENT(oatpp::Object<SipConfigDto>, sipConfig)
     ([this] {
         OATPP_COMPONENT(oatpp::Object<ConfigDto>, profile);  // 获取配置组件
-        LOG(INFO) << "sip配置加载成功";
+        InfoL << "sip配置加载成功";
         return profile->sip;
     }());
     // 注册媒体配置组件
     OATPP_CREATE_COMPONENT(oatpp::Object<MediaConfigDto>, mediaConfig)
     ([this] {
         OATPP_COMPONENT(oatpp::Object<ConfigDto>, profile);  // 获取配置组件
-        LOG(INFO) << "Media"<< "媒体配置组件加载成功";
+        InfoL << "Media"<< "媒体配置组件加载成功";
         return profile->media;
     }());
 

@@ -13,7 +13,7 @@
 #include "control_defs.h"
 #include "query_defs.h"
 #include "notify_defs.h"
-#include "tinyxml2/tinyxml2.h"
+#include "utils/tinyxml2.h"
 
 using namespace std;
 

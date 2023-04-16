@@ -12,7 +12,7 @@
 #include "oatpp/core/macro/component.hpp"
 #include "application/dto/configs/SipConfigDto.hpp"
 #include "gb28181/request/requested_pool.h"
-#include "glog/logging.h"
+#include "Util/logger.h"
 
 namespace GB28181 {
 
@@ -98,7 +98,7 @@ int MessageRequest::send_message(bool needcb){
 
     auto excontext = g_SipServer::GetInstance()->GetExosipContext();
     if(nullptr == excontext){
-        LOG(ERROR) << "excontext is null";
+        ErrorL << "excontext is null";
         return -1;
     }
     auto reqsn = g_SipServer::GetInstance()->generate_sn();
@@ -115,7 +115,7 @@ int MessageRequest::send_message(bool needcb){
     exosip_guard guard(excontext);
     int r = eXosip_message_build_request(excontext, &msg, "MESSAGE", to.c_str(), from.c_str(), nullptr);
     if (r != OSIP_SUCCESS) {
-        LOG(ERROR) << "Build message request failed, sipto: " << to << ", ret: " << r;
+        ErrorL << "Build message request failed, sipto: " << to << ", ret: " << r;
         return -1;
     }
     std::string body = make_manscdp_body();
@@ -123,11 +123,11 @@ int MessageRequest::send_message(bool needcb){
     osip_message_set_content_type(msg, "Application/MANSCDP+xml");
     int rid = eXosip_message_send_request(excontext, msg);
     if (rid < 1) {
-        LOG(ERROR) << "send message failed, ret: " << rid;
+        ErrorL << "send message failed, ret: " << rid;
         return -1;
     }
 
-    LOG(INFO)<<" send budy" <<body;
+    InfoL<<" send budy" <<body;
 
     // 请求发送成功后，将请求id保存在请求池，等待回复和回调处理
     if (needcb) {

@@ -8,7 +8,7 @@
 */
 
 #include "handler_manager.h"
-#include "glog/logging.h"
+#include "Util/logger.h"
 
 #include "gb28181/device/deviceManager.h"
 
@@ -83,7 +83,7 @@ EventHandlerManager::EventNameProcPair EventHandlerManager::GetEventProc(eXosip_
     if (type > EXOSIP_EVENT_COUNT)
     {
         EventNameProcPair pair = {"", nullptr};
-        LOG(INFO) << "Event Type: " << type << " don't exist!";
+        InfoL << "Event Type: " << type << " don't exist!";
         return pair;
     }
 
@@ -102,7 +102,7 @@ int EventHandlerManager::on_exosip_registration_success(const SipEvent::ptr &eve
 int EventHandlerManager::on_exosip_registration_failure(const SipEvent::ptr &event)
 {
     ///TODO REGISTER send twice, this is question!
-    LOG(WARNING) << "register id: " << event->exevent->rid << " need authentication!";
+    WarnL << "register id: " << event->exevent->rid << " need authentication!";
     eXosip_lock(event->excontext);
     eXosip_automatic_action(event->excontext);
     eXosip_unlock(event->excontext);
@@ -205,7 +205,7 @@ int EventHandlerManager::on_exosip_call_message_new(const SipEvent::ptr &event)
     }
     reqid = (const char*)tag->gvalue;
 
-    LOG(INFO) << "on_exosip_call_message_new response reqid = " << reqid;
+    InfoL << "on_exosip_call_message_new response reqid = " << reqid;
 
 
 
@@ -263,23 +263,13 @@ int EventHandlerManager::on_exosip_call_message_globalfailure(const SipEvent::pt
 int EventHandlerManager::on_exosip_call_closed(const SipEvent::ptr &event)
 {
     m_callhandler.handleClose(event);
-    string reqid;
-    osip_generic_param_t* tag = nullptr;
-    osip_to_get_tag(event->exevent->request->from, &tag);
-    if (nullptr == tag || nullptr == tag->gvalue) {
-        reqid = "";
-    }
-    reqid = (const char*)tag->gvalue;
-
-    LOG(INFO) << "on_exosip_call_closed response reqid = " << reqid;
-
     return 0;
 }
 
 /* for both UAS & UAC events  会话释放 */ 
 int EventHandlerManager::on_exosip_call_released(const SipEvent::ptr &event)
 {
-    m_callhandler.handleClose(event);
+    // m_callhandler.handleClose(event);
     return 0;
 }
 
@@ -296,9 +286,9 @@ int EventHandlerManager::on_exosip_message_new(const SipEvent::ptr &event)
         m_msghandler.HandleIncomingReq(event);
     }
     else if(MSG_IS_BYE(exosip_event->request)){
-        LOG(WARNING) << " UNKNOW METHON   MSG_IS_BYE";
+        WarnL << " UNKNOW METHON   MSG_IS_BYE";
     }else{
-        LOG(WARNING) << " UNKNOW METHON";
+        WarnL << " UNKNOW METHON";
     }
 
 

@@ -2,7 +2,7 @@
 
 #include "application/dto/configs/MediaConfigDto.hpp"
 #include "gb28181/device/call_session.h"
-#include "glog/logging.h"
+#include "Util/logger.h"
 #include "oatpp/core/macro/component.hpp"
 namespace ZLM {
 
@@ -67,7 +67,7 @@ void ZlmManager::checkZlmServerHeartbeat() {
                 if (time(NULL) - last_time > 60 &&
                     zlm_server.second
                         ->getIsConnected()) {  // 如果心跳超过60秒，认为流媒体服务器已经断开连接,并且移除所有该流媒体服务器的会话
-                    LOG(WARNING) << "zlm server " << zlm_server.second->getZlmServerId()
+                    WarnL << "zlm server " << zlm_server.second->getZlmServerId()
                                  << " disconnected";
                     zlm_server.second->setIsConnected(false);
                     GB28181::g_CallSessionMgr::GetInstance()->removeCallSessionByMediaServerId(zlm_server.second->getZlmServerId());

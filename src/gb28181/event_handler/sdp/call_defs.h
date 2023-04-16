@@ -10,7 +10,7 @@
 
 #include <string>
 #include <map>
-#include "glog/logging.h"
+#include "Util/logger.h"
 
 using namespace std;
 
@@ -76,28 +76,28 @@ struct sdp_description_t
     string      f_media_desc;
 
     void print() {
-        LOG(INFO) << "o_username: " << o_username;
-        LOG(INFO) << "o_sessid: " << o_sessid;
-        LOG(INFO) << "o_sess_version: " << o_sess_version;
-        LOG(INFO) << "o_nettype: " << o_nettype;
-        LOG(INFO) << "o_addrtype: " << o_addrtype;
-        LOG(INFO) << "o_addr: " << o_addr;
-        LOG(INFO) << "s_sess_name: " << s_sess_name;
-        LOG(INFO) << "u_uri: " << u_uri;
-        LOG(INFO) << "c_nettype: " << c_nettype;
-        LOG(INFO) << "c_addrtype: " << c_addrtype;
-        LOG(INFO) << "c_addr: " << c_addr;
-        LOG(INFO) << "t_startime: " << t_startime;
-        LOG(INFO) << "t_endtime: " << t_endtime;
-        LOG(INFO) << "m_media: " << m_media;
-        LOG(INFO) << "m_port: " << m_port;
-        LOG(INFO) << "m_tmode: " << m_tmode;
-        LOG(INFO) << "m_payloadtype: " << m_payloadtype;
-        LOG(INFO) << "y_ssrc: " << y_ssrc;
-        LOG(INFO) << "f_media_desc: " << f_media_desc;
+        InfoL << "o_username: " << o_username;
+        InfoL << "o_sessid: " << o_sessid;
+        InfoL << "o_sess_version: " << o_sess_version;
+        InfoL << "o_nettype: " << o_nettype;
+        InfoL << "o_addrtype: " << o_addrtype;
+        InfoL << "o_addr: " << o_addr;
+        InfoL << "s_sess_name: " << s_sess_name;
+        InfoL << "u_uri: " << u_uri;
+        InfoL << "c_nettype: " << c_nettype;
+        InfoL << "c_addrtype: " << c_addrtype;
+        InfoL << "c_addr: " << c_addr;
+        InfoL << "t_startime: " << t_startime;
+        InfoL << "t_endtime: " << t_endtime;
+        InfoL << "m_media: " << m_media;
+        InfoL << "m_port: " << m_port;
+        InfoL << "m_tmode: " << m_tmode;
+        InfoL << "m_payloadtype: " << m_payloadtype;
+        InfoL << "y_ssrc: " << y_ssrc;
+        InfoL << "f_media_desc: " << f_media_desc;
 
         for (auto a : a_attrimap) {
-            LOG(INFO) << "attri key: " << a.first << ", value: " << a.second;
+            InfoL << "attri key: " << a.first << ", value: " << a.second;
         }
     }
 

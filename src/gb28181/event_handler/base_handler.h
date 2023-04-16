@@ -10,7 +10,7 @@
 
 #include <osipparser2/osip_message.h>
 #include "gb28181/event_handler/sip_event.h"
-#include "tinyxml2/tinyxml2.h"
+#include "utils/tinyxml2.h"
 
 namespace GB28181 {
 

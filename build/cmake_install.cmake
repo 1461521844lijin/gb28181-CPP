@@ -1,4 +1,4 @@
-# Install script for directory: /dataset/lijin/my_project/gb28181-CPP
+# Install script for directory: /home/lijin/projects/gb28181-CPP
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -29,7 +29,7 @@ endif()
 
 # Install shared libraries without execute permission?
 if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
-  set(CMAKE_INSTALL_SO_NO_EXE "0")
+  set(CMAKE_INSTALL_SO_NO_EXE "1")
 endif()
 
 # Is this installation the result of a crosscompile?
@@ -44,7 +44,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/dataset/lijin/my_project/gb28181-CPP/build/3rdpart/cmake_install.cmake")
+  include("/home/lijin/projects/gb28181-CPP/build/3rdpart/cmake_install.cmake")
 
 endif()
 
@@ -56,5 +56,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/dataset/lijin/my_project/gb28181-CPP/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/lijin/projects/gb28181-CPP/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

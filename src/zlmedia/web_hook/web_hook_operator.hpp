@@ -12,6 +12,8 @@ oatpp::Object<DTO::ZLM::ResponseDto>  on_server_keepalive_api(const oatpp::Objec
 
 oatpp::Object<DTO::ZLM::ResponseDto>  on_stream_changed_api(const oatpp::Object<DTO::ZLM::OnStreamChangedDTO>& onStreamChangedTiem);
 
+oatpp::Object<DTO::ZLM::ResponseDto>  on_stream_none_reader_api(const oatpp::Object<DTO::ZLM::OnStreamChangedDTO>& onStreamChangedTiem);
+
 
 
 

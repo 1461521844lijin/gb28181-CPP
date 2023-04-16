@@ -3,7 +3,7 @@
 extern "C" {
 #include "gb28181/auth/md5/HTTPDigest.h"
 }
-#include "glog/logging.h"
+#include "Util/logger.h"
 #include <cstring>
 #include <string>
 
@@ -79,11 +79,11 @@ int Registerhandler::HandleIncomingReq(const SipEvent::ptr &e) {
 
         if (!memcmp(calc_response, Response, HASHHEXLEN)) {
             sendSimplyResp(username, e->excontext, e->exevent->tid, SIP_OK);
-            // LOG(INFO) << "Camera registration succee,ip=" << contact->url->host <<", port="<< contact->url->port<<", device="<<username;
+            // InfoL << "Camera registration succee,ip=" << contact->url->host <<", port="<< contact->url->port<<", device="<<username;
             std::string clinet_host     = strdup(contact->url->host);
             std::string clinet_port     = strdup(contact->url->port);
             std::string clinet_deviceid = username;
-            LOG(INFO) << "Camera registration succee,ip=" << clinet_host <<", port="<< clinet_port<<", device="<<clinet_deviceid;
+            InfoL << "Camera registration succee,ip=" << clinet_host <<", port="<< clinet_port<<", device="<<clinet_deviceid;
             Device::ptr device =        std::make_shared<Device>(clinet_deviceid, clinet_host, clinet_port);
             device->setStatus(1);
             device->setRegiestTime(Time2Str());
@@ -97,7 +97,7 @@ int Registerhandler::HandleIncomingReq(const SipEvent::ptr &e) {
             
         } else {
             sendSimplyResp(username, e->excontext, e->exevent->tid, SIP_UNAUTHORIZED);
-            LOG(INFO) << "Camera registration error, p=%s,port=%d,device=%s", contact->url->host, contact->url->port, username;
+            InfoL << "Camera registration error, p=%s,port=%d,device=%s", contact->url->host, contact->url->port, username;
             std::string clinet_deviceid = strdup(auth->username);
             g_deviceMgr::GetInstance()->removeDevice(clinet_deviceid);
         }
@@ -135,9 +135,9 @@ void Registerhandler::response_register_401unauthorized(const SipEvent::ptr &e) 
         eXosip_lock(e->excontext);
         eXosip_message_send_answer(e->excontext, e->exevent->tid, 401, reg);
         eXosip_unlock(e->excontext);
-        LOG(INFO) << "response_register_401unauthorized success";
+        InfoL << "response_register_401unauthorized success";
     } else {
-        LOG(INFO) << "response_register_401unauthorized error";
+        InfoL << "response_register_401unauthorized error";
     }
 
     osip_www_authenticate_free(header);

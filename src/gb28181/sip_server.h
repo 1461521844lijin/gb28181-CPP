@@ -76,7 +76,7 @@ private:
     EventHandlerManager m_eventHandle;  // 事件处理器
     std::thread         recvTask;       // 接收事件线程
 
-    atomic<uint64_t > m_sn = 1;
+    atomic<uint64_t > m_sn;
 };
 
 typedef Tools::Singleton<SipServer> g_SipServer;

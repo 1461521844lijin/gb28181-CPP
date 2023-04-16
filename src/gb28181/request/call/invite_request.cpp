@@ -3,7 +3,7 @@
 #include "application/dto/configs/SipConfigDto.hpp"
 #include "gb28181/request/requested_pool.h"
 #include "gb28181/sip_server.h"
-#include "glog/logging.h"
+#include "Util/logger.h"
 #include "oatpp/core/macro/component.hpp"
 
 #include "gb28181/device/call_session.h"
@@ -12,7 +12,7 @@ namespace GB28181 {
 int InviteRequest::send_call(bool needcb) {
     auto excontext = g_SipServer::GetInstance()->GetExosipContext();
     if (nullptr == excontext) {
-        LOG(ERROR) << "excontext is null";
+        ErrorL << "excontext is null";
         return -1;
     }
 
@@ -29,7 +29,7 @@ int InviteRequest::send_call(bool needcb) {
     int ret = eXosip_call_build_initial_invite(excontext, &msg, to.c_str(), from.c_str(), nullptr,
                                                nullptr);
     if (ret) {
-        LOG(ERROR) << "eXosip_call_build_initial_invite error:" << from << " " << to
+        ErrorL << "eXosip_call_build_initial_invite error:" << from << " " << to
                    << "  ret:" << ret;
         return -1;
     }
@@ -44,12 +44,12 @@ int InviteRequest::send_call(bool needcb) {
 
     int call_id = eXosip_call_send_initial_invite(excontext, msg);
     if (call_id > 0) {
-        LOG(INFO) << "eXosip_call_send_initial_invite success: call_id=" << call_id;
+        InfoL << "eXosip_call_send_initial_invite success: call_id=" << call_id;
     } else {
-        LOG(ERROR) << "eXosip_call_send_initial_invite error: call_id=" << call_id;
+        ErrorL << "eXosip_call_send_initial_invite error: call_id=" << call_id;
     }
 
-    LOG(INFO) << " send budy: \n" << sdp_body;
+    InfoL << " send budy: \n" << sdp_body;
 
     if (needcb) {
         string reqid = get_reqid_from_request(msg);
@@ -64,7 +64,7 @@ const std::string InviteRequest::make_sdp_body() {
     std::string streamid = m_device->getDeviceId() + "_" + m_channel_id;
     auto        ssrc     = m_zlm_server->openRTPServer(streamid);
     if (!ssrc) {
-        LOG(ERROR) << "openRTPServer error";
+        ErrorL << "openRTPServer error";
         throw std::runtime_error("openRTPServer error");
     }
 

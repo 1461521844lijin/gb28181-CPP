@@ -1,11 +1,11 @@
 
 
 // #include "controller/UserController.hpp"
-#include "glog/logging.h"
+#include "Util/logger.h"
 #include "oatpp-swagger/Controller.hpp"
 #include "oatpp/network/Server.hpp"
 #include "utils/System.h"
-#include <gflags/gflags.h>
+
 #include <signal.h>
 #include <unistd.h>
 #include <iostream>
@@ -20,12 +20,13 @@
 
 #include "application/controller/PtzController.hpp"
 #include "application/controller/PlayController.hpp"
+#include "application/controller/RecordController.hpp"
 
 #include "zlmedia/web_hook/web_hook_controller.hpp"
 
     
 #include "Poller/EventPoller.h"
-
+using namespace toolkit;
 void run_sip(){
 
     // GB28181::SipServer svr;
@@ -55,6 +56,9 @@ void run_oatpp() {
     docEndpoints.append(router->addController(PlayController::createShared())->getEndpoints());
     router->addController(ZLM::ZlmWebHookController::createShared());
     docEndpoints.append(router->addController(ZLM::ZlmWebHookController::createShared())->getEndpoints());
+    router->addController(RecordController::createShared());
+    docEndpoints.append(router->addController(RecordController::createShared())->getEndpoints());
+
 
     router->addController(oatpp::swagger::Controller::createShared(docEndpoints));
     /* Get connection handler component */
@@ -79,6 +83,7 @@ int start_main(int argc, const char *argv[]) {
     //     System::systemSetup();
     // }
 
+    Logger::Instance().add(std::make_shared<ConsoleChannel>("ConsoleChannel", LogLevel(1)));
     
     oatpp::base::Environment::init();
     ConfigComponent   configComponent(oatpp::base::CommandLineArguments(argc, argv));
@@ -98,9 +103,9 @@ int start_main(int argc, const char *argv[]) {
     oatpp::base::Environment::destroy();
 
     // 休眠1秒再退出，防止资源释放顺序错误
-    LOG(WARNING) << "程序退出中,请等待...";
+    WarnL << "程序退出中,请等待...";
     sleep(1);
-    LOG(WARNING) << "程序退出完毕!";
+    WarnL << "程序退出完毕!";
     return 0;
 }
 

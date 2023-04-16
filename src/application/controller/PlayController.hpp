@@ -7,7 +7,7 @@
 
 
 #include "application/dto/StatusDto.hpp"
-#include "application/dto/PlayDto.hpp"
+#include "application/dto/media_server/PlayDto.hpp"
 
 #include "application/service/PlayOperator.hpp"
 

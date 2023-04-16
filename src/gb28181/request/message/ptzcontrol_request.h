@@ -1,7 +1,7 @@
 #pragma once
 
 #include "gb28181/request/base_request.h"
-#include "glog/logging.h"
+#include "Util/logger.h"
 
 namespace GB28181 {
 
@@ -35,7 +35,7 @@ public:
         m_zoomSpeed = 0;
 
         // 收到相机回复后，立即停止云台转动
-        LOG(INFO) << "PtzControlRequest HandleResponse statuscode = "<<statcode;
+        InfoL << "PtzControlRequest HandleResponse statuscode = "<<statcode;
         // send_message(false);
         return 0;
     }

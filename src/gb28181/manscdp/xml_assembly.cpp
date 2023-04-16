@@ -6,11 +6,13 @@
 **	Modify		: 2020/3/3		zhangqiang		Create the file
 **	********************************************************************************
 */
-#include <glog/logging.h>
+#include "Util/logger.h"
 #include "xml_assembly.h"
 
 
 namespace GB28181 {
+
+using namespace toolkit;
 
 const char* result_type_str[] = {"UNKNOWN", "OK", "ERROR"};
 const char* status_type_str[] = {"UNKNOWN", "ON", "OFF"};
@@ -37,7 +39,7 @@ int CXmlAssembly::assemble_resp_device_status(string &body, const manscdp_device
 
     tostring(body);
 
-    LOG(INFO) << "device status: " << body;
+    InfoL << "device status: " << body;
 
     return 0;
 }
@@ -70,7 +72,7 @@ int CXmlAssembly::assemble_resp_query_catalog(string &body, const manscdp_catalo
     }
 
     tostring(body);
-    LOG(INFO) << "catalog: " << body;
+    InfoL << "catalog: " << body;
     return 0;
 }
 
@@ -88,7 +90,7 @@ int CXmlAssembly::assemble_resp_device_info(string &body, const manscdp_devinfo_
     insert_child(eleresp, "Channel", to_string(d.response.channel));
 
     tostring(body);
-    LOG(INFO) << "devinfo: "<< body;
+    InfoL << "devinfo: "<< body;
     return 0;
 }
 
@@ -118,7 +120,7 @@ int CXmlAssembly::assemble_resp_record_info(string &body, const manscdp_recordin
     }
 
     tostring(body);
-    LOG(INFO) << "recordInfo: " << body;
+    InfoL << "recordInfo: " << body;
     return 0;
 }
 
@@ -145,7 +147,7 @@ int CXmlAssembly::assemble_resp_config_download(string &body, const manscdp_conf
     insert_child(basic, "Latitude", to_string(d.response.basic.latitude));
 
     tostring(body);
-    LOG(INFO) << "config download: " << body;
+    InfoL << "config download: " << body;
     return 0;
 }
 
@@ -164,7 +166,7 @@ int CXmlAssembly::assemble_resp_preset_query(string &body, const manscdp_preset_
         insert_child(item, "PresetName", i.preset_name);
     }
     tostring(body);
-    LOG(INFO) << "preset query: " << body;
+    InfoL << "preset query: " << body;
     return 0;
 }
 

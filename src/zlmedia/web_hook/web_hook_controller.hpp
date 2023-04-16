@@ -56,6 +56,22 @@ public:
         return createDtoResponse(Status::CODE_200, on_stream_changed_api(onStreamChangedDTO));
     }
 
+    ENDPOINT_INFO(on_stream_none_reader) {
+        info->summary = "zlm流状态变更";
+        info->addTag("zlm_web_hook");
+        info->addConsumes<Object<DTO::ZLM::OnStreamChangedDTO>>("application/json");
+        info->addResponse<Object<DTO::ZLM::ResponseDto>>(Status::CODE_400, "application/json");
+    }
+    ENDPOINT("POST", 
+        "/index/hook/on_stream_none_reader", 
+        on_stream_none_reader, 
+        BODY_DTO(Object<DTO::ZLM::OnStreamChangedDTO>, onStreamChangedDTO)
+    ) {
+        return createDtoResponse(Status::CODE_200, on_stream_none_reader_api(onStreamChangedDTO));
+    }
+
+
+
 
 
 };

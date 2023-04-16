@@ -1,10 +1,17 @@
 cmake_minimum_required(VERSION 3.10.2)
 project(gb28181_cpp)
 
-set(CMAKE_CXX_STANDARD 17)
+# set(CMAKE_CXX_STANDARD 17)
 
 include_directories(include)
+include_directories(/usr/local/include)
+include_directories(/usr/local/include/oatpp-1.3.0/oatpp)
+include_directories(/usr/local/include/oatpp-1.3.0/oatpp-swagger)
 include_directories(src)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/3rdpart/ZLToolKit/src)
+
+link_directories(/usr/local/lib/oatpp-1.3.0)
+link_directories(/usr/local/lib)
 
 # 方便修改全局变量
 function(update_cached name value)
@@ -20,13 +27,7 @@ endfunction()
 
 set(CMAKE_CXX_FLAGS "-ffunction-sections -fdata-sections -Wall -std=c++11 -DPOSIX -DDEBUG_ -w")
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/3rdpart/ZLToolKit/src)
 add_subdirectory(3rdpart)
-
-link_directories(${PROJECT_SOURCE_DIR}/lib/m64x86/)
-include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
-conan_basic_setup()
-find_package(glog)
 
 file(GLOB_RECURSE gb28181_src ${CMAKE_SOURCE_DIR}/src/gb28181/*.cpp  ${CMAKE_SOURCE_DIR}/src/gb28181/*.c)
 file(GLOB_RECURSE webserver_src  
@@ -34,21 +35,18 @@ file(GLOB_RECURSE webserver_src
         ${CMAKE_SOURCE_DIR}/src/application/service/*.cpp)
 file(GLOB_RECURSE util_src  ${CMAKE_SOURCE_DIR}/src/utils/*.cpp)
 file(GLOB_RECURSE zlmedia_src  ${CMAKE_SOURCE_DIR}/src/zlmedia/*.cpp)
-
-
-set(app 
-        src/App.cpp
-        src/ErrorHandler.cpp
-)
+set(app  src/App.cpp src/ErrorHandler.cpp)
 
 
 set(EXECUTABLE_OUTPUT_PATH ./bin)
 
 add_definitions(
-        -DOATPP_SWAGGER_RES_PATH="${CMAKE_SOURCE_DIR}/include/oatpp-1.3.0/bin/oatpp-swagger/res"
+        -DOATPP_SWAGGER_RES_PATH="/usr/local/include/oatpp-1.3.0/bin/oatpp-swagger/res"
         -DDEV_CONFIG_PATH="${CMAKE_SOURCE_DIR}/config/dev_config.json"
 )
 
+find_package(oatpp          1.3.0 REQUIRED)
+find_package(oatpp-swagger  1.3.0 REQUIRED)
 
 add_executable(
 gb28181_cpp
@@ -59,15 +57,14 @@ gb28181_cpp
         ${zlmedia_src}
 
 )
-
-        
+       
 target_link_libraries(gb28181_cpp 
         pthread 
-        eXosip2 osip2 osipparser2  
-        ssl crypto resolv yaml  
+        eXosip2 osip2 osipparser2 
         zltoolkit
-        ${CONAN_LIBS})
-
+        oatpp::oatpp
+        oatpp::oatpp-swagger
+        )
 
 add_executable(
         ptzcmd

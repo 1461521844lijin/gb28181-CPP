@@ -9,7 +9,7 @@
 #include <gb28181/request/requested_pool.h>
 #include "message_handler.h"
 #include "osipparser2/osip_const.h"
-#include "glog/logging.h"
+#include "Util/logger.h"
 
 #include "gb28181/device/deviceManager.h"
 #include "utils/CommonTools.h"
@@ -48,7 +48,7 @@ int MessageHandler::HandleIncomingReq(const SipEvent::ptr &e)
     }
     int r;
 
-    // LOG(INFO) << "incoming request body: " << body->body;
+    // InfoL << "incoming request body: " << body->body;
 
     tinyxml_doc_t doc;
     r = m_xmlparser.Load(body->body, body->length, doc);
@@ -63,7 +63,7 @@ int MessageHandler::HandleIncomingReq(const SipEvent::ptr &e)
         return r;
     }
 
-    // LOG(INFO) << "Revice message, category: " << bodyheader.cmd_category <<", cmd_type: "
+    // InfoL << "Revice message, category: " << bodyheader.cmd_category <<", cmd_type: "
     //         << bodyheader.cmd_type << " from "<<username << ", host: "<< host;
 
     switch (bodyheader.cmd_category)
@@ -96,13 +96,13 @@ int MessageHandler::HandleResponseSuccess(const SipEvent::ptr &e)
     // }
     // int r;
 
-    // LOG(INFO) << "incoming response body: " << body->body;
+    // InfoL << "incoming response body: " << body->body;
 
 
 
     int statcode = getStatcodeFromResp(e->exevent->response);
     string reqid = getMsgIdFromReq(e->exevent->request);
-    LOG(INFO) << "response reqid = " << reqid;
+    InfoL << "response reqid = " << reqid;
 
     g_RequestedPool::GetInstance()->HandleMsgResponse(reqid, statcode);
     return 0;
@@ -135,7 +135,7 @@ int MessageHandler::handle_incoming_req_query(const SipEvent::ptr &e, tinyxml_do
 {
     // auto proc = m_queryproc.find(bh.cmd_type);
     // if (proc == m_queryproc.end()) {
-    //     LOG(WARNING) << "Not found proc, cmd_type: " << bh.cmd_type;
+    //     WarnL << "Not found proc, cmd_type: " << bh.cmd_type;
     //     sendSimplyResp(e->name, e->excontext, e->exevent->tid, SIP_BAD_REQUEST);
     //     return -1;
     // }
@@ -148,7 +148,7 @@ int MessageHandler::handle_incoming_req_notify(const SipEvent::ptr &e, tinyxml_d
 {
     auto handler = m_notifyhandler.find(bh.cmd_type);
     if (handler == m_notifyhandler.end()) {
-        LOG(WARNING) << "Not found proc, cmd_type: " << bh.cmd_type;
+        WarnL << "Not found proc, cmd_type: " << bh.cmd_type;
         sendSimplyResp(e->name, e->excontext, e->exevent->tid, SIP_BAD_REQUEST);
         return -1;
     }
@@ -166,7 +166,7 @@ int MessageHandler::handle_incoming_req_response(const SipEvent::ptr &e, tinyxml
 {
     auto handler = m_responsehandler.find(bh.cmd_type);
     if (handler == m_responsehandler.end()) {
-        LOG(WARNING) << "Not found proc, cmd_type: " << bh.cmd_type;
+        WarnL << "Not found proc, cmd_type: " << bh.cmd_type;
         sendSimplyResp(e->name, e->excontext, e->exevent->tid, SIP_BAD_REQUEST);
         return -1;
     }

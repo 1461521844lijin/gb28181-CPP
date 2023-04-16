@@ -9,7 +9,7 @@
 #include <utils/common.h>
 #include "xml_parser.h"
 #include "defs/defs.h"
-#include "glog/logging.h"
+#include "Util/logger.h"
 
 
 namespace GB28181 {
@@ -21,12 +21,12 @@ int XmlParser::Load(const char *p_data, int p_size, tinyxml_doc_t &doc)
         return -1;
     doc.Parse(p_data, p_size);
     if (doc.Error()) {
-        LOG(INFO) << "Load xml failed, error: "<<doc.ErrorID();
+        InfoL << "Load xml failed, error: "<<doc.ErrorID();
         return -1;
     }
     tinyxml_ele_t *ele = doc.RootElement();
     if (nullptr == ele || ele->Value() == nullptr) {
-        LOG(INFO) << "Load xml failed, error: root element does not exist.";
+        InfoL << "Load xml failed, error: root element does not exist.";
         return -2;
     }
     return 0;
@@ -54,7 +54,7 @@ int XmlParser::ParseXmlHeader(tinyxml_doc_t &doc, manscdp_msgbody_header_t &body
     if (r != 0)
         return r;
 
-    // LOG(INFO) << "[XmlParser] ParseXmlHeader, category: " << category_name
+    // InfoL << "[XmlParser] ParseXmlHeader, category: " << category_name
     //           << ", cmdtype: " << cmdtype_name
     //           << ", devid: "<< bodyheader.devid
     //           << ", sn: " << bodyheader.sn;
@@ -65,7 +65,7 @@ int XmlParser::parse_cmdcategory(tinyxml_ele_t *ele, manscdp_cmd_category_e &cat
 {
     const char* ele_text = ele->Value();
     if (nullptr == ele_text) {
-        LOG(INFO) << "[CXmlMsgParser] parse_cmdcategory failed, error: root element does not have value";
+        InfoL << "[CXmlMsgParser] parse_cmdcategory failed, error: root element does not have value";
         return -1;
     }
 
@@ -144,7 +144,7 @@ int XmlParser::ParseEleStr(tinyxml_ele_t *ele, const char *name, string &textstr
     tinyxml_ele_t* child_ele = ele->FirstChildElement(name);
     if (nullptr == child_ele) {
         if (brequired) {
-            LOG(INFO) << "ParseEleStr: "<< name << " does not exist.";
+            InfoL << "ParseEleStr: "<< name << " does not exist.";
         }
         return brequired ? -1 : 0;
     }
@@ -152,7 +152,7 @@ int XmlParser::ParseEleStr(tinyxml_ele_t *ele, const char *name, string &textstr
     const char * ele_text = child_ele->GetText();
     if (nullptr == ele_text) {
         if (brequired) {
-            LOG(INFO) << "ParseEleStr: "<<name << "does not have value.";
+            InfoL << "ParseEleStr: "<<name << "does not have value.";
         }
         return brequired ? -1 : 0;
     }
@@ -170,14 +170,14 @@ int XmlParser::ParseEleInt(tinyxml_ele_t *ele, const char *name, int &value, boo
     tinyxml_ele_t* child_ele = ele->FirstChildElement(name);
     if (nullptr == child_ele) {
         if (brequired) {
-            LOG(INFO) <<"parse_ele_int: "<<name<< " does not exist.";
+            InfoL <<"parse_ele_int: "<<name<< " does not exist.";
         }
         return brequired ? -1 : 0;
     }
     int ele_value;
     if (child_ele->QueryIntText(&ele_value) != tinyxml2::XML_SUCCESS) {
         if (brequired) {
-            LOG(INFO) << "parse_ele_int: " <<name<< " has invalid value.";
+            InfoL << "parse_ele_int: " <<name<< " has invalid value.";
         }
         return brequired ? -1 : 0;
     }
@@ -190,14 +190,14 @@ int XmlParser::parse_ele_double(tinyxml_ele_t *ele, const char *name, double &va
     tinyxml_ele_t* child_ele = ele->FirstChildElement(name);
     if (nullptr == child_ele) {
         if (brequired) {
-            LOG(INFO) <<"parse_ele_int: "<<name<< " does not exist.";
+            InfoL <<"parse_ele_int: "<<name<< " does not exist.";
         }
         return brequired ? -1 : 0;
     }
     double ele_value;
     if (child_ele->QueryDoubleText(&ele_value) != tinyxml2::XML_SUCCESS) {
         if (brequired) {
-            LOG(INFO) << "parse_ele_int: " <<name<< " has invalid value.";
+            InfoL << "parse_ele_int: " <<name<< " has invalid value.";
         }
         return brequired ? -1 : 0;
     }

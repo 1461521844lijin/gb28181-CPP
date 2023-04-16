@@ -72,7 +72,13 @@ class ResponseDto : public oatpp::DTO {
         info->description = "msg";
     }
     DTO_FIELD(String, msg);
+
+    DTO_FIELD_INFO(close) {
+        info->description = "close";
+    }
+    DTO_FIELD(Boolean, close);
 };
+
 
 } // namespace DTO::ZLM
 

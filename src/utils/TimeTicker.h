@@ -1,7 +1,7 @@
 #pragma once
 
 #include "chrono"
-#include "glog/logging.h"
+#include "Util/logger.h"
 #include <iostream>
 
 namespace Tools {
@@ -40,10 +40,10 @@ public:
     ~Ticker() {
         double tm = createdTime();
         if (tm > _min_ms) {
-            LOG(WARNING) << _name << " time: " << tm << "ms"
+            WarnL << _name << " time: " << tm << "ms"
                          << ", is over set time";
         } else if (_print_log) {
-            LOG(INFO) << _name << " time: " << tm << "ms";
+            InfoL << _name << " time: " << tm << "ms";
         }
     }
 

@@ -1,7 +1,7 @@
 #include "catalog_handler.h"
 #include "gb28181/device/channel.h"
 #include "gb28181/device/deviceManager.h"
-#include "glog/logging.h"
+#include "Util/logger.h"
 
 namespace GB28181 {
 
@@ -66,7 +66,7 @@ int CatalogHandler::handle(SipEvent::ptr event, tinyxml2::XMLDocument &xml) {
 
     tinyxml2::XMLElement *deviceList = root->FirstChildElement("DeviceList");
     if (deviceList == nullptr) {
-        LOG(ERROR) << "CatalogHandler::handle deviceList is null";
+        ErrorL << "CatalogHandler::handle deviceList is null";
         return -1;
     }
     tinyxml2::XMLElement *item = deviceList->FirstChildElement("Item");
@@ -129,11 +129,11 @@ int CatalogHandler::handle(SipEvent::ptr event, tinyxml2::XMLDocument &xml) {
 
             auto device = g_deviceMgr::GetInstance()->getDevice(deviceID);
             if (!device->insertSubChannel(deviceID, channel->getChannelId(), channel)) {
-                LOG(ERROR) << "CatalogHandler::handle insertSubChannel failed "
+                ErrorL << "CatalogHandler::handle insertSubChannel failed "
                            << "channelId:" << channel->getChannelId() << " parentID:" << channel->getParentId()
                            << " deviceID:" << deviceID;
             }else{
-                LOG(INFO) << "CatalogHandler::handle insertSubChannel success "
+                InfoL << "CatalogHandler::handle insertSubChannel success "
                            << "channelId:" << channel->getChannelId() << " parentID:" << channel->getParentId()
                            << " deviceID:" << deviceID;
 
@@ -141,7 +141,7 @@ int CatalogHandler::handle(SipEvent::ptr event, tinyxml2::XMLDocument &xml) {
 
             item = item->NextSiblingElement("Item");
         }
-    } catch (const std::exception &e) { LOG(ERROR) << e.what() << '\n'; }
+    } catch (const std::exception &e) { ErrorL << e.what() << '\n'; }
 
     return sendSimplyResp(deviceID.c_str(), event->excontext, event->exevent->tid, SIP_OK);
 }

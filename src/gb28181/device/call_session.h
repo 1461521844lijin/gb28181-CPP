@@ -5,6 +5,7 @@
 #include <map>
 #include <memory>
 #include <mutex>
+#include <condition_variable>
 
 namespace GB28181 {
 
@@ -20,6 +21,7 @@ public:
 private:
     bool       m_isConnected = false;
     std::mutex m_mutex;
+    std::condition_variable m_cond;
 
     std::map<std::string, streaminfo> m_streams;  // schema -> streaminfo
     std::string                       m_mediaServerId;
@@ -44,6 +46,9 @@ public:
     void addStream(const std::string &streamId, const std::string &app, const std::string &schema);
     void removeStream(const std::string &schema);
     std::map<std::string, streaminfo> getStreams();
+
+    bool wait_for_stream_ready();
+    void notify_stream_ready();
 };
 
 class CallSessionManager {
@@ -56,9 +61,9 @@ public:
     CallSessionManager()  = default;
     ~CallSessionManager() = default;
 
-    void             addCallSession(const std::string &deviceId, CallSession::ptr callSession);
-    CallSession::ptr getCallSession(const std::string &deviceId);
-    void             removeCallSession(const std::string &deviceId);
+    void             addCallSession(const std::string &streamId, CallSession::ptr callSession);
+    CallSession::ptr getCallSession(const std::string &streamId);
+    void             removeCallSession(const std::string &streamId);
     void             removeCallSessionByMediaServerId(const std::string &mediaServerId);
 };
 

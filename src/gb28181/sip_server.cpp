@@ -9,7 +9,7 @@
 #include "sip_server.h"
 #include "Poller/EventPoller.h"
 #include "event_handler/handler_manager.h"
-#include <glog/logging.h>
+#include "Util/logger.h"
 #include <netinet/in.h>
 #include "gb28181/event_handler/sip_event.h"
 #include "gb28181/request/requested_pool.h"
@@ -29,10 +29,10 @@ int SipServer::Init() {
     m_excontext = eXosip_malloc();
     int ret = eXosip_init(m_excontext);
     if (ret != 0) {
-        LOG(INFO) << "eXosip_init failed, ret=" << ret;
+        InfoL << "eXosip_init failed, ret=" << ret;
         return -1;
     }
-    LOG(INFO) << "eXosip_init successfully!";
+    InfoL << "eXosip_init successfully!";
     return 0;
 }
 
@@ -49,10 +49,10 @@ int SipServer::Start(const std::string &user_agent) {
         eXosip_listen_addr(m_excontext, IPPROTO_UDP, m_sipHost.c_str(), m_sipPort, AF_INET, 0);
     if (ret != 0) {
         eXosip_quit(m_excontext);
-        LOG(INFO) << "eXosip_listen_addr failed, ret: " << ret;
+        InfoL << "eXosip_listen_addr failed, ret: " << ret;
         return -1;
     } else {
-        LOG(INFO) << "sipserver start on " << m_sipHost << ":" << m_sipPort
+        InfoL << "sipserver start on " << m_sipHost << ":" << m_sipPort
                   << "  sipid=" << m_sipId;
     }
 
@@ -93,7 +93,7 @@ void SipServer::DoReceiveEvents() {
         if (nullptr == sip_event)
             continue;
 
-        LOG(INFO) << "收到event: " << sip_event->name;
+        InfoL << "收到event: " << sip_event->name;
         toolkit::EventPollerPool::Instance().getExecutor()->async([sip_event]() {
             sip_event->proc(sip_event);
             eXosip_event_free(sip_event->exevent);

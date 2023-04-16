@@ -2,6 +2,20 @@
 
 namespace GB28181 {
 
+
+bool CallSession::wait_for_stream_ready(){
+    std::unique_lock<std::mutex> lock(m_mutex);
+    auto status = m_cond.wait_for(lock, std::chrono::seconds(6));
+    if(status == std::cv_status::timeout){
+        return false;
+    }
+    return true;
+}
+
+void CallSession::notify_stream_ready(){
+    m_cond.notify_all();
+}
+
 CallSession::CallSession(const std::string &mediaServerId, const ZLM::SSRCInfo::ptr &ssrc) {
     m_mediaServerId = mediaServerId;
     m_ssrcInfo      = ssrc;
@@ -70,23 +84,23 @@ void CallSession::setDialogId(int dialogId) {
     m_dialogId = dialogId;
 }
 
-void CallSessionManager::addCallSession(const std::string &deviceId, CallSession::ptr callSession) {
+void CallSessionManager::addCallSession(const std::string &streamId, CallSession::ptr callSession) {
     std::unique_lock<std::mutex> lock(m_mutex);
-    m_callSession_map[deviceId] = callSession;
+    m_callSession_map[streamId] = callSession;
 }
 
-CallSession::ptr CallSessionManager::getCallSession(const std::string &deviceId) {
+CallSession::ptr CallSessionManager::getCallSession(const std::string &streamId) {
     std::unique_lock<std::mutex> lock(m_mutex);
-    auto                         it = m_callSession_map.find(deviceId);
+    auto                         it = m_callSession_map.find(streamId);
     if (it != m_callSession_map.end()) {
         return it->second;
     }
     return nullptr;
 }
 
-void CallSessionManager::removeCallSession(const std::string &deviceId) {
+void CallSessionManager::removeCallSession(const std::string &streamId) {
     std::unique_lock<std::mutex> lock(m_mutex);
-    m_callSession_map.erase(deviceId);
+    m_callSession_map.erase(streamId);
 }
 
 void CallSessionManager::removeCallSessionByMediaServerId(const std::string &mediaServerId) {

@@ -12,7 +12,7 @@ const std::string PresetCtlRequest::make_manscdp_body(){
     manscdp << "<Control>\r\n";
     manscdp << "<CmdType>DeviceControl</CmdType>\r\n";
     manscdp << "<SN>" << get_reqsn() << "</SN>\r\n";
-    manscdp << "<DeviceID>" << get_device()->getDeviceId() << "</DeviceID>\r\n";
+    manscdp << "<DeviceID>" << m_channelId << "</DeviceID>\r\n";
     manscdp << "<PTZCmd>" << ptzCmd << "</PTZCmd>\r\n";
     manscdp << "<Info>\r\n";
     manscdp << "<ControlPriority>5</ControlPriority>\r\n";

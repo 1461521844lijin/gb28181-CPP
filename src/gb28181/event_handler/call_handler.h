@@ -23,10 +23,10 @@ public:
     // 呼叫成功事件响应
     int handleResponseSuccess(const SipEvent::ptr event);
 
-
+    // 呼叫状态维持响应
     int on_proceeding(const SipEvent::ptr event);
 
-
+    // 收到下级或者上级的bye请求
     int handleClose(const SipEvent::ptr event);
 
 };

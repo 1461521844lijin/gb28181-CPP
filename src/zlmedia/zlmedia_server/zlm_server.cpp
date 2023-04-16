@@ -4,7 +4,7 @@
 #include "utils/httplib.h"
 #include "zlmedia/dto/open_rtp_server_dto.hpp"
 
-#include "glog/logging.h"
+#include "Util/logger.h"
 
 namespace ZLM {
 
@@ -88,26 +88,26 @@ SSRCInfo::ptr ZlmServer::openRTPServer(const std::string &streamid, bool isPlayb
     httplib::Client cli(addr);
     std::string     path = "/index/api/openRtpServer?secret=" + m_zlm_secret +
                        "&port=-1&tcp_mode=1&stream_id=" + streamid;
-    LOG(INFO) << "openRTPServer path: " << path;
+    InfoL << "openRTPServer path: " << path;
     try {
         auto res = cli.Post(path.c_str());
-        if (res->status == 200) {
+        if ( res.error() == httplib::Error::Success && res->status == 200) {
             auto json_Mapper = oatpp::parser::json::mapping::ObjectMapper::createShared();
             auto res_obj =
                 json_Mapper->readFromString<oatpp::Object<DTO::ZLM::openRtpServerRes>>(res->body);
             if(res_obj->code == 0){
                 port = res_obj->port;
             }else{
-                LOG(ERROR) << "openRTPServer failed: " << *res_obj->msg;
+                ErrorL << "openRTPServer failed: " << *res_obj->msg;
                 return nullptr;
             }
         }
         if (port == 0) {
-            LOG(ERROR) << "openRTPServer failed: port is 0";
+            ErrorL << "openRTPServer failed," << " httperr " << res.error() ;
             return nullptr;
         }
     } catch (const std::exception &e) {
-        LOG(ERROR) << "openRTPServer failed: " << e.what();
+        ErrorL << "openRTPServer failed: " << e.what();
         return nullptr;
     }
     
