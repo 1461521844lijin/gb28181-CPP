@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="GB2312" standalone="yes" ?>
+<Response>
+    <CmdType>Catalog</CmdType>
+    <SN>1</SN>
+    <DeviceID>51000000001320000001</DeviceID>
+    <SumNum>1</SumNum>
+    <DeviceList Num="1">
+        <Item>
+            <DeviceID>23000000001310000002</DeviceID>
+            <Name>���ز���</Name>
+            <Manufacturer>Dahua</Manufacturer>
+            <Model>IPC-HFW2433M-LED-V2</Model>
+            <Owner>0</Owner>
+            <CivilCode>510000</CivilCode>
+            <Address>axy</Address>
+            <Parental>0</Parental>
+            <ParentID>51000000001320000001</ParentID>
+            <RegisterWay>1</RegisterWay>
+            <Secrecy>0</Secrecy>
+            <StreamNum>2</StreamNum>
+            <IPAddress>192.168.163.170</IPAddress>
+            <Status>ON</Status>
+            <Info>
+                <PTZType>3</PTZType>
+                <DownloadSpeed>1/2/4/8</DownloadSpeed>
+            </Info>
+        </Item>
+    </DeviceList>
+</Response>
+
+
+<?xml version="1.0" encoding="GB2312"?>
+<Response>
+<CmdType>Catalog</CmdType>
+<SN>1</SN>
+<DeviceID>44020000001320000011</DeviceID>
+<SumNum>1</SumNum>
+<DeviceList Num="1">
+    <Item>
+        <DeviceID>34020000001320000001</DeviceID>
+        <Name>IPdome</Name>
+        <Manufacturer>Hikvision</Manufacturer>
+        <Model>IP Camera</Model>
+        <Owner>Owner</Owner>
+        <CivilCode>3402000000</CivilCode>
+        <Address>Address</Address>
+        <Parental>0</Parental>
+        <ParentID>34020000002000000001</ParentID> 34020000002000000001
+        <SafetyWay>0</SafetyWay>
+        <RegisterWay>1</RegisterWay>
+        <Secrecy>0</Secrecy>
+        <Status>ON</Status>
+        <Longitude>0.000</Longitude>
+        <Latitude>0.000</Latitude>
+    </Item>
+</DeviceList>
+</Response>

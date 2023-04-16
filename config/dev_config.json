@@ -1,0 +1,31 @@
+{
+    "web": {
+        "host": "0.0.0.0",
+        "port": 7788,
+        "swaggerHost": "0.0.0.0"
+    },
+    "database": {
+        "dbConnectionString": ""
+    },
+    "sip": {
+        "sipId": "34020000002000000001",
+        "sipDimain": "3402000000",
+        "sipPassword": "admin123",
+        "sipHost": "0.0.0.0",
+        "sipPort": 5060,
+        "sipPa": "GBCPP",
+        "sipNonce": "3402000000"
+    },
+    "log":{
+        "logPath": "",
+        "logLevel": "",
+        "logFileName": ""
+    },
+    "media": {
+        "zlmAddr": "192.168.161.150",
+        "zlmPort": 80,
+        "zlmSecret": "035c73f7-bb6b-4889-a715-d9eb2d1925cc",
+        "zlmRtpPort": 10000,
+        "zlmServerID":"192.168.161.150"
+    }   
+}
