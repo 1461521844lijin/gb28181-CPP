@@ -17,3 +17,5 @@ class openRtpServerRes : public oatpp::DTO {
 }
 
   // namespace DTO::ZLM
+
+  #include OATPP_CODEGEN_END(DTO)

@@ -36,6 +36,8 @@ public:
     // 获取负载最小的流媒体服务器
     ZlmServer::ptr getBestZlmServer();
 
+    ZlmServer::ptr getZlmServer(const std::string &zlm_server_id);
+
 
 private:
     // 更新流媒体服务器负载

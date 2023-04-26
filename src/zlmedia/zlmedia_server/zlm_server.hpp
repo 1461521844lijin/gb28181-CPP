@@ -46,6 +46,52 @@ public:
      */
     SSRCInfo::ptr openRTPServer(const std::string &streamid, bool isPlayback = false);
 
+    /**
+     * @brief 搜索文件系统，获取流对应的录像文件列表或日期文件夹列表
+     * @param app 应用名
+     * @param streamid 流id
+     * @param period 录像文件的时间段，格式为：2020-01-01
+     */
+    std::string getMp4RecordFile(const std::string &app,
+                                 const std::string &streamid,
+                                 const std::string &period);
+
+    /**
+     * @brief 开始录像
+     * @param app 应用名
+     * @param streamid 流id
+     * @param maxSecond mp4录像切片时间大小,单位秒，置0则采用配置项
+     */
+    std::string startRecordMp4(const std::string &app,
+                               const std::string &streamid,
+                               const int          maxSecond);
+
+    /**
+     * @brief 停止录像
+     * @param app 应用名
+     * @param streamid 流id
+     */
+    std::string stopRecordMp4(const std::string &app, const std::string &streamid);
+
+    /**
+     * @brief 获取录像状态
+     * @param app 应用名
+     * @param streamid 流id
+     */
+    std::string getRecordStatus(const std::string &app, const std::string &streamid);
+
+    /**
+     * @brief 获取截图或生成实时截图并返回
+     */
+    std::string getSnap(const std::string &url);
+
+    // 设置录像流播放速度
+    std::string setRecordSpeed(const std::string &path, const float &speed);
+
+    bool addStreamProxy(const std::string &streamUrl,
+                        const std::string &app,
+                        const std::string &streamid);
+
 public:
     std::string &getZlmAddr();
     void         setZlmAddr(std::string &value);

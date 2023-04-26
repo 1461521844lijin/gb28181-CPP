@@ -21,23 +21,18 @@ int CallHandler::handleResponseSuccess(const SipEvent::ptr event){
         InfoL << "deviceid=" << deviceid << " not exist";
         return -1;
     }
-    auto session =  GB28181::g_CallSessionMgr::GetInstance()->getCallSession(deviceid);
-    if(session){
-        session->setCallId(callid);
-        session->setDialogId(dialog);
-        session->setConnected(true);
-    }
-    std::string reqid;
-    osip_generic_param_t* tag = nullptr;
-    osip_to_get_tag(event->exevent->request->from, &tag);
-    if (nullptr == tag || nullptr == tag->gvalue) {
-        reqid = "";
-    }
-    reqid = (const char*)tag->gvalue;
-
-    InfoL << "on_exosip_call_answered response reqid = " << reqid;
-    sendCallAck(event->excontext, dialog);
-    return 0;
+    auto sessions =  GB28181::g_StreamMgr::GetInstance()->getStreamByType(STREAM_TYPE_GB);
+    for(auto session : sessions){
+        auto call_sessioned = std::dynamic_pointer_cast<GB28181::CallSession>(session);
+        if(call_sessioned->getCallId() == callid){
+            call_sessioned->setDialogId(dialog);
+            call_sessioned->setConnected(true);
+            sendCallAck(event->excontext, dialog);
+            return 0;
+        }
+    }    
+    WarnL << "没有找到对应的call session";
+    return -1;
 }
 
 
@@ -56,24 +51,22 @@ int CallHandler::on_proceeding(const SipEvent::ptr event){
 
 int CallHandler::handleClose(const SipEvent::ptr event){
 
-    std::string reqid;
-    osip_generic_param_t* tag = nullptr;
-    osip_to_get_tag(event->exevent->request->from, &tag);
-    if (nullptr == tag || nullptr == tag->gvalue) {
-        reqid = "";
-    }
-    reqid = (const char*)tag->gvalue;
-
-    InfoL << "on_exosip_call_closed response reqid = " << reqid;
-
+    int callid = event->exevent->cid;
+    int dialog = event->exevent->did;
     std::string deviceid = event->exevent->request->from->url->username;
     InfoL << "on_exosip_call_closed deviceid=" << deviceid;
-    auto session =  GB28181::g_CallSessionMgr::GetInstance()->getCallSession(deviceid);
-    if(session){
-        session->setConnected(false);
-    }else{
-        ErrorL << "on_exosip_call_closed session is null";
+    auto sessions =  GB28181::g_StreamMgr::GetInstance()->getStreamByType(STREAM_TYPE_GB);
+    for(auto session : sessions){
+        auto call_sessioned = std::dynamic_pointer_cast<GB28181::CallSession>(session);
+        if(call_sessioned->getDialogId() == dialog){
+            call_sessioned->setConnected(false);
+            InfoL << "收到来自 deviceid=" << deviceid<< "的挂断请求" << " callid=" << callid << " dialog=" << dialog;
+            return 0;
+        }
     }
+    WarnL << "没有找到对应的call session";
+    return -1;
+
 }
 
 } // namespace GB28181

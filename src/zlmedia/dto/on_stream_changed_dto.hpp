@@ -198,6 +198,7 @@ class OnStreamChangedDTO : public oatpp::DTO
 } // namespace dto::zlm
 
 
+#include OATPP_CODEGEN_END(DTO)
 
 
 

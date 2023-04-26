@@ -26,6 +26,7 @@ private:
     Device::ptr m_device;  // 请求发往的设备
     std::string m_channel_id;  // 请求的通道id
     std::string m_rtp_port = "10000";  // 指定发送往数据的zlm的rtp端口
+    ZLM::SSRCInfo::ptr m_ssrc_info;
     ZLM::ZlmServer::ptr m_zlm_server;
 };
 

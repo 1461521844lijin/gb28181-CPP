@@ -34,6 +34,17 @@ int InviteRequest::send_call(bool needcb) {
         return -1;
     }
 
+
+    std::string streamid = m_device->getDeviceId() + "_" + m_channel_id;
+    m_ssrc_info = m_zlm_server->openRTPServer(streamid);
+    if (!m_ssrc_info) {
+        ErrorL << "openRTPServer error";
+        throw std::runtime_error("openRTPServer error");
+    }
+
+    CallSession::ptr session = std::make_shared<CallSession>(m_zlm_server, m_ssrc_info, "rtp", streamid);
+    GB28181::g_StreamMgr::GetInstance()->addStream(session);
+
     std::string sdp_body = make_sdp_body();
 
     osip_message_set_body(msg, sdp_body.c_str(), sdp_body.length());
@@ -49,6 +60,8 @@ int InviteRequest::send_call(bool needcb) {
         ErrorL << "eXosip_call_send_initial_invite error: call_id=" << call_id;
     }
 
+    session->setCallId(call_id);
+
     InfoL << " send budy: \n" << sdp_body;
 
     if (needcb) {
@@ -61,15 +74,7 @@ int InviteRequest::send_call(bool needcb) {
 }
 
 const std::string InviteRequest::make_sdp_body() {
-    std::string streamid = m_device->getDeviceId() + "_" + m_channel_id;
-    auto        ssrc     = m_zlm_server->openRTPServer(streamid);
-    if (!ssrc) {
-        ErrorL << "openRTPServer error";
-        throw std::runtime_error("openRTPServer error");
-    }
 
-    CallSession::ptr session = std::make_shared<CallSession>(m_zlm_server->getZlmServerId(), ssrc);
-    GB28181::g_CallSessionMgr::GetInstance()->addCallSession(m_device->getDeviceId(), session);
 
     OATPP_COMPONENT(oatpp::Object<SipConfigDto>, sipConfig);
     // OATPP_COMPONENT(oatpp::Object<MediaConfigDto>, mediaConfig);
@@ -81,7 +86,7 @@ const std::string InviteRequest::make_sdp_body() {
     sdp << "s=Play\r\n";
     sdp << "c=IN IP4 " << m_zlm_server->getZlmAddr() << "\r\n";
     sdp << "t=0 0\r\n";
-    sdp << "m=video " << ssrc->getPort() << " TCP/RTP/AVP 96 98 97\r\n";
+    sdp << "m=video " << m_ssrc_info->getPort() << " TCP/RTP/AVP 96 98 97\r\n";
     sdp << "a=recvonly\r\n";
     sdp << "a=rtpmap:96 PS/90000\r\n";
     sdp << "a=rtpmap:98 H264/90000\r\n";

@@ -36,6 +36,7 @@ public:
     ) {
         return createDtoResponse(Status::CODE_200, OP::play_start(deviceId, channelId));
     }
+    ADD_CORS(play_start)
 
     ENDPOINT_INFO(play_stop) {
         info->summary = "国标设备停止点播";
@@ -50,6 +51,22 @@ public:
     ) {
         return createDtoResponse(Status::CODE_200, OP::play_stop(deviceId, channelId));
     }
+    ADD_CORS(play_stop)
+
+    ENDPOINT_INFO(play_stream_proxy) {
+        info->summary = "代理拉流";
+        info->addTag("Play");
+        info->addResponse<Object<StatusDto>>(Status::CODE_400, "application/json");
+        info->addResponse<Object<DTO::GETWAY::StreamInfoDto>>(Status::CODE_200, "application/json");
+    }
+    ENDPOINT("POST", 
+        "/api/play/stream_proxy", 
+        play_stream_proxy, 
+        BODY_DTO(Object<DTO::GETWAY::StreamPlayDto>, streamPlayDto)
+    ) {
+        return createDtoResponse(Status::CODE_200, OP::play_stream_proxy(streamPlayDto));
+    }
+    ADD_CORS(play_stream_proxy)
 };
     
 

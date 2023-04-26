@@ -8,17 +8,18 @@
 
 class StatusDto : public oatpp::DTO {
 
+public:
     DTO_INIT(StatusDto, DTO)
 
-    DTO_FIELD_INFO(errorCode) {
-        info->description = "Status code";
+    DTO_FIELD_INFO(code) {
+        info->description = "返回码 0成功, -1失败";
     };
-    DTO_FIELD(Int32, errorCode);
+    DTO_FIELD(Int32, code);
 
-    DTO_FIELD_INFO(errorMsg) {
-        info->description = "Status message";
+    DTO_FIELD_INFO(msg) {
+        info->description = "返回消息内容";
     };
-    DTO_FIELD(String, errorMsg);
+    DTO_FIELD(String, msg);
 
 };
 

@@ -12,6 +12,7 @@
 
 #include "gb28181/sip_server.h"
 
+
 #include "application/oatppComponents//ServiceComponent.hpp"
 #include "application/oatppComponents/ConfigComponent.hpp"
 #include "application/oatppComponents/DatabaseComponent.hpp"
@@ -21,7 +22,7 @@
 #include "application/controller/PtzController.hpp"
 #include "application/controller/PlayController.hpp"
 #include "application/controller/RecordController.hpp"
-
+#include "application/controller/DeviceController.hpp"
 #include "zlmedia/web_hook/web_hook_controller.hpp"
 
     
@@ -35,6 +36,7 @@ void run_sip(){
     GB28181::g_SipServer::GetInstance()->SetLocalConfig(sipConfig->sipId,sipConfig->sipHost,sipConfig->sipPort);
     GB28181::g_SipServer::GetInstance()->Init();
     GB28181::g_SipServer::GetInstance()->Start(sipConfig->sipPa);
+    
 }
 
 
@@ -58,7 +60,8 @@ void run_oatpp() {
     docEndpoints.append(router->addController(ZLM::ZlmWebHookController::createShared())->getEndpoints());
     router->addController(RecordController::createShared());
     docEndpoints.append(router->addController(RecordController::createShared())->getEndpoints());
-
+    router->addController(DeviceController::createShared());
+    docEndpoints.append(router->addController(DeviceController::createShared())->getEndpoints());
 
     router->addController(oatpp::swagger::Controller::createShared(docEndpoints));
     /* Get connection handler component */
@@ -67,7 +70,8 @@ void run_oatpp() {
     OATPP_COMPONENT(std::shared_ptr<oatpp::network::ServerConnectionProvider>, connectionProvider);
     /* create server */
     oatpp::network::Server server(connectionProvider, connectionHandler);
-    InfoL << "Http Server Running on port "<< connectionProvider->getProperty("port").toString()->c_str();
+    OATPP_LOGD("Server", "Running on port %s...",
+               connectionProvider->getProperty("port").toString()->c_str());
   
     server.run();
 }
@@ -83,6 +87,8 @@ int start_main(int argc, const char *argv[]) {
     // }
 
     Logger::Instance().add(std::make_shared<ConsoleChannel>("ConsoleChannel", LogLevel(1)));
+    //启动异步日志线程
+    Logger::Instance().setWriter(std::make_shared<AsyncLogWriter>());
     
     oatpp::base::Environment::init();
     ConfigComponent   configComponent(oatpp::base::CommandLineArguments(argc, argv));
