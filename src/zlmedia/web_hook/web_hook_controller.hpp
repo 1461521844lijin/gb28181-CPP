@@ -58,7 +58,7 @@ public:
     }
 
     ENDPOINT_INFO(on_stream_none_reader) {
-        info->summary = "zlm流状态变更";
+        info->summary = "zlm无流观看事件";
         info->addTag("zlm_web_hook");
         info->addConsumes<Object<DTO::ZLM::OnStreamChangedDTO>>("application/json");
         info->addResponse<Object<DTO::ZLM::ResponseDto>>(Status::CODE_400, "application/json");
