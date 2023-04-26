@@ -10,8 +10,8 @@ ErrorHandler::handleError(const Status& status, const oatpp::String& message, co
 
   auto error = StatusDto::createShared();
   
-  error->errorCode = status.code;
-  error->errorMsg = message;
+  error->code = status.code;
+  error->msg = message;
 
   auto response = ResponseFactory::createResponse(status, error, m_objectMapper);
 

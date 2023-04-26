@@ -14,8 +14,8 @@ namespace OP {
 
 #define RETURN_ERROR(errorCode__, errorMsg__) \
     auto status__ = StatusDto::createShared(); \
-    status__->errorCode = errorCode__; \
-    status__->errorMsg = errorMsg__; \
+    status__->code = errorCode__; \
+    status__->msg = errorMsg__; \
     return status__;
 
 oatpp::Object<StatusDto> ptz_ctl(const std::string &deviceId,
@@ -90,26 +90,50 @@ oatpp::Object<StatusDto> preset_operate(const std::string& deviceId, const std::
 
 }
 
-oatpp::Object<StatusDto> preset_query(const std::string& deviceId, const std::string& channelId){
+oatpp::List<oatpp::Object<DTO::GETWAY::PresetInfoDto>> preset_query(const std::string& deviceId, const std::string& channelId){
     auto device = GB28181::g_deviceMgr::GetInstance()->getDevice(deviceId);
+    oatpp::List<oatpp::Object<DTO::GETWAY::PresetInfoDto>> presets = oatpp::List<oatpp::Object<DTO::GETWAY::PresetInfoDto>>::createShared();
+
     if(!device){
-        RETURN_ERROR(400, "device not exist");
+        return presets;
+        // RETURN_ERROR(400, "device not exist");
     }
     GB28181::PresetRequest::ptr req = std::make_shared<GB28181::PresetRequest>(device, channelId);
     req->send_message();
     req->SetWait();
     req->WaitResult();
     if(!req->IsFinished()){
-        RETURN_ERROR(400, "query preset timeout");
+        return presets;
+        // RETURN_ERROR(400, "query preset timeout");
     }
     auto preset_list = req->get_preset_list();
     for(auto it = preset_list.begin(); it != preset_list.end(); it++){
-        std::cout << "preset index: " << it->first << " preset name: " << it->second << std::endl;
+        auto preset = DTO::GETWAY::PresetInfoDto::createShared();
+        preset->preset_id = it->first;
+        preset->preset_name = it->second;
+        presets->push_back(preset);
+        // std::cout << "preset index: " << it->first << " preset name: " << it->second << std::endl;
     }
-
-    RETURN_ERROR(200, "ok");
+    return presets;
+    // RETURN_ERROR(200, "ok");
 }
 
+
+oatpp::Object<StatusDto> front_end_command(const std::string &deviceId,
+                                           const std::string &channelId,
+                                           const int          cmdCode,
+                                           const int          parameter1,
+                                           const int          parameter2,
+                                           const int          combindCode2){
+    auto device = GB28181::g_deviceMgr::GetInstance()->getDevice(deviceId);
+    if(!device){
+        RETURN_ERROR(400, "device not exist");
+    }
+    GB28181::PresetCtlRequest::ptr req = std::make_shared<GB28181::PresetCtlRequest>(device, channelId, cmdCode, parameter1, parameter2, combindCode2);
+    req->send_message();
+    RETURN_ERROR(200, "ok");
+    
+}
 
 
 

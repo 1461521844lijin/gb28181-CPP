@@ -1,7 +1,7 @@
 #include "catalog_handler.h"
+#include "Util/logger.h"
 #include "gb28181/device/channel.h"
 #include "gb28181/device/deviceManager.h"
-#include "Util/logger.h"
 
 namespace GB28181 {
 
@@ -71,72 +71,69 @@ int CatalogHandler::handle(SipEvent::ptr event, tinyxml2::XMLDocument &xml) {
     }
     tinyxml2::XMLElement *item = deviceList->FirstChildElement("Item");
     try {
-         
         while (item != nullptr) {
-            if(item->FirstChildElement("DeviceID") != nullptr){
+            if (item->FirstChildElement("DeviceID") != nullptr) {
                 channel->setChannelId(item->FirstChildElement("DeviceID")->GetText());
             }
-            if(item->FirstChildElement("Name") != nullptr){
+            if (item->FirstChildElement("Name") != nullptr) {
                 channel->setName(item->FirstChildElement("Name")->GetText());
             }
-            if(item->FirstChildElement("Manufacturer") != nullptr){
+            if (item->FirstChildElement("Manufacturer") != nullptr) {
                 channel->setManufacturer(item->FirstChildElement("Manufacturer")->GetText());
             }
-            if(item->FirstChildElement("Model") != nullptr){
+            if (item->FirstChildElement("Model") != nullptr) {
                 channel->setModel(item->FirstChildElement("Model")->GetText());
             }
-            if(item->FirstChildElement("Owner") != nullptr){
+            if (item->FirstChildElement("Owner") != nullptr) {
                 channel->setOwner(item->FirstChildElement("Owner")->GetText());
             }
-            if(item->FirstChildElement("CivilCode") != nullptr){
+            if (item->FirstChildElement("CivilCode") != nullptr) {
                 channel->setCivilCode(item->FirstChildElement("CivilCode")->GetText());
             }
-            if(item->FirstChildElement("Address") != nullptr){
+            if (item->FirstChildElement("Address") != nullptr) {
                 channel->setAddress(item->FirstChildElement("Address")->GetText());
             }
-            if(item->FirstChildElement("Parental") != nullptr){
+            if (item->FirstChildElement("Parental") != nullptr) {
                 channel->setParental(item->FirstChildElement("Parental")->GetText());
             }
-            if(item->FirstChildElement("ParentID") != nullptr){
+            if (item->FirstChildElement("ParentID") != nullptr) {
                 channel->setParentId(item->FirstChildElement("ParentID")->GetText());
             }
-            if(item->FirstChildElement("RegisterWay") != nullptr){
+            if (item->FirstChildElement("RegisterWay") != nullptr) {
                 channel->setRegisterWay(item->FirstChildElement("RegisterWay")->GetText());
             }
-            if(item->FirstChildElement("Secrecy") != nullptr){
+            if (item->FirstChildElement("Secrecy") != nullptr) {
                 channel->setSecrety(item->FirstChildElement("Secrecy")->GetText());
             }
-            if(item->FirstChildElement("StreamNum") != nullptr){
+            if (item->FirstChildElement("StreamNum") != nullptr) {
                 channel->setStreamNum(item->FirstChildElement("StreamNum")->GetText());
             }
-            if(item->FirstChildElement("IPAddress") != nullptr){
+            if (item->FirstChildElement("IPAddress") != nullptr) {
                 channel->setIpAddress(item->FirstChildElement("IPAddress")->GetText());
             }
-            if(item->FirstChildElement("Status") != nullptr){
+            if (item->FirstChildElement("Status") != nullptr) {
                 channel->setStatus(item->FirstChildElement("Status")->GetText());
             }
-            if(item->FirstChildElement("Info") != nullptr){
+            if (item->FirstChildElement("Info") != nullptr) {
                 tinyxml2::XMLElement *info = item->FirstChildElement("Info");
-                if(info->FirstChildElement("PTZType") != nullptr){
+                if (info->FirstChildElement("PTZType") != nullptr) {
                     channel->setPtztype(info->FirstChildElement("PTZType")->GetText());
                 }
-                if(info->FirstChildElement("DownloadSpeed") != nullptr){
+                if (info->FirstChildElement("DownloadSpeed") != nullptr) {
                     channel->setDownSpeed(info->FirstChildElement("DownloadSpeed")->GetText());
                 }
             }
 
-            
-
             auto device = g_deviceMgr::GetInstance()->getDevice(deviceID);
             if (!device->insertSubChannel(deviceID, channel->getChannelId(), channel)) {
                 ErrorL << "CatalogHandler::handle insertSubChannel failed "
-                           << "channelId:" << channel->getChannelId() << " parentID:" << channel->getParentId()
-                           << " deviceID:" << deviceID;
-            }else{
+                       << "channelId:" << channel->getChannelId()
+                       << " parentID:" << channel->getParentId() << " deviceID:" << deviceID;
+            } else {
                 InfoL << "CatalogHandler::handle insertSubChannel success "
-                           << "channelId:" << channel->getChannelId() << " parentID:" << channel->getParentId()
-                           << " deviceID:" << deviceID;
-
+                      << "channelId:" << channel->getChannelId()
+                      << " parentID:" << channel->getParentId() << " deviceID:" << deviceID
+                      << " deviceip:" << device->getIp();
             };
 
             item = item->NextSiblingElement("Item");

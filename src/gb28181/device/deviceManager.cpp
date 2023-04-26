@@ -1,4 +1,5 @@
 #include "deviceManager.h"
+#include "utils/CommonTools.h"
 
 namespace GB28181 {
 
@@ -58,6 +59,26 @@ void DeviceManager::updateDeviceChannelCount(std::string& deviceId, int channelC
     if (it != m_device_map.end()) {
         it->second->setChannelCount(channelCount);
     }
+}
+
+void DeviceManager::init(){
+    checkDeviceStatusTimer(); 
+}
+
+void DeviceManager::checkDeviceStatusTimer() {
+    check_device_timer.reset(new toolkit::Timer( 
+        3 * 60, 
+        [this]() {
+            std::lock_guard<std::mutex> lock(m_mutex);
+            for (auto it = m_device_map.begin(); it != m_device_map.end(); ++it) {
+                if (time(0) - Str2Time(it->second->getLastTime().c_str()) > 3 * 60) {
+                    // 三次心跳时间内没有收到心跳包，认为设备离线
+                    it->second->setStatus(0);
+                }
+            }
+            return true;
+        }, 
+    nullptr));
 }
 
 } // namespace GB28181

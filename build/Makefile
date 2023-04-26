@@ -223,6 +223,30 @@ src/ErrorHandler.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/ErrorHandler.cpp.s
 .PHONY : src/ErrorHandler.cpp.s
 
+src/application/service/DeviceOperator.o: src/application/service/DeviceOperator.cpp.o
+.PHONY : src/application/service/DeviceOperator.o
+
+# target to build an object file
+src/application/service/DeviceOperator.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/application/service/DeviceOperator.cpp.o
+.PHONY : src/application/service/DeviceOperator.cpp.o
+
+src/application/service/DeviceOperator.i: src/application/service/DeviceOperator.cpp.i
+.PHONY : src/application/service/DeviceOperator.i
+
+# target to preprocess a source file
+src/application/service/DeviceOperator.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/application/service/DeviceOperator.cpp.i
+.PHONY : src/application/service/DeviceOperator.cpp.i
+
+src/application/service/DeviceOperator.s: src/application/service/DeviceOperator.cpp.s
+.PHONY : src/application/service/DeviceOperator.s
+
+# target to generate assembly for a file
+src/application/service/DeviceOperator.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/application/service/DeviceOperator.cpp.s
+.PHONY : src/application/service/DeviceOperator.cpp.s
+
 src/application/service/PTZOperator.o: src/application/service/PTZOperator.cpp.o
 .PHONY : src/application/service/PTZOperator.o
 
@@ -343,6 +367,30 @@ src/gb28181/auth/md5/MD5.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/auth/md5/MD5.c.s
 .PHONY : src/gb28181/auth/md5/MD5.c.s
 
+src/gb28181/device/base_stream.o: src/gb28181/device/base_stream.cpp.o
+.PHONY : src/gb28181/device/base_stream.o
+
+# target to build an object file
+src/gb28181/device/base_stream.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/device/base_stream.cpp.o
+.PHONY : src/gb28181/device/base_stream.cpp.o
+
+src/gb28181/device/base_stream.i: src/gb28181/device/base_stream.cpp.i
+.PHONY : src/gb28181/device/base_stream.i
+
+# target to preprocess a source file
+src/gb28181/device/base_stream.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/device/base_stream.cpp.i
+.PHONY : src/gb28181/device/base_stream.cpp.i
+
+src/gb28181/device/base_stream.s: src/gb28181/device/base_stream.cpp.s
+.PHONY : src/gb28181/device/base_stream.s
+
+# target to generate assembly for a file
+src/gb28181/device/base_stream.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/device/base_stream.cpp.s
+.PHONY : src/gb28181/device/base_stream.cpp.s
+
 src/gb28181/device/call_session.o: src/gb28181/device/call_session.cpp.o
 .PHONY : src/gb28181/device/call_session.o
 
@@ -438,6 +486,30 @@ src/gb28181/device/deviceManager.s: src/gb28181/device/deviceManager.cpp.s
 src/gb28181/device/deviceManager.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/device/deviceManager.cpp.s
 .PHONY : src/gb28181/device/deviceManager.cpp.s
+
+src/gb28181/device/stream.o: src/gb28181/device/stream.cpp.o
+.PHONY : src/gb28181/device/stream.o
+
+# target to build an object file
+src/gb28181/device/stream.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/device/stream.cpp.o
+.PHONY : src/gb28181/device/stream.cpp.o
+
+src/gb28181/device/stream.i: src/gb28181/device/stream.cpp.i
+.PHONY : src/gb28181/device/stream.i
+
+# target to preprocess a source file
+src/gb28181/device/stream.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/device/stream.cpp.i
+.PHONY : src/gb28181/device/stream.cpp.i
+
+src/gb28181/device/stream.s: src/gb28181/device/stream.cpp.s
+.PHONY : src/gb28181/device/stream.s
+
+# target to generate assembly for a file
+src/gb28181/device/stream.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/device/stream.cpp.s
+.PHONY : src/gb28181/device/stream.cpp.s
 
 src/gb28181/device/stream_proxy.o: src/gb28181/device/stream_proxy.cpp.o
 .PHONY : src/gb28181/device/stream_proxy.o
@@ -847,6 +919,30 @@ src/gb28181/request/message/catalog_request.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/catalog_request.cpp.s
 .PHONY : src/gb28181/request/message/catalog_request.cpp.s
 
+src/gb28181/request/message/homeposition_request.o: src/gb28181/request/message/homeposition_request.cpp.o
+.PHONY : src/gb28181/request/message/homeposition_request.o
+
+# target to build an object file
+src/gb28181/request/message/homeposition_request.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/homeposition_request.cpp.o
+.PHONY : src/gb28181/request/message/homeposition_request.cpp.o
+
+src/gb28181/request/message/homeposition_request.i: src/gb28181/request/message/homeposition_request.cpp.i
+.PHONY : src/gb28181/request/message/homeposition_request.i
+
+# target to preprocess a source file
+src/gb28181/request/message/homeposition_request.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/homeposition_request.cpp.i
+.PHONY : src/gb28181/request/message/homeposition_request.cpp.i
+
+src/gb28181/request/message/homeposition_request.s: src/gb28181/request/message/homeposition_request.cpp.s
+.PHONY : src/gb28181/request/message/homeposition_request.s
+
+# target to generate assembly for a file
+src/gb28181/request/message/homeposition_request.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/homeposition_request.cpp.s
+.PHONY : src/gb28181/request/message/homeposition_request.cpp.s
+
 src/gb28181/request/message/preset_ctl_request.o: src/gb28181/request/message/preset_ctl_request.cpp.o
 .PHONY : src/gb28181/request/message/preset_ctl_request.o
 
@@ -1178,6 +1274,9 @@ help:
 	@echo "... src/ErrorHandler.o"
 	@echo "... src/ErrorHandler.i"
 	@echo "... src/ErrorHandler.s"
+	@echo "... src/application/service/DeviceOperator.o"
+	@echo "... src/application/service/DeviceOperator.i"
+	@echo "... src/application/service/DeviceOperator.s"
 	@echo "... src/application/service/PTZOperator.o"
 	@echo "... src/application/service/PTZOperator.i"
 	@echo "... src/application/service/PTZOperator.s"
@@ -1193,6 +1292,9 @@ help:
 	@echo "... src/gb28181/auth/md5/MD5.o"
 	@echo "... src/gb28181/auth/md5/MD5.i"
 	@echo "... src/gb28181/auth/md5/MD5.s"
+	@echo "... src/gb28181/device/base_stream.o"
+	@echo "... src/gb28181/device/base_stream.i"
+	@echo "... src/gb28181/device/base_stream.s"
 	@echo "... src/gb28181/device/call_session.o"
 	@echo "... src/gb28181/device/call_session.i"
 	@echo "... src/gb28181/device/call_session.s"
@@ -1205,6 +1307,9 @@ help:
 	@echo "... src/gb28181/device/deviceManager.o"
 	@echo "... src/gb28181/device/deviceManager.i"
 	@echo "... src/gb28181/device/deviceManager.s"
+	@echo "... src/gb28181/device/stream.o"
+	@echo "... src/gb28181/device/stream.i"
+	@echo "... src/gb28181/device/stream.s"
 	@echo "... src/gb28181/device/stream_proxy.o"
 	@echo "... src/gb28181/device/stream_proxy.i"
 	@echo "... src/gb28181/device/stream_proxy.s"
@@ -1256,6 +1361,9 @@ help:
 	@echo "... src/gb28181/request/message/catalog_request.o"
 	@echo "... src/gb28181/request/message/catalog_request.i"
 	@echo "... src/gb28181/request/message/catalog_request.s"
+	@echo "... src/gb28181/request/message/homeposition_request.o"
+	@echo "... src/gb28181/request/message/homeposition_request.i"
+	@echo "... src/gb28181/request/message/homeposition_request.s"
 	@echo "... src/gb28181/request/message/preset_ctl_request.o"
 	@echo "... src/gb28181/request/message/preset_ctl_request.i"
 	@echo "... src/gb28181/request/message/preset_ctl_request.s"

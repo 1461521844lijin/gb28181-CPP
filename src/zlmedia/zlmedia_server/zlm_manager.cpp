@@ -70,7 +70,7 @@ void ZlmManager::checkZlmServerHeartbeat() {
                     WarnL << "zlm server " << zlm_server.second->getZlmServerId()
                                  << " disconnected";
                     zlm_server.second->setIsConnected(false);
-                    GB28181::g_CallSessionMgr::GetInstance()->removeCallSessionByMediaServerId(zlm_server.second->getZlmServerId());
+                    // GB28181::g_CallSessionMgr::GetInstance()->removeCallSessionByMediaServerId(zlm_server.second->getZlmServerId());
                 }
             }
             return true;
@@ -98,5 +98,16 @@ void ZlmManager::updateZlmServerHeartbeat(const std::string &zlm_server_id) {
         m_zlm_servers[zlm_server_id]->setIsConnected(true);
     }
 }
+
+ZlmServer::ptr ZlmManager::getZlmServer(const std::string &zlm_server_id){
+    std::lock_guard<std::mutex> lock(m_mutex);
+    if (m_zlm_servers.find(zlm_server_id) != m_zlm_servers.end()) {
+        return m_zlm_servers[zlm_server_id];
+    }
+    return nullptr;
+}
+
+
+
 
 }  // namespace ZLM

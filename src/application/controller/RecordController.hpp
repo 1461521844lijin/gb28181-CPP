@@ -7,6 +7,7 @@
 
 
 #include "application/dto/StatusDto.hpp"
+#include "application/service/RecordOperator.h"
 
 #include OATPP_CODEGEN_BEGIN(ApiController)
 
@@ -28,14 +29,14 @@ public:
         getRecordList,
         QUERY(String, app, "app"),
         QUERY(String, stream, "stream"),
-        QUERY(String, vhost, "vhost"),
         QUERY(String, period, "period")
         ) {
-        return createDtoResponse(Status::CODE_200, StatusDto::createShared());
-    } 
+        return createDtoResponse(Status::CODE_200, OP::getMp4RecordFile(app, stream, period));
+    }
+    ADD_CORS(getRecordList) 
 
     ENDPOINT_INFO(startRecord) {
-        info->summary = "开始录制";
+        info->summary = "开始录制mp4";
         info->addTag("Record");
     }
     ENDPOINT("GET",
@@ -43,10 +44,11 @@ public:
         startRecord,
         QUERY(String, app, "app"),
         QUERY(String, stream, "stream"),
-        QUERY(String, vhost, "vhost")
+        QUERY(Int32, maxSecond, "maxSecond")
         ) {
-        return createDtoResponse(Status::CODE_200, StatusDto::createShared());
+        return createDtoResponse(Status::CODE_200, OP::startRecord(app, stream, maxSecond));
     }
+    ADD_CORS(startRecord)
 
     ENDPOINT_INFO(stopRecord) {
         info->summary = "停止录制";
@@ -56,11 +58,11 @@ public:
         "/api/record/stopRecord", 
         stopRecord,
         QUERY(String, app, "app"),
-        QUERY(String, stream, "stream"),
-        QUERY(String, vhost, "vhost")
+        QUERY(String, stream, "stream")
         ) {
-        return createDtoResponse(Status::CODE_200, StatusDto::createShared());
+        return createDtoResponse(Status::CODE_200, OP::stopRecord(app, stream));
     }
+    ADD_CORS(stopRecord)
 
     ENDPOINT_INFO(isRecording) {
         info->summary = "获取流录制状态";
@@ -70,27 +72,39 @@ public:
         "/api/record/isRecording", 
         isRecording,
         QUERY(String, app, "app"),
-        QUERY(String, stream, "stream"),
-        QUERY(String, vhost, "vhost")
+        QUERY(String, stream, "stream")
         ) {
-        return createDtoResponse(Status::CODE_200, StatusDto::createShared());
+        return createDtoResponse(Status::CODE_200, OP::getRecordStatus(app, stream));
     }
+    ADD_CORS(isRecording)
 
     ENDPOINT_INFO(getSnap) {
         info->summary = "获取截图或生成实时截图并返回";
         info->addTag("Record");
     }
-    ENDPOINT("GET",
+    ENDPOINT("POST",
         "/api/record/getSnap", 
         getSnap,
-        QUERY(String, app, "app"),
-        QUERY(String, stream, "stream"),
-        QUERY(String, vhost, "vhost"),
-        QUERY(String, time, "time")
+        BODY_DTO(Object<DTO::GETWAY::StreamPlayDto>, streamPlayDto)
         ) {
-        return createDtoResponse(Status::CODE_200, StatusDto::createShared());
+        auto response = createResponse(Status::CODE_200, OP::getSnapShot(streamPlayDto));
+        response->putHeader("Content-Type", "image/jpeg");
+        return response;
     }
+    ADD_CORS(getSnap)
 
-
+    ENDPOINT_INFO(setRecordSpeed) {
+        info->summary = "设置录像流播放速度";
+        info->addTag("Record");
+    }
+    ENDPOINT("GET",
+        "/api/record/setRecordSpeed", 
+        setRecordSpeed,
+        QUERY(String, path, "path"),
+        QUERY(Float32, speed, "speed")
+        ) {
+        return createDtoResponse(Status::CODE_200, OP::setRecordSpeed(path, speed));
+    }
+    ADD_CORS(setRecordSpeed)
 
 };

@@ -66,6 +66,7 @@ public:
     std::string getRegiestTime() const;
     void        setRegiestTime(std::string regiestTime);
 
+    // 获取设备最后一次心跳时间
     std::string getLastTime() const;
     void        setLastTime(std::string &lastTime);
 

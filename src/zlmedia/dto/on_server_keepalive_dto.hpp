@@ -77,9 +77,12 @@ class ResponseDto : public oatpp::DTO {
         info->description = "close";
     }
     DTO_FIELD(Boolean, close);
+
+    
 };
 
 
 } // namespace DTO::ZLM
 
+#include OATPP_CODEGEN_END(DTO)
 

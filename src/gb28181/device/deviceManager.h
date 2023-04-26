@@ -1,6 +1,5 @@
 #pragma once
 
-
 #include <memory>
 #include <mutex>
 #include <unordered_map>
@@ -8,7 +7,7 @@
 
 #include "device.h"
 #include "utils/Singleton.h"
-
+#include "Poller/Timer.h"
 namespace GB28181 {
 
 class DeviceManager {
@@ -19,10 +18,17 @@ private:
     std::mutex m_mutex;
     // 设备id -> 设备对象
     std::unordered_map<std::string, Device::ptr> m_device_map;
+    toolkit::Timer::Ptr check_device_timer;  // 更新设备状态定时器
+
+    // 更新设备状态
+    void checkDeviceStatusTimer();
+
 
 public:
     DeviceManager()  = default;
     ~DeviceManager() = default;
+
+    void init();
 
     void        addDevice(Device::ptr device);
     Device::ptr getDevice(const std::string &deviceId);
