@@ -13,6 +13,7 @@ osip&exosip				# sip信令相关
 ~~~
 
 #### 如何使用----安装依赖库
+当前项目运行环境为linux，不支持直接在win下运行，仅支持gcc8版本以上的编译
 
 ~~~sh
 #安装oatpp
@@ -45,6 +46,12 @@ cd libexosip2-5.3.0
 ./configure
 make
 sudo make install
+
+# 构建项目
+mkdir build
+cd build
+cmake ..
+make
 ~~~
 
 
