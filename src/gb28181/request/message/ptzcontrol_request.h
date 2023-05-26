@@ -27,7 +27,7 @@ public:
 public:
     virtual const std::string make_manscdp_body() override;
 
-    virtual int HandleResponse(int statcode) override {
+    virtual int HandleResponse(int statcode, tinxml_doc_ptr xml = nullptr) override {
         m_leftRight = 0;
         m_upDown    = 0;
         m_inOut     = 0;

@@ -48,7 +48,7 @@ std::string PtzCmd::cmdString(int leftRight, int upDown, int inOut, int moveSpee
     ss << "0";
     // 字节8 校验码  字节8=(字节1+字节2+字节3+字节4+字节5+字节6+字节7)%256
     int checkCode =
-        (0xA5 + 0x0F + 0x01 + cmdCode + moveSpeed + moveSpeed + (zoomSpeed & 0xF0)) % 0x100;
+        (0xA5 + 0x0F + 0x01 + cmdCode + moveSpeed + moveSpeed + (zoomSpeed << 4)) % 0x100;
     ss << std::setfill('0') << std::setw(2) << std::hex << std::uppercase << checkCode;
 
     return ss.str();
@@ -74,7 +74,7 @@ std::string PtzCmd::cmdCode(int fourthByte, int fifthByte, int sixthByte, int se
     ss << "0";
     // 字节8 校验码  字节8=(字节1+字节2+字节3+字节4+字节5+字节6+字节7)%256
     int checkCode =
-        (0xA5 + 0x0F + 0x01 + fourthByte + fifthByte + sixthByte + (seventhByte & 0xF0)) % 0x100;
+        (0xA5 + 0x0F + 0x01 + fourthByte + fifthByte + sixthByte + (seventhByte << 4)) % 0x100;
     ss << std::setfill('0') << std::setw(2) << std::hex << std::uppercase << checkCode;
 
     return ss.str();

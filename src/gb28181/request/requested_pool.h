@@ -63,6 +63,14 @@ public:
      */
     MessageRequest::ptr GetMsgRequestBySn(const string& reqsn, REQ_MESSAGE_TYPE reqtype);
 
+    /**
+     * @brief 根据请求SN（序列号）和类型，获取请求对象  这个方法性能比较差，需要优化
+     * 
+     * @param reqsn 请求SN
+     * @return req 返回请求对象
+     */
+    MessageRequest::ptr GetMsgRequestBySn(const string& reqsn);
+
     int HandleMsgResponse(string& reqid, int status_code);
 
 private:

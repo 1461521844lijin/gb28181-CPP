@@ -3,6 +3,10 @@
 extern "C" {
 #include "gb28181/auth/md5/HTTPDigest.h"
 }
+
+
+#include "osipparser2/osip_md5.h"
+
 #include "Util/logger.h"
 #include <cstring>
 #include <string>
@@ -13,7 +17,7 @@ extern "C" {
 #include "gb28181/device/device.h"
 #include "gb28181/device/deviceManager.h"
 #include "gb28181/request/message/catalog_request.h"
-
+#include "eXosip2/eXosip.h"
 #include "utils/CommonTools.h"
 
 namespace GB28181 {

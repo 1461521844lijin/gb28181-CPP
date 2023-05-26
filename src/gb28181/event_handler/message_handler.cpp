@@ -15,9 +15,12 @@
 #include "utils/CommonTools.h"
 
 #include "gb28181/event_handler/message/notify/keepalive_handler.h"
+#include "gb28181/event_handler/message/notify/alarm_handler.h"
 
 #include "gb28181/event_handler/message/response/catalog_handler.h"
 #include "gb28181/event_handler/message/response/preset_handler.h"
+#include "gb28181/event_handler/message/response/guard_handler.h"
+
 
 namespace GB28181 {
 
@@ -27,11 +30,12 @@ MessageHandler::MessageHandler()
 {
     
     m_notifyhandler.insert(make_pair(MANSCDP_NOTIFY_CMD_KEEPALIVE, new KeepaliveHandler));
+    m_notifyhandler.insert(make_pair(MANSCDP_NOTIFY_CMD_ALARM, new AlarmHandler));
 
 
     m_responsehandler.insert(make_pair(MANSCDP_QUERY_CMD_CATALOG, new CatalogHandler));
     m_responsehandler.insert(make_pair(MANSCDP_QUERY_CMD_PRESET_QUERY, new PresetQuireHandler));
-
+    m_responsehandler.insert(make_pair(MANSCDP_RESOPNSE_CMD_DEVICE_GUARD, new GuardHandler));
 }
 
 int MessageHandler::HandleIncomingReq(const SipEvent::ptr &e)
@@ -50,7 +54,8 @@ int MessageHandler::HandleIncomingReq(const SipEvent::ptr &e)
 
     // InfoL << "incoming request body: " << body->body;
 
-    tinyxml_doc_t doc;
+    // tinyxml_doc_t doc;
+    tinxml_doc_ptr doc = std::make_shared<tinyxml2::XMLDocument>();
     r = m_xmlparser.Load(body->body, body->length, doc);
     if (r !=0) {
         sendSimplyResp(username, e->excontext, e->exevent->tid, SIP_BAD_REQUEST);
@@ -114,7 +119,7 @@ int MessageHandler::HandleResponseFailure(const SipEvent::ptr &e)
     return 0;
 }
 
-int MessageHandler::handle_incoming_req_control(const SipEvent::ptr &e, tinyxml_doc_t &doc,
+int MessageHandler::handle_incoming_req_control(const SipEvent::ptr &e, tinxml_doc_ptr &doc,
                                                  manscdp_msgbody_header_t &bh)
 {
     // if (bh.cmd_type == MANSCDP_CONTROL_CMD_DEVICE_CONTROL) {
@@ -130,7 +135,7 @@ int MessageHandler::handle_incoming_req_control(const SipEvent::ptr &e, tinyxml_
     return 0;
 }
 
-int MessageHandler::handle_incoming_req_query(const SipEvent::ptr &e, tinyxml_doc_t &doc,
+int MessageHandler::handle_incoming_req_query(const SipEvent::ptr &e, tinxml_doc_ptr &doc,
                                                manscdp_msgbody_header_t &bh)
 {
     // auto proc = m_queryproc.find(bh.cmd_type);
@@ -143,7 +148,7 @@ int MessageHandler::handle_incoming_req_query(const SipEvent::ptr &e, tinyxml_do
     return 0;
 }
 
-int MessageHandler::handle_incoming_req_notify(const SipEvent::ptr &e, tinyxml_doc_t &doc,
+int MessageHandler::handle_incoming_req_notify(const SipEvent::ptr &e, tinxml_doc_ptr &doc,
                                                 manscdp_msgbody_header_t &bh)
 {
     auto handler = m_notifyhandler.find(bh.cmd_type);
@@ -161,11 +166,21 @@ int MessageHandler::handle_incoming_req_notify(const SipEvent::ptr &e, tinyxml_d
     return 0;
 }
 
-int MessageHandler::handle_incoming_req_response(const SipEvent::ptr &e, tinyxml_doc_t &doc,
+int MessageHandler::handle_incoming_req_response(const SipEvent::ptr &e, tinxml_doc_ptr &doc,
                                                   manscdp_msgbody_header_t &bh)
 {
+
+
+
+
     auto handler = m_responsehandler.find(bh.cmd_type);
     if (handler == m_responsehandler.end()) {
+       
+        auto req = g_RequestedPool::GetInstance()->GetMsgRequestBySn(bh.sn);
+        if(req){ 
+            req->HandleResponse(200, doc);
+            return 0;
+        }
         WarnL << "Not found proc, cmd_type: " << bh.cmd_type;
         sendSimplyResp(e->name, e->excontext, e->exevent->tid, SIP_BAD_REQUEST);
         return -1;

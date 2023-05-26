@@ -28,13 +28,13 @@ namespace GB28181
     </PresetList>
 </Response>
 */
-int PresetQuireHandler::handle(SipEvent::ptr event, tinyxml2::XMLDocument& xml){
+int PresetQuireHandler::handle(SipEvent::ptr event, tinxml_doc_ptr& xml){
 
     
 
 
     // TODO 判断编码格式
-    tinyxml2::XMLElement *root = xml.RootElement();
+    tinyxml2::XMLElement *root = xml->RootElement();
     std::string device_id = root->FirstChildElement("DeviceID")->GetText();
     std::string sn = root->FirstChildElement("SN")->GetText();
     

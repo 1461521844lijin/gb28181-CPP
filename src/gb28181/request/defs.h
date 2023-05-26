@@ -22,6 +22,7 @@ enum REQ_MESSAGE_TYPE
     DEVICE_QUIER_PRESET,        // 设备查询-预置位
     DEVICE_CONTROL_PRESET,       // 设备控制-预置位
     DEVICE_CONTROL_HOMEPOSITION, // 设备控制-看守位
+    DEVICE_CONTROL_GUARD,        // 设备控制-布防/撤防
 
     REQ_CALL_INVITE,            // 点播
     REQ_CALL_PLAYBACK,          // 回放

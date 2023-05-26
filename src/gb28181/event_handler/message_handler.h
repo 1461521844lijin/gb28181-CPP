@@ -37,16 +37,16 @@ public:
     int HandleResponseFailure(const SipEvent::ptr& e);
 
 private:
-    int handle_incoming_req_control(const SipEvent::ptr& e, tinyxml_doc_t& doc,
+    int handle_incoming_req_control(const SipEvent::ptr& e, tinxml_doc_ptr& doc,
                                             manscdp_msgbody_header_t& bh);
 
-    int handle_incoming_req_query(const SipEvent::ptr& e, tinyxml_doc_t& doc,
+    int handle_incoming_req_query(const SipEvent::ptr& e, tinxml_doc_ptr& doc,
                                             manscdp_msgbody_header_t& bh);
 
-    int handle_incoming_req_notify(const SipEvent::ptr& e, tinyxml_doc_t& doc,
+    int handle_incoming_req_notify(const SipEvent::ptr& e, tinxml_doc_ptr& doc,
                                    manscdp_msgbody_header_t& bh);
 
-    int handle_incoming_req_response(const SipEvent::ptr& e, tinyxml_doc_t& doc,
+    int handle_incoming_req_response(const SipEvent::ptr& e, tinxml_doc_ptr& doc,
                                             manscdp_msgbody_header_t& bh);
 
 

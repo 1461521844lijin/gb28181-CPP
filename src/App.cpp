@@ -23,6 +23,8 @@
 #include "application/controller/PlayController.hpp"
 #include "application/controller/RecordController.hpp"
 #include "application/controller/DeviceController.hpp"
+#include "application/controller/PlatformController.hpp"
+
 #include "zlmedia/web_hook/web_hook_controller.hpp"
 
     
@@ -62,6 +64,8 @@ void run_oatpp() {
     docEndpoints.append(router->addController(RecordController::createShared())->getEndpoints());
     router->addController(DeviceController::createShared());
     docEndpoints.append(router->addController(DeviceController::createShared())->getEndpoints());
+    router->addController(PlatformController::createShared());
+    docEndpoints.append(router->addController(PlatformController::createShared())->getEndpoints());
 
     router->addController(oatpp::swagger::Controller::createShared(docEndpoints));
     /* Get connection handler component */

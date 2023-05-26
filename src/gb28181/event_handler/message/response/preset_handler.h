@@ -10,7 +10,7 @@ namespace GB28181
 class PresetQuireHandler : public BaseHandler
 {
 public:
-    int handle(SipEvent::ptr event, tinyxml2::XMLDocument& xml) override;
+    int handle(SipEvent::ptr event, tinxml_doc_ptr& xml) override;
 };
 
 

@@ -30,9 +30,9 @@ public:
      * @param doc       xml文档对象
      * @return int 
      */
-    int Load(const char* p_data, int p_size, tinyxml_doc_t &doc);
+    int Load(const char* p_data, int p_size, tinxml_doc_ptr &doc);
 
-    int ParseXmlHeader(tinyxml_doc_t& doc, manscdp_msgbody_header_t& bodyheader);
+    int ParseXmlHeader(tinxml_doc_ptr& doc, manscdp_msgbody_header_t& bodyheader);
 
     int ParseEleStr(tinyxml_ele_t *ele, const char* name, string& textstr, bool brequired, bool bto_utf8= false);
 

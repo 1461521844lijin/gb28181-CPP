@@ -65,6 +65,17 @@ MessageRequest::ptr RequestedPool::GetMsgRequestBySn(const string &reqsn, REQ_ME
     return nullptr;
 }
 
+MessageRequest::ptr RequestedPool::GetMsgRequestBySn(const string &reqsn) {
+    lock_guard<mutex> guard(m_mutex);
+    for (auto &req : m_requestmap) {
+        MessageRequest::ptr msgreq = dynamic_pointer_cast<MessageRequest>(req.second);
+        if (msgreq->GetReqSn() == reqsn) {
+            return msgreq;
+        }
+    }
+    return nullptr;
+}
+
 int RequestedPool::HandleMsgResponse(string &reqid, int status_code) {
     return handle_response(reqid, status_code);
 }

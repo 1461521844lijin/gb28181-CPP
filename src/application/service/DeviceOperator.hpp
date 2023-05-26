@@ -14,6 +14,7 @@ oatpp::Object<StatusDto> home_position(const std::string &deviceId,
                                        const int         resetTime);
 
 
+oatpp::Object<StatusDto> device_guard(const std::string &deviceId, const std::string &guardCmdStr);
                                        
 
 }  // namespace OP

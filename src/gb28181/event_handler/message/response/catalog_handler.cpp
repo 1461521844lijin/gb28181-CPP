@@ -58,10 +58,10 @@ namespace GB28181 {
 
 */
 
-int CatalogHandler::handle(SipEvent::ptr event, tinyxml2::XMLDocument &xml) {
+int CatalogHandler::handle(SipEvent::ptr event, tinxml_doc_ptr& xml) {
     Channel::ptr channel = std::make_shared<Channel>();
 
-    tinyxml2::XMLElement *root     = xml.RootElement();
+    tinyxml2::XMLElement *root     = xml->RootElement();
     std::string           deviceID = root->FirstChildElement("DeviceID")->GetText();
 
     tinyxml2::XMLElement *deviceList = root->FirstChildElement("DeviceList");

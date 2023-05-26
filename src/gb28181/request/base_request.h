@@ -15,6 +15,7 @@
 #include <map>
 #include <memory>
 #include <sstream>
+#include "gb28181/manscdp/defs/defs.h"
 
 namespace GB28181 {
 using namespace std;
@@ -39,7 +40,7 @@ public:
     virtual ~BaseRequest();
 
     /// @brief 请求响应接口 虚函数被子类重写
-    virtual int HandleResponse(int statcode) {
+    virtual int HandleResponse(int statcode, tinxml_doc_ptr xml = nullptr) {
         return 0;
     };
 

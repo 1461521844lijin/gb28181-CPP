@@ -45,4 +45,20 @@ public:
                                                                      presetIndex, resetTime));
     }
     ADD_CORS(home_position)
+
+
+    ENDPOINT_INFO(device_guard){
+        info->summary = "设备布防/撤防  命令可选值：SetGuard（布防），ResetGuard（撤防）";
+        info->addTag("Device");
+        info->addResponse<Object<StatusDto>>(Status::CODE_400, "application/json");
+    }
+    ENDPOINT("GET",
+             "/api/device/guard/{deviceId}/{guardCmdStr}",
+             device_guard,
+             PATH(String, deviceId),
+             PATH(String, guardCmdStr)) {
+        return createDtoResponse(Status::CODE_200, OP::device_guard(deviceId, guardCmdStr));
+    }
+
+
 };
