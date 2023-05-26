@@ -71,6 +71,11 @@
 },
 {
   "directory": "/home/lijin/projects/gb28181-CPP/build",
+  "command": "/usr/bin/c++ -DDEV_CONFIG_PATH=\\\"/home/lijin/projects/gb28181-CPP/config/dev_config.json\\\" -DHAVE_MMSG_HDR -DHAVE_RECVMMSG_API -DHAVE_SENDMMSG_API -DOATPP_SWAGGER_RES_PATH=\\\"/usr/local/include/oatpp-1.3.0/bin/oatpp-swagger/res\\\" -I/home/lijin/projects/gb28181-CPP/include -I/home/lijin/projects/gb28181-CPP/src -I/home/lijin/projects/gb28181-CPP/3rdpart/ZLToolKit/src -isystem /usr/local/include/oatpp-1.3.0/oatpp -isystem /usr/local/include/oatpp-1.3.0/oatpp-swagger -ffunction-sections -fdata-sections -Wall -std=c++11 -DPOSIX -DDEBUG_ -w -g -o CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/notify/alarm_handler.cpp.o -c /home/lijin/projects/gb28181-CPP/src/gb28181/event_handler/message/notify/alarm_handler.cpp",
+  "file": "/home/lijin/projects/gb28181-CPP/src/gb28181/event_handler/message/notify/alarm_handler.cpp"
+},
+{
+  "directory": "/home/lijin/projects/gb28181-CPP/build",
   "command": "/usr/bin/c++ -DDEV_CONFIG_PATH=\\\"/home/lijin/projects/gb28181-CPP/config/dev_config.json\\\" -DHAVE_MMSG_HDR -DHAVE_RECVMMSG_API -DHAVE_SENDMMSG_API -DOATPP_SWAGGER_RES_PATH=\\\"/usr/local/include/oatpp-1.3.0/bin/oatpp-swagger/res\\\" -I/home/lijin/projects/gb28181-CPP/include -I/home/lijin/projects/gb28181-CPP/src -I/home/lijin/projects/gb28181-CPP/3rdpart/ZLToolKit/src -isystem /usr/local/include/oatpp-1.3.0/oatpp -isystem /usr/local/include/oatpp-1.3.0/oatpp-swagger -ffunction-sections -fdata-sections -Wall -std=c++11 -DPOSIX -DDEBUG_ -w -g -o CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/notify/keepalive_handler.cpp.o -c /home/lijin/projects/gb28181-CPP/src/gb28181/event_handler/message/notify/keepalive_handler.cpp",
   "file": "/home/lijin/projects/gb28181-CPP/src/gb28181/event_handler/message/notify/keepalive_handler.cpp"
 },
@@ -78,6 +83,11 @@
   "directory": "/home/lijin/projects/gb28181-CPP/build",
   "command": "/usr/bin/c++ -DDEV_CONFIG_PATH=\\\"/home/lijin/projects/gb28181-CPP/config/dev_config.json\\\" -DHAVE_MMSG_HDR -DHAVE_RECVMMSG_API -DHAVE_SENDMMSG_API -DOATPP_SWAGGER_RES_PATH=\\\"/usr/local/include/oatpp-1.3.0/bin/oatpp-swagger/res\\\" -I/home/lijin/projects/gb28181-CPP/include -I/home/lijin/projects/gb28181-CPP/src -I/home/lijin/projects/gb28181-CPP/3rdpart/ZLToolKit/src -isystem /usr/local/include/oatpp-1.3.0/oatpp -isystem /usr/local/include/oatpp-1.3.0/oatpp-swagger -ffunction-sections -fdata-sections -Wall -std=c++11 -DPOSIX -DDEBUG_ -w -g -o CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/response/catalog_handler.cpp.o -c /home/lijin/projects/gb28181-CPP/src/gb28181/event_handler/message/response/catalog_handler.cpp",
   "file": "/home/lijin/projects/gb28181-CPP/src/gb28181/event_handler/message/response/catalog_handler.cpp"
+},
+{
+  "directory": "/home/lijin/projects/gb28181-CPP/build",
+  "command": "/usr/bin/c++ -DDEV_CONFIG_PATH=\\\"/home/lijin/projects/gb28181-CPP/config/dev_config.json\\\" -DHAVE_MMSG_HDR -DHAVE_RECVMMSG_API -DHAVE_SENDMMSG_API -DOATPP_SWAGGER_RES_PATH=\\\"/usr/local/include/oatpp-1.3.0/bin/oatpp-swagger/res\\\" -I/home/lijin/projects/gb28181-CPP/include -I/home/lijin/projects/gb28181-CPP/src -I/home/lijin/projects/gb28181-CPP/3rdpart/ZLToolKit/src -isystem /usr/local/include/oatpp-1.3.0/oatpp -isystem /usr/local/include/oatpp-1.3.0/oatpp-swagger -ffunction-sections -fdata-sections -Wall -std=c++11 -DPOSIX -DDEBUG_ -w -g -o CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/response/guard_handler.cpp.o -c /home/lijin/projects/gb28181-CPP/src/gb28181/event_handler/message/response/guard_handler.cpp",
+  "file": "/home/lijin/projects/gb28181-CPP/src/gb28181/event_handler/message/response/guard_handler.cpp"
 },
 {
   "directory": "/home/lijin/projects/gb28181-CPP/build",
@@ -133,6 +143,11 @@
   "directory": "/home/lijin/projects/gb28181-CPP/build",
   "command": "/usr/bin/c++ -DDEV_CONFIG_PATH=\\\"/home/lijin/projects/gb28181-CPP/config/dev_config.json\\\" -DHAVE_MMSG_HDR -DHAVE_RECVMMSG_API -DHAVE_SENDMMSG_API -DOATPP_SWAGGER_RES_PATH=\\\"/usr/local/include/oatpp-1.3.0/bin/oatpp-swagger/res\\\" -I/home/lijin/projects/gb28181-CPP/include -I/home/lijin/projects/gb28181-CPP/src -I/home/lijin/projects/gb28181-CPP/3rdpart/ZLToolKit/src -isystem /usr/local/include/oatpp-1.3.0/oatpp -isystem /usr/local/include/oatpp-1.3.0/oatpp-swagger -ffunction-sections -fdata-sections -Wall -std=c++11 -DPOSIX -DDEBUG_ -w -g -o CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/catalog_request.cpp.o -c /home/lijin/projects/gb28181-CPP/src/gb28181/request/message/catalog_request.cpp",
   "file": "/home/lijin/projects/gb28181-CPP/src/gb28181/request/message/catalog_request.cpp"
+},
+{
+  "directory": "/home/lijin/projects/gb28181-CPP/build",
+  "command": "/usr/bin/c++ -DDEV_CONFIG_PATH=\\\"/home/lijin/projects/gb28181-CPP/config/dev_config.json\\\" -DHAVE_MMSG_HDR -DHAVE_RECVMMSG_API -DHAVE_SENDMMSG_API -DOATPP_SWAGGER_RES_PATH=\\\"/usr/local/include/oatpp-1.3.0/bin/oatpp-swagger/res\\\" -I/home/lijin/projects/gb28181-CPP/include -I/home/lijin/projects/gb28181-CPP/src -I/home/lijin/projects/gb28181-CPP/3rdpart/ZLToolKit/src -isystem /usr/local/include/oatpp-1.3.0/oatpp -isystem /usr/local/include/oatpp-1.3.0/oatpp-swagger -ffunction-sections -fdata-sections -Wall -std=c++11 -DPOSIX -DDEBUG_ -w -g -o CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/guard_request.cpp.o -c /home/lijin/projects/gb28181-CPP/src/gb28181/request/message/guard_request.cpp",
+  "file": "/home/lijin/projects/gb28181-CPP/src/gb28181/request/message/guard_request.cpp"
 },
 {
   "directory": "/home/lijin/projects/gb28181-CPP/build",

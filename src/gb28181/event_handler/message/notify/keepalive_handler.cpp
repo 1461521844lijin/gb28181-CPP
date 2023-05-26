@@ -6,10 +6,10 @@ namespace GB28181
 {
 
 // 收到对应设备的心跳后, 更新缓存中的历史心跳信息
-int KeepaliveHandler::handle(SipEvent::ptr event, tinyxml2::XMLDocument& xml)
+int KeepaliveHandler::handle(SipEvent::ptr event, tinxml_doc_ptr& xml)
 {
     // InfoL << "KeepaliveHandler::handle";
-    std::string devicdId = xml.FirstChildElement("Notify")->FirstChildElement("DeviceID")->GetText();
+    std::string devicdId = xml->FirstChildElement("Notify")->FirstChildElement("DeviceID")->GetText();
     if(!devicdId.empty()){
         g_deviceMgr::GetInstance()->updateDeviceStatus(devicdId, 1);
         g_deviceMgr::GetInstance()->updateDeviceLastTime(devicdId, Time2Str());

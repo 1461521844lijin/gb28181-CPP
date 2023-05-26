@@ -15,16 +15,16 @@
 namespace GB28181 {
 
 
-int XmlParser::Load(const char *p_data, int p_size, tinyxml_doc_t &doc)
+int XmlParser::Load(const char *p_data, int p_size, tinxml_doc_ptr &doc)
 {
     if (nullptr == p_data || p_size <= 0)
         return -1;
-    doc.Parse(p_data, p_size);
-    if (doc.Error()) {
-        InfoL << "Load xml failed, error: "<<doc.ErrorID();
+    doc->Parse(p_data, p_size);
+    if (doc->Error()) {
+        InfoL << "Load xml failed, error: "<<doc->ErrorID();
         return -1;
     }
-    tinyxml_ele_t *ele = doc.RootElement();
+    tinyxml_ele_t *ele = doc->RootElement();
     if (nullptr == ele || ele->Value() == nullptr) {
         InfoL << "Load xml failed, error: root element does not exist.";
         return -2;
@@ -32,9 +32,9 @@ int XmlParser::Load(const char *p_data, int p_size, tinyxml_doc_t &doc)
     return 0;
 }
 
-int XmlParser::ParseXmlHeader(tinyxml_doc_t &doc, manscdp_msgbody_header_t &bodyheader)
+int XmlParser::ParseXmlHeader(tinxml_doc_ptr &doc, manscdp_msgbody_header_t &bodyheader)
 {
-    tinyxml_ele_t * ele = doc.RootElement();
+    tinyxml_ele_t * ele = doc->RootElement();
 
     string category_name;
     int r = parse_cmdcategory(ele, bodyheader.cmd_category, category_name);

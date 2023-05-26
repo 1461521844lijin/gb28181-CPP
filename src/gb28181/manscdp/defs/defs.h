@@ -9,11 +9,13 @@
 #pragma once
 
 #include <string>
+#include <memory>
 #include <vector>
 #include "control_defs.h"
 #include "query_defs.h"
 #include "notify_defs.h"
 #include "utils/tinyxml2.h"
+
 
 using namespace std;
 
@@ -59,6 +61,7 @@ enum manscdp_cmdtype_e
     MANSCDP_RESOPNSE_CMD_DEVICE_CONFIG,     ///<设备配置响应
     MANSCDP_RESOPNSE_CMD_DEVICE_STATUS,     ///<设备状态查询响应
     MANSCDP_RESOPNSE_CMD_DEVICE_CATALOG,    ///<设备目录查询响应
+    MANSCDP_RESOPNSE_CMD_DEVICE_GUARD,       ///<设备布防响应
 
 
     MANSCDP_CMD_TYPE_MAX,
@@ -97,6 +100,7 @@ typedef vector<string> manscdp_configdownload_subcmd_t;
 
 typedef tinyxml2::XMLDocument   tinyxml_doc_t;
 typedef tinyxml2::XMLElement    tinyxml_ele_t;
+typedef std::shared_ptr<tinyxml2::XMLDocument> tinxml_doc_ptr;
 
 ///< MANSCDP xml消息 必选项如下
 /*

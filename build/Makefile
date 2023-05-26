@@ -607,6 +607,30 @@ src/gb28181/event_handler/handler_manager.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/handler_manager.cpp.s
 .PHONY : src/gb28181/event_handler/handler_manager.cpp.s
 
+src/gb28181/event_handler/message/notify/alarm_handler.o: src/gb28181/event_handler/message/notify/alarm_handler.cpp.o
+.PHONY : src/gb28181/event_handler/message/notify/alarm_handler.o
+
+# target to build an object file
+src/gb28181/event_handler/message/notify/alarm_handler.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/notify/alarm_handler.cpp.o
+.PHONY : src/gb28181/event_handler/message/notify/alarm_handler.cpp.o
+
+src/gb28181/event_handler/message/notify/alarm_handler.i: src/gb28181/event_handler/message/notify/alarm_handler.cpp.i
+.PHONY : src/gb28181/event_handler/message/notify/alarm_handler.i
+
+# target to preprocess a source file
+src/gb28181/event_handler/message/notify/alarm_handler.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/notify/alarm_handler.cpp.i
+.PHONY : src/gb28181/event_handler/message/notify/alarm_handler.cpp.i
+
+src/gb28181/event_handler/message/notify/alarm_handler.s: src/gb28181/event_handler/message/notify/alarm_handler.cpp.s
+.PHONY : src/gb28181/event_handler/message/notify/alarm_handler.s
+
+# target to generate assembly for a file
+src/gb28181/event_handler/message/notify/alarm_handler.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/notify/alarm_handler.cpp.s
+.PHONY : src/gb28181/event_handler/message/notify/alarm_handler.cpp.s
+
 src/gb28181/event_handler/message/notify/keepalive_handler.o: src/gb28181/event_handler/message/notify/keepalive_handler.cpp.o
 .PHONY : src/gb28181/event_handler/message/notify/keepalive_handler.o
 
@@ -654,6 +678,30 @@ src/gb28181/event_handler/message/response/catalog_handler.s: src/gb28181/event_
 src/gb28181/event_handler/message/response/catalog_handler.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/response/catalog_handler.cpp.s
 .PHONY : src/gb28181/event_handler/message/response/catalog_handler.cpp.s
+
+src/gb28181/event_handler/message/response/guard_handler.o: src/gb28181/event_handler/message/response/guard_handler.cpp.o
+.PHONY : src/gb28181/event_handler/message/response/guard_handler.o
+
+# target to build an object file
+src/gb28181/event_handler/message/response/guard_handler.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/response/guard_handler.cpp.o
+.PHONY : src/gb28181/event_handler/message/response/guard_handler.cpp.o
+
+src/gb28181/event_handler/message/response/guard_handler.i: src/gb28181/event_handler/message/response/guard_handler.cpp.i
+.PHONY : src/gb28181/event_handler/message/response/guard_handler.i
+
+# target to preprocess a source file
+src/gb28181/event_handler/message/response/guard_handler.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/response/guard_handler.cpp.i
+.PHONY : src/gb28181/event_handler/message/response/guard_handler.cpp.i
+
+src/gb28181/event_handler/message/response/guard_handler.s: src/gb28181/event_handler/message/response/guard_handler.cpp.s
+.PHONY : src/gb28181/event_handler/message/response/guard_handler.s
+
+# target to generate assembly for a file
+src/gb28181/event_handler/message/response/guard_handler.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/event_handler/message/response/guard_handler.cpp.s
+.PHONY : src/gb28181/event_handler/message/response/guard_handler.cpp.s
 
 src/gb28181/event_handler/message/response/preset_handler.o: src/gb28181/event_handler/message/response/preset_handler.cpp.o
 .PHONY : src/gb28181/event_handler/message/response/preset_handler.o
@@ -918,6 +966,30 @@ src/gb28181/request/message/catalog_request.s: src/gb28181/request/message/catal
 src/gb28181/request/message/catalog_request.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/catalog_request.cpp.s
 .PHONY : src/gb28181/request/message/catalog_request.cpp.s
+
+src/gb28181/request/message/guard_request.o: src/gb28181/request/message/guard_request.cpp.o
+.PHONY : src/gb28181/request/message/guard_request.o
+
+# target to build an object file
+src/gb28181/request/message/guard_request.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/guard_request.cpp.o
+.PHONY : src/gb28181/request/message/guard_request.cpp.o
+
+src/gb28181/request/message/guard_request.i: src/gb28181/request/message/guard_request.cpp.i
+.PHONY : src/gb28181/request/message/guard_request.i
+
+# target to preprocess a source file
+src/gb28181/request/message/guard_request.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/guard_request.cpp.i
+.PHONY : src/gb28181/request/message/guard_request.cpp.i
+
+src/gb28181/request/message/guard_request.s: src/gb28181/request/message/guard_request.cpp.s
+.PHONY : src/gb28181/request/message/guard_request.s
+
+# target to generate assembly for a file
+src/gb28181/request/message/guard_request.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gb28181_cpp.dir/build.make CMakeFiles/gb28181_cpp.dir/src/gb28181/request/message/guard_request.cpp.s
+.PHONY : src/gb28181/request/message/guard_request.cpp.s
 
 src/gb28181/request/message/homeposition_request.o: src/gb28181/request/message/homeposition_request.cpp.o
 .PHONY : src/gb28181/request/message/homeposition_request.o
@@ -1322,12 +1394,18 @@ help:
 	@echo "... src/gb28181/event_handler/handler_manager.o"
 	@echo "... src/gb28181/event_handler/handler_manager.i"
 	@echo "... src/gb28181/event_handler/handler_manager.s"
+	@echo "... src/gb28181/event_handler/message/notify/alarm_handler.o"
+	@echo "... src/gb28181/event_handler/message/notify/alarm_handler.i"
+	@echo "... src/gb28181/event_handler/message/notify/alarm_handler.s"
 	@echo "... src/gb28181/event_handler/message/notify/keepalive_handler.o"
 	@echo "... src/gb28181/event_handler/message/notify/keepalive_handler.i"
 	@echo "... src/gb28181/event_handler/message/notify/keepalive_handler.s"
 	@echo "... src/gb28181/event_handler/message/response/catalog_handler.o"
 	@echo "... src/gb28181/event_handler/message/response/catalog_handler.i"
 	@echo "... src/gb28181/event_handler/message/response/catalog_handler.s"
+	@echo "... src/gb28181/event_handler/message/response/guard_handler.o"
+	@echo "... src/gb28181/event_handler/message/response/guard_handler.i"
+	@echo "... src/gb28181/event_handler/message/response/guard_handler.s"
 	@echo "... src/gb28181/event_handler/message/response/preset_handler.o"
 	@echo "... src/gb28181/event_handler/message/response/preset_handler.i"
 	@echo "... src/gb28181/event_handler/message/response/preset_handler.s"
@@ -1361,6 +1439,9 @@ help:
 	@echo "... src/gb28181/request/message/catalog_request.o"
 	@echo "... src/gb28181/request/message/catalog_request.i"
 	@echo "... src/gb28181/request/message/catalog_request.s"
+	@echo "... src/gb28181/request/message/guard_request.o"
+	@echo "... src/gb28181/request/message/guard_request.i"
+	@echo "... src/gb28181/request/message/guard_request.s"
 	@echo "... src/gb28181/request/message/homeposition_request.o"
 	@echo "... src/gb28181/request/message/homeposition_request.i"
 	@echo "... src/gb28181/request/message/homeposition_request.s"

@@ -1,9 +1,9 @@
 #include "invite_request.h"
+#include "Util/logger.h"
 #include "application/dto/configs/MediaConfigDto.hpp"
 #include "application/dto/configs/SipConfigDto.hpp"
 #include "gb28181/request/requested_pool.h"
 #include "gb28181/sip_server.h"
-#include "Util/logger.h"
 #include "oatpp/core/macro/component.hpp"
 
 #include "gb28181/device/call_session.h"
@@ -22,27 +22,26 @@ int InviteRequest::send_call(bool needcb) {
     std::string     from = "sip:" + sipConfig->sipId + "@" + sipConfig->sipHost + ":" +
                        std::to_string(sipConfig->sipPort);
     std::string to =
-        "sip:" + m_device->getDeviceId() + "@" + m_device->getIp() + ":" + m_device->getPort();
+        "sip:" + m_channel_id + "@" + m_device->getIp() + ":" + m_device->getPort();
 
     exosip_guard guard(excontext);
 
     int ret = eXosip_call_build_initial_invite(excontext, &msg, to.c_str(), from.c_str(), nullptr,
                                                nullptr);
     if (ret) {
-        ErrorL << "eXosip_call_build_initial_invite error:" << from << " " << to
-                   << "  ret:" << ret;
+        ErrorL << "eXosip_call_build_initial_invite error:" << from << " " << to << "  ret:" << ret;
         return -1;
     }
 
-
     std::string streamid = m_device->getDeviceId() + "_" + m_channel_id;
-    m_ssrc_info = m_zlm_server->openRTPServer(streamid);
+    m_ssrc_info          = m_zlm_server->openRTPServer(streamid);
     if (!m_ssrc_info) {
         ErrorL << "openRTPServer error";
         throw std::runtime_error("openRTPServer error");
     }
 
-    CallSession::ptr session = std::make_shared<CallSession>(m_zlm_server, m_ssrc_info, "rtp", streamid);
+    CallSession::ptr session =
+        std::make_shared<CallSession>(m_zlm_server, m_ssrc_info, "rtp", streamid);
     GB28181::g_StreamMgr::GetInstance()->addStream(session);
 
     std::string sdp_body = make_sdp_body();
@@ -74,8 +73,6 @@ int InviteRequest::send_call(bool needcb) {
 }
 
 const std::string InviteRequest::make_sdp_body() {
-
-
     OATPP_COMPONENT(oatpp::Object<SipConfigDto>, sipConfig);
     // OATPP_COMPONENT(oatpp::Object<MediaConfigDto>, mediaConfig);
 

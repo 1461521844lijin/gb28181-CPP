@@ -16,11 +16,12 @@ int CallHandler::handleResponseSuccess(const SipEvent::ptr event){
 
     InfoL << "on_exosip_call_answered deviceid=" << deviceid << " callid=" << callid << " dialog=" << dialog;
 
-    auto device = g_deviceMgr::GetInstance()->getDevice(deviceid);
-    if (!device) {
-        InfoL << "deviceid=" << deviceid << " not exist";
-        return -1;
-    }
+    // auto device = g_deviceMgr::GetInstance()->getDevice(deviceid);
+    // if (!device) {
+    //     InfoL << "deviceid=" << deviceid << " not exist";
+    //     return -1;
+    // }
+    // 这个循环效率不行 后期优化
     auto sessions =  GB28181::g_StreamMgr::GetInstance()->getStreamByType(STREAM_TYPE_GB);
     for(auto session : sessions){
         auto call_sessioned = std::dynamic_pointer_cast<GB28181::CallSession>(session);

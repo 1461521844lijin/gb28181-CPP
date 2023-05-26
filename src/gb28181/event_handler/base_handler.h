@@ -11,6 +11,7 @@
 #include <osipparser2/osip_message.h>
 #include "gb28181/event_handler/sip_event.h"
 #include "utils/tinyxml2.h"
+#include "gb28181/manscdp/defs/defs.h"
 
 namespace GB28181 {
 
@@ -27,7 +28,7 @@ public:
     virtual ~BaseHandler() = default;
 
 
-    virtual int handle(SipEvent::ptr, tinyxml2::XMLDocument& xml){};
+    virtual int handle(SipEvent::ptr, tinxml_doc_ptr& xml){};
 
 
 protected:

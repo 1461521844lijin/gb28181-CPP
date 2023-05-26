@@ -11,7 +11,7 @@ private:
     
 public:
     
-    int handle(SipEvent::ptr event, tinyxml2::XMLDocument& xml) override;
+    int handle(SipEvent::ptr event, tinxml_doc_ptr& xml) override;
    
 };
    
