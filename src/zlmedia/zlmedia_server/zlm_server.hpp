@@ -2,6 +2,7 @@
 
 #include <memory>
 #include <mutex>
+#include <utility>
 
 #include "application/dto/configs/SipConfigDto.hpp"
 #include "oatpp/core/macro/component.hpp"
@@ -12,15 +13,15 @@ namespace ZLM {
 class ZlmServer {
 public:
     typedef std::shared_ptr<ZlmServer> ptr;
-    ZlmServer(const std::string &zlm_addr,
+    ZlmServer(std::string        zlm_addr,
               int                zlm_port,
-              const std::string &zlm_secret,
+              std::string        zlm_secret,
               const std::string &zlm_server_id)
-        : m_zlm_addr(zlm_addr),
+        : m_zlm_addr(std::move(zlm_addr)),
           m_zlm_port(zlm_port),
-          m_zlm_secret(zlm_secret),
+          m_zlm_secret(std::move(zlm_secret)),
           m_zlm_server_id(zlm_server_id),
-          m_last_heartbeat_time(time(0)) {
+          m_last_heartbeat_time(time(nullptr)) {
         OATPP_COMPONENT(oatpp::Object<SipConfigDto>, sipConfig);
         m_ssrc_config = std::make_shared<SSRCConfig>(zlm_server_id, sipConfig->sipDimain);
     }

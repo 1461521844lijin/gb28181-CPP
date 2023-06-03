@@ -20,12 +20,17 @@ namespace GB28181 {
 
 
 
-BaseRequest::BaseRequest(REQ_MESSAGE_TYPE reqtype)
-    : m_bfinished(false), m_bwait(false), m_reqtime(time(nullptr)), m_reqtype(reqtype)
-{
-}
 
 BaseRequest::~BaseRequest()= default;
+
+
+int BaseRequest::HandleResponse(int statcode, tinxml_doc_ptr xml) {
+    if (m_cb) {
+        m_cb(statcode, std::move(xml));
+    }
+    return 0;
+};
+
 
 void BaseRequest::SetWait(bool bwait)
 {
@@ -58,8 +63,8 @@ void BaseRequest::finished()
     if (!m_bwait)
         return;
 
-    unique_lock<mutex> lock(m_mutex);
-    lock.unlock();
+//    unique_lock<mutex> lock(m_mutex);
+//    lock.unlock();
     m_cond.notify_one();
     m_bwait = false;
 }
@@ -68,11 +73,6 @@ int BaseRequest::SetReqid(string &id)
 {
     m_reqid = id;
     return 0;
-}
-
-REQ_MESSAGE_TYPE BaseRequest::GetReqType()
-{
-    return m_reqtype;
 }
 
 time_t BaseRequest::GetReqtime()
@@ -89,8 +89,6 @@ const char *BaseRequest::get_reqid_from_request(osip_message_t *msg)
     }
     return (const char*) tag->gvalue;
 }
-
-
 
 
 int MessageRequest::send_message(bool needcb){
@@ -127,7 +125,7 @@ int MessageRequest::send_message(bool needcb){
         return -1;
     }
 
-    InfoL<<" send budy" <<body;
+    DebugL <<" send budy \n" <<body;
 
     // 请求发送成功后，将请求id保存在请求池，等待回复和回调处理
     if (needcb) {
@@ -139,30 +137,6 @@ int MessageRequest::send_message(bool needcb){
     }
     return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
 

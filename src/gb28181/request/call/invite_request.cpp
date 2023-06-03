@@ -22,7 +22,7 @@ int InviteRequest::send_call(bool needcb) {
     std::string     from = "sip:" + sipConfig->sipId + "@" + sipConfig->sipHost + ":" +
                        std::to_string(sipConfig->sipPort);
     std::string to =
-        "sip:" + m_channel_id + "@" + m_device->getIp() + ":" + m_device->getPort();
+        "sip:" + m_device->getDeviceId() + "@" + m_device->getIp() + ":" + m_device->getPort();
 
     exosip_guard guard(excontext);
 

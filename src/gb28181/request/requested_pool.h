@@ -43,25 +43,15 @@ public:
      */
     bool AddRequest(string& reqid, BaseRequest::ptr req);
 
-
     /**
      * @brief 删除请求
-     * 
+     *
      * @param reqtype 请求类型
      * @param reqid 请求ID
-     * 
+     *
      * @return true
      */
-    bool DelRequest(REQ_MESSAGE_TYPE reqtype, string& reqid);
-
-    /**
-     * @brief 根据请求SN（序列号）和类型，获取请求对象  这个方法性能比较差，需要优化
-     * 
-     * @param reqsn 请求SN
-     * @param reqtype 请求类型
-     * @return req 返回请求对象
-     */
-    MessageRequest::ptr GetMsgRequestBySn(const string& reqsn, REQ_MESSAGE_TYPE reqtype);
+    bool DelRequest(string &reqid);
 
     /**
      * @brief 根据请求SN（序列号）和类型，获取请求对象  这个方法性能比较差，需要优化
@@ -78,7 +68,7 @@ private:
     /**
      * @brief 启动一个定时器，处理超时请求，默认超时时间6秒
      */
-    int check_requet_timeout(double timeout = 6.0);
+    int check_requet_timeout(double timeout);
 
 
     /// @brief 请求相应处理函数

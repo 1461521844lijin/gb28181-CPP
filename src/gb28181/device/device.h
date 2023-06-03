@@ -10,7 +10,7 @@ class Device {
 public:
     typedef std::shared_ptr<Device> ptr;
 
-private:
+protected:
     std::mutex m_mutex;
 
 private:

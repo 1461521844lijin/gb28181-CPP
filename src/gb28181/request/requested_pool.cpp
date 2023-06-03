@@ -20,8 +20,7 @@ namespace GB28181 {
 // }
 
 int RequestedPool::Init() {
-    
-    check_requet_timeout();
+    check_requet_timeout(60);
     return 0;
 }
 
@@ -37,32 +36,16 @@ bool RequestedPool::AddRequest(string &reqid, BaseRequest::ptr req) {
     return false;
 }
 
-bool RequestedPool::DelRequest(REQ_MESSAGE_TYPE reqtype, string &reqid) {
+bool RequestedPool::DelRequest(string &reqid) {
     lock_guard<mutex> guard(m_mutex);
     auto              req = m_requestmap.find(reqid);
     if (req != m_requestmap.end()) {
         m_requestmap.erase(req);
-        InfoL << "delete request: " << reqid << " success."
-                  << "type: " << req->second->GetReqType();
+        InfoL << "delete request: " << reqid << " success.";
         return true;
     }
-    InfoL << "delete request: " << reqid << " failed."
-              << "type: " << req->second->GetReqType();
+    InfoL << "delete request: " << reqid << " failed.";
     return false;
-}
-
-MessageRequest::ptr RequestedPool::GetMsgRequestBySn(const string &reqsn, REQ_MESSAGE_TYPE reqtype) {
-    lock_guard<mutex> guard(m_mutex);
-    for (auto &req : m_requestmap) {
-        if(req.second->GetReqType() != reqtype) {
-            continue;
-        }
-        MessageRequest::ptr msgreq = dynamic_pointer_cast<MessageRequest>(req.second);
-        if (msgreq->GetReqSn() == reqsn) {
-            return msgreq;
-        }
-    }
-    return nullptr;
 }
 
 MessageRequest::ptr RequestedPool::GetMsgRequestBySn(const string &reqsn) {
@@ -83,20 +66,19 @@ int RequestedPool::HandleMsgResponse(string &reqid, int status_code) {
 //
 int RequestedPool::check_requet_timeout(double timeout) {
     check_requet_timeout_timer.reset(new toolkit::Timer(
-        timeout,
-        [this]() {
+        10,
+        [this,timeout]() {
             // InfoL << "定期请求超时检查和清理";
             time_t            now = time(nullptr);
             lock_guard<mutex> guard(m_mutex);
             for (auto itr = m_requestmap.begin(); itr != m_requestmap.end();) {
-                //  异步 超时处理
-                if (now - itr->second->GetReqtime() > 6) {
-                    itr->second->HandleResponse(-1);
-                    // InfoL << "check_request_timeout_type: " << itr->second->GetReqType()
-                    //               << " " << itr->first;
-                    itr->second->finished();
+                if (now - itr->second->GetReqtime() > timeout) {
+                    // 如果这个请求不是完成状态，说明这个请求从发出到超时时间内都没有收到回复或者没有被内部处理
+                    if (!itr->second->IsFinished()) {
+                        itr->second->HandleResponse(-1);  // 先暂定-1的错误码为完全超时
+                        itr->second->finished();
+                    }
                     itr = m_requestmap.erase(itr);
-                    
                 } else {
                     ++itr;
                 }
@@ -119,16 +101,12 @@ int RequestedPool::handle_response(string &reqid, int status_code) {
             return -1;
         }
         req = itr->second;
-        // m_requestmap.erase(itr);
+        // 收到请求回复后不移除请求了，在定时器中检测后清理
     }
 
-    // 异步执行请求错误的回调  回调中需要唤醒阻塞请求;
-    if(status_code != 200){
-        toolkit::EventPollerPool::Instance().getExecutor()->async([req, status_code]() {
+    toolkit::EventPollerPool::Instance().getExecutor()->async([req, status_code]() {
             req->HandleResponse(status_code);
-            req->finished();
-        });
-    }
+    });
 
     return 0;
 }

@@ -8,7 +8,7 @@ class GuardRequest : public MessageRequest {
 public:
     typedef std::shared_ptr<GuardRequest> ptr;
     GuardRequest(Device::ptr device, const std::string &guardcmd)
-        : MessageRequest(device, REQ_MESSAGE_TYPE::DEVICE_CONTROL_GUARD), m_guardcmd(guardcmd) {}
+        : MessageRequest(device), m_guardcmd(guardcmd) {}
 
 public:
     virtual const std::string make_manscdp_body() override;

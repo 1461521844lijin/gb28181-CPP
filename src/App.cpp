@@ -11,6 +11,7 @@
 #include <iostream>
 
 #include "gb28181/sip_server.h"
+#include "Util/logger.h"
 
 
 #include "application/oatppComponents//ServiceComponent.hpp"
@@ -74,8 +75,7 @@ void run_oatpp() {
     OATPP_COMPONENT(std::shared_ptr<oatpp::network::ServerConnectionProvider>, connectionProvider);
     /* create server */
     oatpp::network::Server server(connectionProvider, connectionHandler);
-    OATPP_LOGD("Server", "Running on port %s...",
-               connectionProvider->getProperty("port").toString()->c_str());
+    InfoL << "Server running on port " << connectionProvider->getProperty("port").toString()->c_str() ;
   
     server.run();
 }

@@ -1,5 +1,7 @@
 #pragma once
 
+#include <utility>
+
 #include "gb28181/request/base_request.h"
 
 namespace GB28181 {
@@ -7,8 +9,8 @@ namespace GB28181 {
 class PresetRequest : public MessageRequest {
 public:
     typedef std::shared_ptr<PresetRequest> ptr;
-    PresetRequest(Device::ptr device,const std::string &channelId)
-        : MessageRequest(device, REQ_MESSAGE_TYPE::DEVICE_QUIER_PRESET), m_channelId(channelId) {}
+    PresetRequest(Device::ptr device, std::string channelId)
+        : MessageRequest(device), m_channelId(std::move(channelId)) {}
 
 public:
     virtual const std::string make_manscdp_body() override;

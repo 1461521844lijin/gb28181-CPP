@@ -3,10 +3,6 @@
 extern "C" {
 #include "gb28181/auth/md5/HTTPDigest.h"
 }
-
-
-#include "osipparser2/osip_md5.h"
-
 #include "Util/logger.h"
 #include <cstring>
 #include <string>
@@ -16,8 +12,9 @@ extern "C" {
 
 #include "gb28181/device/device.h"
 #include "gb28181/device/deviceManager.h"
+#include "gb28181/device/platformManger.hpp"
 #include "gb28181/request/message/catalog_request.h"
-#include "eXosip2/eXosip.h"
+
 #include "utils/CommonTools.h"
 
 namespace GB28181 {
@@ -34,13 +31,13 @@ int Registerhandler::HandleIncomingReq(const SipEvent::ptr &e) {
 
     // 暂时只实现注册的逻辑，没有实现注销的业务逻辑
     if (auth && auth->username) {
-        char *method       = NULL,  // REGISTER
-             *algorithm    = NULL,  // MD5
-             *username     = NULL,  // 340200000013200000024
-             *realm        = NULL,  // sip服务器传给客户端，客户端携带并提交上来的sip服务域
-             *nonce        = NULL,  // sip服务器传给客户端，客户端携带并提交上来的nonce
-             *nonce_count  = NULL,
-             *uri          = NULL;  // sip:34020000002000000001@3402000000
+        char *method      = NULL,  // REGISTER
+            *algorithm    = NULL,  // MD5
+                *username = NULL,  // 340200000013200000024
+                    *realm = NULL,  // sip服务器传给客户端，客户端携带并提交上来的sip服务域
+                        *nonce = NULL,  // sip服务器传给客户端，客户端携带并提交上来的nonce
+                            *nonce_count = NULL,
+             *uri                        = NULL;  // sip:34020000002000000001@3402000000
 
         osip_contact_t *contact = nullptr;
         osip_message_get_contact(evtp->request, 0, &contact);
@@ -83,25 +80,29 @@ int Registerhandler::HandleIncomingReq(const SipEvent::ptr &e) {
 
         if (!memcmp(calc_response, Response, HASHHEXLEN)) {
             sendSimplyResp(username, e->excontext, e->exevent->tid, SIP_OK);
-            // InfoL << "Camera registration succee,ip=" << contact->url->host <<", port="<< contact->url->port<<", device="<<username;
+            // InfoL << "Camera registration succee,ip=" << contact->url->host <<", port="<<
+            // contact->url->port<<", device="<<username;
             std::string clinet_host     = strdup(contact->url->host);
             std::string clinet_port     = strdup(contact->url->port);
             std::string clinet_deviceid = username;
-            InfoL << "Camera registration succee,ip=" << clinet_host <<", port="<< clinet_port<<", device="<<clinet_deviceid;
-            Device::ptr device =        std::make_shared<Device>(clinet_deviceid, clinet_host, clinet_port);
+            InfoL << "Camera registration succee,ip=" << clinet_host << ", port=" << clinet_port
+                  << ", device=" << clinet_deviceid;
+            Device::ptr device =
+                std::make_shared<Device>(clinet_deviceid, clinet_host, clinet_port);
             device->setStatus(1);
             device->setRegiestTime(Time2Str());
 
             g_deviceMgr::GetInstance()->addDevice(device);
-            
+
             // 向客户端发送catalog请求,将设备的通道和相关信息查询出来
-            std::shared_ptr<CatalogRequest> catalogRequest = std::make_shared<CatalogRequest>(device);
+            std::shared_ptr<CatalogRequest> catalogRequest =
+                std::make_shared<CatalogRequest>(device);
             catalogRequest->send_message();
 
-            
         } else {
             sendSimplyResp(username, e->excontext, e->exevent->tid, SIP_UNAUTHORIZED);
-            InfoL << "Camera registration error, p=%s,port=%d,device=%s", contact->url->host, contact->url->port, username;
+            InfoL << "Camera registration error, p=%s,port=%d,device=%s", contact->url->host,
+                contact->url->port, username;
             std::string clinet_deviceid = strdup(auth->username);
             g_deviceMgr::GetInstance()->removeDevice(clinet_deviceid);
         }
@@ -132,12 +133,12 @@ void Registerhandler::response_register_401unauthorized(const SipEvent::ptr &e) 
     osip_www_authenticate_set_realm(header, osip_enquote(siprealm.c_str()));
     osip_www_authenticate_set_nonce(header, osip_enquote(mnonce.c_str()));
     osip_www_authenticate_to_str(header, &dest);
-    int ret = eXosip_message_build_answer(e->excontext, e->exevent->tid, 401, &reg);
+    int ret = eXosip_message_build_answer(e->excontext, e->exevent->tid, SIP_UNAUTHORIZED, &reg);
     if (ret == 0 && reg != nullptr) {
         osip_message_set_www_authenticate(reg, dest);
         osip_message_set_content_type(reg, "Application/MANSCDP+xml");
         eXosip_lock(e->excontext);
-        eXosip_message_send_answer(e->excontext, e->exevent->tid, 401, reg);
+        eXosip_message_send_answer(e->excontext, e->exevent->tid, SIP_UNAUTHORIZED, reg);
         eXosip_unlock(e->excontext);
         InfoL << "response_register_401unauthorized success";
     } else {
@@ -148,4 +149,23 @@ void Registerhandler::response_register_401unauthorized(const SipEvent::ptr &e) 
     osip_free(dest);
 }
 
+void Registerhandler::OnRegisterSuccess(const SipEvent::ptr &event) {
+    auto platform = g_platformMgr::GetInstance()->getPlatformByRid(event->exevent->rid);
+    if (platform == nullptr) {
+        ErrorL << "platform is null";
+        return;
+    }
+    platform->setStatus(1);
+    platform->start_keepalive_timer();
+    platform->start_register_timer();
+    InfoL << platform->getName() << " " << platform->getDeviceId()
+          << " register id: " << event->exevent->rid << " success!";
+}
+
+void Registerhandler::OnRegisterFailure(const SipEvent::ptr &event) {
+    WarnL << "register id: " << event->exevent->rid << " need authentication!";
+    eXosip_lock(event->excontext);
+    eXosip_automatic_action(event->excontext);
+    eXosip_unlock(event->excontext);
+}
 }  // namespace GB28181

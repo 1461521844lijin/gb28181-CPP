@@ -74,9 +74,6 @@ EventHandlerManager::EventHandlerManager()
     }
 }
 
-EventHandlerManager::~EventHandlerManager()
-{
-}
 
 EventHandlerManager::EventNameProcPair EventHandlerManager::GetEventProc(eXosip_event_type_t type)
 {
@@ -86,26 +83,20 @@ EventHandlerManager::EventNameProcPair EventHandlerManager::GetEventProc(eXosip_
         InfoL << "Event Type: " << type << " don't exist!";
         return pair;
     }
-
     auto value = m_eventProcMap.find(type);
     return value->second;
 }
 
 /* REGISTER related events */
-int EventHandlerManager::on_exosip_registration_success(const SipEvent::ptr &event)
-{
-    // //TODO ???????1?7
-    // GB28181SvrManager::instance()->OnRegisterSuccess(event->exevent->rid);
+int EventHandlerManager::on_exosip_registration_success(const SipEvent::ptr &event) {
+
+    m_registerhandler.OnRegisterSuccess(event);
     return 0;
 }
 
 int EventHandlerManager::on_exosip_registration_failure(const SipEvent::ptr &event)
 {
-    ///TODO REGISTER send twice, this is question!
-    WarnL << "register id: " << event->exevent->rid << " need authentication!";
-    eXosip_lock(event->excontext);
-    eXosip_automatic_action(event->excontext);
-    eXosip_unlock(event->excontext);
+    m_registerhandler.OnRegisterFailure(event);
     return 0;
 }
 
@@ -303,7 +294,6 @@ int EventHandlerManager::on_exosip_message_proceeding(const SipEvent::ptr &event
 int EventHandlerManager::on_exosip_message_answered(const SipEvent::ptr &event)
 {
     m_msghandler.HandleResponseSuccess(event);
-
     return 0;
 }
 

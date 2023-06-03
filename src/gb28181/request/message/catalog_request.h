@@ -7,11 +7,11 @@ namespace GB28181 {
 class CatalogRequest : public MessageRequest {
 public:
     typedef std::shared_ptr<CatalogRequest> ptr;
-    CatalogRequest(Device::ptr device) : MessageRequest(device, REQ_MESSAGE_TYPE::QUIRY_CATALOG) {}
-    ~CatalogRequest() = default;
+    explicit CatalogRequest(Device::ptr device) : MessageRequest(device) {}
+    ~CatalogRequest() override = default;
 
 public:
-    virtual const std::string make_manscdp_body() override;
+    const std::string make_manscdp_body() override;
 
     // virtual int HandleResponse(int statcode) override{
     //     return 0;

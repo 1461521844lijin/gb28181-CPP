@@ -42,9 +42,9 @@ int MessageHandler::HandleIncomingReq(const SipEvent::ptr &e)
 {
 
     const char* username = e->exevent->request->from->url->username;
-    const char* host = e->exevent->request->from->url->host;
+    const char *host     = e->exevent->request->from->url->host;
 
-    osip_body_t* body = nullptr;
+    osip_body_t *body = nullptr;
     osip_message_get_body(e->exevent->request, 0, &body);
     if (body == nullptr) {
         sendSimplyResp(username, e->excontext, e->exevent->tid, SIP_BAD_REQUEST);
@@ -52,12 +52,12 @@ int MessageHandler::HandleIncomingReq(const SipEvent::ptr &e)
     }
     int r;
 
-    // InfoL << "incoming request body: " << body->body;
+    DebugL << "incoming request body: " << body->body;
 
     // tinyxml_doc_t doc;
     tinxml_doc_ptr doc = std::make_shared<tinyxml2::XMLDocument>();
-    r = m_xmlparser.Load(body->body, body->length, doc);
-    if (r !=0) {
+    r                  = m_xmlparser.Load(body->body, body->length, doc);
+    if (r != 0) {
         sendSimplyResp(username, e->excontext, e->exevent->tid, SIP_BAD_REQUEST);
     }
 
@@ -93,18 +93,13 @@ int MessageHandler::HandleIncomingReq(const SipEvent::ptr &e)
 
 int MessageHandler::HandleResponseSuccess(const SipEvent::ptr &e)
 {
-    // osip_body_t* body = nullptr;
-    // osip_message_get_body(e->exevent->response, 0, &body);
-    // if (body == nullptr) {
-    //     sendSimplyResp("recive answered", e->excontext, e->exevent->tid, SIP_BAD_REQUEST);
-    //     return -1;
-    // }
-    // int r;
-
-    // InfoL << "incoming response body: " << body->body;
-
-
-
+//     osip_body_t* body = nullptr;
+//     osip_message_get_body(e->exevent->response, 0, &body);
+//     if (body == nullptr) {
+//         sendSimplyResp("recive answered", e->excontext, e->exevent->tid, SIP_BAD_REQUEST);
+//         return -1;
+//     }
+//    DebugL << "incoming response body: " << body->body;
     int statcode = getStatcodeFromResp(e->exevent->response);
     string reqid = getMsgIdFromReq(e->exevent->request);
     InfoL << "response reqid = " << reqid;

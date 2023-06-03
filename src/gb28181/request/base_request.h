@@ -8,7 +8,6 @@
 */
 #pragma once
 
-#include "defs.h"
 #include "eXosip2/eXosip.h"
 #include "gb28181/device/device.h"
 #include <condition_variable>
@@ -16,6 +15,8 @@
 #include <memory>
 #include <sstream>
 #include "gb28181/manscdp/defs/defs.h"
+#include <functional>
+#include <utility>
 
 namespace GB28181 {
 using namespace std;
@@ -36,13 +37,13 @@ struct exosip_guard {
 class BaseRequest {
 public:
     typedef std::shared_ptr<BaseRequest> ptr;
-    explicit BaseRequest(REQ_MESSAGE_TYPE reqtype);
+    typedef std::function<void(int, tinxml_doc_ptr)> response_callback;
+
+    explicit BaseRequest() = default;
     virtual ~BaseRequest();
 
     /// @brief 请求响应接口 虚函数被子类重写
-    virtual int HandleResponse(int statcode, tinxml_doc_ptr xml = nullptr) {
-        return 0;
-    };
+    virtual int HandleResponse(int statcode, tinxml_doc_ptr xml = nullptr);
 
     // 设置是否等待
     void SetWait(bool bwait = true);
@@ -56,15 +57,15 @@ public:
     /// 设置请求ID
     int SetReqid(string &id);
 
-    /// @brief 获取请求类型
-    /// @return 请求类型
-    REQ_MESSAGE_TYPE GetReqType();
-
     /// @brief 获取请求时间
     time_t GetReqtime();
 
     /// @brief 标志请求完成 会唤醒等待的请求
     int onRequestFinished();
+
+    void set_response_callback(response_callback cb) {
+        m_cb = std::move(cb);
+    }
 
 public:
     /// @brief 唤醒等待的请求
@@ -75,21 +76,22 @@ public:
 
 protected:
     string m_reqid;  ///< 请求ID
+    response_callback m_cb;
 
 private:
-    bool               m_bfinished;  ///< 请求是否完成
-    bool               m_bwait;      ///< 是否等待请求完成
-    time_t             m_reqtime;    ///< 请求时间
-    REQ_MESSAGE_TYPE   m_reqtype;    ///< 请求类型
+    bool               m_bfinished = false;          ///< 请求是否完成
+    bool               m_bwait     = false;          ///< 是否等待请求完成
+    time_t             m_reqtime   = time(nullptr);  ///< 请求时间
     mutex              m_mutex;
     condition_variable m_cond;
+
 };
 
 class MessageRequest : public BaseRequest, public std::enable_shared_from_this<BaseRequest> {
 public:
     typedef std::shared_ptr<MessageRequest> ptr;
-    MessageRequest(Device::ptr device, REQ_MESSAGE_TYPE reqtype)
-        : BaseRequest(reqtype), m_device(device) {}
+    MessageRequest(Device::ptr device) : m_device(device) {}
+    MessageRequest() = default;
     virtual ~MessageRequest() {}
 
 public:
@@ -108,6 +110,10 @@ protected:
 
     Device::ptr get_device() {
         return m_device;
+    }
+
+    void set_device(Device::ptr device) {
+        m_device = device;
     }
 
     void set_reqsn(const std::string &reqsn) {

@@ -1,4 +1,6 @@
 #pragma once
+#include <utility>
+
 #include "gb28181/request/base_request.h"
 namespace GB28181 {
 
@@ -10,8 +12,8 @@ public:
                         int         enable,
                         int         presetIndex,
                         int         resetTime)
-        : MessageRequest(device, REQ_MESSAGE_TYPE::DEVICE_CONTROL_HOMEPOSITION),
-          m_channelId(channelId),
+        : MessageRequest(device),
+          m_channelId(std::move(channelId)),
           m_enable(enable),
           m_presetIndex(presetIndex),
           m_resetTime(resetTime) {}

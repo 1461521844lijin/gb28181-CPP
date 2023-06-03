@@ -24,7 +24,7 @@ class EventHandlerManager {
 public:
     EventHandlerManager();
 
-    ~EventHandlerManager();
+    ~EventHandlerManager() = default;
 
     typedef struct {
         const char *name;
